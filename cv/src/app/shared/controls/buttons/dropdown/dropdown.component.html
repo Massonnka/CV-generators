@@ -1,0 +1,6 @@
+<a nz-dropdown [nzDropdownMenu]="menu">
+  <ng-content select="[icon]"></ng-content>
+</a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ng-content select="[content]"></ng-content>
+</nz-dropdown-menu>

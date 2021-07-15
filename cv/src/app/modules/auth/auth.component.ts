@@ -16,6 +16,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {}
 
   switchLanguage(): void {
+    
     this.translateService.use('ru');
   }
 }

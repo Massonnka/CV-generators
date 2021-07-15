@@ -3,3 +3,10 @@
     background: #F0F2F5;
     height: 100vh;
 }
+
+.global {
+    float: right;
+    margin: 22px;
+    width: 18px;
+    height: 18px;
+}
