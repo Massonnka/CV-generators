@@ -1,0 +1,16 @@
+.wrapper {
+  background-color: rgba(0, 21, 41, 1);
+  position: fixed;
+  width: 100%;
+  color: #ffff;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  line-height: 48px;
+}
+nz-page-header-title {
+  margin-left: 16px;
+}
+nz-page-header-title {
+  line-height: 32px;
+}
