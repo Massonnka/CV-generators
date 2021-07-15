@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormAuthGroupComponent } from '../form-auth-group/form-auth-group.component';
+import { FormAuthGroupComponent } from './form-auth-group.component';
 
 
 

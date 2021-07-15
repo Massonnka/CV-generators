@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormAuthComponent } from '../form-auth/form-auth.component';
+import { FormAuthComponent } from './form-auth.component';
 
 
 

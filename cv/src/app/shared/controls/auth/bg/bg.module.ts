@@ -10,6 +10,9 @@ import { BgComponent } from './bg.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    BgComponent
   ]
 })
 export class BgModule { }
