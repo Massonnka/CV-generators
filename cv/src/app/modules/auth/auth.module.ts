@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { BgModule } from 'src/app/shared/controls/auth/bg/bg.module';
 import { ButtonGlobalModule } from 'src/app/shared/controls/auth/button-global/button-global.module';
 import { ButtonQuestionModule } from 'src/app/shared/controls/auth/button-question/button-question.module';
+import { FrameLogoModule } from 'src/app/shared/controls/auth/frame-logo/frame-logo.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ButtonQuestionModule } from 'src/app/shared/controls/auth/button-questi
     AuthRoutingModule,
     BgModule,
     ButtonGlobalModule,
-    ButtonQuestionModule
+    ButtonQuestionModule,
+    FrameLogoModule
   ],
   exports: [
     AuthComponent
