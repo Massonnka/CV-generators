@@ -1,9 +1,5 @@
-img {
-    position: absolute;
+img { 
     background-size: cover;
     margin: auto;
-    height: 645px;
-    left: 0px;
-    right: 0px;
-    top: 110px;
+    width: auto;
 }

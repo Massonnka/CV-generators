@@ -1,0 +1,10 @@
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 360px;
+    height: 276px;
+    left: calc(50% - 360px/2);
+    top: calc(50% - 276px/2 - 105.5px);
+}

@@ -10,4 +10,4 @@ import { GlobalHeaderComponent } from './global-header.component';
   imports: [CommonModule, NzPageHeaderModule, CircleButtonModule, NzIconModule],
   exports: [GlobalHeaderComponent],
 })
-export class GlobalHeaderModule {}
+export class GlobalHeaderModule { }

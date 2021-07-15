@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormAuthInputComponent implements OnInit {
 
+  passwordVisible = false;
+  password?: string;
+
   constructor() { }
 
   ngOnInit(): void {

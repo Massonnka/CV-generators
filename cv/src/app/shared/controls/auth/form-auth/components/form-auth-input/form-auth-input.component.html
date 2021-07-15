@@ -1,1 +1,7 @@
-<p>form-auth-input works!</p>
+<nz-input-group [nzSuffix]="suffixTemplate">
+    <label>Username</label>
+    <input [type]="passwordVisible ? 'text' : 'password'" nz-input placeholder="placeholder" [(ngModel)]="password" />
+</nz-input-group>
+<ng-template #suffixTemplate>
+    <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
+</ng-template>
