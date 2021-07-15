@@ -8,4 +8,4 @@ import { NzPageHeaderModule } from 'ng-zorro-antd/page-header'
   imports: [CommonModule, NzPageHeaderModule],
   exports: [GlobalHeaderComponent],
 })
-export class GlobalHeaderModule {}
+export class GlobalHeaderModule { }
