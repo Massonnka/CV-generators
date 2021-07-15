@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
+import { BgModule } from 'src/app/shared/controls/auth/bg/bg.module';
+import { ButtonGlobalModule } from 'src/app/shared/controls/auth/button-global/button-global.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +11,9 @@ import { AuthRoutingModule } from './auth-routing.module';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    BgModule,
+    ButtonGlobalModule
   ],
   exports: [
     AuthComponent
