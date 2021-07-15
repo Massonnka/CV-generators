@@ -1,5 +1,5 @@
 <nz-input-group [nzSuffix]="suffixTemplate">
-    <label>Username</label>
+    <label>{{'profile.username' | translate}}</label>
     <input [type]="passwordVisible ? 'text' : 'password'" nz-input placeholder="placeholder" [(ngModel)]="password" />
 </nz-input-group>
 <ng-template #suffixTemplate>

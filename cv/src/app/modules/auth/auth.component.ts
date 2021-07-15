@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +11,11 @@ export class AuthComponent implements OnInit {
   html = document.documentElement;
   height = this.html.clientHeight;
 
-  constructor() {}
+  constructor(private translateService: TranslateService) {}
 
   ngOnInit(): void {}
+
+  switchLanguage(): void {
+    this.translateService.use('ru');
+  }
 }

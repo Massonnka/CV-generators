@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormAuthInputComponent } from './form-auth-input.component';
-import { NzInputModule } from 'ng-zorro-antd/input';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { FormAuthInputComponent } from './form-auth-input.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzInputModule,
     ReactiveFormsModule,
     FormsModule,
-    NzIconModule
+    NzIconModule,
+    TranslateModule,
   ],
   exports: [
     FormAuthInputComponent

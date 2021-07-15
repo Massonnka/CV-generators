@@ -29,6 +29,7 @@ nz-page-header-content {
   margin-right: 10px;
 }
 
-.search-button {
-  line-height: 25px;
+app-circle-button {
+  line-height: 48px;
+  width: 48px;
 }
