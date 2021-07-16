@@ -11,12 +11,13 @@ export class AuthComponent implements OnInit {
   html = document.documentElement;
   height = this.html.clientHeight;
 
-  constructor(private translateService: TranslateService) {}
-
-  ngOnInit(): void {}
+  constructor(private translateService: TranslateService) { }
 
   switchLanguage(): void {
-    
     this.translateService.use('ru');
+  }
+
+  public ngOnInit(): void {
+
   }
 }

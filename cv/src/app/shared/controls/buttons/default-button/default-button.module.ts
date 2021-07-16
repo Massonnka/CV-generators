@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormAuthGroupComponent } from './form-auth-group.component';
+import { DefaultButtonComponent } from './default-button.component';
 
 
 
 @NgModule({
   declarations: [
-    FormAuthGroupComponent
+    DefaultButtonComponent
   ],
   imports: [
     CommonModule
   ]
 })
-export class FormAuthGroupModule { }
+export class DefaultButtonModule { }

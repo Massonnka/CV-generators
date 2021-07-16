@@ -1,23 +1,21 @@
 <div class="wrapper">
-  <app-dropdown class="global">
-    <i icon nz-icon nzType="global" nzTheme="outline"></i>
-    <ul
-      content
-      nz-menu
-      nzSelectable
-      style="list-style-type: none; cursor: pointer"
-    >
-      <li nz-menu-item>En</li>
-      <li nz-menu-item (click)="switchLanguage()">Ru</li>
-    </ul>
-  </app-dropdown>
-  <app-frame-logo></app-frame-logo>
-  <app-form-auth></app-form-auth>
-  <a routerLink="/layout">
-    <span>{{ "common.home" | translate }}</span>
-  </a>
-  <app-bg></app-bg>
-  <app-circle-button>
-    <i nz-icon nzType="question" nzTheme="outline"></i>
-  </app-circle-button>
+    <app-dropdown class="global">
+        <i icon nz-icon nzType="global" nzTheme="outline"></i>
+        <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer;">
+            <li nz-menu-item>En</li>
+            <li nz-menu-item (click)="switchLanguage()">Ru</li>
+        </ul>
+    </app-dropdown>
+    <app-frame-logo></app-frame-logo>
+    <app-login-form class="login-form">
+        <app-primary-button class="signUpButton">
+            <a routerLink="/layout">
+                <span>{{ "Sign In" | translate }}</span>
+            </a>
+        </app-primary-button>
+    </app-login-form>
+    <app-bg></app-bg>
+    <app-circle-button class="question">
+        <i nz-icon nzType="question" nzTheme="outline"></i>
+    </app-circle-button>
 </div>

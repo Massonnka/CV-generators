@@ -8,3 +8,22 @@
     float: right;
     margin: 22px;
 }
+
+.question {
+    top: 818px;
+    float: right;
+    margin-right: 77px;
+}
+
+.login-form {
+    position: absolute;
+    width: 360px;
+    height: 276px;
+    left: calc(52% - 360px/2);
+    top: calc(52% - 276px/2 - 105.5px);
+}
+
+.signUpButton {
+    width: 100%;
+    margin-bottom: 16px;
+}
