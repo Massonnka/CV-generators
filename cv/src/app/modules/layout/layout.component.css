@@ -1,6 +1,13 @@
 .content {
-  background-color: #FFFF;
-  padding: 24px;
+  background-color: #ffff;
   min-height: 500px;
-  margin: 48px;
+  margin: 24px;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 24px;
+  background-color: #ffff;
 }

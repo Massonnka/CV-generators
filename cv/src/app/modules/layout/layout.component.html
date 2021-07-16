@@ -3,15 +3,23 @@
     <app-global-header></app-global-header>
   </nz-header>
   <nz-layout>
-    <nz-sider nzWidth="200px" nzTheme="light">
+    <nz-sider
+      nzTheme="light"
+      style="flex: 0 0 200px; min-width: 10px; width: 200px"
+      class="sider"
+    >
       <app-sider></app-sider>
     </nz-sider>
     <nz-layout class="inner-layout">
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-        <nz-breadcrumb-item>Employee</nz-breadcrumb-item>
-      </nz-breadcrumb>
-      <nz-content class="content">Content</nz-content>
+      <div class="page-header">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Employee</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <h1>Employee</h1>
+        <p>Employee List</p>
+      </div>
+      <nz-content class="content"> </nz-content>
     </nz-layout>
   </nz-layout>
 </nz-layout>
