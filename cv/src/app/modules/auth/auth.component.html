@@ -1,16 +1,23 @@
 <div class="wrapper">
   <app-dropdown class="global">
     <i icon nz-icon nzType="global" nzTheme="outline"></i>
-    <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer;">
-        <li nz-menu-item>En</li>
-        <li nz-menu-item (click)="switchLanguage()">Ru</li>
+    <ul
+      content
+      nz-menu
+      nzSelectable
+      style="list-style-type: none; cursor: pointer"
+    >
+      <li nz-menu-item>En</li>
+      <li nz-menu-item (click)="switchLanguage()">Ru</li>
     </ul>
   </app-dropdown>
   <app-frame-logo></app-frame-logo>
   <app-form-auth></app-form-auth>
-  <a routerLink="/employee">
+  <a routerLink="/layout">
     <span>{{ "common.home" | translate }}</span>
   </a>
   <app-bg></app-bg>
-  <app-button-question></app-button-question>
+  <app-circle-button>
+    <i nz-icon nzType="question" nzTheme="outline"></i>
+  </app-circle-button>
 </div>

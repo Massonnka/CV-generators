@@ -12,13 +12,9 @@ const routes: Routes = [
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'project',
-    loadChildren: () => import('./modules/pages/project/project.module').then(m => m.ProjectModule)
+    path: 'layout',
+    loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
   },
-  {
-    path: 'employee',
-    loadChildren: () => import('./modules/pages/employee/employee.module').then(m => m.EmployeeModule)
-  }
 ];
 
 @NgModule({
