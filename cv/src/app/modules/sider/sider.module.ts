@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { SiderComponent } from './sider.component';
-
 
 
 @NgModule({
@@ -9,7 +9,8 @@ import { SiderComponent } from './sider.component';
     SiderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NzMenuModule,
   ], 
   exports: [
     SiderComponent

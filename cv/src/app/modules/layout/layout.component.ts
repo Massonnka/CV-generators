@@ -6,6 +6,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent implements OnInit {
+  public pages = ['Dashboard', 'Employee', 'Project'];
 
   constructor(private elRef: ElementRef) {}
 

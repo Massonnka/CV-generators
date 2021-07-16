@@ -1,5 +1,5 @@
 <nz-layout>
-  <nz-header>
+  <nz-header class="header">
     <app-global-header></app-global-header>
   </nz-header>
   <nz-layout>
@@ -8,7 +8,14 @@
       style="flex: 0 0 200px; min-width: 10px; width: 200px"
       class="sider"
     >
-      <app-sider></app-sider>
+      <app-sider>
+        <ul nz-menu>
+          <li nz-menu-item *ngFor="let page of pages" class="sider-item">
+            <i nz-icon nzType="dashboard" nzTheme="outline"></i>
+            {{ page }}
+          </li>
+        </ul>
+      </app-sider>
     </nz-sider>
     <nz-layout class="inner-layout">
       <div class="page-header">

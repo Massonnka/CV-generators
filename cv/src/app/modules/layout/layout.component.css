@@ -1,3 +1,8 @@
+.header {
+  padding: 0;
+  height: 48px;
+}
+
 .content {
   background-color: #ffff;
   min-height: 500px;
@@ -10,4 +15,10 @@
   align-items: flex-start;
   padding: 16px 24px;
   background-color: #ffff;
+}
+
+.sider-item {
+  margin: 8px 0px;
+  height: 40px;
+  line-height: 40px;
 }
