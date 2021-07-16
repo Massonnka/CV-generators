@@ -1,9 +1,8 @@
 {
     "common": {
-        "home": "Дом"
+        "signIn": "Авторизоваться"
     },
     "profile": {
         "username": "Логин"
     }
-
 }

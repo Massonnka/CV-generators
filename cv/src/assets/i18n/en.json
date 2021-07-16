@@ -1,9 +1,8 @@
 {
     "common": {
-        "home": "Home"
+        "signIn": "Sign In"
     },
     "profile": {
         "username": "Username"
     }
-
 }

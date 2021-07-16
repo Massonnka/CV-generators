@@ -34,7 +34,7 @@ registerLocaleData(en);
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-    }
+      }
     })
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

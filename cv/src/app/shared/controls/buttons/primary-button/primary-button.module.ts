@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CircleButtonComponent } from './circle-button.component';
+import { PrimaryButtonComponent } from './primary-button.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
+
 @NgModule({
   declarations: [
-    CircleButtonComponent
+    PrimaryButtonComponent
   ],
   imports: [
     CommonModule,
     NzIconModule,
-    NzButtonModule
+    NzButtonModule,
+
   ],
   exports: [
-    CircleButtonComponent
-  ],
+    PrimaryButtonComponent
+  ]
 })
-export class CircleButtonModule { }
+export class PrimaryButtonModule { }
