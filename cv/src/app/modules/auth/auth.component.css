@@ -5,7 +5,6 @@
 .wrapper {
   position: relative;
   background: #f0f2f5;
-  height: 100vh;
 }
 
 .global {
@@ -20,7 +19,9 @@
 
 .question {
   float: right;
-  margin: 63px 77px 42px 0;
+  margin-right: 77px;
+  height: 10%;
+  margin-top: 2%;
 }
 
 .logo {
@@ -53,12 +54,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 206px;
-  padding-bottom: 270px;
+  margin-top: 20%;
+  padding-top: 7%;
+  padding-bottom: 10%;
+  background-size: cover;
+  height: 80%;
 }
 
 .bg .bg-img {
+  margin-top: 20%;
+  padding-top: 7%;
   position: absolute;
-  padding-top: 206px;
+  padding-bottom: 10%;
+  background-size: cover;
 }
 
