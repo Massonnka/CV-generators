@@ -1,34 +1,64 @@
+:host ::ng-deep .ant-btn {
+  height: 40px;
+}
+
 .wrapper {
-    position: relative;
-    background: #F0F2F5;
-    height: 100vh;
+  position: relative;
+  background: #f0f2f5;
+  height: 100vh;
 }
 
 .global {
-    float: right;
-    margin: 22px;
+  float: right;
+  margin: 22px;
+}
+
+.global-icon {
+  color: black;
+  font-size: 20px;
 }
 
 .question {
-    top: 818px;
-    float: right;
-    margin-right: 77px;
+  float: right;
+  margin: 63px 77px 42px 0;
+}
+
+.logo {
+  width: 238.27px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15.5px;
+}
+
+.form {
+  position: relative;
+  width: 360px;
+  height: 276px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-form {
-    position: absolute;
-    width: 360px;
-    height: 276px;
-    left: calc(52% - 360px/2);
-    top: calc(52% - 276px/2 - 105.5px);
+  width: 360px;
 }
 
-.signUpButton {
-    width: 100%;
-    margin-bottom: 16px;
+.bg {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 206px;
+  padding-bottom: 270px;
 }
 
-.globalIcon {
-    color:black;
-    font-size: 20px;
+.bg .bg-img {
+  position: absolute;
+  padding-top: 206px;
 }
+

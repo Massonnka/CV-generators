@@ -10,13 +10,6 @@
   display: flex;
   justify-content: space-between;
 }
-nz-page-header-title img {
-  margin-left: 16px;
-}
-nz-page-header-title span{
-  line-height: 32px;
-  color: #FFFF;
-}
 
 nz-page-header-content {
   padding: 0px;
@@ -32,4 +25,8 @@ nz-page-header-content {
 app-circle-button {
   line-height: 48px;
   width: 48px;
+}
+
+.buttons {
+  color: #FFFF
 }

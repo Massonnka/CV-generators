@@ -6,7 +6,6 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { BgModule } from 'src/app/shared/controls/bg/bg.module';
 import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
 import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
@@ -20,7 +19,6 @@ import { AuthComponent } from './auth.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    BgModule,
     FrameLogoModule,
     TranslateModule,
     DropdownModule,
