@@ -1,19 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { SiderComponent } from './sider.component';
 
-
 @NgModule({
-  declarations: [
-    SiderComponent
-  ],
+  declarations: [SiderComponent],
   imports: [
     CommonModule,
-    NzMenuModule,
-  ], 
-  exports: [
-    SiderComponent
-  ]
+    NzIconModule,
+  ],
+  exports: [SiderComponent],
 })
-export class SiderModule { }
+export class SiderModule {}

@@ -1,12 +1,10 @@
+.wrapper {
+  overflow: hidden;
+}
+
 .header {
   padding: 0;
   height: 48px;
-}
-
-.content {
-  background-color: #ffff;
-  min-height: 500px;
-  margin: 24px;
 }
 
 .page-header {
@@ -15,10 +13,24 @@
   align-items: flex-start;
   padding: 16px 24px;
   background-color: #ffff;
+  width: 100%;
 }
 
+.content {
+  background-color: #ffff;
+  min-height: 500px;
+  margin: 24px 24px 0 24px;
+  padding: 24px 15px 0 24px
+}
 .sider-item {
   margin: 8px 0px;
   height: 40px;
   line-height: 40px;
+}
+
+.toggler {
+  display: flex;
+  padding: 0;
+  margin: 4px 0 4px 8px;
+  width: 32px;
 }

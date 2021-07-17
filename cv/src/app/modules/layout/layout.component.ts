@@ -1,9 +1,15 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css'],
+  styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
   public pages = [
@@ -14,19 +20,22 @@ export class LayoutComponent implements OnInit {
 
   constructor(private elRef: ElementRef) {}
 
-  private siderVisible = true;
+  public isVisible = true;
 
   toggleSider(): void {
     const sider = this.elRef.nativeElement.querySelector('.sider');
+    const siderItem = this.elRef.nativeElement.querySelector('.list');
 
-    if (this.siderVisible) {
-      sider.style.width = '10px';
-      sider.style.flex = '0 0 10px';
-      this.siderVisible = !this.siderVisible;
+    if (this.isVisible) {
+      sider.style.width = '48px';
+      sider.style.flex = '0 0 48px';
+      this.isVisible = !this.isVisible;
+      siderItem.style.width = '48px';
     } else {
       sider.style.width = '200px';
       sider.style.flex = '0 0 200px';
-      this.siderVisible = !this.siderVisible;
+      siderItem.style.width = '200px';
+      this.isVisible = !this.isVisible;
     }
   }
 
