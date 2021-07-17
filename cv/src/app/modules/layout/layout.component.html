@@ -10,9 +10,9 @@
     >
       <app-sider>
         <ul nz-menu>
-          <li nz-menu-item *ngFor="let page of pages" class="sider-item">
-            <i nz-icon nzType="dashboard" nzTheme="outline"></i>
-            {{ page }}
+          <li nz-menu-item *ngFor="let page of pages; " class="sider-item">
+            <i nz-icon nzType="{{page.iconType}}" nzTheme="outline"></i>
+            {{ page.name }}
           </li>
         </ul>
       </app-sider>

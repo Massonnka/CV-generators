@@ -6,7 +6,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent implements OnInit {
-  public pages = ['Dashboard', 'Employee', 'Project'];
+  public pages = [
+    { name: 'Dashboard', iconType: 'dashboard' },
+    { name: 'Employee', iconType: 'form' },
+    { name: 'Project', iconType: 'database' },
+  ];
 
   constructor(private elRef: ElementRef) {}
 
@@ -14,13 +18,13 @@ export class LayoutComponent implements OnInit {
 
   toggleSider(): void {
     const sider = this.elRef.nativeElement.querySelector('.sider');
-    
+
     if (this.siderVisible) {
-      sider.style.width = '10px'; 
+      sider.style.width = '10px';
       sider.style.flex = '0 0 10px';
       this.siderVisible = !this.siderVisible;
     } else {
-      sider.style.width = '200px'; 
+      sider.style.width = '200px';
       sider.style.flex = '0 0 200px';
       this.siderVisible = !this.siderVisible;
     }
