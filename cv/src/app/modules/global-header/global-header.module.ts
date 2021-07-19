@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
+import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
 import { GlobalHeaderComponent } from './global-header.component';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { GlobalHeaderComponent } from './global-header.component';
     CircleButtonModule,
     NzIconModule,
     TranslateModule,
+    DropdownModule,
   ],
   exports: [GlobalHeaderComponent],
 })

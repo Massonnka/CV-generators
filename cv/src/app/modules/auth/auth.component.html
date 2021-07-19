@@ -1,4 +1,4 @@
-<div class="wrapper" [ngStyle]="{'height': '100%'}">
+<div class="wrapper" [ngStyle]="{ height: '100%' }">
   <app-dropdown class="global">
     <i class="global-icon" icon nz-icon nzType="global" nzTheme="outline"></i>
     <ul
@@ -7,8 +7,7 @@
       nzSelectable
       style="list-style-type: none; cursor: pointer"
     >
-      <li nz-menu-item>En</li>
-      <li nz-menu-item (click)="switchLanguage()">Ru</li>
+      <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">{{ language }}</li>
     </ul>
   </app-dropdown>
   <div class="bg">

@@ -9,6 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent implements OnInit {
+  public languages = ['en', 'ru'];
+
   html = document.documentElement;
   height = Math.max(
     document.body.scrollHeight,
@@ -21,8 +23,8 @@ export class AuthComponent implements OnInit {
 
   constructor(private translateService: TranslateService) {}
 
-  switchLanguage(): void {
-    this.translateService.use('ru');
+  switchLanguage(language: string): void {
+    this.translateService.use(language);
   }
 
   public ngOnInit(): void {

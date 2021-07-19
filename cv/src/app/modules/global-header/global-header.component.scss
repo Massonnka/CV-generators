@@ -1,5 +1,7 @@
 :host ::ng-deep {
-  .button, .ant-btn-text, .ant-btn {
+  .button,
+  .ant-btn-text,
+  .ant-btn {
     color: var(--icon-color);
   }
 }
@@ -22,7 +24,7 @@ nz-page-header-content {
   padding: 0px;
   display: flex;
   flex-direction: row;
-  color: #ffff;
+  color: var(--element-color);
 }
 
 .user,
@@ -35,5 +37,14 @@ app-circle-button {
   width: 48px;
 }
 
-.buttons {
+.dropdown {
+  margin: 0 16px;
+
+  .dropdown-text {
+    color: var(--element-color);
+  }
+  .dropdown-item:hover {
+    transform: scale(1.2);
+    color: var(--primary);
+  }
 }
