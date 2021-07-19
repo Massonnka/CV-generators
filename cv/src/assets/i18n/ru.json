@@ -15,9 +15,17 @@
         "project": "Проекты"
     },
     "employee": {
-        "employee-list": "Список сотрудников"
+        "employee-list": "Список сотрудников",
+        "add-employee": "Добавить сотрудника"
     },
     "project": {
         "project-list": "Список проектов"
+    },
+    "table": {
+        "firstname": "Имя",
+        "lastname": "Фамилия",
+        "email": "Email",
+        "department": "Отдел",
+        "specialization": "Специализация"
     }
 }

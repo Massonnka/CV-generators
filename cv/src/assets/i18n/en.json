@@ -15,9 +15,17 @@
         "project": "Project"
     },
     "employee": {
-        "employee-list": "Employee-list"
+        "employee-list": "Employee-list",
+        "add-employee": "Add employee"
     },
     "project": {
         "project-list": "Project list"
+    },
+    "table": {
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "email": "Email",
+        "department": "Department",
+        "specialization": "Specialization"
     }
 }
