@@ -2,10 +2,10 @@ button {
   color: black;
   width: 40px;
   height: 40px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 8px var(--button-box-shadow);
   border-radius: 24px;
 }
 
 button:hover {
-    color: rgba(24, 144, 255, 1);
+    color: var(--button-circle);
 }

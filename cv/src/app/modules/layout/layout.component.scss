@@ -23,7 +23,7 @@
     }
 
     .label {
-      background-color: #111;
+      background-color: var(--text-label);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -34,7 +34,7 @@
       position: relative;
 
       .frown, .smile {
-        color: #FFFF;
+        color: var(--element-color);
       }
 
       .ball {
@@ -42,7 +42,7 @@
         height: 22px;
         position: absolute;
         border-radius: 50%;
-        background-color: #FFFF;
+        background-color: var(--element-color);
         top: 2px;
         left: 2px;
         transition: transform 0.2s linear;

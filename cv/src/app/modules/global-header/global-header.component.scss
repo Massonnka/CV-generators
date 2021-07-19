@@ -1,6 +1,6 @@
 :host ::ng-deep {
   .button, .ant-btn-text, .ant-btn {
-    color: #FFFF
+    color: var(--icon-color);
   }
 }
 

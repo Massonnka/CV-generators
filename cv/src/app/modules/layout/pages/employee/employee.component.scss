@@ -15,15 +15,15 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 16px 24px;
-  background-color: #ffff;
+  background-color: var(--content-color);
   width: 100%;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  background-color: #ffff;
   margin: 20px 24px 0 24px;
+  background-color: var(--content-color);
   padding: 24px 15px 24px 15px;
 
   .actions {
