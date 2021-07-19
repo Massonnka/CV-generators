@@ -2,10 +2,24 @@ body {
     --background-color: #f0f2f5;
     --content-color: #ffffff;
     --background-header: #001529;
+    --button-color: #ffffff;
     --button-circle: #1890FF;
     --button-box-shadow: rgba(0, 0, 0, 0.15);
     --text-label: #000000;
     --text-error: #FF4D4F;
     --icon-color: #ffffff;
     --element-color: #ffffff;
+}
+
+:root[theme='dark'] {
+    --background-color: #323233;
+    --content-color: #000000;
+    --background-header: #baddfd;
+    --button-color: #030303;
+    --button-circle: #082c4e;
+    --button-box-shadow: rgba(255, 255, 255, 0.15);
+    --text-label: #ffffff;
+    --text-error: #FF4D4F;
+    --icon-color: #000000;
+    --element-color: #000000;
 }
