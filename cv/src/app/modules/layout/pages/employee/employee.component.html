@@ -10,4 +10,9 @@
   <h1>{{ "pages.employee" | translate }}</h1>
   <p>{{ "employee.employee-list" | translate }}</p>
 </div>
-<nz-content class="content"> </nz-content>
+<nz-content class="content">
+  <div class="actions">
+    <app-primary-button class="add-button">{{"employee.add-employee" | translate}}</app-primary-button>
+  </div>
+  <app-table class="table"></app-table>
+</nz-content>

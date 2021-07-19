@@ -1,0 +1,16 @@
+<div class="table">
+  <nz-table #basicTable>
+    <thead>
+      <tr>
+        <th>{{ "table.firstname" | translate }}</th>
+        <th>{{ "table.lastname" | translate }}</th>
+        <th>{{ "table.email" | translate }}</th>
+        <th>{{ "table.department" | translate }}</th>
+        <th>{{ "table.specialization" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-content></ng-content>
+    </tbody>
+  </nz-table>
+</div>

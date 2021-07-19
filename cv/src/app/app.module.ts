@@ -28,9 +28,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,23 +39,25 @@ registerLocaleData(en);
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
-
+    JwtModule,
   ],
-  providers: [{
-    provide: NZ_I18N,
-    useValue: en_US
-  },
-  {
-    provide: AUTH_API_URL,
-    useValue: environment.authApi
-  },
-  {
-    provide: STORE_API_URL,
-    useValue: environment.storeApi
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: NZ_I18N,
+      useValue: en_US,
+    },
+    {
+      provide: AUTH_API_URL,
+      useValue: environment.authApi,
+    },
+    {
+      provide: STORE_API_URL,
+      useValue: environment.storeApi,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
