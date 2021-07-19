@@ -7,7 +7,10 @@ export const environment = {
   localization: {
     defaultLanguage: 'en',
     languages: []
-  }
+  },
+  authApi: 'http://localhost:54413/',
+  storeApi: 'http://localhost:63936/',
+  tokenWhiteListedDomains: ['localhost:63936']
 };
 
 /*

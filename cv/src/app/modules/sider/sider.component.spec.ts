@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FrameLogoComponent } from './frame-logo.component';
+import { SiderComponent } from './sider.component';
 
-describe('FrameLogoComponent', () => {
-  let component: FrameLogoComponent;
-  let fixture: ComponentFixture<FrameLogoComponent>;
+describe('SiderComponent', () => {
+  let component: SiderComponent;
+  let fixture: ComponentFixture<SiderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FrameLogoComponent ]
+      declarations: [ SiderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FrameLogoComponent);
+    fixture = TestBed.createComponent(SiderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

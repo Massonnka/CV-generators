@@ -1,4 +1,5 @@
-.header-title {
+.header {
+  z-index: 1000;
   background-color: rgba(0, 21, 41, 1);
   position: fixed;
   width: 100%;
@@ -6,16 +7,9 @@
   display: flex;
   flex-direction: row;
   line-height: 48px;
-  padding: 0px;
+  padding: 0 0;
   display: flex;
   justify-content: space-between;
-}
-nz-page-header-title img {
-  margin-left: 16px;
-}
-nz-page-header-title span{
-  line-height: 32px;
-  color: #FFFF;
 }
 
 nz-page-header-content {
@@ -32,4 +26,8 @@ nz-page-header-content {
 app-circle-button {
   line-height: 48px;
   width: 48px;
+}
+
+.buttons {
+  color: #FFFF
 }
