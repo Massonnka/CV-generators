@@ -3,144 +3,49 @@
     <app-global-header></app-global-header>
   </nz-header>
   <nz-layout>
-    <nz-sider nzTheme="light" class="sider"
-    style="flex: 0 0 200px; width: 200px; min-width: 48px;">
+    <nz-sider
+      nzTheme="light"
+      class="sider-wrapper"
+      style="flex: 0 0 200px; width: 200px; min-width: 48px"
+    >
       <app-sider>
         <ul nz-menu class="list">
-          <li nz-menu-item *ngFor="let page of pages" class="sider-item">
+          <li
+            nz-menu-item
+            *ngFor="let page of pages"
+            class="sider-item"
+            routerLink="{{ page.name | lowercase }}"
+          >
             <i nz-icon nzType="{{ page.iconType }}" nzTheme="outline"></i>
-            {{ page.name }}
+            {{ page.translateKey | translate }}
           </li>
         </ul>
         <div class="footer">
+          <div>
+            <input type="checkbox" class="checkbox" id="checkbox" />
+            <label for="checkbox" class="label" (click)="changeTheme()">
+              <i nz-icon nzType="frown" class="frown" nzTheme="outline"></i>
+              <i nz-icon nzType="smile" class="smile" nzTheme="outline"></i>
+              <div class="ball"></div>
+            </label>
+          </div>
           <app-default-button (click)="toggleSider()" class="toggler">
-            <i nz-icon nzType="menu-fold" nzTheme="outline" *ngIf="isVisible"></i>
-            <i nz-icon nzType="menu-unfold" nzTheme="outline" *ngIf="!isVisible"></i>
+            <i
+              nz-icon
+              nzType="menu-fold"
+              nzTheme="outline"
+              *ngIf="isVisible"
+            ></i>
+            <i
+              nz-icon
+              nzType="menu-unfold"
+              nzTheme="outline"
+              *ngIf="!isVisible"
+            ></i>
           </app-default-button>
         </div>
       </app-sider>
     </nz-sider>
-    <nz-layout class="inner-layout">
-      <div class="page-header">
-        <nz-breadcrumb>
-          <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-          <nz-breadcrumb-item>Employee</nz-breadcrumb-item>
-        </nz-breadcrumb>
-        <h1>Employee</h1>
-        <p>Employee List</p>
-      </div>
-      <nz-content class="content"
-        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
-        excepturi odit optio tenetur voluptatibus, ratione tempora? Excepturi
-        reiciendis ullam quisquam iste qui soluta minus error ut doloribus
-        maiores velit, ratione repudiandae, beatae quibusdam facilis molestias
-        assumenda fugit voluptates praesentium? Sapiente blanditiis illum
-        temporibus sunt modi quae recusandae. Molestias numquam vitae expedita
-        totam. Minima asperiores harum itaque. Optio architecto, ab quis
-        mollitia quia possimus consectetur doloremque quas. Nemo modi placeat at
-        quasi similique, rem ea autem! Ducimus iure fugit laboriosam autem
-        sequi, in mollitia facere. Alias ad consequuntur optio, vero architecto
-        numquam quos ipsum voluptatum aperiam voluptatem ratione, eveniet
-        sapiente, eligendi maiores pariatur? Tenetur illum corporis dolor
-        aliquid magni dicta totam sequi ex saepe voluptates quibusdam est labore
-        ipsam ratione aut rerum enim eligendi quis molestiae quod, impedit cum
-        praesentium provident exercitationem. Eos debitis quaerat autem ut
-        voluptas tempore harum porro sed ipsum dicta. Ullam eius veniam quo
-        consectetur deleniti quos voluptate cum aperiam cumque repudiandae.
-        Illo, ullam. Voluptatem, perferendis maxime! Corrupti similique ab
-        architecto! In pariatur, cum obcaecati iure doloremque aliquam delectus
-        autem modi quidem, nobis provident ipsam? Perferendis necessitatibus
-        minus nemo quis. Doloremque mollitia exercitationem nihil recusandae.
-        Accusamus illo adipisci, facere similique aspernatur corporis deleniti
-        doloribus consequatur enim repellendus rem mollitia possimus ab amet eum
-        sit, voluptates rerum fuga cupiditate vel fugiat eos eligendi a cum!
-        Unde ipsum recusandae, dicta quis, reiciendis qui error exercitationem
-        accusamus ducimus repellat eum dolore voluptatibus quo odit enim sed
-        veniam molestias facilis iste? Magnam accusantium excepturi blanditiis
-        architecto unde amet iure odio, perferendis modi, ipsa doloribus omnis
-        voluptate itaque, officia tempora obcaecati eligendi recusandae aperiam
-        distinctio voluptatem praesentium nam? Est consequatur quae eligendi
-        delectus repellat odit in quia ullam quis quasi dicta, accusantium
-        reprehenderit dignissimos amet aperiam! Tenetur placeat maiores,
-        sapiente aliquid modi consequuntur, fuga fugit eos similique maxime
-        reprehenderit iure ipsa a, tempora ut quod magnam quasi error incidunt.
-        Earum iure facere similique facilis modi, neque molestias porro dolorum
-        rerum autem quaerat at illo aspernatur est sapiente ut optio tempore
-        illum aliquam et rem. Delectus voluptas odit officiis possimus vitae
-        aliquid, consectetur illo reprehenderit consequatur nam fuga cum
-        obcaecati, in praesentium amet neque vero tenetur inventore
-        necessitatibus quisquam accusantium enim placeat aut dolor? Nisi in
-        possimus rem inventore alias, nostrum provident illum cumque doloremque
-        aliquam accusantium eos ex itaque dicta sunt dolore atque! Voluptatum
-        praesentium quaerat harum tempore quisquam officia, qui reiciendis iste?
-        Eius aut voluptatum amet deserunt error quas asperiores nam assumenda
-        distinctio iusto iure, architecto cumque eveniet odio voluptas. Cumque
-        vel et tempora alias, deleniti expedita id maiores. Quia illum commodi
-        culpa aperiam vel quam quos quae excepturi temporibus alias ab debitis
-        explicabo possimus, consequatur nam est quasi voluptas tempore voluptate
-        dicta ratione consectetur qui assumenda eveniet. Recusandae provident
-        cupiditate commodi iusto, tempore nisi sint excepturi delectus eaque
-        esse. Eum nam eveniet obcaecati repellat? Et id expedita sit illum quis
-        soluta. At sapiente neque dolor rerum ad temporibus consectetur error
-        impedit quis repellendus laborum, quam ab distinctio. Quod praesentium
-        explicabo ducimus maxime nesciunt obcaecati quis laudantium, quos nihil,
-        quas in sunt? Iste temporibus dignissimos similique ut distinctio nihil
-        repudiandae quo, quam incidunt consequatur saepe iusto corporis ex
-        consectetur voluptas beatae asperiores sunt quod maxime harum labore
-        exercitationem pariatur quidem. Corrupti quos distinctio cupiditate!
-        Fuga quibusdam enim iure illum sit eos. Quis quos voluptatum reiciendis
-        est neque nesciunt quisquam consectetur voluptates adipisci
-        necessitatibus nam, cum facilis at ut eum magni aperiam quibusdam
-        corrupti. Iusto sequi odio voluptatem quidem? Aperiam laudantium qui
-        magnam expedita necessitatibus impedit iure perferendis consequuntur,
-        incidunt possimus ipsa architecto? Porro similique voluptates id vel
-        vitae. Molestias qui aperiam possimus quasi dolore quo officiis deleniti
-        enim! Voluptatem, vitae fugit quasi, inventore fugiat dignissimos neque
-        corporis et ea aspernatur cumque hic, sapiente autem laborum! Nisi
-        harum, tenetur a dolorum quas reprehenderit accusamus exercitationem
-        adipisci vero blanditiis. Similique quae qui illo corporis illum,
-        commodi at cumque tempora praesentium repellat et alias sapiente,
-        delectus quasi, perferendis doloremque vitae natus optio provident non
-        deserunt veritatis hic veniam maxime. Sed nisi officia nihil aspernatur
-        corporis sit nesciunt architecto ducimus provident autem maiores ratione
-        dolorem harum minus nostrum illum dignissimos, labore facilis deserunt
-        mollitia sequi possimus? Consectetur, sed! Vero nesciunt sequi accusamus
-        quaerat iste laudantium corporis iure, debitis molestias esse quia
-        aliquam officia enim dolore tempora similique. Eligendi natus
-        voluptatibus, optio repudiandae at quisquam laboriosam deleniti sit
-        assumenda animi sequi exercitationem voluptate blanditiis illo quis
-        dolorum similique. Ipsa eos assumenda qui aliquid! Minima inventore
-        commodi eum rerum! Distinctio itaque ipsum modi, blanditiis impedit quos
-        saepe fugiat ad dolore. Magnam similique maiores dignissimos, aperiam
-        cumque, reprehenderit quos neque ullam quisquam ex quidem! Numquam
-        beatae totam ea cupiditate. Accusantium temporibus aliquid, est in
-        reiciendis quasi, nemo a tenetur aliquam inventore sit fugit commodi!
-        Error dolores similique sit quidem corrupti aperiam eaque aliquam
-        veritatis harum, repudiandae ipsum, asperiores quas ad quo nihil cum
-        fugit expedita ab repellat totam obcaecati explicabo nostrum laborum?
-        Eum, quod? Quas, maiores? Optio accusamus autem reiciendis, laudantium
-        recusandae iste laborum dolorem architecto ex expedita neque corporis ad
-        quidem, at obcaecati commodi veniam fugiat quam. Repellendus minus, iure
-        veritatis at provident ex aliquam quo ipsa magnam perferendis dolores
-        nesciunt. Deserunt iure incidunt perferendis cumque dicta qui adipisci
-        beatae earum, praesentium alias necessitatibus officiis odio aut eos
-        iste vero, doloremque cupiditate distinctio natus deleniti molestiae
-        voluptas animi porro! Perferendis esse culpa debitis sequi velit commodi
-        pariatur temporibus rem architecto facilis alias officiis vel amet iste,
-        quas ea optio dolores quasi similique iure sit odit! Maxime odit magni
-        optio itaque dolorum voluptatem deleniti aliquid nihil? Consequuntur
-        dicta dolores unde minima quae quos quod quasi quas minus doloribus
-        aliquam, optio dolorem eveniet reiciendis voluptatum laboriosam facere
-        repudiandae perferendis, dolorum, fuga reprehenderit error eligendi
-        velit. Minus, hic rem facilis voluptas architecto maxime quaerat. Veniam
-        ad similique tempore blanditiis, at enim corporis saepe repudiandae?
-        Illo labore voluptatum possimus, deserunt officia similique ullam?
-        Maiores iste, optio consequuntur debitis facere saepe laborum eum rerum
-        inventore totam a distinctio. Eum culpa magnam perspiciatis veniam
-        labore quasi ad dolorum exercitationem facere omnis nisi similique
-        soluta, ratione beatae expedita numquam at accusamus itaque minima
-        dolor.
-      </nz-content>
-    </nz-layout>
+    <router-outlet></router-outlet>
   </nz-layout>
 </nz-layout>

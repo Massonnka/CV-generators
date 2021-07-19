@@ -1,5 +1,6 @@
 .wrapper {
   overflow: hidden;
+  height: 100vh;
 }
 
 .header {
@@ -7,21 +8,49 @@
   height: 48px;
 }
 
-.page-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 16px 24px;
-  background-color: #ffff;
-  width: 100%;
+.sider-wrapper {
+  .footer {
+    .checkbox {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+    }
+    .checkbox:checked + .label {
+      .ball {
+        transform: translate(24px);
+      }
+    }
+
+    .label {
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 50px;
+      height: 26px;
+      width: 50px;
+      padding: 5px;
+      position: relative;
+
+      .frown, .smile {
+        color: #FFFF;
+      }
+
+      .ball {
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        border-radius: 50%;
+        background-color: #FFFF;
+        top: 2px;
+        left: 2px;
+        transition: transform 0.2s linear;
+      }
+    }
+  }
 }
 
-.content {
-  background-color: #ffff;
-  min-height: 500px;
-  margin: 24px 24px 0 24px;
-  padding: 24px 15px 0 24px
-}
 .sider-item {
   margin: 8px 0px;
   height: 40px;

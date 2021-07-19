@@ -1,8 +1,23 @@
 {
-    "common": {
-        "signIn": "Sign In"
+    "auth": {
+        "sign-in": "Sign In",
+        "remember-me": "Remember me",
+        "forgot-password": "Forgot your password?"
     },
     "profile": {
-        "username": "Username"
+        "username": "Username",
+        "password": "Password"
+    },
+    "pages": {
+        "home": "home",
+        "dashboard": "Dashboard",
+        "employee": "Employee",
+        "project": "Project"
+    },
+    "employee": {
+        "employee-list": "Employee-list"
+    },
+    "project": {
+        "project-list": "Project list"
     }
 }

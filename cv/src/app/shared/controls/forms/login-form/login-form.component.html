@@ -2,7 +2,7 @@
     <nz-form-item>
         <nz-form-control nzErrorTip="Please input your username!">
             <div class="label">
-                <label>Username</label>
+                <label>{{ "profile.username" | translate }}</label>
                 <label class="favourite">*</label>
             </div>
             <nz-input-group nzPrefixIcon="user">
@@ -13,7 +13,7 @@
     <nz-form-item>
         <nz-form-control nzErrorTip="Please input your Password!">
             <div class="label">
-                <label>Password</label>
+                <label>{{ "profile.password" | translate }}</label>
                 <label class="favourite">*</label>
             </div>
             <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="lock">
@@ -29,11 +29,11 @@
     <div nz-row class="login-form-margin">
         <div nz-col [nzSpan]="12">
             <label nz-checkbox formControlName="remember">
-                <span>Remember me</span>
+                <span>{{ 'auth.remember-me' | translate }}</span>
             </label>
         </div>
         <div nz-col [nzSpan]="12">
-            <a class="login-form-forgot">Forgot your password?</a>
+            <a class="login-form-forgot">{{ "auth.forgot-password" | translate }}</a>
         </div>
     </div>
     <ng-content></ng-content>

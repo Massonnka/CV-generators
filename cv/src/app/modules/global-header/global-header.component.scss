@@ -1,3 +1,9 @@
+:host ::ng-deep {
+  .button, .ant-btn-text, .ant-btn {
+    color: #FFFF
+  }
+}
+
 .header {
   z-index: 1000;
   background-color: rgba(0, 21, 41, 1);
@@ -16,10 +22,11 @@ nz-page-header-content {
   padding: 0px;
   display: flex;
   flex-direction: row;
-  color: #FFFF;
+  color: #ffff;
 }
 
-.user, .language {
+.user,
+.language {
   margin-right: 10px;
 }
 
@@ -29,5 +36,4 @@ app-circle-button {
 }
 
 .buttons {
-  color: #FFFF
 }

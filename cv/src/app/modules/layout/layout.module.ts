@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -22,6 +23,7 @@ import { LayoutComponent } from './layout.component';
     NzBreadCrumbModule,
     NzMenuModule,
     NzIconModule,
+    TranslateModule,
   ],
   exports: [LayoutComponent],
 })

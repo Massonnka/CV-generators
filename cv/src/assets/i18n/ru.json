@@ -1,8 +1,23 @@
 {
-    "common": {
-        "signIn": "Авторизоваться"
+    "auth": {
+        "sign-in": "Авторизоваться",
+        "remember-me": "Запомнить",
+        "forgot-password": "Забыли пароль?"
     },
     "profile": {
-        "username": "Логин"
+        "username": "Логин",
+        "password": "Пароль"
+    },
+    "pages": {
+        "home": "Домой",
+        "dashboard": "Главная",
+        "employee": "Сотрудники",
+        "project": "Проекты"
+    },
+    "employee": {
+        "employee-list": "Список сотрудников"
+    },
+    "project": {
+        "project-list": "Список проектов"
     }
 }
