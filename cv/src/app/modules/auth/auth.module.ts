@@ -10,7 +10,6 @@ import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-butto
 import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { LoginFormModule } from 'src/app/shared/controls/forms/login-form/login-form.module';
-import { FrameLogoModule } from 'src/app/shared/controls/frame-logo/frame-logo.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 
@@ -19,7 +18,6 @@ import { AuthComponent } from './auth.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FrameLogoModule,
     TranslateModule,
     DropdownModule,
     NzIconModule,
@@ -33,4 +31,4 @@ import { AuthComponent } from './auth.component';
   ],
   exports: [AuthComponent],
 })
-export class AuthModule {}
+export class AuthModule { }

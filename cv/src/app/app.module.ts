@@ -12,6 +12,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ACCESS_TOKEN_KEY } from './services/auth.service';
+import { AUTH_API_URL, STORE_API_URL } from './app-injection-token';
+
+export function tokenGetter() {
+  return localStorage.getItem(ACCESS_TOKEN_KEY);
+}
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -35,9 +43,21 @@ registerLocaleData(en);
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{
+    provide: NZ_I18N,
+    useValue: en_US
+  },
+  {
+    provide: AUTH_API_URL,
+    useValue: environment.authApi
+  },
+  {
+    provide: STORE_API_URL,
+    useValue: environment.storeApi
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
