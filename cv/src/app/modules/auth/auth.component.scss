@@ -1,11 +1,11 @@
-@import "~ng-zorro-antd/ng-zorro-antd.dark.css";
+
 :host ::ng-deep .ant-btn {
   height: 40px;
 }
 
 .wrapper {
   position: relative;
-  background: #f0f2f5;
+  background: var(--background-color);
 }
 
 .global {
