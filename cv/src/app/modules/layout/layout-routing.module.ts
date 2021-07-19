@@ -3,11 +3,28 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
-  { path: '', component: LayoutComponent },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'employee',
+        loadChildren: () =>
+          import('./pages/employee/employee.module').then(
+            (m) => m.EmployeeModule
+          ),
+      },
+      {
+        path: 'project',
+        loadChildren: () =>
+          import('./pages/project/project.module').then((m) => m.ProjectModule),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LayoutRoutingModule { }
+export class LayoutRoutingModule {}

@@ -24,7 +24,8 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
     NzFormModule,
     TranslateModule,
     PrimaryButtonModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    TranslateModule,
   ],
   exports: [
     LoginFormComponent
