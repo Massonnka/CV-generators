@@ -13,14 +13,17 @@
         "home": "home",
         "dashboard": "Dashboard",
         "employee": "Employee",
-        "project": "Project"
+        "project": "Project",
+        "info": "Info"
     },
     "employee": {
         "employee-list": "Employee-list",
         "add-employee": "Add employee"
     },
     "project": {
-        "project-list": "Project list"
+        "project-list": "Project list",
+        "add-project": "Add project",
+        "archieve": "Archieve"
     },
     "table": {
         "firstname": "Firstname",

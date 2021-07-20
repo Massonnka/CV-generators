@@ -3,19 +3,10 @@
     <app-global-header></app-global-header>
   </nz-header>
   <nz-layout>
-    <nz-sider
-      nzTheme="light"
-      class="sider-wrapper"
-      style="flex: 0 0 200px; width: 200px; min-width: 48px"
-    >
+    <nz-sider nzTheme="light" class="sider-wrapper" style="flex: 0 0 200px; width: 200px; min-width: 48px">
       <app-sider>
         <ul nz-menu class="list">
-          <li
-            nz-menu-item
-            *ngFor="let page of pages"
-            class="sider-item"
-            routerLink="{{ page.name | lowercase }}"
-          >
+          <li nz-menu-item *ngFor="let page of pages" class="sider-item" routerLink="{{ page.name | lowercase }}">
             <i nz-icon nzType="{{ page.iconType }}" nzTheme="outline"></i>
             {{ page.translateKey | translate }}
           </li>
@@ -30,18 +21,8 @@
             </label>
           </div>
           <app-default-button (click)="toggleSider()" class="toggler">
-            <i
-              nz-icon
-              nzType="menu-fold"
-              nzTheme="outline"
-              *ngIf="isVisible"
-            ></i>
-            <i
-              nz-icon
-              nzType="menu-unfold"
-              nzTheme="outline"
-              *ngIf="!isVisible"
-            ></i>
+            <i nz-icon nzType="menu-fold" nzTheme="outline" *ngIf="isVisible"></i>
+            <i nz-icon nzType="menu-unfold" nzTheme="outline" *ngIf="!isVisible"></i>
           </app-default-button>
         </div>
       </app-sider>

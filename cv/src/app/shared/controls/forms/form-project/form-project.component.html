@@ -1,0 +1,29 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzRequired nzFor="name">Name</nz-form-label>
+        <nz-form-control [nzSpan]="8" nzErrorTip="Please input your name">
+            <input type="text" nz-input formControlName="name" placeholder="Please input your name" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="nickname" [nzRequired]="validateForm.get('required')?.value">
+            Nickname
+        </nz-form-label>
+        <nz-form-control [nzSpan]="8" nzErrorTip="Please input your nickname">
+            <input type="text" nz-input formControlName="nickname" placeholder="Please input your nickname" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control [nzSpan]="8" [nzOffset]="4">
+            <label nz-checkbox formControlName="required" (ngModelChange)="requiredChange($event)">
+                Nickname is required
+            </label>
+        </nz-form-control>
+    </nz-form-item>
+    <div nz-row>
+        <div nz-col [nzSpan]="24" class="search-area">
+            <button nz-button [nzType]="'primary'">Search</button>
+            <button nz-button (click)="resetForm()">Clear</button>
+        </div>
+    </div>
+</form>

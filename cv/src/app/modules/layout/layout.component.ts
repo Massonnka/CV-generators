@@ -19,7 +19,7 @@ export class LayoutComponent implements OnInit {
     { name: 'Project', iconType: 'database', translateKey: 'pages.project' },
   ];
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef) { }
 
   public isVisible = true;
 

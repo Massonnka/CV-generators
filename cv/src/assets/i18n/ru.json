@@ -13,14 +13,17 @@
         "home": "Домой",
         "dashboard": "Главная",
         "employee": "Сотрудники",
-        "project": "Проекты"
+        "project": "Проекты",
+        "info": "Информация"
     },
     "employee": {
         "employee-list": "Список сотрудников",
         "add-employee": "Добавить сотрудника"
     },
     "project": {
-        "project-list": "Список проектов"
+        "project-list": "Список проектов",
+        "add-project": "Добавить проект",
+        "archieve": "Архивировать"
     },
     "table": {
         "firstname": "Имя",
