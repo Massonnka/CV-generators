@@ -7,20 +7,34 @@
     "profile": {
         "profile": "Profile",
         "username": "Username",
-        "password": "Password"
+        "password": "Password",
+        "userinfo": "User Info"
     },
     "pages": {
         "home": "home",
         "dashboard": "Dashboard",
         "employee": "Employee",
-        "project": "Project"
+        "project": "Project",
+        "info": "Info"
     },
     "employee": {
         "employee-list": "Employee-list",
         "add-employee": "Add employee"
     },
     "project": {
-        "project-list": "Project list"
+        "project-list": "Project list",
+        "add-project": "Add project",
+        "archieve": "Archieve",
+        "save": "Save",
+        "cancel": "Cancel",
+        "name": "Name",
+        "start-date": "Start date",
+        "end-date": "End date",
+        "team-size": "Team size",
+        "tech-stack": "Tech stack",
+        "roles": "Roles",
+        "description": "Description",
+        "responsibilities": "Responsibilities"
     },
     "table": {
         "firstname": "Firstname",

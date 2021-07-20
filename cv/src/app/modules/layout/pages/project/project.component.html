@@ -1,15 +1,22 @@
-<div class="wrapper">
-  <div class="page-header">
-    <nz-breadcrumb>
-      <nz-breadcrumb-item>
-        {{ "pages.home" | translate }}
-      </nz-breadcrumb-item>
-      <nz-breadcrumb-item>
-        {{ "pages.project" | translate }}
-      </nz-breadcrumb-item>
-    </nz-breadcrumb>
-    <h1>{{ "pages.project" | translate }}</h1>
-    <p>{{ "project.project-list" | translate }}</p>
-  </div>
-  <nz-content class="content">dasdd </nz-content>
+<div class="page-header">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      {{ "pages.home" | translate }}
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      {{ "pages.project" | translate }}
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <h1>{{ "pages.project" | translate }}</h1>
+  <p>{{ "project.project-list" | translate }}</p>
 </div>
+<nz-content class="content">
+  <div class="actions">
+    <app-primary-button class="sign-up-button">
+      <a routerLink="info">
+        <span>{{ "project.add-project" | translate }}</span>
+      </a>
+    </app-primary-button>
+  </div>
+  <app-table class="table"></app-table>
+</nz-content>

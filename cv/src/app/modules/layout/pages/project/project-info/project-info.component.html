@@ -1,0 +1,27 @@
+<div class="page-header">
+    <nz-breadcrumb>
+        <nz-breadcrumb-item>
+            {{ "pages.home" | translate }}
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+            {{ "pages.project" | translate }}
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+            {{ "pages.info" | translate }}
+        </nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <h1>{{ "pages.project" | translate }}</h1>
+    <p>{{ "project.project-list" | translate }}</p>
+</div>
+<nz-content class="content">
+    <div class="actions">
+        <app-default-button class="sign-up-button">
+            <span>{{ "project.archieve" | translate }}</span>
+        </app-default-button>
+    </div>
+    <app-form-project>
+        <app-default-button (click)="cancel()" nz-button>
+            {{ "project.cancel" | translate }}
+        </app-default-button>
+    </app-form-project>
+</nz-content>

@@ -1,0 +1,88 @@
+<form nz-form [formGroup]="validateForm" class="project-form" (ngSubmit)="submitForm()">
+    <div class="row">
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.name" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="name" placeholder="Input your name" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.start-date" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <nz-date-picker formControlName="enddate"></nz-date-picker>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.end-date" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <nz-date-picker formControlName="startdate"></nz-date-picker>
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div class="row">
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.team-size" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="teamsize" placeholder="Input your teamsize" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.tech-stack" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="techstack" placeholder="Input your tech stack" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.roles" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="roles" placeholder="Input your roles" />
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div class="row">
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.description" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <textarea rows="4" nz-input formControlName="descript"
+                    placeholder="Autosize height based on content lines"></textarea>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "project.responsibilities" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <textarea rows="4" nz-input formControlName="respons"
+                    placeholder="Autosize height based on content lines"></textarea>
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div nz-row>
+        <div nz-col [nzSpan]="24" class="search-area">
+            <button nz-button [nzType]="'primary'">{{ "project.save" | translate }}</button>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</form>

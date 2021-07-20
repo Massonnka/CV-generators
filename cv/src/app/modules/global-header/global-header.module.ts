@@ -6,6 +6,9 @@ import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
 import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
 import { GlobalHeaderComponent } from './global-header.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { ModalWindowModule } from 'src/app/shared/controls/modal/modal-window/modal-window.module';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @NgModule({
   declarations: [GlobalHeaderComponent],
@@ -16,7 +19,10 @@ import { GlobalHeaderComponent } from './global-header.component';
     NzIconModule,
     TranslateModule,
     DropdownModule,
+    NzModalModule,
+    ModalWindowModule,
+    NzButtonModule
   ],
   exports: [GlobalHeaderComponent],
 })
-export class GlobalHeaderModule {}
+export class GlobalHeaderModule { }
