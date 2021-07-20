@@ -8,7 +8,7 @@ const routes: Routes = [
     component: EmployeeComponent,
   },
   {
-    path: 'profile',
+    path: ':user',
     loadChildren: () =>
       import('./employee-profile/employee-profile.module').then(
         (m) => m.EmployeeProfileModule

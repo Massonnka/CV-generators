@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
+import { TabsModule } from 'src/app/shared/controls/tabs/tabs.module';
 import { EmployeeProfileRoutingModule } from './employee-profile-routing.module';
 import { EmployeeProfileComponent } from './employee-profile.component';
 
@@ -16,6 +17,7 @@ import { EmployeeProfileComponent } from './employee-profile.component';
     NzBreadCrumbModule,
     NzLayoutModule,
     PrimaryButtonModule,
+    TabsModule,
   ],
   exports: [EmployeeProfileComponent],
 })

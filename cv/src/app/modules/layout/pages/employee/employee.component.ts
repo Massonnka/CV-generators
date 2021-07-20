@@ -4,6 +4,7 @@ import {
   ElementRef,
   OnInit,
 } from '@angular/core';
+import { EMPLOYEES } from 'src/app/employees';
 
 @Component({
   selector: 'app-employee',
@@ -12,26 +13,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeComponent implements OnInit {
-  public users = [
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
-  ];
+  public users = EMPLOYEES;
   constructor(private elRef: ElementRef) {}
 
   ngOnInit(): void {
