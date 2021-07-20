@@ -19,5 +19,9 @@
             <span>{{ "project.archieve" | translate }}</span>
         </app-default-button>
     </div>
-    <app-form-project></app-form-project>
+    <app-form-project>
+        <app-default-button (click)="cancel()" nz-button>
+            {{ "project.cancel" | translate }}
+        </app-default-button>
+    </app-form-project>
 </nz-content>

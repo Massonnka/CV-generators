@@ -10,7 +10,7 @@
             </nz-form-control>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control>
+            <nz-form-control nzErrorTip="Please, specify the field">
                 <div class="label">
                     <label>{{ "project.start-date" | translate }}</label>
                     <label class="favourite">*</label>
@@ -19,7 +19,7 @@
             </nz-form-control>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control>
+            <nz-form-control nzErrorTip="Please, specify the field">
                 <div class="label">
                     <label>{{ "project.end-date" | translate }}</label>
                     <label class="favourite">*</label>
@@ -82,7 +82,7 @@
     <div nz-row>
         <div nz-col [nzSpan]="24" class="search-area">
             <button nz-button [nzType]="'primary'">{{ "project.save" | translate }}</button>
-            <button nz-button>{{ "project.cancel" | translate }}</button>
+            <ng-content></ng-content>
         </div>
     </div>
 </form>

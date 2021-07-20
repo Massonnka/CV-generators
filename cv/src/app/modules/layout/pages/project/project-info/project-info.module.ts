@@ -21,7 +21,8 @@ import { FormProjectModule } from 'src/app/shared/controls/forms/form-project/fo
     NzLayoutModule,
     NzBreadCrumbModule,
     DefaultButtonModule,
-    FormProjectModule
+    FormProjectModule,
+    DefaultButtonModule
   ],
   exports: [
     ProjectInfoComponent

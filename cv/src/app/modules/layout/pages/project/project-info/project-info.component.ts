@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-project-info',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
+
+  cancel() {
+    this.location.back(); // <-- go back to previous location on cancel
+  }
 
   ngOnInit(): void {
   }
