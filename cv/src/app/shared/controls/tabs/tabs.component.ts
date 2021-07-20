@@ -6,8 +6,9 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
   styleUrls: ['./tabs.component.css']
 })
 export class TabsComponent implements OnInit {
+  @Input() public data: any[] = [];
   @Input() public bodyTemplate: TemplateRef<any>;
-
+  
   constructor() { }
 
   ngOnInit(): void {

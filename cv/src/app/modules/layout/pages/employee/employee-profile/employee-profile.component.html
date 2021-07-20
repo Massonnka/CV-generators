@@ -14,6 +14,16 @@
   <p>{{ "employee.employee-list" | translate }}</p>
 </div>
 <nz-content class="content">
-  <app-tabs>
-  </app-tabs>
+  <nz-tabset>
+    <nz-tab nzTitle="Info">
+      <app-login-form></app-login-form>
+    </nz-tab>
+    <nz-tab nzTitle="CV">
+      <app-list [bodyTemplate]="bodyRef" [data]="cves">
+        <ng-template #bodyRef let-data="$implicit">
+          {{data.name}}
+        </ng-template>
+      </app-list>
+    </nz-tab>
+  </nz-tabset>
 </nz-content>
