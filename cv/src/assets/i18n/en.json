@@ -5,6 +5,7 @@
         "forgot-password": "Forgot your password?"
     },
     "profile": {
+        "profile": "Profile",
         "username": "Username",
         "password": "Password"
     },
