@@ -15,8 +15,21 @@
           <i nz-icon nzType="bell" nzTheme="outline"></i>
         </app-circle-button>
       </div>
-      <div class="user"> {{'profile.username' | translate}}</div>
-      <div class="language">En</div>
+      <div class="user">
+        <app-modal-window>
+          <span label>{{ "profile.username" | translate }}</span>
+          <span title>{{ "profile.userinfo" | translate }}</span>
+          <p content>12345</p>
+        </app-modal-window>
+      </div>
+      <app-dropdown class="dropdown">
+        <a icon class="dropdown-text"> {{ currentLanguage }} </a>
+        <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer">
+          <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">
+            {{ language }}
+          </li>
+        </ul>
+      </app-dropdown>
     </nz-page-header-content>
   </nz-page-header>
 </div>

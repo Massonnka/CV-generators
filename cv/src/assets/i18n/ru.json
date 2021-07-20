@@ -6,7 +6,8 @@
     },
     "profile": {
         "username": "Логин",
-        "password": "Пароль"
+        "password": "Пароль",
+        "userinfo": "Информация о пользователе"
     },
     "pages": {
         "home": "Домой",
