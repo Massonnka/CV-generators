@@ -1,0 +1,35 @@
+:host ::ng-deep .ant-form-item {
+    margin-bottom: 0px;
+}
+
+.login-form {
+    max-width: 360px;
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    color: var(--text-color);
+}
+
+.favourite {
+    margin-left: 10px;
+    color: var(--text-error);
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.passicon {
+    cursor: pointer;
+}
+
+.login-form-margin {
+    margin-top: 22px;
+    margin-bottom: 22px;
+}
+

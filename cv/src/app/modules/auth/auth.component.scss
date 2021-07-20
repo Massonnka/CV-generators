@@ -1,0 +1,75 @@
+:host ::ng-deep .ant-btn {
+  height: 40px;
+}
+
+.wrapper {
+  position: relative;
+  background: var(--background-color);
+}
+
+.global {
+  float: right;
+  margin: 22px;
+}
+
+.global-icon {
+  color: black;
+  font-size: 20px;
+}
+
+.dropdown-item:hover {
+  transform: scale(1.2);
+  color: var(--primary);
+}
+
+.question {
+  float: right;
+  margin-right: 77px;
+  height: 10%;
+  margin-top: 2%;
+}
+
+.logo {
+  width: 238.27px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15.5px;
+}
+
+.form {
+  position: relative;
+  width: 360px;
+  height: 276px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  width: 360px;
+}
+
+.bg {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  padding-top: 5%;
+  padding-bottom: 10%;
+  background-size: cover;
+  height: 80%;
+}
+
+.bg .bg-img {
+  margin-top: 20%;
+  padding-top: 7%;
+  position: absolute;
+  padding-bottom: 10%;
+  background-size: cover;
+}

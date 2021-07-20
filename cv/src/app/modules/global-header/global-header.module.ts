@@ -1,12 +1,22 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
+import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
+import { GlobalHeaderComponent } from './global-header.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [GlobalHeaderComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    NzPageHeaderModule,
+    CircleButtonModule,
+    NzIconModule,
+    TranslateModule,
+    DropdownModule,
+  ],
+  exports: [GlobalHeaderComponent],
 })
-export class GlobalHeaderModule { }
+export class GlobalHeaderModule {}

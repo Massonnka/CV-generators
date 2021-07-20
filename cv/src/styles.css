@@ -1,3 +1,11 @@
 body {
-    margin: 0;
+    --background-color: #f0f2f5;
+    --content-color: #ffffff;
+    --background-header: #001529;
+    --primary: #1890FF;
+    --button-box-shadow: rgba(0, 0, 0, 0.15);
+    --text-label: #000000;
+    --text-error: #FF4D4F;
+    --icon-color: #ffffff;
+    --element-color: #ffffff;
 }
