@@ -12,7 +12,21 @@
 </div>
 <nz-content class="content">
   <div class="actions">
-    <app-primary-button class="add-button">{{"employee.add-employee" | translate}}</app-primary-button>
+    <app-primary-button class="add-button">
+      {{ "employee.add-employee" | translate }}
+    </app-primary-button>
   </div>
-  <app-table class="table"></app-table>
+  <app-table class="table">
+    <tr
+      *ngFor="let user of users"
+      class="table-row"
+      routerLink="profile"
+    >
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.department }}</td>
+      <td>{{ user.specalization }}</td>
+    </tr>
+  </app-table>
 </nz-content>

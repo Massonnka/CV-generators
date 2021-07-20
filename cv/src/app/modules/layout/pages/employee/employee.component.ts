@@ -12,6 +12,26 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeComponent implements OnInit {
+  public users = [
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+    { firstname: 'Vasya', lastname: 'Pupkin', email: 'v.pupkin@gmail.com', department: 'Javascript', specalization: 'Angular', },
+  ];
   constructor(private elRef: ElementRef) {}
 
   ngOnInit(): void {

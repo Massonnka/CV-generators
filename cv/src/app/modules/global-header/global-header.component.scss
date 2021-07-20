@@ -20,7 +20,7 @@
   justify-content: space-between;
 }
 
-nz-page-header-content {
+.nz-page-header-content {
   padding: 0px;
   display: flex;
   flex-direction: row;
@@ -32,19 +32,31 @@ nz-page-header-content {
   margin-right: 10px;
 }
 
-app-circle-button {
+.circle-button {
   line-height: 48px;
   width: 48px;
+}
+.circle-button:hover {
+  color: var(--primary);
 }
 
 .dropdown {
   margin: 0 16px;
-
   .dropdown-text {
     color: var(--element-color);
+  }
+  .dropdown-text:hover {
+    color: var(--primary);
   }
   .dropdown-item:hover {
     transform: scale(1.2);
     color: var(--primary);
+    background-color: blue;
+  }
+
+  li {
+    transform: scale(1.2);
+    color: var(--primary);
+    background-color: blue;
   }
 }

@@ -9,9 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class GlobalHeaderComponent implements OnInit {
   public languages = ['en', 'ru'];
-  public currentLanguage = 'en';
 
   constructor(private translateService: TranslateService) {}
+  public currentLanguage = this.translateService.currentLang || 'en';
 
   switchLanguage(language: string): void {
     this.translateService.use(language);
