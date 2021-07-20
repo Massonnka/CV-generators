@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
+import { FormProjectModule } from 'src/app/shared/controls/forms/form-project/form-project.module';
 
 
 
@@ -19,7 +20,8 @@ import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-but
     TranslateModule,
     NzLayoutModule,
     NzBreadCrumbModule,
-    DefaultButtonModule
+    DefaultButtonModule,
+    FormProjectModule
   ],
   exports: [
     ProjectInfoComponent

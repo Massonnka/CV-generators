@@ -23,7 +23,17 @@
     "project": {
         "project-list": "Project list",
         "add-project": "Add project",
-        "archieve": "Archieve"
+        "archieve": "Archieve",
+        "save": "Save",
+        "cancel": "Cancel",
+        "name": "Name",
+        "start-date": "Start date",
+        "end-date": "End date",
+        "team-size": "Team size",
+        "tech-stack": "Tech stack",
+        "roles": "Roles",
+        "description": "Description",
+        "responsibilities": "Responsibilities"
     },
     "table": {
         "firstname": "Firstname",

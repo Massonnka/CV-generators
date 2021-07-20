@@ -23,7 +23,17 @@
     "project": {
         "project-list": "Список проектов",
         "add-project": "Добавить проект",
-        "archieve": "Архивировать"
+        "archieve": "Архивировать",
+        "save": "Сохранить",
+        "cancel": "Отменить",
+        "name": "Имя",
+        "start-date": "Дата начала",
+        "end-date": "Дата окончания",
+        "team-size": "Размер команды",
+        "tech-stack": "Стек технологий",
+        "roles": "Роли",
+        "description": "Описание",
+        "responsibilities": "Обязанности"
     },
     "table": {
         "firstname": "Имя",
