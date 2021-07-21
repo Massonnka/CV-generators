@@ -12,6 +12,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./project-info/project-info.module').then(
         (m) => m.ProjectInfoModule),
+    data: { breadcrumb: { alias: 'ProjectInfo' } },
   },
 ];
 

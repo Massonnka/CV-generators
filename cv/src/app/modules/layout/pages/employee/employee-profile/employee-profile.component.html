@@ -1,16 +1,18 @@
 <div class="page-header">
-  <nz-breadcrumb>
+  <!-- <nz-breadcrumb>
     <nz-breadcrumb-item>
       {{ "pages.home" | translate }}
     </nz-breadcrumb-item>
-    <nz-breadcrumb-item>
+    <nz-breadcrumb-item (click)="back()"  class="breadcrumb">
       {{ "pages.employee" | translate }}
     </nz-breadcrumb-item>
-    <nz-breadcrumb-item>
+    <nz-breadcrumb-item  class="breadcrumb">
       {{ employees[currentUserId].firstname }}
       {{ employees[currentUserId].lastname }}
     </nz-breadcrumb-item>
-  </nz-breadcrumb>
+  </nz-breadcrumb> -->
+  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+  <ng-template #iconTemplate>/ </ng-template>
   <h1>{{ "pages.employee" | translate }}</h1>
   <p>
     {{ employees[currentUserId].firstname }}
@@ -19,10 +21,8 @@
   </p>
 </div>
 <nz-content class="content">
-  <nz-tabset>
-    <nz-tab nzTitle="Info">
-      <app-login-form></app-login-form>
-    </nz-tab>
+  <nz-tabset class="tabset">
+    <nz-tab nzTitle="Info" class="tab-content"></nz-tab>
     <nz-tab nzTitle="CV">
       <app-list [bodyTemplate]="bodyRef" [data]="cves">
         <ng-template #bodyRef let-data="$implicit">

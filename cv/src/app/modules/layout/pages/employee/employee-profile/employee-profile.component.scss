@@ -1,6 +1,15 @@
 :host {
   width: 100%;
+  ::ng-deep .ant-tabs-content {
+    height: 100%;
+  }
+  ::ng-deep .ant-tabs-tabpane {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 }
+
 .page-header {
   display: flex;
   flex-direction: column;
@@ -8,6 +17,11 @@
   padding: 16px 24px;
   background-color: var(--content-color);
   width: 100%;
+
+  .breadcrumb:hover {
+    cursor: pointer;
+    color: var(--primary);
+  }
 }
 
 .content {
@@ -16,5 +30,5 @@
   margin: 20px 24px 0 24px;
   background-color: var(--content-color);
   padding: 24px 15px 24px 15px;
-  height: 100%;
+  height: 100%;  
 }

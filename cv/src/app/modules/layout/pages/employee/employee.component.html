@@ -1,12 +1,14 @@
 <div class="page-header">
-  <nz-breadcrumb>
+  <!-- <nz-breadcrumb>
     <nz-breadcrumb-item>
       {{ "pages.home" | translate }}
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>
       {{ "pages.employee" | translate }}
     </nz-breadcrumb-item>
-  </nz-breadcrumb>
+  </nz-breadcrumb> -->
+  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+  <ng-template #iconTemplate>/ </ng-template>
   <h1>{{ "pages.employee" | translate }}</h1>
   <p>{{ "employee.employee-list" | translate }}</p>
 </div>
@@ -16,7 +18,12 @@
       {{ "employee.add-employee" | translate }}
     </app-primary-button>
   </div>
-  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="users">
+  <app-table
+    class="table"
+    [headTemplate]="headRef"
+    [bodyTemplate]="bodyRef"
+    [data]="users"
+  >
     <ng-template #headRef>
       <tr>
         <th>{{ "table.firstname" | translate }}</th>
