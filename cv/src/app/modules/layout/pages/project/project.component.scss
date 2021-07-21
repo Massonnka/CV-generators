@@ -38,6 +38,11 @@
   .table {
     margin: 10px;
     padding: 10px;
+    cursor: pointer;
+    .table-row:hover {
+      background-color: var(--background-color);
+      transition: 0.2s linear;
+    }
   }
 }
 

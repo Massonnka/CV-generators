@@ -18,5 +18,24 @@
       </a>
     </app-primary-button>
   </div>
-  <app-table class="table"></app-table>
+  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="users">
+    <ng-template #headRef>
+      <tr>
+        <th>{{ "table.firstname" | translate }}</th>
+        <th>{{ "table.lastname" | translate }}</th>
+        <th>{{ "table.email" | translate }}</th>
+        <th>{{ "table.department" | translate }}</th>
+        <th>{{ "table.specialization" | translate }}</th>
+      </tr>
+    </ng-template>
+    <ng-template #bodyRef let-data="$implicit">
+      <tr *ngFor="let user of data" class="table-row" routerLink="{{ user.id }}">
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.department }}</td>
+        <td>{{ user.specialization }}</td>
+      </tr>
+    </ng-template>
+  </app-table>
 </nz-content>

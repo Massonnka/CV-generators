@@ -4,6 +4,7 @@ import {
   ElementRef,
   OnInit,
 } from '@angular/core';
+import { EMPLOYEES } from 'src/app/employees';
 
 @Component({
   selector: 'app-project',
@@ -12,7 +13,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectComponent implements OnInit {
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef) { }
+
+  public users = EMPLOYEES;
 
   ngOnInit(): void {
     const content = this.elRef.nativeElement.querySelector('.content');
