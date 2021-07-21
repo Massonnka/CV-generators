@@ -21,7 +21,11 @@
 <nz-content class="content">
   <nz-tabset>
     <nz-tab nzTitle="Info">
-      <app-login-form></app-login-form>
+      <app-form-info>
+        <app-default-button (click)="cancel()" nz-button>
+          {{ "form.cancel" | translate }}
+        </app-default-button>
+      </app-form-info>
     </nz-tab>
     <nz-tab nzTitle="CV">
       <app-list [bodyTemplate]="bodyRef" [data]="cves">

@@ -24,7 +24,21 @@
     "project": {
         "project-list": "Project list",
         "add-project": "Add project",
-        "archieve": "Archieve",
+        "archieve": "Archieve"
+    },
+    "table": {
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "email": "Email",
+        "department": "Department",
+        "specialization": "Specialization"
+    },
+    "form": {
+        "firstname": "First Name",
+        "lastname": "Last Name",
+        "email": "Email",
+        "specialization": "Specialization",
+        "department": "Department",
         "save": "Save",
         "cancel": "Cancel",
         "name": "Name",
@@ -34,13 +48,7 @@
         "tech-stack": "Tech stack",
         "roles": "Roles",
         "description": "Description",
-        "responsibilities": "Responsibilities"
-    },
-    "table": {
-        "firstname": "Firstname",
-        "lastname": "Lastname",
-        "email": "Email",
-        "department": "Department",
-        "specialization": "Specialization"
+        "responsibilities": "Responsibilities",
+        "skills": "Skills"
     }
 }

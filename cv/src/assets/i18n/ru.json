@@ -24,7 +24,21 @@
     "project": {
         "project-list": "Список проектов",
         "add-project": "Добавить проект",
-        "archieve": "Архивировать",
+        "archieve": "Архивировать"
+    },
+    "table": {
+        "firstname": "Имя",
+        "lastname": "Фамилия",
+        "email": "Email",
+        "department": "Отдел",
+        "specialization": "Специализация"
+    },
+    "form": {
+        "firstname": "Имя",
+        "lastname": "Фамилия",
+        "email": "Почта",
+        "specialization": "Специализация",
+        "department": "Отделение",
         "save": "Сохранить",
         "cancel": "Отменить",
         "name": "Имя",
@@ -34,13 +48,7 @@
         "tech-stack": "Стек технологий",
         "roles": "Роли",
         "description": "Описание",
-        "responsibilities": "Обязанности"
-    },
-    "table": {
-        "firstname": "Имя",
-        "lastname": "Фамилия",
-        "email": "Email",
-        "department": "Отдел",
-        "specialization": "Специализация"
+        "responsibilities": "Обязанности",
+        "skills": "Навыки и умения"
     }
 }

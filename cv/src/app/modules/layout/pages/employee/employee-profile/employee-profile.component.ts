@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EMPLOYEES } from 'src/app/employees';
@@ -20,11 +21,15 @@ export class EmployeeProfileComponent implements OnInit {
 
   public currentUserId = 1;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private location: Location) {
     route.params.subscribe((value) => {
-      this.currentUserId = value.user;      
+      this.currentUserId = value.user;
     });
   }
 
-  ngOnInit(): void {}
+  cancel() {
+    this.location.back();
+  }
+
+  ngOnInit(): void { }
 }

@@ -11,7 +11,7 @@ export class ProjectInfoComponent implements OnInit {
   constructor(private location: Location) { }
 
   cancel() {
-    this.location.back(); // <-- go back to previous location on cancel
+    this.location.back();
   }
 
   ngOnInit(): void {
