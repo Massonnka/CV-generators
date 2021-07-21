@@ -7,6 +7,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { InputModule } from '../../inputs/input/input.module';
 
 
 
@@ -22,7 +23,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzButtonModule,
     TranslateModule,
     NzInputModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    InputModule
   ],
   exports: [
     FormInfoComponent

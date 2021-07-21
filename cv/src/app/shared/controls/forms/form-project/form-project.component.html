@@ -1,82 +1,54 @@
-<form nz-form [formGroup]="validateForm" class="project-form" (ngSubmit)="submitForm()">
+<form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.name" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="name" placeholder="Input your name" />
-            </nz-form-control>
+            <app-input [formControl]="nameControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.name" | translate }}</label>
+            </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.start-date" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <nz-date-picker formControlName="enddate"></nz-date-picker>
-            </nz-form-control>
+            <app-date-picker [formControl]="startDateControl" [errorMessages]="{required: 'Please, specify the field'}">
+                <label>{{ "form.start-date" | translate }}</label>
+            </app-date-picker>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.end-date" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <nz-date-picker formControlName="startdate"></nz-date-picker>
-            </nz-form-control>
+            <app-date-picker [formControl]="endDateControl" [errorMessages]="{required: 'Please, specify the field'}">
+                <label>{{ "form.end-date" | translate }}</label>
+            </app-date-picker>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.team-size" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="teamsize" placeholder="Input your teamsize" />
-            </nz-form-control>
+            <app-input [formControl]="teamSizeControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.team-size" | translate }}</label>
+            </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.tech-stack" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="techstack" placeholder="Input your tech stack" />
-            </nz-form-control>
+            <app-input [formControl]="techStackControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.tech-stack" | translate }}</label>
+            </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.roles" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="roles" placeholder="Input your roles" />
-            </nz-form-control>
+            <app-input [formControl]="rolesControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.roles" | translate }}</label>
+            </app-input>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.description" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <textarea rows="4" nz-input formControlName="descript"
-                    placeholder="Autosize height based on content lines"></textarea>
-            </nz-form-control>
+            <app-textarea [formControl]="descriptionControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.description" | translate }}</label>
+            </app-textarea>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.responsibilities" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <textarea rows="4" nz-input formControlName="respons"
-                    placeholder="Autosize height based on content lines"></textarea>
-            </nz-form-control>
+            <app-textarea [formControl]="responsibilitiesControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.responsibilities" | translate }}</label>
+            </app-textarea>
         </nz-form-item>
     </div>
     <div nz-row>

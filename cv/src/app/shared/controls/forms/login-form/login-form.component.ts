@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -11,22 +11,24 @@ export class LoginFormComponent implements OnInit {
   password?: string;
   validateForm!: FormGroup;
 
-  submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      if (this.validateForm.controls.hasOwnProperty(i)) {
-        this.validateForm.controls[i].markAsDirty();
-        this.validateForm.controls[i].updateValueAndValidity();
-      }
-    }
-  }
-
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
+  public userNameControl: FormControl;
+  public passwordControl: FormControl;
+
+
+  public ngOnInit(): void {
+    this.userNameControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.passwordControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.validateForm = new FormGroup({
+      firstName: this.userNameControl,
+      lastName: this.passwordControl
     });
   }
 }

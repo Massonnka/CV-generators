@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-project',
@@ -7,29 +7,60 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-project.component.scss']
 })
 export class FormProjectComponent implements OnInit {
-  validateForm!: FormGroup;
 
-  submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      if (this.validateForm.controls.hasOwnProperty(i)) {
-        this.validateForm.controls[i].markAsDirty();
-        this.validateForm.controls[i].updateValueAndValidity();
-      }
-    }
-  }
+  public validateForm!: FormGroup;
+  public nameControl: FormControl;
+  public startDateControl: FormControl;
+  public endDateControl: FormControl;
+  public teamSizeControl: FormControl;
+  public techStackControl: FormControl;
+  public rolesControl: FormControl;
+  public descriptionControl: FormControl;
+  public responsibilitiesControl: FormControl;
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      name: [null, [Validators.required]],
-      startdate: [null, [Validators.required]],
-      enddate: [null, [Validators.required]],
-      teamsize: [null, [Validators.required]],
-      techstack: [null, [Validators.required]],
-      roles: [null, [Validators.required]],
-      respons: [null, [Validators.required]],
-      descript: [null, [Validators.required]]
+  public ngOnInit(): void {
+    this.nameControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.startDateControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.endDateControl = new FormControl('', [
+      Validators.required,
+    ]);
+    this.teamSizeControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.techStackControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.rolesControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.descriptionControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.responsibilitiesControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.validateForm = new FormGroup({
+      firstName: this.nameControl,
+      startDate: this.startDateControl,
+      endDate: this.endDateControl,
+      teamSize: this.teamSizeControl,
+      techStack: this.techStackControl,
+      roles: this.rolesControl,
+      description: this.descriptionControl,
+      responsibilities: this.responsibilitiesControl
     });
   }
 

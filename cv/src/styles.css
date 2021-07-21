@@ -8,6 +8,8 @@ body {
     --text-error: #FF4D4F;
     --icon-color: #ffffff;
     --element-color: #ffffff;
+    --input-hover: #40a9ff;
+    --input-border: #d9d9d9;
 }
 
 :root[theme='dark'] {
