@@ -23,6 +23,7 @@ import { ProjectInfoComponent } from './project-info.component';
     BreadcrumbModule,
     BreadcrumbService,
   ],
+  providers: [BreadcrumbService],
   exports: [ProjectInfoComponent],
 })
 export class ProjectInfoModule {}

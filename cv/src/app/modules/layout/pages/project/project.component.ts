@@ -5,6 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { PROJECTS } from 'src/app/project';
 
 @Component({
   selector: 'app-project',
@@ -17,6 +18,8 @@ export class ProjectComponent implements OnInit {
     private elRef: ElementRef,
     private breadcrumbService: BreadcrumbService
   ) {}
+
+  public projects = PROJECTS;
 
   ngOnInit(): void {
     this.breadcrumbService.set('@Project', 'Project');

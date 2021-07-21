@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EMPLOYEES } from 'src/app/employees';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-employee-profile',
@@ -21,14 +22,16 @@ export class EmployeeProfileComponent implements OnInit {
 
   public currentUserId: number;
 
-  constructor(private route: ActivatedRoute, private location: Location) {
+  constructor(private route: ActivatedRoute, private location: Location, private breadcrumbService: BreadcrumbService) {
     route.params.subscribe((value) => {
       this.currentUserId = value.user - 1;
     });
   }
 
-  back() {
+  onBack() {
     this.location.back();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.breadcrumbService.set('@Employee', 'Employee');
+  }
 }

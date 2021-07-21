@@ -13,6 +13,7 @@
   </nz-breadcrumb> -->
   <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
   <ng-template #iconTemplate>/ </ng-template>
+
   <h1>{{ "pages.employee" | translate }}</h1>
   <p>
     {{ employees[currentUserId].firstname }}
@@ -21,8 +22,14 @@
   </p>
 </div>
 <nz-content class="content">
-  <nz-tabset class="tabset">
-    <nz-tab nzTitle="Info" class="tab-content"></nz-tab>
+  <nz-tabset>
+    <nz-tab nzTitle="Info">
+      <app-form-info>
+        <app-default-button (click)="onBack()" nz-button>
+          {{ "form.cancel" | translate }}
+        </app-default-button>
+      </app-form-info>
+    </nz-tab>
     <nz-tab nzTitle="CV">
       <app-list [bodyTemplate]="bodyRef" [data]="cves">
         <ng-template #bodyRef let-data="$implicit">

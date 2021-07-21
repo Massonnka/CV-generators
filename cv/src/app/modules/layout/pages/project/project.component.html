@@ -7,8 +7,9 @@
       {{ "pages.project" | translate }}
     </nz-breadcrumb-item>
   </nz-breadcrumb> -->
-  <!-- <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
-  <ng-template #iconTemplate> / </ng-template> -->
+
+  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+  <ng-template #iconTemplate>/ </ng-template>
 
   <h1>{{ "pages.project" | translate }}</h1>
   <p>{{ "project.project-list" | translate }}</p>
@@ -16,10 +17,38 @@
 <nz-content class="content">
   <div class="actions">
     <app-primary-button class="sign-up-button">
-      <a routerLink="info">
-        <span>{{ "project.add-project" | translate }}</span>
-      </a>
+      {{ "project.add-project" | translate }}
     </app-primary-button>
   </div>
-  <app-table class="table"></app-table>
+  <app-table
+    class="table"
+    [headTemplate]="headRef"
+    [bodyTemplate]="bodyRef"
+    [data]="projects"
+  >
+    <ng-template #headRef>
+      <tr>
+        <th>{{ "form.name" | translate }}</th>
+        <th>{{ "form.start-date" | translate }}</th>
+        <th>{{ "form.end-date" | translate }}</th>
+        <th>{{ "form.team-size" | translate }}</th>
+        <th>{{ "form.tech-stack" | translate }}</th>
+        <th>{{ "form.roles" | translate }}</th>
+      </tr>
+    </ng-template>
+    <ng-template #bodyRef let-data="$implicit">
+      <tr
+        *ngFor="let project of data"
+        class="table-row"
+        routerLink="{{ project.id }}"
+      >
+        <td>{{ project.name }}</td>
+        <td>{{ project.startData }}</td>
+        <td>{{ project.endData }}</td>
+        <td>{{ project.teamSize }}</td>
+        <td>{{ project.techStack }}</td>
+        <td>{{ project.roles }}</td>
+      </tr>
+    </ng-template>
+  </app-table>
 </nz-content>

@@ -1,0 +1,57 @@
+<form nz-form [formGroup]="validateForm" class="project-form" (ngSubmit)="submitForm()">
+    <div class="row">
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "form.firstname" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="firstname" placeholder="Input your first name" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "form.lastname" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="lastname" placeholder="Input your last name" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "form.email" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="email" placeholder="Input your email" />
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div class="row">
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "form.specialization" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="specialization" placeholder="Input your specialization" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="inputs">
+            <nz-form-control nzErrorTip="Please, specify the field">
+                <div class="label">
+                    <label>{{ "form.department" | translate }}</label>
+                    <label class="favourite">*</label>
+                </div>
+                <input type="text" nz-input formControlName="department" placeholder="Input your department" />
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div nz-row>
+        <div nz-col [nzSpan]="24" class="search-area">
+            <button nz-button [nzType]="'primary'">{{ "form.save" | translate }}</button>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</form>
