@@ -9,6 +9,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { PrimaryButtonModule } from '../../buttons/primary-button/primary-button.module';
 import { LoginFormComponent } from './login-form.component';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { InputModule } from '../../inputs/input/input.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
     PrimaryButtonModule,
     NzCheckboxModule,
     TranslateModule,
+    InputModule
   ],
   exports: [
     LoginFormComponent

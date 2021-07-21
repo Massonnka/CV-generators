@@ -7,6 +7,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { InputModule } from '../../inputs/input/input.module';
+import { DatePickerModule } from '../../inputs/date-picker/date-picker.module';
+import { TextareaModule } from '../../inputs/textarea/textarea.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzButtonModule,
     TranslateModule,
     NzInputModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    InputModule,
+    DatePickerModule,
+    TextareaModule
   ],
   exports: [
     FormProjectComponent

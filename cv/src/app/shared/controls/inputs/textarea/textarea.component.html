@@ -1,0 +1,6 @@
+<div class="label">
+    <ng-content></ng-content>
+    <label class="favourite">*</label>
+</div>
+<textarea rows="4" nz-input [formControl]="control" placeholder="Autosize height based on content lines"></textarea>
+<div *ngIf="this.ngControl?.control?.errors" class="error">{{getErrorMessage()}}</div>

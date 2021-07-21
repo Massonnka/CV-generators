@@ -1,33 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-info',
   templateUrl: './form-info.component.html',
-  styleUrls: ['./form-info.component.scss']
+  styleUrls: ['./form-info.component.scss'],
 })
 export class FormInfoComponent implements OnInit {
 
-  validateForm!: FormGroup;
-
-  submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      if (this.validateForm.controls.hasOwnProperty(i)) {
-        this.validateForm.controls[i].markAsDirty();
-        this.validateForm.controls[i].updateValueAndValidity();
-      }
-    }
-  }
+  public validateForm!: FormGroup;
+  public firstNameControl: FormControl;
+  public lastNameControl: FormControl;
+  public emailControl: FormControl;
+  public specializationControl: FormControl;
+  public departmentControl: FormControl;
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      firstname: [null, [Validators.required]],
-      lastname: [null, [Validators.required]],
-      email: [null, [Validators.required]],
-      specialization: [null, [Validators.required]],
-      department: [null, [Validators.required]],
+  public ngOnInit(): void {
+    this.firstNameControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.lastNameControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.emailControl = new FormControl('', [
+      Validators.required,
+    ]);
+    this.specializationControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.departmentControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.validateForm = new FormGroup({
+      firstName: this.firstNameControl,
+      lastName: this.lastNameControl,
+      email: this.emailControl,
+      specialization: this.specializationControl,
+      department: this.departmentControl
     });
   }
 

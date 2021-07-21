@@ -1,33 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-cv',
   templateUrl: './form-cv.component.html',
-  styleUrls: ['./form-cv.component.scss']
+  styleUrls: ['./form-cv.component.scss'],
 })
 export class FormCvComponent implements OnInit {
 
-  validateForm!: FormGroup;
-
-  submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      if (this.validateForm.controls.hasOwnProperty(i)) {
-        this.validateForm.controls[i].markAsDirty();
-        this.validateForm.controls[i].updateValueAndValidity();
-      }
-    }
-  }
+  public validateForm!: FormGroup;
+  public emailControl: FormControl;
+  public lastNameControl: FormControl;
+  public skillsControl: FormControl;
+  public specializationControl: FormControl;
+  public departmentControl: FormControl;
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      email: [null, [Validators.required]],
-      lastname: [null, [Validators.required]],
-      skills: [null, [Validators.required]],
-      specialization: [null, [Validators.required]],
-      department: [null, [Validators.required]],
+  public ngOnInit(): void {
+    this.emailControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.lastNameControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.skillsControl = new FormControl('', [
+      Validators.required,
+    ]);
+    this.specializationControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.departmentControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.validateForm = new FormGroup({
+      firstName: this.emailControl,
+      lastName: this.lastNameControl,
+      skills: this.skillsControl,
+      specialization: this.specializationControl,
+      department: this.departmentControl
     });
   }
 

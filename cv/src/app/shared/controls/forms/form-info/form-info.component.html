@@ -1,51 +1,35 @@
-<form nz-form [formGroup]="validateForm" class="project-form" (ngSubmit)="submitForm()">
+<form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.firstname" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="firstname" placeholder="Input your first name" />
-            </nz-form-control>
+            <app-input [formControl]="firstNameControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.firstname" | translate }}</label>
+            </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.lastname" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="lastname" placeholder="Input your last name" />
-            </nz-form-control>
+            <app-input [formControl]="lastNameControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.lastname" | translate }}</label>
+            </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.email" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="email" placeholder="Input your email" />
-            </nz-form-control>
+            <app-input [formControl]="emailControl" [errorMessages]="{required: 'Please, specify the field'}">
+                <label>{{ "form.email" | translate }}</label>
+            </app-input>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.specialization" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="specialization" placeholder="Input your specialization" />
-            </nz-form-control>
+            <app-input [formControl]="specializationControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.specialization" | translate }}</label>
+            </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <nz-form-control nzErrorTip="Please, specify the field">
-                <div class="label">
-                    <label>{{ "form.department" | translate }}</label>
-                    <label class="favourite">*</label>
-                </div>
-                <input type="text" nz-input formControlName="department" placeholder="Input your department" />
-            </nz-form-control>
+            <app-input [formControl]="departmentControl"
+                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+                <label>{{ "form.department" | translate }}</label>
+            </app-input>
         </nz-form-item>
     </div>
     <div nz-row>
