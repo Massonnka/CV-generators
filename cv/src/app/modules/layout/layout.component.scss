@@ -9,6 +9,11 @@
 }
 
 .sider-wrapper {
+  background-color: var(--background-color);
+  .list {
+    background-color: var(--background-color);
+    color: var(--text-color)
+  }
   .footer {
     .checkbox {
       width: 0;
@@ -23,7 +28,7 @@
     }
 
     .label {
-      background-color: var(--text-label);
+      background-color: var(--text-color);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -34,7 +39,7 @@
       position: relative;
 
       .frown, .smile {
-        color: var(--element-color);
+        color: var(--text-color);
       }
 
       .ball {
@@ -42,7 +47,7 @@
         height: 22px;
         position: absolute;
         border-radius: 50%;
-        background-color: var(--element-color);
+        background-color: var(--background-color);
         top: 2px;
         left: 2px;
         transition: transform 0.2s linear;

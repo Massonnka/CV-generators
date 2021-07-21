@@ -13,10 +13,17 @@
 }
 
 .global-icon {
-  color: black;
+  color: var(--text-color);
   font-size: 20px;
 }
 
+.global-icon:hover {
+  color: var(--primary);
+}
+
+.dropdown-item {
+  color: var(--primary);
+}
 .dropdown-item:hover {
   transform: scale(1.2);
   color: var(--primary);
@@ -27,6 +34,10 @@
   margin-right: 77px;
   height: 10%;
   margin-top: 2%;
+
+  i:hover {
+    color: var(--text-color);
+  }
 }
 
 .logo {
@@ -36,6 +47,8 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15.5px;
+  background-color: var(--text-color);
+  border-radius: 3px;
 }
 
 .form {

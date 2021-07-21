@@ -8,10 +8,10 @@
     </nz-breadcrumb-item>
   </nz-breadcrumb> -->
   
-  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
-  <ng-template #iconTemplate>/ </ng-template>
+  <xng-breadcrumb [separator]="iconTemplate" style="color: var(--text-color);"></xng-breadcrumb>
+  <ng-template #iconTemplate style="color: var(--text-color);">/ </ng-template>
   
-  <h1>{{ "pages.employee" | translate }}</h1>
+  <div class="title">{{ "pages.employee" | translate }}</div>
   <p>{{ "employee.employee-list" | translate }}</p>
 </div>
 <nz-content class="content">
@@ -28,11 +28,11 @@
   >
     <ng-template #headRef>
       <tr>
-        <th>{{ "table.firstname" | translate }}</th>
-        <th>{{ "table.lastname" | translate }}</th>
-        <th>{{ "table.email" | translate }}</th>
-        <th>{{ "table.department" | translate }}</th>
-        <th>{{ "table.specialization" | translate }}</th>
+        <th class="table-head">{{ "table.firstname" | translate }}</th>
+        <th class="table-head">{{ "table.lastname" | translate }}</th>
+        <th class="table-head">{{ "table.email" | translate }}</th>
+        <th class="table-head">{{ "table.department" | translate }}</th>
+        <th class="table-head">{{ "table.specialization" | translate }}</th>
       </tr>
     </ng-template>
     <ng-template #bodyRef let-data="$implicit">
