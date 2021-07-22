@@ -8,6 +8,7 @@ import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-but
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { FormInfoModule } from 'src/app/shared/controls/forms/form-info/form-info.module';
 import { ListModule } from 'src/app/shared/controls/list/list.module';
+import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { EmployeeProfileRoutingModule } from './employee-profile-routing.module';
 import { EmployeeProfileComponent } from './employee-profile.component';
 
@@ -20,11 +21,14 @@ import { EmployeeProfileComponent } from './employee-profile.component';
     NzBreadCrumbModule,
     NzLayoutModule,
     PrimaryButtonModule,
+    DefaultButtonModule,
     NzTabsModule,
     FormInfoModule,
     ListModule,
+    BreadcrumbModule,
     DefaultButtonModule
   ],
+  providers: [BreadcrumbService],
   exports: [EmployeeProfileComponent],
 })
 export class EmployeeProfileModule { }

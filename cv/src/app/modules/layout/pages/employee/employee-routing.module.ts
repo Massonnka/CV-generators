@@ -13,6 +13,7 @@ const routes: Routes = [
       import('./employee-profile/employee-profile.module').then(
         (m) => m.EmployeeProfileModule
       ),
+    data: { breadcrumb: { alias: 'EmployeeProfile' } },
   },
 ];
 

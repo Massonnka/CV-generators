@@ -1,16 +1,19 @@
 <div class="page-header">
-  <nz-breadcrumb>
+  <!-- <nz-breadcrumb>
     <nz-breadcrumb-item>
       {{ "pages.home" | translate }}
     </nz-breadcrumb-item>
-    <nz-breadcrumb-item>
+    <nz-breadcrumb-item (click)="back()"  class="breadcrumb">
       {{ "pages.employee" | translate }}
     </nz-breadcrumb-item>
-    <nz-breadcrumb-item>
+    <nz-breadcrumb-item  class="breadcrumb">
       {{ employees[currentUserId].firstname }}
       {{ employees[currentUserId].lastname }}
     </nz-breadcrumb-item>
-  </nz-breadcrumb>
+  </nz-breadcrumb> -->
+  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+  <ng-template #iconTemplate>/ </ng-template>
+
   <h1>{{ "pages.employee" | translate }}</h1>
   <p>
     {{ employees[currentUserId].firstname }}
@@ -22,7 +25,7 @@
   <nz-tabset>
     <nz-tab nzTitle="Info">
       <app-form-info>
-        <app-default-button (click)="cancel()" nz-button>
+        <app-default-button (click)="onBack()" nz-button>
           {{ "form.cancel" | translate }}
         </app-default-button>
       </app-form-info>

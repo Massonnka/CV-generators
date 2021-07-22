@@ -8,22 +8,17 @@ const routes: Routes = [
     component: ProjectComponent,
   },
   {
-    path: 'info',
+    path: ':project',
     loadChildren: () =>
       import('./project-info/project-info.module').then(
-        (m) => m.ProjectInfoModule),
-  },
-  {
-    path: ':user',
-    loadChildren: () =>
-      import('./project-profile/project-profile.module').then(
-        (m) => m.ProjectProfileModule
+        (m) => m.ProjectInfoModule
       ),
+    data: { breadcrumb: { alias: 'ProjectInfo' } },
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProjectRoutingModule { }
+export class ProjectRoutingModule {}

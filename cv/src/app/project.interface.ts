@@ -1,8 +1,9 @@
 export interface Project {
-    firstname: string;
-    lastname: string;
-    email: string;
-    department: string;
-    specialization: string;
+    name: string;
+    startData: string;
+    endData: string;
+    teamSize: number;
+    techStack: string;
+    roles: string[];
     id: number;
 }

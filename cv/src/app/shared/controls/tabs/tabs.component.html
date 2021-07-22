@@ -1,8 +1,0 @@
-<nz-tabset>
-  <nz-tab nzTitle="Info" *ngFor="let item of data">
-    <ng-container
-      [ngTemplateOutlet]="bodyTemplate"
-      [ngTemplateOutletContext]="{ $implicit: item }"
-    ></ng-container>
-  </nz-tab>
-</nz-tabset>

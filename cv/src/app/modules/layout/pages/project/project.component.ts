@@ -4,7 +4,8 @@ import {
   ElementRef,
   OnInit,
 } from '@angular/core';
-import { EMPLOYEES } from 'src/app/employees';
+import { BreadcrumbService } from 'xng-breadcrumb';
+import { PROJECTS } from 'src/app/project';
 
 @Component({
   selector: 'app-project',
@@ -13,11 +14,16 @@ import { EMPLOYEES } from 'src/app/employees';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectComponent implements OnInit {
-  constructor(private elRef: ElementRef) { }
+  constructor(
+    private elRef: ElementRef,
+    private breadcrumbService: BreadcrumbService
+  ) {}
 
-  public users = EMPLOYEES;
+  public projects = PROJECTS;
 
   ngOnInit(): void {
+    this.breadcrumbService.set('@Project', 'Project');
+
     const content = this.elRef.nativeElement.querySelector('.content');
     content.style.overflow = 'scroll';
   }

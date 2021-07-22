@@ -1,11 +1,3 @@
-:host ::ng-deep {
-  .button,
-  .ant-btn-text,
-  .ant-btn {
-    color: var(--icon-color);
-  }
-}
-
 .header {
   z-index: 1000;
   background-color: var(--background-header);
@@ -24,7 +16,10 @@
   padding: 0px;
   display: flex;
   flex-direction: row;
-  color: var(--element-color);
+  color: var(--icon-color);
+  i {
+    color: var(--icon-color);
+  }
 }
 
 .user,
@@ -37,26 +32,22 @@
   width: 48px;
 }
 .circle-button:hover {
-  color: var(--primary);
+  i {
+    color: var(--primary);
+  }
 }
 
 .dropdown {
   margin: 0 16px;
   .dropdown-text {
-    color: var(--element-color);
+    color: var(--text-color);
   }
   .dropdown-text:hover {
     color: var(--primary);
   }
-  .dropdown-item:hover {
-    transform: scale(1.2);
-    color: var(--primary);
-    background-color: blue;
-  }
+}
 
-  li {
-    transform: scale(1.2);
-    color: var(--primary);
-    background-color: blue;
-  }
+.dropdown-item:hover {
+  transform: scale(1.2);
+  color: var(--text-color);
 }

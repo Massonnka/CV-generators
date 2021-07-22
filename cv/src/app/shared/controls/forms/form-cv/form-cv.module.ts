@@ -13,9 +13,7 @@ import { AutocompleteModule } from '../../inputs/autocomplete/autocomplete.modul
 
 
 @NgModule({
-  declarations: [
-    FormCvComponent
-  ],
+  declarations: [FormCvComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -5,6 +5,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { TableModule } from 'src/app/shared/controls/tables/table/table.module';
+import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { GlobalHeaderModule } from '../../../global-header/global-header.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
@@ -20,6 +21,10 @@ import { EmployeeComponent } from './employee.component';
     TranslateModule,
     PrimaryButtonModule,
     TableModule,
+    BreadcrumbModule,
+  ],
+  providers: [
+    BreadcrumbService
   ],
   exports: [EmployeeComponent],
 })
