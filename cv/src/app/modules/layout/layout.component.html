@@ -7,15 +7,15 @@
       class="sider-wrapper"
       style="min-width: 48px; width: fit-content; flex: none"
     >
-      <app-sider (changeState)="toggleSider($event)">
+      <app-sider (changeTheme)="onChangeTheme($event)">
         <ul nz-menu class="list">
           <li
             nz-menu-item
             *ngFor="let page of pages"
             class="sider-item"
-            routerLink="{{ page.name | lowercase }}"
+            [routerLink]="page.name | lowercase"
           >
-            <i nz-icon nzType="{{ page.iconType }}" nzTheme="outline"></i>
+            <i nz-icon [nzType]="page.iconType" nzTheme="outline"></i>
             {{ page.translateKey | translate }}
           </li>
         </ul>

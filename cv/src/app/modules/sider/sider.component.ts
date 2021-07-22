@@ -5,6 +5,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { Themes } from 'src/app/shared/constants/themes.constants';
 
 @Component({
   selector: 'app-sider',
@@ -12,22 +13,36 @@ import {
   styleUrls: ['./sider.component.scss'],
 })
 export class SiderComponent implements OnInit {
-  public sidebarStyle = { visible: true };
-
   @Output() public changeState = new EventEmitter();
+  @Output() public changeTheme = new EventEmitter();
 
   public isVisible = true;
 
-  constructor(private elRef: ElementRef) {}
+  private currentThemeIndex = 0;
 
-  ngOnInit(): void {
-    this.sidebarStyle = { visible: true };
+  private themes: any = [];
+  
+  enumValues<T extends object>(enumeration: any): Array<T[keyof T]> {
+    return Object
+        .keys(enumeration)
+        .filter(k => isNaN(Number(k)))
+        .map(k => enumeration[k]);
+  }
+
+  public ngOnInit(): void {
+    this.onChangeTheme();
+    this.themes = this.enumValues(Themes); 
+    this.changeTheme.emit(Themes.Light);
   }
 
   onChangeState() {
-    this.sidebarStyle.visible = !this.sidebarStyle.visible;
-    
     this.changeState.emit(this.isVisible);
     this.isVisible = !this.isVisible;
+  }
+
+  public onChangeTheme(): void {
+    this.currentThemeIndex > this.themes.length - 2 ? this.currentThemeIndex = 0 : this.currentThemeIndex++;
+    this.changeTheme.emit(this.themes[this.currentThemeIndex]);
+    console.log(this.currentThemeIndex);    
   }
 }

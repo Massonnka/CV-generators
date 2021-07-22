@@ -21,7 +21,6 @@ import { ProjectInfoComponent } from './project-info.component';
     FormProjectModule,
     DefaultButtonModule,
     BreadcrumbModule,
-    BreadcrumbService,
   ],
   providers: [BreadcrumbService],
   exports: [ProjectInfoComponent],

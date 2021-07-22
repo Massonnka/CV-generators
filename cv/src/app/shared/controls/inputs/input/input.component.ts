@@ -14,6 +14,8 @@ import {
   NG_VALUE_ACCESSOR,
   ValidationErrors,
 } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-input',
@@ -36,13 +38,15 @@ export class InputComponent implements OnInit, AfterViewInit, ControlValueAccess
   public ngControl: NgControl;
   public control: FormControl;
 
+  componentDestroyed$: Subject<void>;
+
   private currentErrors: null | ValidationErrors | undefined = null;
 
   constructor(private injector: Injector) { }
 
   ngAfterViewInit(): void {
     this.ngControl = this.injector.get(NgControl);
-    this.ngControl.control?.statusChanges.subscribe(status => {
+    this.ngControl.control?.statusChanges.pipe(takeUntil(this.componentDestroyed$)).subscribe(status => {
       this.currentErrors = this.ngControl?.control?.errors;
     });
   }
@@ -50,7 +54,7 @@ export class InputComponent implements OnInit, AfterViewInit, ControlValueAccess
   ngOnInit(): void {
 
     this.control = new FormControl('');
-    this.control.valueChanges.subscribe(value => {
+    this.control.valueChanges.pipe(takeUntil(this.componentDestroyed$)).subscribe(value => {
       this.onChange(value);
     });
   }

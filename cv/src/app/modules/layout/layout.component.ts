@@ -1,32 +1,25 @@
 import {
-  Component,
-  ElementRef,
-  OnInit,
-  Output,
-  ViewChild,
+  Component, EventEmitter, Output
 } from '@angular/core';
+import { StateService } from 'src/app/services/state.service';
+import { Themes } from 'src/app/shared/constants/themes.constants';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
   public pages = [
     { name: 'Dashboard', iconType: 'dashboard', translateKey: 'pages.dashboard' },
     { name: 'Employee', iconType: 'form', translateKey: 'pages.employee' },
     { name: 'Project', iconType: 'database', translateKey: 'pages.project' },
   ];
-
-  private lightTheme = true;
-
-  constructor(private elRef: ElementRef) { }
-
   public siderVisible = true;
 
-  toggleSider(event: any): void {
-  }
+  constructor(private stateService: StateService) { }
 
-  ngOnInit(): void {
+  public onChangeTheme(value: Themes): void {
+    this.stateService.theme.next(value);
   }
 }

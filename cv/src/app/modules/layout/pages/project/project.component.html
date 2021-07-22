@@ -40,7 +40,7 @@
       <tr
         *ngFor="let project of data"
         class="table-row"
-        routerLink="{{ project.id }}"
+        [routerLink]="project.id"
       >
         <td>{{ project.name }}</td>
         <td>{{ project.startData }}</td>

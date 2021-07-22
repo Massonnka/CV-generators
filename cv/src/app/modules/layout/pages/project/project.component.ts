@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { PROJECTS } from 'src/app/project';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project',
@@ -16,7 +17,7 @@ import { PROJECTS } from 'src/app/project';
 export class ProjectComponent implements OnInit {
   constructor(
     private elRef: ElementRef,
-    private breadcrumbService: BreadcrumbService
+    private breadcrumbService: BreadcrumbService,
   ) {}
 
   public projects = PROJECTS;

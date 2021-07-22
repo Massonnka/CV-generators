@@ -1,51 +1,49 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input [formControl]="nameControl"
+            <app-input formControlName="name"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.name" | translate }}</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-date-picker [formControl]="startDateControl" [errorMessages]="{required: 'Please, specify the field'}">
+            <app-date-picker formControlName="startDate" [errorMessages]="{required: 'Please, specify the field'}">
                 <label>{{ "form.start-date" | translate }}</label>
             </app-date-picker>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-date-picker [formControl]="endDateControl" [errorMessages]="{required: 'Please, specify the field'}">
+            <app-date-picker formControlName="endDate" [errorMessages]="{required: 'Please, specify the field'}">
                 <label>{{ "form.end-date" | translate }}</label>
             </app-date-picker>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input [formControl]="teamSizeControl"
-                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+            <app-input formControlName="teamSize" [errorMessages]="{required: 'Please, specify the field'}">
                 <label>{{ "form.team-size" | translate }}</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input [formControl]="techStackControl"
+            <app-input formControlName="techStack"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.tech-stack" | translate }}</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input [formControl]="rolesControl"
-                [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
+            <app-autocomplete formControlName="roles" [errorMessages]="{required: 'Please, specify the field'}">
                 <label>{{ "form.roles" | translate }}</label>
-            </app-input>
+            </app-autocomplete>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-textarea [formControl]="descriptionControl"
+            <app-textarea formControlName="description"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.description" | translate }}</label>
             </app-textarea>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-textarea [formControl]="responsibilitiesControl"
+            <app-textarea formControlName="responsibilities"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.responsibilities" | translate }}</label>
             </app-textarea>

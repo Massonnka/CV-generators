@@ -42,7 +42,7 @@
       <tr
         *ngFor="let user of data"
         class="table-row"
-        routerLink="{{ user.id }}"
+        [routerLink]="user.id"
       >
         <td>{{ user.firstname }}</td>
         <td>{{ user.lastname }}</td>
