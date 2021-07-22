@@ -84,5 +84,4 @@ export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValu
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';
   }
-
 }

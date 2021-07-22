@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: var(--background-color);
 }
 
 .wrapper {
@@ -15,7 +16,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 16px 24px;
-  background-color: var(--background-color);
+  background-color: var(--content-color);
   color: var(--text-color);
   width: 100%;
   .title {
@@ -24,20 +25,41 @@
 }
 
 :host ::ng-deep .xng-breadcrumb-root {
+  background-color: var(--content-color);
   color: var(--text-color);
 
   .xng-breadcrumb-trail {
     color: var(--text-color);
   }
 }
-:host {
-  background-color: var(--hover-background-color);
+
+:host ::ng-deep .ant-pagination-item {
+  .ng-star-inserted {
+    color: var(--text-color);
+  }
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
+
+:host ::ng-deep .ant-icon {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+:host ::ng-deep .ant-pagination-prev .ant-pagination-item-link {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+:host ::ng-deep .ant-pagination-next .ant-pagination-item-link {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 .content {
   display: flex;
   flex-direction: column;
   margin: 20px 24px 0 24px;
-  background-color: var(--background-color);
+  background-color: var(--content-color);
   color: var(--text-color);
   padding: 24px 15px 24px 15px;
 
@@ -55,14 +77,14 @@
     padding: 10px;
     cursor: pointer;
     color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: var(--content-color);
 
     .table-head {
-      background-color: var(--background-color);
+      background-color: var(--content-color);
       color: var(--text-color);
     }
     .table-row {
-      background-color: var(--background-color);
+      background-color: var(--content-color);
       color: var(--text-color);
     }
     .table-row:hover {

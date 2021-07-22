@@ -11,7 +11,7 @@
   <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
   <ng-template #iconTemplate>/ </ng-template>
 
-  <h1>{{ "pages.project" | translate }}</h1>
+  <div class="title">{{ "pages.project" | translate }}</div>
   <p>{{ "project.project-list" | translate }}</p>
 </div>
 <nz-content class="content">
@@ -28,19 +28,19 @@
   >
     <ng-template #headRef>
       <tr>
-        <th>{{ "form.name" | translate }}</th>
-        <th>{{ "form.start-date" | translate }}</th>
-        <th>{{ "form.end-date" | translate }}</th>
-        <th>{{ "form.team-size" | translate }}</th>
-        <th>{{ "form.tech-stack" | translate }}</th>
-        <th>{{ "form.roles" | translate }}</th>
+        <th class="table-head">{{ "form.name" | translate }}</th>
+        <th class="table-head">{{ "form.start-date" | translate }}</th>
+        <th class="table-head">{{ "form.end-date" | translate }}</th>
+        <th class="table-head">{{ "form.team-size" | translate }}</th>
+        <th class="table-head">{{ "form.tech-stack" | translate }}</th>
+        <th class="table-head">{{ "form.roles" | translate }}</th>
       </tr>
     </ng-template>
     <ng-template #bodyRef let-data="$implicit">
       <tr
         *ngFor="let project of data"
         class="table-row"
-        routerLink="{{ project.id }}"
+        [routerLink]="project.id"
       >
         <td>{{ project.name }}</td>
         <td>{{ project.startData }}</td>

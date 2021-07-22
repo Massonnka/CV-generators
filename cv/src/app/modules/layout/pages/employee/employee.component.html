@@ -7,10 +7,13 @@
       {{ "pages.employee" | translate }}
     </nz-breadcrumb-item>
   </nz-breadcrumb> -->
-  
-  <xng-breadcrumb [separator]="iconTemplate" style="color: var(--text-color);"></xng-breadcrumb>
-  <ng-template #iconTemplate style="color: var(--text-color);">/ </ng-template>
-  
+
+  <xng-breadcrumb
+    [separator]="iconTemplate"
+    style="color: var(--text-color)"
+  ></xng-breadcrumb>
+  <ng-template #iconTemplate style="color: var(--text-color)">/ </ng-template>
+
   <div class="title">{{ "pages.employee" | translate }}</div>
   <p>{{ "employee.employee-list" | translate }}</p>
 </div>
@@ -39,7 +42,7 @@
       <tr
         *ngFor="let user of data"
         class="table-row"
-        routerLink="{{ user.id }}"
+        [routerLink]="user.id"
       >
         <td>{{ user.firstname }}</td>
         <td>{{ user.lastname }}</td>

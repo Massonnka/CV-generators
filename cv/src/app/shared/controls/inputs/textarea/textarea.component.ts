@@ -76,5 +76,4 @@ export class TextareaComponent implements OnInit, AfterViewInit, ControlValueAcc
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';
   }
-
 }

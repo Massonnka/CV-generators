@@ -76,5 +76,4 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';
   }
-
 }

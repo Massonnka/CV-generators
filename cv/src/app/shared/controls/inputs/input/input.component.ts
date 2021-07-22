@@ -76,5 +76,4 @@ export class InputComponent implements OnInit, AfterViewInit, ControlValueAccess
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';
   }
-
 }

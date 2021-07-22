@@ -10,10 +10,12 @@
             {{ "pages.info" | translate }}
         </nz-breadcrumb-item>
     </nz-breadcrumb> -->
-  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+  <xng-breadcrumb
+    [separator]="iconTemplate"
+  ></xng-breadcrumb>
   <ng-template #iconTemplate> / </ng-template>
 
-  <h1>{{ "pages.project" | translate }}</h1>
+  <div class="title">{{ "pages.project" | translate }}</div>
   <p>{{ "project.project-list" | translate }}</p>
 </div>
 <nz-content class="content">
