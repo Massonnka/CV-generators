@@ -32,13 +32,13 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
 
   @Input() errorMessages: any = {};
 
-  componentDestroyed$: Subject<void>;
-
   public onChange = (value: any) => { }
   public onTouched = (value: any) => { }
 
   public ngControl: NgControl;
   public control: FormControl;
+
+  componentDestroyed$ = new Subject();
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
@@ -75,11 +75,6 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
     const keys = Object.keys(this.currentErrors || {});
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';
-  }
-
-  ngOnDestroy(): void {
-    this.componentDestroyed$.next();
-    this.componentDestroyed$.complete();
   }
 
 }

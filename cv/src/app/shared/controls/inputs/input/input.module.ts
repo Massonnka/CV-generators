@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InputComponent } from './input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 
 
@@ -14,7 +15,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NzInputModule
+    NzInputModule,
+    NzIconModule
   ],
   exports: [
     InputComponent
