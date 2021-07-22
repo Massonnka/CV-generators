@@ -1,35 +1,35 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input [formControl]="firstNameControl"
+            <app-input formControlName="firstName"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.firstname" | translate }}</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input [formControl]="lastNameControl"
+            <app-input formControlName="lastName"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.lastname" | translate }}</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input [formControl]="emailControl" [errorMessages]="{required: 'Please, specify the field'}">
+            <app-autocomplete formControlName="email" [errorMessages]="{required: 'Please, specify the field'}">
                 <label>{{ "form.email" | translate }}</label>
-            </app-input>
+            </app-autocomplete>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input [formControl]="specializationControl"
+            <app-autocomplete formControlName="specialization"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.specialization" | translate }}</label>
-            </app-input>
+            </app-autocomplete>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input [formControl]="departmentControl"
+            <app-autocomplete formControlName="department"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
                 <label>{{ "form.department" | translate }}</label>
-            </app-input>
+            </app-autocomplete>
         </nz-form-item>
     </div>
     <div nz-row>

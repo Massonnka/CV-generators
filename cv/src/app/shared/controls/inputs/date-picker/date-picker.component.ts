@@ -14,6 +14,8 @@ import {
   NG_VALUE_ACCESSOR,
   ValidationErrors,
 } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-date-picker',
@@ -30,6 +32,8 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
 
   @Input() errorMessages: any = {};
 
+  componentDestroyed$: Subject<void>;
+
   public onChange = (value: any) => { }
   public onTouched = (value: any) => { }
 
@@ -42,7 +46,7 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
 
   ngAfterViewInit(): void {
     this.ngControl = this.injector.get(NgControl);
-    this.ngControl.control?.statusChanges.subscribe(status => {
+    this.ngControl.control?.statusChanges.pipe(takeUntil(this.componentDestroyed$)).subscribe(status => {
       this.currentErrors = this.ngControl?.control?.errors;
     });
   }
@@ -50,7 +54,7 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
   ngOnInit(): void {
 
     this.control = new FormControl('');
-    this.control.valueChanges.subscribe(value => {
+    this.control.valueChanges.pipe(takeUntil(this.componentDestroyed$)).subscribe(value => {
       this.onChange(value);
     });
   }
@@ -71,6 +75,11 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
     const keys = Object.keys(this.currentErrors || {});
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';
+  }
+
+  ngOnDestroy(): void {
+    this.componentDestroyed$.next();
+    this.componentDestroyed$.complete();
   }
 
 }

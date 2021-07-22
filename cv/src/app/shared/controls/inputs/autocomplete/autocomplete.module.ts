@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AutocompleteComponent } from './autocomplete.component';
-
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 
 
 @NgModule({
@@ -9,7 +11,11 @@ import { AutocompleteComponent } from './autocomplete.component';
     AutocompleteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    NzAutocompleteModule
   ],
   exports: [
     AutocompleteComponent

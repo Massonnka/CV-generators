@@ -10,6 +10,7 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { InputModule } from '../../inputs/input/input.module';
 import { DatePickerModule } from '../../inputs/date-picker/date-picker.module';
 import { TextareaModule } from '../../inputs/textarea/textarea.module';
+import { AutocompleteModule } from '../../inputs/autocomplete/autocomplete.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TextareaModule } from '../../inputs/textarea/textarea.module';
     NzDatePickerModule,
     InputModule,
     DatePickerModule,
-    TextareaModule
+    TextareaModule,
+    AutocompleteModule
   ],
   exports: [
     FormProjectComponent

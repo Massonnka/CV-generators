@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { InputModule } from '../../inputs/input/input.module';
+import { AutocompleteModule } from '../../inputs/autocomplete/autocomplete.module';
 
 
 
@@ -24,7 +25,8 @@ import { InputModule } from '../../inputs/input/input.module';
     TranslateModule,
     NzInputModule,
     NzDatePickerModule,
-    InputModule
+    InputModule,
+    AutocompleteModule
   ],
   exports: [
     FormCvComponent
