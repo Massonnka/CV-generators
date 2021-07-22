@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EMPLOYEES } from 'src/app/employees';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -8,6 +8,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   selector: 'app-employee-profile',
   templateUrl: './employee-profile.component.html',
   styleUrls: ['./employee-profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeProfileComponent implements OnInit {
   public employees = EMPLOYEES;

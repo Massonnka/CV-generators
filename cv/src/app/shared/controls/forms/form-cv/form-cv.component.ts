@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-cv',
   templateUrl: './form-cv.component.html',
   styleUrls: ['./form-cv.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormCvComponent implements OnInit {
 

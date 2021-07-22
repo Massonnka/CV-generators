@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
@@ -6,6 +6,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   selector: 'app-project-info',
   templateUrl: './project-info.component.html',
   styleUrls: ['./project-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
   constructor(

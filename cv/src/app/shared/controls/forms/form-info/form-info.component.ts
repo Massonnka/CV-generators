@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-info',
   templateUrl: './form-info.component.html',
   styleUrls: ['./form-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormInfoComponent implements OnInit {
 

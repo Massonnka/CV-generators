@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component, EventEmitter, Output
 } from '@angular/core';
 import { StateService } from 'src/app/services/state.service';
@@ -8,6 +9,7 @@ import { Themes } from 'src/app/shared/constants/themes.constants';
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutComponent {
   public pages = [

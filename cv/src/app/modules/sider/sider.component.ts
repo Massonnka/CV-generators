@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -11,6 +12,7 @@ import { Themes } from 'src/app/shared/constants/themes.constants';
   selector: 'app-sider',
   templateUrl: './sider.component.html',
   styleUrls: ['./sider.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SiderComponent implements OnInit {
   @Output() public changeState = new EventEmitter();
