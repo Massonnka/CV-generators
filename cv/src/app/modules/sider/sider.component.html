@@ -1,3 +1,7 @@
-<div class="sider">
+<div [ngClass]="{ 'visible': sidebarStyles.visible, 'hide': !sidebarStyles.visible }" class="sider">
   <ng-content></ng-content>
 </div>
+<app-default-button (click)="onChangeState()" class="toggler">
+  <i nz-icon nzType="menu-fold" nzTheme="outline" *ngIf="isVisible"></i>
+  <i nz-icon nzType="menu-unfold" nzTheme="outline" *ngIf="!isVisible"></i>
+</app-default-button>

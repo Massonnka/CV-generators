@@ -1,5 +1,10 @@
-import { transition } from '@angular/animations';
-import { Component, ElementRef, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-sider',
@@ -7,8 +12,22 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./sider.component.scss'],
 })
 export class SiderComponent implements OnInit {
+  public sidebarStyles = { visible: true };
 
-  constructor(private elRef: ElementRef) { }
+  @Output() public changeState = new EventEmitter();
 
-  ngOnInit(): void {}
+  public isVisible = true;
+
+  constructor(private elRef: ElementRef) {}
+
+  ngOnInit(): void {
+    this.sidebarStyles = { visible: true };
+  }
+
+  onChangeState() {
+    this.sidebarStyles.visible = !this.sidebarStyles.visible;
+    
+    this.changeState.emit(this.isVisible);
+    this.isVisible = !this.isVisible;
+  }
 }

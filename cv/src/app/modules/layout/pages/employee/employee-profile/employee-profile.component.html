@@ -14,7 +14,7 @@
   <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
   <ng-template #iconTemplate>/ </ng-template>
 
-  <h1>{{ "pages.employee" | translate }}</h1>
+  <div class="title">{{ "pages.employee" | translate }}</div>
   <p>
     {{ employees[currentUserId].firstname }}
     {{ employees[currentUserId].lastname }}'s
@@ -22,7 +22,7 @@
   </p>
 </div>
 <nz-content class="content">
-  <nz-tabset>
+  <nz-tabset class="tabs">
     <nz-tab nzTitle="Info">
       <app-form-info>
         <app-default-button (click)="onBack()" nz-button>

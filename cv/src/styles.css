@@ -6,8 +6,9 @@ body {
   --background-color: #f0f2f5;
   --background-header: #001529;
   --text-color: #333;
+  --text-error: orangered;
   --icon-color: #ffff;
-  --content-color: #dbdbdb;
+  --content-color: #ffffff;
   --primary: #1890ff;
   --hover-background-color: #cacaca;
 }
@@ -16,9 +17,9 @@ body {
   --background-color: #333;
   --background-header: #001529;
   --text-color: #ffff;
+  --text-error: orangered;
   --icon-color: #ffff;
-  
-  --content-color: #333;
+  --content-color: rgb(31, 31, 31);
   --primary: #1890ff;
   --hover-background-color: rgba(22, 22, 22, 0.753);
 }
