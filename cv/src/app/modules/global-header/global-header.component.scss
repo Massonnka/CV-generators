@@ -39,15 +39,20 @@
 
 .dropdown {
   margin: 0 16px;
-  .dropdown-text {
-    color: var(--text-color);
-  }
-  .dropdown-text:hover {
-    color: var(--primary);
-  }
+}
+
+.dropdown-text {
+  color: var(--icon-color);
+}
+.dropdown-text:hover {
+  color: var(--primary);
+}
+
+.dropdown-item {
+  color: var(--primary);
 }
 
 .dropdown-item:hover {
   transform: scale(1.2);
-  color: var(--text-color);
+  color: var(--primary);
 }

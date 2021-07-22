@@ -12,7 +12,7 @@ import {
   styleUrls: ['./sider.component.scss'],
 })
 export class SiderComponent implements OnInit {
-  public sidebarStyles = { visible: true };
+  public sidebarStyle = { visible: true };
 
   @Output() public changeState = new EventEmitter();
 
@@ -21,11 +21,11 @@ export class SiderComponent implements OnInit {
   constructor(private elRef: ElementRef) {}
 
   ngOnInit(): void {
-    this.sidebarStyles = { visible: true };
+    this.sidebarStyle = { visible: true };
   }
 
   onChangeState() {
-    this.sidebarStyles.visible = !this.sidebarStyles.visible;
+    this.sidebarStyle.visible = !this.sidebarStyle.visible;
     
     this.changeState.emit(this.isVisible);
     this.isVisible = !this.isVisible;
