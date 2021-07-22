@@ -14,7 +14,7 @@ import {
   NG_VALUE_ACCESSOR,
   ValidationErrors,
 } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -38,7 +38,7 @@ export class InputComponent implements OnInit, AfterViewInit, ControlValueAccess
   public ngControl: NgControl;
   public control: FormControl;
 
-  componentDestroyed$: Subject<void>;
+  componentDestroyed$ = new Subject();
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
@@ -76,5 +76,4 @@ export class InputComponent implements OnInit, AfterViewInit, ControlValueAccess
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';
   }
-
 }

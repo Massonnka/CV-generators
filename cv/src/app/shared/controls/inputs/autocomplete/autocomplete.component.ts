@@ -33,8 +33,6 @@ export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValu
   inputValue?: string;
   options: string[] = [];
 
-  componentDestroyed$: Subject<void>;
-
   @Input() errorMessages: any = {};
 
   public onChange = (value: any) => { }
@@ -42,6 +40,8 @@ export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValu
 
   public ngControl: NgControl;
   public control: FormControl;
+
+  componentDestroyed$ = new Subject();
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
