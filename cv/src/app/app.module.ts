@@ -49,12 +49,12 @@ registerLocaleData(en);
     }),
     JwtModule,
     BreadcrumbModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([AppEffects]),
-    StoreRouterConnectingModule.forRoot(),
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([AppEffects]),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     {

@@ -42,12 +42,13 @@
 
 .logo {
   width: 238.27px;
-  height: 47px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15.5px;
-  background-color: var(--text-color);
+  margin-bottom: 10px;
+  color: var(--text-color);
+  background-image: var(--backgorund-image);
   border-radius: 3px;
 }
 

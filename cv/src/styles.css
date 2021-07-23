@@ -4,6 +4,7 @@ body {
 
 .light {
   --background-color: #f0f2f5;
+  --backgorund-image: url("/assets/images/LogoAuthBlack.png");
   --background-header: #001529;
   --text-color: #333;
   --text-error: orangered;
@@ -15,6 +16,7 @@ body {
 
 .dark {
   --background-color: #333;
+  --backgorund-image: url("/assets/images/logoAuthWhite.png");
   --background-header: #001529;
   --text-color: #ffff;
   --text-error: orangered;
