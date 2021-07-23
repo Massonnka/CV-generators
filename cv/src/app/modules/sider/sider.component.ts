@@ -1,12 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   EventEmitter,
   OnInit,
   Output,
 } from '@angular/core';
 import { Themes } from 'src/app/shared/constants/themes.constants';
+
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-sider',
@@ -15,25 +17,18 @@ import { Themes } from 'src/app/shared/constants/themes.constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SiderComponent implements OnInit {
+  count$: Observable<number>;
+
   @Output() public changeState = new EventEmitter();
   @Output() public changeTheme = new EventEmitter();
 
   public isVisible = true;
 
   private currentThemeIndex = 0;
-
-  private themes: any = [];
-  
-  enumValues<T extends object>(enumeration: any): Array<T[keyof T]> {
-    return Object
-        .keys(enumeration)
-        .filter(k => isNaN(Number(k)))
-        .map(k => enumeration[k]);
-  }
+  private themes = [Themes.Light, Themes.Dark];
 
   public ngOnInit(): void {
     this.onChangeTheme();
-    this.themes = this.enumValues(Themes); 
     this.changeTheme.emit(Themes.Light);
   }
 
@@ -43,8 +38,23 @@ export class SiderComponent implements OnInit {
   }
 
   public onChangeTheme(): void {
-    this.currentThemeIndex > this.themes.length - 2 ? this.currentThemeIndex = 0 : this.currentThemeIndex++;
     this.changeTheme.emit(this.themes[this.currentThemeIndex]);
-    console.log(this.currentThemeIndex);    
+    this.currentThemeIndex > this.themes.length - 2 ? this.currentThemeIndex = 0 : this.currentThemeIndex++; 
+  }
+
+  constructor(private store: Store<{ count: number }>) {
+    this.count$ = store.select('count');
+  }
+
+  public increment(): any {
+    console.log(this.count$);
+  }
+ 
+  public decrement(): any {
+    console.log(this.count$);
+  }
+ 
+  public reset(): any {
+    console.log(this.count$);
   }
 }

@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
   public initThemeListener(): void {
     this.stateService.theme
       .subscribe(value => {
-        console.log('value: ', value);
         this.class = value;
       });
   }

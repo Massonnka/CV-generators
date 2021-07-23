@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EMPLOYEES } from 'src/app/employees';
+import { EMPLOYEES } from './../../../../../models/employees';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
