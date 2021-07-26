@@ -18,6 +18,7 @@ import { AUTH_API_URL, STORE_API_URL } from './app-injection-token';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ACCESS_TOKEN_KEY } from './services/auth.service';
+import { breadcrumbReducer } from './shared/controls/breadcrumb/store/breadcrumbs.reducer';
 import { sidebarReducer } from './store/sidebar/sidebar.reducer';
 
 export function tokenGetter() {
@@ -47,7 +48,9 @@ registerLocaleData(en);
     }),
     JwtModule,
     BreadcrumbModule,
-    StoreModule.forRoot({ toggle: sidebarReducer }),
+    StoreModule.forRoot({
+      toggle: sidebarReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
