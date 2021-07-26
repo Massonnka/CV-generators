@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-default-button',
   templateUrl: './default-button.component.html',
-  styleUrls: ['./default-button.component.scss']
+  styleUrls: ['./default-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DefaultButtonComponent implements OnInit {
 

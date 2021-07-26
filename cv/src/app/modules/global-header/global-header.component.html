@@ -20,16 +20,7 @@
           <span label>{{ "profile.username" | translate }}</span>
           <span title>{{ "profile.userinfo" | translate }}</span>
           <div content>
-            <button (click)="increase()" class="fz-60 p-50 m-20">+1
-            </button>
-            <button (click)="decrease()" [disabled]="cannotDecrease$ | async" class="fz-60 p-50 m-20">-1
-            </button>
-            <button (click)="clear()" [disabled]="cannotDecrease$ | async" class="fz-60 p-50 m-20">=0
-            </button>
-            <p class="fz-60">Счетчик = {{count$ | async}}</p>
-            <p *ngIf="updatedAt$ | async" class="fz-60">
-              Обновлялось {{updatedAt$ | async | date:"HH:mm:ss dd/MM/yyyy"}}
-            </p>
+            ЗАЧЕМ СЮДА ВПИХИВАТЬ ЛИШНЮЮ ИНФОРМАЦИЮ, МАААКС
           </div>
         </app-modal-window>
       </div>

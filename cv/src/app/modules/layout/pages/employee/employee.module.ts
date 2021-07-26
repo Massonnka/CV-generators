@@ -9,6 +9,8 @@ import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { GlobalHeaderModule } from '../../../global-header/global-header.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from 'src/app/store/reducers/counter.reducer';
 
 @NgModule({
   declarations: [EmployeeComponent],
@@ -23,9 +25,7 @@ import { EmployeeComponent } from './employee.component';
     TableModule,
     BreadcrumbModule,
   ],
-  providers: [
-    BreadcrumbService
-  ],
+  providers: [BreadcrumbService],
   exports: [EmployeeComponent],
 })
 export class EmployeeModule {}

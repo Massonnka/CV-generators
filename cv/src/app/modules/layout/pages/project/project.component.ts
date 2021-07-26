@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { PROJECTS } from 'src/app/project';
+import { PROJECTS } from 'src/app/models/project';
 import { Router } from '@angular/router';
 
 @Component({

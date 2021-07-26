@@ -4,7 +4,7 @@ import {
   ElementRef,
   OnInit,
 } from '@angular/core';
-import { EMPLOYEES } from 'src/app/employees';
+import { EMPLOYEES } from './../../../../models/employees';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

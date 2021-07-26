@@ -10,6 +10,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
+import { environment } from '../environments/environment';
 import { AUTH_API_URL, STORE_API_URL } from './app-injection-token';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +19,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { reducers, metaReducers } from './reducers';
-import { environment } from '../environments/environment';
-import { AppEffects } from './app.effects';
+import { counterReducer } from './store/reducers/counter.reducer';
+import { sidebarReducer } from './store/reducers/sidebar.reducer';
 
 export function tokenGetter() {
   return localStorage.getItem(ACCESS_TOKEN_KEY);
@@ -49,12 +49,12 @@ registerLocaleData(en);
     }),
     JwtModule,
     BreadcrumbModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
+    StoreModule.forRoot({ toggle: sidebarReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([AppEffects]),
-    StoreRouterConnectingModule.forRoot(),
+    EffectsModule.forRoot([]),
   ],
   providers: [
     {
@@ -73,4 +73,4 @@ registerLocaleData(en);
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-project',
   templateUrl: './form-project.component.html',
-  styleUrls: ['./form-project.component.scss']
+  styleUrls: ['./form-project.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormProjectComponent implements OnInit {
 
