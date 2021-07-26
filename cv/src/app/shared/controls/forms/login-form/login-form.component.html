@@ -32,9 +32,7 @@
                 <span class="checkbox">{{ 'auth.remember-me' | translate }}</span>
             </label>
         </div>
-        <div nz-col [nzSpan]="12">
-            <a class="login-form-forgot">{{ "auth.forgot-password" | translate }}</a>
-        </div>
+        <ng-content select="[forgot]"></ng-content>
     </div>
-    <ng-content></ng-content>
+    <ng-content select="[button]"></ng-content>
 </form>

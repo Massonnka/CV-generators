@@ -1,14 +1,19 @@
 {
     "auth": {
-        "sign-in": "Авторизоваться",
+        "sign-up": "Зарегистрироваться",
+        "log-in": "Авторизоваться",
         "remember-me": "Запомнить",
-        "forgot-password": "Забыли пароль?"
+        "forgot-password": "Зарегистрироваться"
     },
     "profile": {
         "profile": "Профиль",
         "username": "Логин",
         "password": "Пароль",
-        "userinfo": "Информация о пользователе"
+        "confirm-pass": "Подтвердите пароль",
+        "userinfo": "Информация о пользователе",
+        "email": "E-mail",
+        "nickname": "Прозвище",
+        "phone-number": "Телефонный номер"
     },
     "pages": {
         "home": "Домой",

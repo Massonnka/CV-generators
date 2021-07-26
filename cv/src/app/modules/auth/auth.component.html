@@ -10,16 +10,9 @@
     <img src="/assets/images/bg.png" class="bg-img" />
     <div class="form">
       <div class="logo"></div>
-      <app-login-form class="login-form">
-        <app-primary-button class="sign-up-button">
-          <a routerLink="/layout/employee">
-            <span>{{ "auth.sign-in" | translate }}</span>
-          </a>
-        </app-primary-button>
-      </app-login-form>
+      <router-outlet></router-outlet>
     </div>
   </div>
-
   <app-circle-button class="question">
     <i nz-icon nzType="question" nzTheme="outline"></i>
   </app-circle-button>

@@ -1,0 +1,10 @@
+<app-login-form class="login-form">
+    <div forgot nz-col [nzSpan]="12">
+        <a class="login-form-forgot" routerLink="/auth/sign-up">{{ "auth.forgot-password" | translate }}</a>
+    </div>
+    <app-primary-button button class="sign-up-button">
+        <a routerLink="/layout/employee">
+            <span>{{ "auth.log-in" | translate }}</span>
+        </a>
+    </app-primary-button>
+</app-login-form>
