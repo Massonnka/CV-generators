@@ -1,6 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
-import * as SidebarActions from './../actions/sidebar.actions';
+import * as SidebarActions from './sidebar.actions';
 
 export const sidebarFeatureKey = 'toggle';
 

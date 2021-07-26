@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { sidebarFeatureKey } from "../reducers/sidebar.reducer";
+import { sidebarFeatureKey } from "./sidebar.reducer";
 
 const selectSidebarState = createFeatureSelector(sidebarFeatureKey);
 

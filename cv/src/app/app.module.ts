@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -15,12 +18,7 @@ import { AUTH_API_URL, STORE_API_URL } from './app-injection-token';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ACCESS_TOKEN_KEY } from './services/auth.service';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { counterReducer } from './store/reducers/counter.reducer';
-import { sidebarReducer } from './store/reducers/sidebar.reducer';
+import { sidebarReducer } from './store/sidebar/sidebar.reducer';
 
 export function tokenGetter() {
   return localStorage.getItem(ACCESS_TOKEN_KEY);
