@@ -10,6 +10,9 @@ import { BreadcrumbComponent } from './breadcrumb.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    BreadcrumbComponent
   ]
 })
 export class BreadcrumbModule { }

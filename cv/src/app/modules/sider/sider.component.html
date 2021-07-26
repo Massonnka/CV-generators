@@ -2,20 +2,12 @@
   <ng-content></ng-content>
 </div>
 
-<button (click)="increment()">Increment</button>
-
-<div>Current Count: {{ count$ | async }}</div>
-
-<button (click)="decrement()">Decrement</button>
-
-<button (click)="reset()">Reset Counter</button>
-
 <app-default-button class="theme-toggler" (click)="onChangeTheme()">
   <i nz-icon nzType="bulb" nzTheme="outline"></i>
 </app-default-button>
 <app-default-button (click)="onChangeState()" class="toggler">
   <i
-    *ngIf="isVisible; else invisibleRef"
+    *ngIf="!isVisible else invisibleRef"
     nz-icon
     nzType="menu-fold"
     nzTheme="outline"

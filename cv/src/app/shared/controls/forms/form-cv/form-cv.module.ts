@@ -30,4 +30,4 @@ import { AutocompleteModule } from '../../inputs/autocomplete/autocomplete.modul
     FormCvComponent
   ]
 })
-export class FormCvModule {}
+export class FormCvModule { }

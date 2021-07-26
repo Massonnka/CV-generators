@@ -1,6 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component, EventEmitter, Output
+  Component
 } from '@angular/core';
 import { StateService } from 'src/app/services/state.service';
 import { Themes } from 'src/app/shared/constants/themes.constants';
@@ -17,7 +17,6 @@ export class LayoutComponent {
     { name: 'Employee', iconType: 'form', translateKey: 'pages.employee' },
     { name: 'Project', iconType: 'database', translateKey: 'pages.project' },
   ];
-  public siderVisible = true;
 
   constructor(private stateService: StateService) { }
 
