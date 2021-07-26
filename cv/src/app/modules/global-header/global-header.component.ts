@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -10,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class GlobalHeaderComponent implements OnInit {
   public languages = ['en', 'ru'];
 
-  constructor(private translateService: TranslateService) {}
+  constructor(private translateService: TranslateService, private store: Store) { }
   public currentLanguage = this.translateService.currentLang || 'en';
 
   switchLanguage(language: string): void {
@@ -18,5 +19,5 @@ export class GlobalHeaderComponent implements OnInit {
     this.currentLanguage = language;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

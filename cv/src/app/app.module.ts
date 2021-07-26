@@ -55,7 +55,6 @@ registerLocaleData(en);
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     {
