@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { LayoutComponent } from './layout.component';
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
         data: { breadcrumb: { alias: 'Project' } },
       },
     ],
+    canActivate: [AuthGuard]
   },
 ];
 

@@ -6,7 +6,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
-import { FormInfoModule } from 'src/app/shared/controls/forms/form-info/form-info.module';
+import { FormInfoModule } from './form-info/form-info.module';
 import { ListModule } from 'src/app/shared/controls/list/list.module';
 import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { EmployeeProfileRoutingModule } from './employee-profile-routing.module';

@@ -1,12 +1,12 @@
-<form nz-form [formGroup]="validateForm" class="login-form">
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="loginUser()">
     <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your username!">
+        <nz-form-control nzErrorTip="Please input your email!">
             <div class="label">
-                <label>{{ "profile.username" | translate }}</label>
+                <label nzFor="email">{{ "profile.email" | translate }}</label>
                 <label class="favourite">*</label>
             </div>
             <nz-input-group nzPrefixIcon="user">
-                <input type="text" nz-input formControlName="username" placeholder="Username" />
+                <input nz-input formControlName="email" id="email" placeholder="Email" />
             </nz-input-group>
         </nz-form-control>
     </nz-form-item>
@@ -18,7 +18,7 @@
             </div>
             <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="lock">
                 <input [type]="passwordVisible ? 'text' : 'password'" nz-input formControlName="password"
-                    placeholder="Password" [(ngModel)]="password" />
+                    placeholder="Password" />
             </nz-input-group>
             <ng-template #suffixTemplate>
                 <i class="passicon" nz-icon [nzType]="passwordVisible ? 'eye' : 'eye-invisible'"
@@ -34,5 +34,5 @@
         </div>
         <ng-content select="[forgot]"></ng-content>
     </div>
-    <ng-content select="[button]"></ng-content>
+    <button type="submit" [disabled]="validateForm.invalid">Log in</button>
 </form>

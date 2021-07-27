@@ -7,10 +7,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { InputModule } from '../../inputs/input/input.module';
-import { DatePickerModule } from '../../inputs/date-picker/date-picker.module';
-import { TextareaModule } from '../../inputs/textarea/textarea.module';
-import { AutocompleteModule } from '../../inputs/autocomplete/autocomplete.module';
+import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
+import { DatePickerModule } from 'src/app/shared/controls/inputs/date-picker/date-picker.module';
+import { TextareaModule } from 'src/app/shared/controls/inputs/textarea/textarea.module';
+import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/autocomplete.module';
 
 @NgModule({
   declarations: [

@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormInfoComponent } from './form-info.component';
+import { FormCvComponent } from './form-cv.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { InputModule } from '../../inputs/input/input.module';
-import { AutocompleteModule } from '../../inputs/autocomplete/autocomplete.module';
+import { InputModule } from '../../../../../../shared/controls/inputs/input/input.module';
+import { AutocompleteModule } from '../../../../../../shared/controls/inputs/autocomplete/autocomplete.module';
 
 
 
 @NgModule({
-  declarations: [
-    FormInfoComponent
-  ],
+  declarations: [FormCvComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -29,7 +27,7 @@ import { AutocompleteModule } from '../../inputs/autocomplete/autocomplete.modul
     AutocompleteModule
   ],
   exports: [
-    FormInfoComponent
+    FormCvComponent
   ]
 })
-export class FormInfoModule { }
+export class FormCvModule { }

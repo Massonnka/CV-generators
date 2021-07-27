@@ -9,7 +9,7 @@ import { select, State, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Themes } from 'src/app/shared/constants/themes.constants';
 import { toggleSidebar } from 'src/app/store/actions/sidebar.actions';
-import { selectSidebar } from './../../store/selectors/sidebar.selectors';
+import { selectSidebar } from '../../../store/selectors/sidebar.selectors';
 
 @Component({
   selector: 'app-sider',
@@ -21,7 +21,7 @@ export class SiderComponent implements OnInit {
   @Output() public changeState = new EventEmitter();
   @Output() public changeTheme = new EventEmitter();
 
-  constructor(private store: Store<{ toggle: boolean }>) {}
+  constructor(private store: Store<{ toggle: boolean }>) { }
 
   public isVisible$: Observable<boolean> = this.store.select(selectSidebar);
   public isVisible: boolean = true;

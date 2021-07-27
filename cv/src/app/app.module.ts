@@ -11,15 +11,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { environment } from '../environments/environment';
-import { AUTH_API_URL, STORE_API_URL } from './app-injection-token';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { counterReducer } from './store/reducers/counter.reducer';
 import { sidebarReducer } from './store/reducers/sidebar.reducer';
+import { AuthService } from './core/auth/auth.service';
+import { AuthInterceptor } from './core/auth/auth.interseptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -58,12 +58,9 @@ registerLocaleData(en);
       useValue: en_US,
     },
     {
-      provide: AUTH_API_URL,
-      useValue: environment.authApi,
-    },
-    {
-      provide: STORE_API_URL,
-      useValue: environment.storeApi,
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     },
     BreadcrumbService,
   ],

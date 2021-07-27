@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component
 } from '@angular/core';
-import { StateService } from 'src/app/services/state.service';
+import { StateService } from 'src/app/core/services/state.service';
 import { Themes } from 'src/app/shared/constants/themes.constants';
 
 @Component({

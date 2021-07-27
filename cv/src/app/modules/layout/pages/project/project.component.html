@@ -20,15 +20,10 @@
       {{ "project.add-project" | translate }}
     </app-primary-button>
   </div>
-  <app-table
-    class="table"
-    [headTemplate]="headRef"
-    [bodyTemplate]="bodyRef"
-    [data]="projects"
-  >
+  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="projects">
     <ng-template #headRef>
       <tr>
-        <th class="table-head">{{ "form.name" | translate }}</th>
+        <th class="table-head">{{ "form.email" | translate }}</th>
         <th class="table-head">{{ "form.start-date" | translate }}</th>
         <th class="table-head">{{ "form.end-date" | translate }}</th>
         <th class="table-head">{{ "form.team-size" | translate }}</th>
@@ -37,12 +32,8 @@
       </tr>
     </ng-template>
     <ng-template #bodyRef let-data="$implicit">
-      <tr
-        *ngFor="let project of data"
-        class="table-row"
-        [routerLink]="project.id"
-      >
-        <td>{{ project.name }}</td>
+      <tr *ngFor="let project of data" class="table-row" [routerLink]="project.id">
+        <td>{{this.currentUser.email}}</td>
         <td>{{ project.startData }}</td>
         <td>{{ project.endData }}</td>
         <td>{{ project.teamSize }}</td>
