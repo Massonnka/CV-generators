@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <ng-container
+    *ngFor="let breadcrumb of data"
+    [ngTemplateOutlet]="bodyTemplate"
+    [ngTemplateOutletContext]="{ $implicit: data }"
+    class="content"
+    >
+    {{ breadcrumb.name }}
+    <div *ngIf="breadcrumb != data[data.length - 1]" class="separator">/</div>
+  </ng-container>
+</div>

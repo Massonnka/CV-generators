@@ -10,8 +10,8 @@ import {
   breadcrumbsFeatureKey,
 } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
-import { TableModule } from 'src/app/shared/controls/tables/table/table.module';
-import { GlobalHeaderModule } from '../../../global-header/global-header.module';
+import { TableModule } from 'src/app/shared/controls/table/table.module';
+import { GlobalHeaderModule } from '../../global-header/global-header.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
 

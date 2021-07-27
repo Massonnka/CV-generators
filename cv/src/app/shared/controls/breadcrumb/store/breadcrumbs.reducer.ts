@@ -12,15 +12,12 @@ const initialState: BreadcrumbsState = {
   breadcrumbs: [],
 };
 
-
-
 const _breadcrumbReducer = createReducer(
   initialState,
   on(breadcumbsActions.setBreadcrumbs, (state, {breadcrumbs}) => ({
     ...state,
     breadcrumbs
   })),
-  on(breadcumbsActions.clearBreadcrumbs, (state) => state)
 );
 
 export function breadcrumbReducer(

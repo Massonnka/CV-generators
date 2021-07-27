@@ -1,19 +1,5 @@
 <div class="page-header">
-  <!-- <nz-breadcrumb>
-    <nz-breadcrumb-item>
-      {{ "pages.home" | translate }}
-    </nz-breadcrumb-item>
-    <nz-breadcrumb-item>
-      {{ "pages.employee" | translate }}
-    </nz-breadcrumb-item>
-  </nz-breadcrumb> -->
-
-  <!-- <xng-breadcrumb
-    [separator]="iconTemplate"
-    style="color: var(--text-color)"
-  ></xng-breadcrumb>
-  <ng-template #iconTemplate style="color: var(--text-color)">/ </ng-template> -->
-  <breadcrumb>BLA</breadcrumb>
+  <breadcrumb [data]="breadcrumbs" #bodyTemplate></breadcrumb>
 
   <div class="title">{{ "pages.employee" | translate }}</div>
   <p>{{ "employee.employee-list" | translate }}</p>
@@ -40,11 +26,7 @@
       </tr>
     </ng-template>
     <ng-template #bodyRef let-data="$implicit">
-      <tr
-        *ngFor="let user of data"
-        class="table-row"
-        [routerLink]="user.id"
-      >
+      <tr *ngFor="let user of data" class="table-row" [routerLink]="user.id">
         <td>{{ user.firstname }}</td>
         <td>{{ user.lastname }}</td>
         <td>{{ user.email }}</td>

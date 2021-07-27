@@ -1,19 +1,5 @@
 <div class="page-header">
-  <!-- <nz-breadcrumb>
-        <nz-breadcrumb-item>
-            {{ "pages.home" | translate }}
-        </nz-breadcrumb-item>
-        <nz-breadcrumb-item>
-            {{ "pages.project" | translate }}
-        </nz-breadcrumb-item>
-        <nz-breadcrumb-item>
-            {{ "pages.info" | translate }}
-        </nz-breadcrumb-item>
-    </nz-breadcrumb> -->
-  <xng-breadcrumb
-    [separator]="iconTemplate"
-  ></xng-breadcrumb>
-  <ng-template #iconTemplate> / </ng-template>
+  <breadcrumb [data]="breadcrumbs" #bodyTemplate></breadcrumb>
 
   <div class="title">{{ "pages.project" | translate }}</div>
   <p>{{ "project.project-list" | translate }}</p>

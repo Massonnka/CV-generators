@@ -26,7 +26,6 @@ import { InputModule } from '../../inputs/input/input.module';
     TranslateModule,
     PrimaryButtonModule,
     NzCheckboxModule,
-    TranslateModule,
     InputModule
   ],
   exports: [

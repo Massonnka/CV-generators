@@ -1,14 +1,19 @@
 {
     "auth": {
-        "sign-in": "Sign In",
+        "sign-up": "Sign Up",
+        "log-in": "Log In",
         "remember-me": "Remember me",
-        "forgot-password": "Forgot your password?"
+        "forgot-password": "Register now"
     },
     "profile": {
         "profile": "Profile",
         "username": "Username",
+        "confirm-pass": "Confirm Password",
         "password": "Password",
-        "userinfo": "User Info"
+        "userinfo": "User Info",
+        "email": "E-mail",
+        "nickname": "Nickname",
+        "phone-number": "Phone Number"
     },
     "pages": {
         "home": "Home",

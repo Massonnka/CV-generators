@@ -1,12 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  OnInit,
-} from '@angular/core';
-import { BreadcrumbService } from 'xng-breadcrumb';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PROJECTS } from 'src/app/models/project';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
+import { Observable } from 'rxjs';
+import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 
 @Component({
   selector: 'app-project',
@@ -15,17 +13,29 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectComponent implements OnInit {
-  constructor(
-    private elRef: ElementRef,
-    private breadcrumbService: BreadcrumbService,
-  ) {}
+  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) {}
 
   public projects = PROJECTS;
 
-  ngOnInit(): void {
-    this.breadcrumbService.set('@Project', 'Project');
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
+  public breadcrumbs: Breadcrumb[];
 
-    const content = this.elRef.nativeElement.querySelector('.content');
-    content.style.overflow = 'scroll';
+  public ngOnInit(): void {
+    this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+    this.store.dispatch(
+      setBreadcrumbs({
+        breadcrumbs: [
+          {
+            url: '/layout',
+            name: 'Home',
+          },
+          {
+            url: '/layout/project',
+            name: 'Project',
+          },
+        ],
+      })
+    );
   }
 }

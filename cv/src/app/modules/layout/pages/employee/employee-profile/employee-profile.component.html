@@ -11,8 +11,7 @@
       {{ employees[currentUserId].lastname }}
     </nz-breadcrumb-item>
   </nz-breadcrumb> -->
-  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
-  <ng-template #iconTemplate>/ </ng-template>
+  <breadcrumb [data]="breadcrumbs" #bodyTemplate></breadcrumb>
 
   <div class="title">{{ "pages.employee" | translate }}</div>
   <p>

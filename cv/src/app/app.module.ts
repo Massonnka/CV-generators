@@ -17,13 +17,8 @@ import { environment } from '../environments/environment';
 import { AUTH_API_URL, STORE_API_URL } from './app-injection-token';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ACCESS_TOKEN_KEY } from './services/auth.service';
-import { breadcrumbReducer } from './shared/controls/breadcrumb/store/breadcrumbs.reducer';
 import { sidebarReducer } from './store/sidebar/sidebar.reducer';
 
-export function tokenGetter() {
-  return localStorage.getItem(ACCESS_TOKEN_KEY);
-}
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -74,4 +69,4 @@ registerLocaleData(en);
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

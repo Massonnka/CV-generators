@@ -11,7 +11,7 @@ import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdow
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { LoginFormModule } from 'src/app/shared/controls/forms/login-form/login-form.module';
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthComponent } from './auth.component';
+import { AuthComponent } from './components/auth.component';
 
 @NgModule({
   declarations: [AuthComponent],
