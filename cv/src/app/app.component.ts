@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angula
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { StateService } from './services/state.service';
+import { StateService } from './core/services/state.service';
 import { Themes } from './shared/constants/themes.constants';
 
 @Component({
@@ -13,7 +13,7 @@ import { Themes } from './shared/constants/themes.constants';
 })
 export class AppComponent implements OnInit {
   @HostBinding('class') public class = '';
-  constructor(private translateService: TranslateService, private stateService: StateService) {}
+  constructor(private translateService: TranslateService, private stateService: StateService) { }
 
   public ngOnInit(): void {
     this.initThemeListener();

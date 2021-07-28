@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { User } from 'src/app/core/interfaces/interfaces';
 
 
 @Component({
@@ -13,15 +14,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginFormComponent implements OnInit {
   passwordVisible = false;
   password?: string;
+
   validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    public authService: AuthService) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.validateForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
       remember: [true]
     });
+  }
+
+  loginUser() {
+    this.authService.signIn(this.validateForm.value)
   }
 }

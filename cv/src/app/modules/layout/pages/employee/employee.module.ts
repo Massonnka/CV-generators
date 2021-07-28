@@ -31,4 +31,4 @@ import { EmployeeComponent } from './employee.component';
   ],
   exports: [EmployeeComponent],
 })
-export class EmployeeModule {}
+export class EmployeeModule { }

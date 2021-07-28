@@ -29,4 +29,4 @@ import { LayoutComponent } from './layout.component';
   ],
   exports: [LayoutComponent],
 })
-export class LayoutModule {}
+export class LayoutModule { }

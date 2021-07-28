@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
 
 @Component({
@@ -30,7 +32,9 @@ export class RegistrFormComponent implements OnInit {
     return {};
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    public authService: AuthService,
+    public router: Router) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -42,6 +46,15 @@ export class RegistrFormComponent implements OnInit {
       phoneNumber: [null, [Validators.required]],
       agree: [false]
     });
+  }
+
+  registerUser() {
+    this.authService.signUp(this.validateForm.value).subscribe((res) => {
+      if (res.result) {
+        this.validateForm.reset()
+        this.router.navigate(['log-in']);
+      }
+    })
   }
 
 }
