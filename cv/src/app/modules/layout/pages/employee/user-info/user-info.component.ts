@@ -16,38 +16,14 @@ import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
 export class UserInfoComponent implements OnInit {
 
   constructor(
-    private location: Location,
-    private store: Store<{ breadcrumbs: Breadcrumb[] }>
+    private location: Location
   ) { }
 
   onBack() {
     this.location.back();
   }
 
-  public breadcrumbs$: Observable<Breadcrumb[]> =
-    this.store.select(selectBreadcrumb);
-  public breadcrumbs: Breadcrumb[];
 
-  ngOnInit(): void {
-    this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
-    this.store.dispatch(
-      setBreadcrumbs({
-        breadcrumbs: [
-          {
-            url: '/layout',
-            name: 'Home',
-          },
-          {
-            url: '/layout/project',
-            name: 'Project',
-          },
-          {
-            url: '/layout/project/addinfo',
-            name: 'Add Info',
-          },
-        ],
-      })
-    );
-  }
+  ngOnInit(): void { }
 
 }

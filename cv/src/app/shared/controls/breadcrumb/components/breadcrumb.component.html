@@ -1,9 +1,7 @@
 <div class="wrapper">
-  <ng-container
-    *ngFor="let breadcrumb of data"
-    class="content"
-    >
-    {{ breadcrumb.name }}
+  <ng-container *ngFor="let breadcrumb of data" class="content">
+    <div [routerLink]="breadcrumb.url" [ngClass]="breadcrumb.isDisabled === true ? 'isDisabled' : 'link'">{{
+      breadcrumb.name }}</div>
     <div *ngIf="breadcrumb != data[data.length - 1]" class="separator">/</div>
   </ng-container>
 </div>

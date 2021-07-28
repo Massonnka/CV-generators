@@ -12,7 +12,12 @@
       </a>
     </app-primary-button>
   </div>
-  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="users">
+  <app-table
+    class="table"
+    [headTemplate]="headRef"
+    [bodyTemplate]="bodyRef"
+    [data]="users"
+  >
     <ng-template #headRef>
       <tr>
         <th class="table-head">{{ "table.firstname" | translate }}</th>

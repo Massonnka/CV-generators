@@ -1,51 +1,55 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="registerUser()">
-    <nz-form-item class="inputs">
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ 'form.firstname' | translate }}
-        </nz-form-label>
-        <app-input formControlName="firstName"
-            [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-        </app-input>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">{{ 'profile.email' | translate }}</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+            <input nz-input formControlName="email" id="email" />
+        </nz-form-control>
     </nz-form-item>
-    <nz-form-item class="inputs">
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ 'form.lastname' | translate }}
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>{{ 'profile.password' | translate }}
         </nz-form-label>
-        <app-input formControlName="lastName"
-            [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-        </app-input>
-    </nz-form-item>
-    <nz-form-item class="inputs">
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ 'profile.password' | translate }}
-        </nz-form-label>
-        <app-input type="password" id="password" formControlName="password" (ngModelChange)="updateConfirmValidator()"
-            [errorMessages]="{required: 'Please, specify the field'}">
-        </app-input>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+            <input nz-input type="password" id="password" formControlName="password"
+                (ngModelChange)="updateConfirmValidator()" />
+        </nz-form-control>
     </nz-form-item>
     <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>{{ 'profile.confirm-pass' | translate }}
         </nz-form-label>
-        <app-input type="password" formControlName="checkPassword" id="checkPassword" (ngModelChange)="
-            updateConfirmValidator()"
-            [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-        </app-input>
-        <ng-template #errorTpl let-control>
-            <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
-            <ng-container *ngIf="control.hasError('confirm')">
-                Two passwords that you enter is inconsistent!
-            </ng-container>
-        </ng-template>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+            <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+            <ng-template #errorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
+                <ng-container *ngIf="control.hasError('confirm')">
+                    Two passwords that you enter is inconsistent!
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
     </nz-form-item>
-    <nz-form-item class="inputs">
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ 'form.email' | translate }}
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired
+            nzTooltipTitle="What do you want other to call you">
+            <span>{{ 'profile.nickname' | translate }}</span>
         </nz-form-label>
-        <app-autocomplete formControlName="email" [errorMessages]="{required: 'Please, specify the field'}">
-        </app-autocomplete>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your nickname!">
+            <input nz-input id="nickname" formControlName="nickname" />
+        </nz-form-control>
     </nz-form-item>
-    <nz-form-item class="inputs">
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ 'form.specialization' | translate }}
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>{{ 'profile.phone-number' | translate }}
         </nz-form-label>
-        <app-autocomplete formControlName="specialization"
-            [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-        </app-autocomplete>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="validateForm.controls['phoneNumber']"
+            nzErrorTip="Please input your phone number!">
+            <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+                <ng-template #addOnBeforeTemplate>
+                    <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+                        <nz-option nzLabel="+375" nzValue="+375"></nz-option>
+                        <nz-option nzLabel="+80" nzValue="+80"></nz-option>
+                    </nz-select>
+                </ng-template>
+                <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+            </nz-input-group>
+        </nz-form-control>
     </nz-form-item>
     <nz-form-item nz-row class="register-area">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
@@ -57,9 +61,7 @@
             </label>
         </nz-form-control>
     </nz-form-item>
-    <nz-form-item nz-row>
-        <app-primary-button type="submit">
-            {{ 'auth.sign-up' | translate }}
-        </app-primary-button>
-    </nz-form-item>
+    <app-primary-button type="submit">
+        {{ 'auth.sign-up' | translate }}
+    </app-primary-button>
 </form>

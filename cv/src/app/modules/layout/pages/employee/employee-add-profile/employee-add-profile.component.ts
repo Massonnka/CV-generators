@@ -57,15 +57,18 @@ export class EmployeeAddProfileComponent implements OnInit {
         breadcrumbs: [
           {
             url: '/layout',
-            name: 'Home ',
+            name: 'Home',
+            isDisabled: true,
           },
           {
             url: '/layout/employee',
-            name: ' Employee',
+            name: 'Employee',
+            isDisabled: false,
           },
           {
             url: '/layout/employee/addinfo',
-            name: ' Add Profile',
+            name: 'Add Info',
+            isDisabled: true,
           },
         ],
       })
