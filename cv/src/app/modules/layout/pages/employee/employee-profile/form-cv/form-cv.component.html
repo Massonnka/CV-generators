@@ -2,19 +2,22 @@
     <div class="row">
         <nz-form-item class="inputs">
             <app-autocomplete formControlName="email" [errorMessages]="{required: 'Please, specify the field'}">
-                <label>{{ "form.email" | translate }}</label>
+                <label label>{{ "form.email" | translate }}</label>
+                <label ngReq class="favourite">*</label>
             </app-autocomplete>
         </nz-form-item>
         <nz-form-item class="inputs">
             <app-input formControlName="lastName"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label>{{ "form.lastname" | translate }}</label>
+                <label label>{{ "form.lastname" | translate }}</label>
+                <label ngReq class="favourite">*</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
             <app-input formControlName="skills"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label>{{ "form.skills" | translate }}</label>
+                <label label>{{ "form.skills" | translate }}</label>
+                <label ngReq class="favourite">*</label>
             </app-input>
         </nz-form-item>
     </div>
@@ -22,13 +25,15 @@
         <nz-form-item class="inputs">
             <app-autocomplete formControlName="specialization"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label>{{ "form.specialization" | translate }}</label>
+                <label label>{{ "form.specialization" | translate }}</label>
+                <label ngReq class="favourite">*</label>
             </app-autocomplete>
         </nz-form-item>
         <nz-form-item class="inputs">
             <app-autocomplete formControlName="department"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label>{{ "form.department" | translate }}</label>
+                <label lavel>{{ "form.department" | translate }}</label>
+                <label ngReq class="favourite">*</label>
             </app-autocomplete>
         </nz-form-item>
     </div>

@@ -1,6 +1,6 @@
 <div class="label">
-    <ng-content></ng-content>
-    <label class="favourite">*</label>
+    <ng-content select="label"></ng-content>
+    <ng-content select="nzReq"></ng-content>
 </div>
 <input [formControl]="control" placeholder="Input here" nz-input (input)="onInput($event)" [nzAutocomplete]="auto" />
 <nz-autocomplete [nzDataSource]="options" nzBackfill #auto></nz-autocomplete>

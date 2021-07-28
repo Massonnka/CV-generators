@@ -5,7 +5,12 @@ import {
   OnInit,
 } from '@angular/core';
 import { EMPLOYEES } from './../../../../models/employees';
-import { BreadcrumbService } from 'xng-breadcrumb';
+import { Store } from '@ngrx/store';
+import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
+import { Observable } from 'rxjs';
+import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-employee',
@@ -15,15 +20,27 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class EmployeeComponent implements OnInit {
   public users = EMPLOYEES;
-  constructor(
-    private elRef: ElementRef,
-    private breadcrumbService: BreadcrumbService
-  ) {}
+  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) {}
 
-  ngOnInit(): void {
-    this.breadcrumbService.set('@Employee', 'Employee');
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
 
-    const content = this.elRef.nativeElement.querySelector('.content');
-    content.style.overflow = 'scroll';
+  public breadcrumbs: Breadcrumb[];
+  public ngOnInit(): void {
+    this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+    this.store.dispatch(
+      setBreadcrumbs({
+        breadcrumbs: [
+          {
+            url: '/layout',
+            name: 'Home ',
+          },
+          {
+            url: '/layout/employee',
+            name: ' Employee',
+          },
+        ],
+      })
+    );
   }
 }

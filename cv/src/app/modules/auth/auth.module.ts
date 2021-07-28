@@ -9,9 +9,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
 import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
-import { LoginFormModule } from './log-in/login-form/login-form.module';
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthComponent } from './auth.component';
+import { AuthComponent } from './components/auth.component';
+import { LoginFormModule } from './components/log-in/login-form/login-form.module';
 
 @NgModule({
   declarations: [AuthComponent],

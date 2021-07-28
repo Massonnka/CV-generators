@@ -5,11 +5,11 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { select, State, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Themes } from 'src/app/shared/constants/themes.constants';
-import { toggleSidebar } from 'src/app/store/actions/sidebar.actions';
-import { selectSidebar } from '../../../store/selectors/sidebar.selectors';
+import { toggleSidebar } from 'src/app/store/sidebar/sidebar.actions';
+import { selectSidebar } from 'src/app/store/sidebar/sidebar.selectors';
 
 @Component({
   selector: 'app-sider',
@@ -18,7 +18,6 @@ import { selectSidebar } from '../../../store/selectors/sidebar.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SiderComponent implements OnInit {
-  @Output() public changeState = new EventEmitter();
   @Output() public changeTheme = new EventEmitter();
 
   constructor(private store: Store<{ toggle: boolean }>) { }
@@ -39,7 +38,7 @@ export class SiderComponent implements OnInit {
   public onChangeTheme(): void {
     this.changeTheme.emit(this.themes[this.currentThemeIndex]);
     this.currentThemeIndex > this.themes.length - 2
-      ? (this.currentThemeIndex = 0)
+     ? (this.currentThemeIndex = 0)
       : this.currentThemeIndex++;
   }
 

@@ -1,14 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  OnInit,
-} from '@angular/core';
-import { BreadcrumbService } from 'xng-breadcrumb';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PROJECTS } from 'src/app/models/project';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth/auth.service';
-import { User } from 'src/app/core/interfaces/interfaces';
+import { Store } from '@ngrx/store';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
+import { Observable } from 'rxjs';
+import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 
 @Component({
   selector: 'app-project',
@@ -17,27 +13,29 @@ import { User } from 'src/app/core/interfaces/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectComponent implements OnInit {
-
-  currentUser: Object | any = {};
-
-  constructor(
-    private elRef: ElementRef,
-    private breadcrumbService: BreadcrumbService,
-    public authService: AuthService,
-    private actRoute: ActivatedRoute
-  ) { }
+  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) {}
 
   public projects = PROJECTS;
 
-  ngOnInit(): void {
-    this.breadcrumbService.set('@Project', 'Project');
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
+  public breadcrumbs: Breadcrumb[];
 
-    const content = this.elRef.nativeElement.querySelector('.content');
-    content.style.overflow = 'scroll';
-
-    let id = this.actRoute.snapshot.paramMap.get('id');
-    this.authService.getUserProfile(id).subscribe(res => {
-      this.currentUser = res.msg;
-    })
+  public ngOnInit(): void {
+    this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+    this.store.dispatch(
+      setBreadcrumbs({
+        breadcrumbs: [
+          {
+            url: '/layout',
+            name: 'Home',
+          },
+          {
+            url: '/layout/project',
+            name: 'Project',
+          },
+        ],
+      })
+    );
   }
 }

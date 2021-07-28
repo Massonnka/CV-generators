@@ -1,0 +1,15 @@
+<div class="table">
+  <nz-table #basicTable [nzData]="data" [nzPageSize]="8" [nzPageIndex]="1">
+    <thead>
+      <ng-container
+        [ngTemplateOutlet]="headTemplate"
+      ></ng-container>
+    </thead>
+    <tbody >
+      <ng-container
+        [ngTemplateOutlet]="bodyTemplate"
+        [ngTemplateOutletContext]="{ $implicit: basicTable.data }"
+      ></ng-container>
+    </tbody>
+  </nz-table>
+</div>

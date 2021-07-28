@@ -1,18 +1,5 @@
 <div class="page-header">
-  <!-- <nz-breadcrumb>
-    <nz-breadcrumb-item>
-      {{ "pages.home" | translate }}
-    </nz-breadcrumb-item>
-    <nz-breadcrumb-item (click)="back()"  class="breadcrumb">
-      {{ "pages.employee" | translate }}
-    </nz-breadcrumb-item>
-    <nz-breadcrumb-item  class="breadcrumb">
-      {{ employees[currentUserId].firstname }}
-      {{ employees[currentUserId].lastname }}
-    </nz-breadcrumb-item>
-  </nz-breadcrumb> -->
-  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
-  <ng-template #iconTemplate>/ </ng-template>
+  <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
   <div class="title">{{ "pages.employee" | translate }}</div>
   <p>

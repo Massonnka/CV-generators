@@ -34,5 +34,7 @@
         </div>
         <ng-content select="[forgot]"></ng-content>
     </div>
-    <button type="submit" [disabled]="validateForm.invalid">Log in</button>
+    <app-primary-button type="submit">
+        {{ 'auth.log-in' | translate }}
+    </app-primary-button>
 </form>

@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <nz-page-header class="header">
+    <nz-page-header-title>
+      <img src="../../../../assets/images/logo.png" alt="logo" />
+    </nz-page-header-title>
+    <nz-page-header-content class="nz-page-header-content">
+      <div class="buttons">
+        <app-circle-button class="circle-button">
+          <i nz-icon nzType="search" nzTheme="outline"></i>
+        </app-circle-button>
+        <app-circle-button class="circle-button">
+          <i nz-icon nzType="question-circle" nzTheme="outline"></i>
+        </app-circle-button>
+        <app-circle-button class="circle-button">
+          <i nz-icon nzType="bell" nzTheme="outline"></i>
+        </app-circle-button>
+      </div>
+      <div class="user">
+        <app-modal-window>
+          <span label>{{ "profile.username" | translate }}</span>
+          <span title>{{ "profile.userinfo" | translate }}</span>
+          <div content>
+            ЗАЧЕМ СЮДА ВПИХИВАТЬ ЛИШНЮЮ ИНФОРМАЦИЮ, МАААКС
+          </div>
+        </app-modal-window>
+      </div>
+      <app-dropdown class="dropdown">
+        <a icon class="dropdown-text"> {{ currentLanguage }} </a>
+        <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer">
+          <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">
+            {{ language }}
+          </li>
+        </ul>
+      </app-dropdown>
+    </nz-page-header-content>
+  </nz-page-header>
+</div>

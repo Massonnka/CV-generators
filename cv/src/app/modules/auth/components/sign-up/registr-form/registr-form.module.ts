@@ -10,6 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
+import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
+import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/autocomplete.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-but
     NzButtonModule,
     NzSelectModule,
     NzCheckboxModule,
-    PrimaryButtonModule
+    PrimaryButtonModule,
+    InputModule,
+    AutocompleteModule
   ],
   exports: [
     RegistrFormComponent

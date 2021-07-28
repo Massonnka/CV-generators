@@ -4,11 +4,12 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { sidebarReducer } from './reducers/sidebar.reducer';
+import { sidebarReducer } from './sidebar/sidebar.reducer';
+import { themeReducer } from './Themes/themes.reducer';
 
 @NgModule({
   imports: [
-    StoreModule.forRoot({ toggle: sidebarReducer }),
+    StoreModule.forRoot({ toggle: sidebarReducer, changeTheme: themeReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

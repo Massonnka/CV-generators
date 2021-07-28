@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -13,11 +16,7 @@ import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
 import { sidebarReducer } from './store/reducers/sidebar.reducer';
-import { AuthService } from './core/auth/auth.service';
 import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -45,7 +44,9 @@ registerLocaleData(en);
     }),
     JwtModule,
     BreadcrumbModule,
-    StoreModule.forRoot({ toggle: sidebarReducer }),
+    StoreModule.forRoot({
+      toggle: sidebarReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

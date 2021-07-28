@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
-import { sidebarReducer } from 'src/app/store/reducers/sidebar.reducer';
-import { SiderComponent } from './sider.component';
+import { sidebarReducer } from 'src/app/store/sidebar/sidebar.reducer';
+import { SiderComponent } from './components/sider.component';
 
 @NgModule({
   declarations: [SiderComponent],

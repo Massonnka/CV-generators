@@ -38,12 +38,12 @@ export class RegistrFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      email: [null, [Validators.email, Validators.required]],
+      firstName: ['', [Validators.required, Validators.minLength(4)]],
+      lastName: ['', [Validators.required, Validators.minLength(4)]],
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      nickname: [null, [Validators.required]],
-      phoneNumberPrefix: ['+375'],
-      phoneNumber: [null, [Validators.required]],
+      email: [null, [Validators.email, Validators.required]],
+      specialization: ['', [Validators.required, Validators.minLength(4)]],
       agree: [false]
     });
   }
