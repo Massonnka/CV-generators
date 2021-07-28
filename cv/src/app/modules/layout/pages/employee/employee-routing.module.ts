@@ -8,10 +8,18 @@ const routes: Routes = [
     component: EmployeeComponent,
   },
   {
+    path: 'addinfo',
+    loadChildren: () =>
+      import('./employee-add-profile/employee-add-profile.module').then(
+        (m) => m.EmployeeAddProfileModule
+      ),
+    data: { breadcrumb: { alias: 'EmployeeProfile' } },
+  },
+  {
     path: ':user',
     loadChildren: () =>
-      import('./employee-profile/employee-profile.module').then(
-        (m) => m.EmployeeProfileModule
+      import('./employee-info-profile/employee-info-profile.module').then(
+        (m) => m.EmployeeInfoProfileModule
       ),
     data: { breadcrumb: { alias: 'EmployeeProfile' } },
   },
@@ -21,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class EmployeeRoutingModule {}
+export class EmployeeRoutingModule { }

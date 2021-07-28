@@ -16,11 +16,10 @@ import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { sidebarReducer } from './store/sidebar/sidebar.reducer';
+import { AuthService } from './core/auth/auth.service';
 import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
-
+import { sidebarReducer } from './store/sidebar/sidebar.reducer';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -29,7 +28,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,6 +60,7 @@ registerLocaleData(en);
       provide: NZ_I18N,
       useValue: en_US,
     },
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

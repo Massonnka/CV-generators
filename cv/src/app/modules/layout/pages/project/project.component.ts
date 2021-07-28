@@ -13,7 +13,7 @@ import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcr
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectComponent implements OnInit {
-  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) {}
+  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) { }
 
   public projects = PROJECTS;
 

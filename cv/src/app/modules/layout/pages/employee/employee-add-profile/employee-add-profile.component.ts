@@ -7,7 +7,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EMPLOYEES } from './../../../../../models/employees';
+import { EMPLOYEES } from '../../../../../models/employees';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -17,12 +17,12 @@ import { tap } from 'rxjs/operators';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 
 @Component({
-  selector: 'app-employee-profile',
-  templateUrl: './employee-profile.component.html',
-  styleUrls: ['./employee-profile.component.scss'],
+  selector: 'app-employee-add-profile',
+  templateUrl: './employee-add-profile.component.html',
+  styleUrls: ['./employee-add-profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeProfileComponent implements OnInit {
+export class EmployeeAddProfileComponent implements OnInit {
   public employees = EMPLOYEES;
 
   public cves: any = [
@@ -64,8 +64,8 @@ export class EmployeeProfileComponent implements OnInit {
             name: ' Employee',
           },
           {
-            url: '/layout/employee/id',
-            name: ' Profile',
+            url: '/layout/employee/addinfo',
+            name: ' Add Profile',
           },
         ],
       })

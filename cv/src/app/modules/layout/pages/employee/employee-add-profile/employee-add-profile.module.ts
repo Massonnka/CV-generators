@@ -9,14 +9,14 @@ import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-but
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { FormInfoModule } from './form-info/form-info.module';
 import { ListModule } from 'src/app/shared/controls/list/list.module';
-import { EmployeeProfileRoutingModule } from './employee-profile-routing.module';
-import { EmployeeProfileComponent } from './employee-profile.component';
+import { EmployeeAddProfileRoutingModule } from './employee-add-profile-routing.module';
+import { EmployeeAddProfileComponent } from './employee-add-profile.component';
 
 @NgModule({
-  declarations: [EmployeeProfileComponent],
+  declarations: [EmployeeAddProfileComponent],
   imports: [
     CommonModule,
-    EmployeeProfileRoutingModule,
+    EmployeeAddProfileRoutingModule,
     TranslateModule,
     NzBreadCrumbModule,
     NzLayoutModule,
@@ -28,6 +28,6 @@ import { EmployeeProfileComponent } from './employee-profile.component';
     BreadcrumbModule,
     DefaultButtonModule,
   ],
-  exports: [EmployeeProfileComponent],
+  exports: [EmployeeAddProfileComponent],
 })
-export class EmployeeProfileModule {}
+export class EmployeeAddProfileModule { }

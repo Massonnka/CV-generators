@@ -7,15 +7,12 @@
 <nz-content class="content">
   <div class="actions">
     <app-primary-button class="sign-up-button">
-      {{ "project.add-project" | translate }}
+      <a routerLink="/layout/project/addinfo">
+        <span>{{ "project.add-project" | translate }}</span>
+      </a>
     </app-primary-button>
   </div>
-  <app-table
-    class="table"
-    [headTemplate]="headRef"
-    [bodyTemplate]="bodyRef"
-    [data]="projects"
-  >
+  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="projects">
     <ng-template #headRef>
       <tr>
         <th class="table-head">{{ "form.name" | translate }}</th>
@@ -27,11 +24,7 @@
       </tr>
     </ng-template>
     <ng-template #bodyRef let-data="$implicit">
-      <tr
-        *ngFor="let project of data"
-        class="table-row"
-        [routerLink]="project.id"
-      >
+      <tr *ngFor="let project of data" class="table-row" [routerLink]="project.id">
         <td>{{ project.name }}</td>
         <td>{{ project.startData }}</td>
         <td>{{ project.endData }}</td>

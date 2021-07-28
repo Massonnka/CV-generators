@@ -1,20 +1,19 @@
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { BreadcrumbService } from 'xng-breadcrumb';
 import { Observable } from 'rxjs';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
+import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'app-project-info',
-  templateUrl: './project-info.component.html',
-  styleUrls: ['./project-info.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-add-project-info',
+  templateUrl: './project-add-info.component.html',
+  styleUrls: ['./project-add-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectInfoComponent implements OnInit {
-
+export class ProjectAddInfoComponent implements OnInit {
   constructor(
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
@@ -42,12 +41,11 @@ export class ProjectInfoComponent implements OnInit {
             name: 'Project',
           },
           {
-            url: '/layout/project/info',
-            name: 'Project Info',
+            url: '/layout/project/addinfo',
+            name: 'Add Info',
           },
         ],
       })
     );
   }
-
 }

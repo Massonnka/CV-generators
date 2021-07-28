@@ -6,16 +6,13 @@
 </div>
 <nz-content class="content">
   <div class="actions">
-    <app-primary-button class="add-button">
-      {{ "employee.add-employee" | translate }}
+    <app-primary-button class="sign-up-button">
+      <a routerLink="/layout/employee/addinfo">
+        <span>{{ "employee.add-employee" | translate }}</span>
+      </a>
     </app-primary-button>
   </div>
-  <app-table
-    class="table"
-    [headTemplate]="headRef"
-    [bodyTemplate]="bodyRef"
-    [data]="users"
-  >
+  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="users">
     <ng-template #headRef>
       <tr>
         <th class="table-head">{{ "table.firstname" | translate }}</th>

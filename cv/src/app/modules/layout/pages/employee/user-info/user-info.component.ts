@@ -8,12 +8,12 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
 
 @Component({
-  selector: 'app-project-info',
-  templateUrl: './project-info.component.html',
-  styleUrls: ['./project-info.component.scss'],
+  selector: 'app-user-info',
+  templateUrl: './user-info.component.html',
+  styleUrls: ['./user-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProjectInfoComponent implements OnInit {
+export class UserInfoComponent implements OnInit {
 
   constructor(
     private location: Location,
@@ -42,8 +42,8 @@ export class ProjectInfoComponent implements OnInit {
             name: 'Project',
           },
           {
-            url: '/layout/project/info',
-            name: 'Project Info',
+            url: '/layout/project/addinfo',
+            name: 'Add Info',
           },
         ],
       })

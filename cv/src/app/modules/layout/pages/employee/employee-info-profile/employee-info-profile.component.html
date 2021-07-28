@@ -1,0 +1,24 @@
+<div class="page-header">
+    <breadcrumb [data]="breadcrumbs"></breadcrumb>
+
+    <div class="title">{{ "pages.employee" | translate }}</div>
+    <p>
+        {{ employees[currentUserId].firstname }}
+        {{ employees[currentUserId].lastname }}'s
+        {{ "profile.profile" | translate }}
+    </p>
+</div>
+<nz-content class="content">
+    <nz-tabset class="tabs">
+        <nz-tab nzTitle="Info">
+            <app-info-profile></app-info-profile>
+        </nz-tab>
+        <nz-tab nzTitle="CV">
+            <app-list [bodyTemplate]="bodyRef" [data]="cves">
+                <ng-template #bodyRef let-data="$implicit">
+                    {{ data.name }}
+                </ng-template>
+            </app-list>
+        </nz-tab>
+    </nz-tabset>
+</nz-content>
