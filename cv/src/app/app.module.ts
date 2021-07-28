@@ -16,9 +16,10 @@ import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { sidebarReducer } from './store/reducers/sidebar.reducer';
+import { sidebarReducer } from './store/sidebar/sidebar.reducer';
 import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
