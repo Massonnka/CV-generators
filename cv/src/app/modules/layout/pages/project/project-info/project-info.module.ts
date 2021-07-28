@@ -5,7 +5,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
-import { FormProjectModule } from 'src/app/shared/controls/forms/form-project/form-project.module';
+import { FormProjectModule } from './form-project/form-project.module';
 import { ProjectInfoRoutingModule } from './project-info-routing.module';
 import { ProjectInfoComponent } from './project-info.component';
 
@@ -24,4 +24,4 @@ import { ProjectInfoComponent } from './project-info.component';
   ],
   exports: [ProjectInfoComponent],
 })
-export class ProjectInfoModule {}
+export class ProjectInfoModule { }

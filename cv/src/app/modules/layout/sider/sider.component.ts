@@ -9,7 +9,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Themes } from 'src/app/shared/constants/themes.constants';
 import { toggleSidebar } from 'src/app/store/sidebar/sidebar.actions';
-import { selectSidebar } from './../../../../store/sidebar/sidebar.selectors';
+import { selectSidebar } from 'src/app/store/sidebar/sidebar.selectors';
+
 @Component({
   selector: 'app-sider',
   templateUrl: './sider.component.html',

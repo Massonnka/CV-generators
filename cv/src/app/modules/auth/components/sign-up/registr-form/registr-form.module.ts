@@ -9,7 +9,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-import { PrimaryButtonModule } from '../../buttons/primary-button/primary-button.module';
+import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 
 @NgModule({
   declarations: [

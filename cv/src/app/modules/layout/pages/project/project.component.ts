@@ -29,10 +29,12 @@ export class ProjectComponent implements OnInit {
           {
             url: '/layout',
             name: 'Home',
+            isDisabled: true,
           },
           {
             url: '/layout/project',
             name: 'Project',
+            isDisabled: false,
           },
         ],
       })

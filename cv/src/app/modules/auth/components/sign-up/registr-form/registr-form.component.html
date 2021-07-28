@@ -1,4 +1,4 @@
-<form nz-form [formGroup]="validateForm" class="login-form">
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="registerUser()">
     <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">{{ 'profile.email' | translate }}</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
@@ -61,5 +61,7 @@
             </label>
         </nz-form-control>
     </nz-form-item>
-    <ng-content type="submit"></ng-content>
+    <app-primary-button type="submit">
+        {{ 'auth.sign-up' | translate }}
+    </app-primary-button>
 </form>
