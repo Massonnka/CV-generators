@@ -17,12 +17,16 @@
         </app-default-button>
       </app-form-info>
     </nz-tab>
-    <nz-tab nzTitle="CV">
-      <app-list [bodyTemplate]="bodyRef" [data]="cves">
+    <nz-tab nzTitle="CV" class="cv">
+      <app-list [bodyTemplate]="bodyRef" [data]="cves" class="list">
         <ng-template #bodyRef let-data="$implicit">
           {{ data.name }}
         </ng-template>
       </app-list>
+
+      <div class="cv-info">
+        <app-form-cv></app-form-cv>
+      </div>
     </nz-tab>
   </nz-tabset>
 </nz-content>

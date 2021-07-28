@@ -11,6 +11,7 @@ import { FormInfoModule } from './form-info/form-info.module';
 import { ListModule } from 'src/app/shared/controls/list/list.module';
 import { EmployeeAddProfileRoutingModule } from './employee-add-profile-routing.module';
 import { EmployeeAddProfileComponent } from './employee-add-profile.component';
+import { FormCvModule } from './form-cv/form-cv.module';
 
 @NgModule({
   declarations: [EmployeeAddProfileComponent],
@@ -27,6 +28,7 @@ import { EmployeeAddProfileComponent } from './employee-add-profile.component';
     ListModule,
     BreadcrumbModule,
     DefaultButtonModule,
+    FormCvModule,
   ],
   exports: [EmployeeAddProfileComponent],
 })
