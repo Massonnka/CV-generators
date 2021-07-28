@@ -35,14 +35,17 @@ export class ProjectInfoComponent implements OnInit {
           {
             url: '/layout',
             name: 'Home',
+            isDisabled: true,
           },
           {
             url: '/layout/project',
             name: 'Project',
+            isDisabled: false,
           },
           {
             url: '/layout/project/info',
             name: 'Info',
+            isDisabled: true,
           },
         ],
       })

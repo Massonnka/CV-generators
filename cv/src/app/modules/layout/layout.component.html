@@ -12,7 +12,7 @@
           <li
             nz-menu-item
             *ngFor="let page of pages"
-            class="sider-item"
+            [ngClass]="page.isDisabled ? 'disable' : 'sider-item'"
             [routerLink]="page.name | lowercase"
           >
             <i nz-icon [nzType]="page.iconType" nzTheme="outline"></i>

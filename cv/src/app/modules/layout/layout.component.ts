@@ -13,9 +13,9 @@ import { Themes } from 'src/app/shared/constants/themes.constants';
 })
 export class LayoutComponent {
   public pages = [
-    { name: 'Dashboard', iconType: 'dashboard', translateKey: 'pages.dashboard' },
-    { name: 'Employee', iconType: 'form', translateKey: 'pages.employee' },
-    { name: 'Project', iconType: 'database', translateKey: 'pages.project' },
+    { name: 'Dashboard', iconType: 'dashboard', translateKey: 'pages.dashboard', isDisabled: true },
+    { name: 'Employee', iconType: 'form', translateKey: 'pages.employee', isDisabled: false },
+    { name: 'Project', iconType: 'database', translateKey: 'pages.project', isDisabled: false  },
   ];
 
   constructor(private stateService: StateService) { }

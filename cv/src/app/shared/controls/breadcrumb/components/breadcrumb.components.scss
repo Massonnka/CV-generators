@@ -3,4 +3,17 @@
   .separator {
     margin: 0 5px 0 5px;
   }
+
+  .link {
+    cursor: pointer;
+  }
+
+  .link:hover {
+    transform: scale(1.12);
+    color: var(--primary);
+  }
+
+  .isDisabled {
+    pointer-events: none;
+  }
 }
