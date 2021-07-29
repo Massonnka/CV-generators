@@ -1,12 +1,18 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="registerUser()">
     <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">{{ 'profile.email' | translate }}</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-            <input nz-input formControlName="email" id="email" />
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ "form.firstname" | translate}}</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid Name!">
+            <input nz-input formControlName="firstName" id="firstname" />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>{{ 'profile.password' | translate }}
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ "form.lastname" | translate}}</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid Name!">
+            <input nz-input formControlName="lastName" id="lastname" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>{{ "profile.password" | translate}}
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
             <input nz-input type="password" id="password" formControlName="password"
@@ -14,7 +20,7 @@
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>{{ 'profile.confirm-pass' | translate }}
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>{{ "profile.confirm-pass" | translate}}
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
             <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
@@ -27,28 +33,16 @@
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired
-            nzTooltipTitle="What do you want other to call you">
-            <span>{{ 'profile.nickname' | translate }}</span>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>{{ "form.email" | translate}}
         </nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your nickname!">
-            <input nz-input id="nickname" formControlName="nickname" />
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your email!">
+            <input nz-input formControlName="email" id="email" placeholder="Email" />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>{{ 'profile.phone-number' | translate }}
-        </nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="validateForm.controls['phoneNumber']"
-            nzErrorTip="Please input your phone number!">
-            <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
-                <ng-template #addOnBeforeTemplate>
-                    <nz-select formControlName="phoneNumberPrefix" class="phone-select">
-                        <nz-option nzLabel="+375" nzValue="+375"></nz-option>
-                        <nz-option nzLabel="+80" nzValue="+80"></nz-option>
-                    </nz-select>
-                </ng-template>
-                <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
-            </nz-input-group>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ "form.specialization" | translate}}</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid Specialization!">
+            <input nz-input formControlName="specialization" id="specialization" />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item nz-row class="register-area">
@@ -61,7 +55,5 @@
             </label>
         </nz-form-control>
     </nz-form-item>
-    <app-primary-button type="submit">
-        {{ 'auth.sign-up' | translate }}
-    </app-primary-button>
+    <app-primary-button type="submit" nz-button>{{ "auth.sign-up" | translate}}</app-primary-button>
 </form>
