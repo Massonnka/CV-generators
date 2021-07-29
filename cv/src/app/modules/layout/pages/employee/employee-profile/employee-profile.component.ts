@@ -15,6 +15,7 @@ import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadc
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { tap } from 'rxjs/operators';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
+import { PROJECTS } from 'src/app/models/project';
 
 @Component({
   selector: 'app-employee-profile',
@@ -24,6 +25,7 @@ import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcr
 })
 export class EmployeeProfileComponent implements OnInit {
   public employees = EMPLOYEES;
+  public projects = PROJECTS;
 
   public cves: any = [
     { name: 'cv 1' },
