@@ -5,6 +5,7 @@ import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-but
 import { RegistrFormModule } from './registr-form/registr-form.module';
 import { SignUpRoutingModule } from './sign-up-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 
 
@@ -17,7 +18,8 @@ import { TranslateModule } from '@ngx-translate/core';
     PrimaryButtonModule,
     RegistrFormModule,
     SignUpRoutingModule,
-    TranslateModule
+    TranslateModule,
+    NzFormModule
   ],
   exports: [
     SignUpComponent

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { RegisterUser } from 'src/app/core/interfaces/interfaces';
 
 
 @Component({
@@ -17,6 +18,9 @@ export class RegistrFormComponent implements OnInit {
     type: 'info-circle',
     theme: 'twotone'
   };
+
+  submitted = false;
+  message: string;
 
   updateConfirmValidator(): void {
     /** wait for refresh value */
@@ -49,12 +53,27 @@ export class RegistrFormComponent implements OnInit {
   }
 
   registerUser() {
-    this.authService.signUp(this.validateForm.value).subscribe((res) => {
-      if (res.result) {
-        this.validateForm.reset()
-        this.router.navigate(['auth/log-in']);
-      }
-    })
+    if (this.validateForm.invalid) {
+      return;
+    }
+
+    this.submitted = true;
+
+    const user: RegisterUser = {
+      firstName: this.validateForm.value.firstName,
+      lastName: this.validateForm.value.lastName,
+      password: this.validateForm.value.password,
+      email: this.validateForm.value.email,
+      specialization: this.validateForm.value.specialization
+    };
+
+    this.authService.signUp(user).subscribe(() => {
+      this.validateForm.reset();
+      this.router.navigate(['auth/log-in']);
+      this.submitted = false;
+    }, () => {
+      this.submitted = false;
+    });
   }
 
 }

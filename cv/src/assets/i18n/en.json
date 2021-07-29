@@ -3,7 +3,8 @@
         "sign-up": "Sign Up",
         "log-in": "Log In",
         "remember-me": "Remember me",
-        "forgot-password": "Register now"
+        "forgot-password": "Register now",
+        "i-have-account": "I already have an account"
     },
     "profile": {
         "profile": "Profile",
