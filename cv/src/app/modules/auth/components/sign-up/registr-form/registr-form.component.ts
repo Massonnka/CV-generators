@@ -52,7 +52,7 @@ export class RegistrFormComponent implements OnInit {
     this.authService.signUp(this.validateForm.value).subscribe((res) => {
       if (res.result) {
         this.validateForm.reset()
-        this.router.navigate(['log-in']);
+        this.router.navigate(['auth/log-in']);
       }
     })
   }
