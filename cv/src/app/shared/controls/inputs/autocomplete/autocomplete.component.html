@@ -1,7 +1,11 @@
-<div class="label">
-    <ng-content select="label"></ng-content>
-    <ng-content select="nzReq"></ng-content>
-</div>
-<input [formControl]="control" placeholder="Input here" nz-input (input)="onInput($event)" [nzAutocomplete]="auto" />
-<nz-autocomplete [nzDataSource]="options" nzBackfill #auto></nz-autocomplete>
-<div *ngIf="this.ngControl?.control?.errors" class="error">{{getErrorMessage()}}</div>
+<nz-form-control>
+    <div class="label">
+        <label *ngIf="label">{{ label | translate }}</label>
+        <label *ngIf="isRequired" class="favourite">*</label>
+    </div>
+    <nz-input-group>
+        <input (blur)="onBlur()" [formControl]="control" type="text" nz-input *ngIf="placeholder"
+            placeholder="{{placeholder}}" />
+    </nz-input-group>
+    <div *ngIf="ngControl?.control?.errors && ngControl?.control?.touched" class="error">{{getErrorMessage()}}</div>
+</nz-form-control>

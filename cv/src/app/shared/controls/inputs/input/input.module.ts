@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { TranslateModule } from '@ngx-translate/core';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 
 
@@ -18,7 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     NzInputModule,
     NzIconModule,
-    TranslateModule
+    TranslateModule,
+    NzFormModule
   ],
   exports: [
     InputComponent

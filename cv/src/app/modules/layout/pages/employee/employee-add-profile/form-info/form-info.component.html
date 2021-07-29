@@ -1,35 +1,33 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input label="form.firstname" formControlName="firstName"
+            <app-input icon="user" placeholder="Input your firstname!" label="form.firstname"
+                formControlName="firstName"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input label="form.lastname" formControlName="firstName"
+            <app-input placeholder="Input your lastname!" label="form.lastname" formControlName="firstName"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-autocomplete formControlName="email" [errorMessages]="{required: 'Please, specify the field'}">
-                <label label>{{ "form.email" | translate }}</label>
-                <label ngReq class="favourite">*</label>
+            <app-autocomplete placeholder="Input your email!" label="form.email" formControlName="email"
+                [errorMessages]="{required: 'Please, specify the field'}">
             </app-autocomplete>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-autocomplete formControlName="specialization"
+            <app-autocomplete placeholder="Input your specialization!" label="form.specialization"
+                formControlName="specialization"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label label>{{ "form.specialization" | translate }}</label>
-                <label ngReq class="favourite">*</label>
+
             </app-autocomplete>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-autocomplete formControlName="department"
+            <app-autocomplete placeholder="Input your department!" label="form.department" formControlName="department"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label label>{{ "form.department" | translate }}</label>
-                <label ngReq class="favourite">*</label>
             </app-autocomplete>
         </nz-form-item>
     </div>

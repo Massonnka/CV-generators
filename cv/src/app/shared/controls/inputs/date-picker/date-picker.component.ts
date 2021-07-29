@@ -1,3 +1,4 @@
+import { ChangeDetectorRef } from '@angular/core';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -15,7 +16,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { startWith, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-date-picker',
@@ -31,23 +32,29 @@ import { takeUntil } from 'rxjs/operators';
 export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueAccessor {
 
   @Input() errorMessages: any = {};
+  @Input() label: string = '';
 
   public onChange = (value: any) => { }
-  public onTouched = (value: any) => { }
+  public onTouched = () => { }
 
   public ngControl: NgControl;
   public control: FormControl;
+
+  public isRequired = false;
 
   componentDestroyed$ = new Subject();
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
-  constructor(private injector: Injector) { }
+  constructor(private injector: Injector,
+    private cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
     this.ngControl = this.injector.get(NgControl);
-    this.ngControl.control?.statusChanges.pipe(takeUntil(this.componentDestroyed$)).subscribe(status => {
+    this.ngControl.control?.statusChanges.pipe(startWith(this.ngControl?.control?.status), takeUntil(this.componentDestroyed$)).subscribe(status => {
+      this.isRequired = this.ngControl?.control?.validator?.({ value: null } as any)?.required;
       this.currentErrors = this.ngControl?.control?.errors;
+      this.cdr.detectChanges();
     });
   }
 
@@ -57,6 +64,10 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
     this.control.valueChanges.pipe(takeUntil(this.componentDestroyed$)).subscribe(value => {
       this.onChange(value);
     });
+  }
+
+  onBlur(): void {
+    this.onTouched();
   }
 
   writeValue(obj: any): void {

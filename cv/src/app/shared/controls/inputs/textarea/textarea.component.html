@@ -1,6 +1,9 @@
-<div class="label">
-    <ng-content select="label"></ng-content>
-    <ng-content select="nzReq"></ng-content>
-</div>
-<textarea rows="4" nz-input [formControl]="control" placeholder="Autosize height based on content lines"></textarea>
-<div *ngIf="this.ngControl?.control?.errors" class="error">{{getErrorMessage()}}</div>
+<nz-form-control>
+    <div class="label">
+        <label *ngIf="label">{{ label | translate }}</label>
+        <label *ngIf="isRequired" class="favourite">*</label>
+    </div>
+    <textarea rows="4" nz-input (blur)="onBlur()" [formControl]="control" *ngIf="placeholder"
+        placeholder="{{placeholder}}"></textarea>
+    <div *ngIf="ngControl?.control?.errors && ngControl?.control?.touched" class="error">{{getErrorMessage()}}</div>
+</nz-form-control>

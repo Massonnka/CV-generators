@@ -33,6 +33,8 @@ export class InputComponent implements OnInit, AfterViewInit, ControlValueAccess
 
   @Input() errorMessages: any = {};
   @Input() label: string = '';
+  @Input() placeholder: string = '';
+  @Input() icon: string = '';
 
   public onChange = (value: any) => { }
   public onTouched = () => { }

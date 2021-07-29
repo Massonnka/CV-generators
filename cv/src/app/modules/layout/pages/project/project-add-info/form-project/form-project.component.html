@@ -1,59 +1,47 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input formControlName="name"
+            <app-input label="form.name" formControlName="name"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label label>{{ "form.name" | translate }}</label>
-                <label ngReq class="favourite">*</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-date-picker formControlName="startDate" [errorMessages]="{required: 'Please, specify the field'}">
-                <label label>{{ "form.start-date" | translate }}</label>
-                <label ngReq class="favourite">*</label>
+            <app-date-picker label="form.start-date" formControlName="startDate"
+                [errorMessages]="{required: 'Please, specify the field'}">
             </app-date-picker>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-date-picker formControlName="endDate" [errorMessages]="{required: 'Please, specify the field'}">
-                <label label>{{ "form.end-date" | translate }}</label>
-                <label ngReq class="favourite">*</label>
+            <app-date-picker label="form.end-date" formControlName="endDate"
+                [errorMessages]="{required: 'Please, specify the field'}">
             </app-date-picker>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input formControlName="teamSize" [errorMessages]="{required: 'Please, specify the field'}">
-                <label label>{{ "form.team-size" | translate }}</label>
-                <label ngReq class="favourite">*</label>
+            <app-input label="form.teamSize" formControlName="teamSize"
+                [errorMessages]="{required: 'Please, specify the field'}">
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input formControlName="techStack"
+            <app-input label="form.tech-stack" formControlName="techStack"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label label>{{ "form.tech-stack" | translate }}</label>
-                <label ngReq class="favourite">*</label>
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-autocomplete formControlName="roles" [errorMessages]="{required: 'Please, specify the field'}">
-                <label label>{{ "form.roles" | translate }}</label>
-                <label ngReq class="favourite">*</label>
+            <app-autocomplete label="form.roles" formControlName="roles"
+                [errorMessages]="{required: 'Please, specify the field'}">
             </app-autocomplete>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-textarea formControlName="description"
+            <app-textarea label="form.description" formControlName="description"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label label>{{ "form.description" | translate }}</label>
-                <label ngReq class="favourite">*</label>
             </app-textarea>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-textarea formControlName="responsibilities"
+            <app-textarea label="form.responsibilities" formControlName="responsibilities"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
-                <label label>{{ "form.responsibilities" | translate }}</label>
-                <label ngReq class="favourite">*</label>
             </app-textarea>
         </nz-form-item>
     </div>

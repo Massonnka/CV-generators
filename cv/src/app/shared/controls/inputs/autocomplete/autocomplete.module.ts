@@ -4,6 +4,8 @@ import { AutocompleteComponent } from './autocomplete.component';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
     FormsModule,
     ReactiveFormsModule,
     NzInputModule,
-    NzAutocompleteModule
+    NzAutocompleteModule,
+    NzFormModule,
+    TranslateModule
   ],
   exports: [
     AutocompleteComponent

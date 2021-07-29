@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TextareaComponent } from './textarea.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -14,7 +16,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NzInputModule
+    NzInputModule,
+    NzFormModule,
+    TranslateModule
   ],
   exports: [
     TextareaComponent
