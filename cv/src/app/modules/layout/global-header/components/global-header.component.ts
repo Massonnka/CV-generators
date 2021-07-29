@@ -29,6 +29,5 @@ export class GlobalHeaderComponent implements OnInit {
   logout(event: Event) {
     event.preventDefault();
     this.authService.logout();
-    this.router.navigate(['auth/log-in']);
   }
 }

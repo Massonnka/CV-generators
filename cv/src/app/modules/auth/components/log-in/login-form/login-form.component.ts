@@ -57,11 +57,11 @@ export class LoginFormComponent implements OnInit {
     this.authService.signIn(user).subscribe(() => {
       this.validateForm.reset();
       this.router.navigate(['layout/employee']);
-      this.submitted = false;
     }, () => {
       this.isPassCorrect = false;
       this.submitted = false;
     });
+    this.submitted = false;
   }
 }
 

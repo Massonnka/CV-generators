@@ -15,7 +15,6 @@ export class AuthService {
     public error$: Subject<string> = new Subject<string>();
     endpoint: string = 'https://innowise-cv-generator.herokuapp.com';
     headers = new HttpHeaders().set('Content-Type', 'application/json');
-    private currentUser = {};
 
     constructor(
         private http: HttpClient,
@@ -39,7 +38,7 @@ export class AuthService {
             .pipe(
                 tap((response: any) => this.setToken(response)),
                 catchError(this.handleError.bind(this))
-            );
+                );
     }
 
     get token(): string | null {
@@ -48,12 +47,14 @@ export class AuthService {
             this.logout();
             return null;
         }
-        return String(localStorage.getItem('fb-token'));
+        return localStorage.getItem('fb-token');
     }
 
-    get isLoggedIn(): boolean {
-        let authToken = localStorage.getItem('access_token');
-        return (authToken !== null) ? true : false;
+    get isLogged(): boolean {
+        const authToken = localStorage.getItem('fb-token');
+        console.log('auth token', authToken);
+        
+        return authToken !== null
     }
 
     isAuthenticated(): boolean {
@@ -61,10 +62,10 @@ export class AuthService {
     }
 
     logout() {
-        let removeToken = localStorage.removeItem('access_token');
+        let removeToken = localStorage.removeItem('accessToken');
         if (removeToken == null) {
             this.router.navigate(['/auth/log-in']);
-        }
+        }        
     }
 
     handleError(error: HttpErrorResponse) {
@@ -88,7 +89,7 @@ export class AuthService {
     private setToken(response: FbAuthResponse | null) {
         if (response) {
             const expiresDate = new Date(new Date().getTime() + 60 * 60 * 1000);
-            localStorage.setItem('fb-token', response.idToken);
+            localStorage.setItem('fb-token', response.accessToken);
             localStorage.setItem('fb-token-exp', expiresDate.toString());
         } else {
             localStorage.clear();
