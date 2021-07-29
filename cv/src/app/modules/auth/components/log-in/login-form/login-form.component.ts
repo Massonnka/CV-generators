@@ -13,12 +13,25 @@ export class LoginFormComponent implements OnInit {
   passwordVisible = false;
   password?: string;
 
+  submitted = false;
+  message: string;
+
   validateForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
-    public authService: AuthService) { }
+    public authService: AuthService,
+    public router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params.loginAgain) {
+        this.message = 'Please, enter data';
+      } else if (params.authFailed) {
+        this.message = 'Session ended. Enter data again.';
+      }
+    });
+
     this.validateForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -27,6 +40,24 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginUser() {
-    this.authService.signIn(this.validateForm.value)
+    if (this.validateForm.invalid) {
+      return;
+    }
+
+    this.submitted = true;
+
+    const user: LoginUser = {
+      email: this.validateForm.value.email,
+      password: this.validateForm.value.password
+    };
+
+    this.authService.signIn(user).subscribe(() => {
+      this.validateForm.reset();
+      this.router.navigate(['layout/employee']);
+      this.submitted = false;
+    }, () => {
+      this.submitted = false;
+    });
   }
 }
+
