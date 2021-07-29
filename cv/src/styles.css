@@ -12,6 +12,7 @@ body {
   --content-color: #ffff;
   --primary: #1890ff;
   --hover-background-color: #cacaca;
+  --header-text: #ffffff;
 }
 
 .dark {

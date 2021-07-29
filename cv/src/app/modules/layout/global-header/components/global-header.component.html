@@ -24,6 +24,9 @@
           </div>
         </app-modal-window>
       </div>
+      <li routerLinkActive="active">
+        <a (click)="logout($event)">Sign out</a>
+      </li>
       <app-dropdown class="dropdown">
         <a icon class="dropdown-text"> {{ currentLanguage }} </a>
         <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer">
