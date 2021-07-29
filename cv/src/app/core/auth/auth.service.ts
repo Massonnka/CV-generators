@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { LoginUser, RegisterUser } from '../interfaces/interfaces';
+import { FbAuthResponse, LoginUser, RegisterUser } from '../interfaces/interfaces';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class AuthService {
+    public error$: Subject<string> = new Subject<string>();
     endpoint: string = 'https://innowise-cv-generator.herokuapp.com';
     headers = new HttpHeaders().set('Content-Type', 'application/json');
     currentUser = {};
@@ -32,18 +34,21 @@ export class AuthService {
 
     // Sign-in
     signIn(user: LoginUser) {
-        return this.http.post<any>(`${this.endpoint}/user/login`, user)
-            .subscribe((res: any) => {
-                localStorage.setItem('access_token', res.token)
-                this.getUserProfile(res._id).subscribe((res) => {
-                    this.currentUser = res;
-                    this.router.navigate(['/layout/project/' + res.msg._id]);
-                })
-            })
+        user.returnSecureToken = true;
+        return this.http.post(`${this.endpoint}/user/login`, user)
+            .pipe(
+                tap((response: any) => this.setToken(response)),
+                catchError(this.handleError.bind(this))
+            );
     }
 
-    getToken() {
-        return localStorage.getItem('access_token');
+    get token(): string | null {
+        const expiresDate = new Date(String(localStorage.getItem('fb-token-exp')));
+        if (new Date() > expiresDate) {
+            this.logout();
+            return null;
+        }
+        return String(localStorage.getItem('fb-token'));
     }
 
     get isLoggedIn(): boolean {
@@ -51,31 +56,43 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    doLogout() {
+    isAuthenticated(): boolean {
+        return !!this.token;
+    }
+
+    logout() {
         let removeToken = localStorage.removeItem('access_token');
         if (removeToken == null) {
-            this.router.navigate(['log-in']);
+            this.router.navigate(['/auth/log-in']);
         }
     }
 
-    // User profile
-    getUserProfile(id: any): Observable<any> {
-        let api = `${this.endpoint}/project/${id}`;
-        return this.http.get<LoginUser[]>(api, { headers: this.headers }).pipe(
-            catchError(this.handleError)
-        )
-    }
-
-    // Error 
     handleError(error: HttpErrorResponse) {
-        let msg = '';
-        if (error.error instanceof ErrorEvent) {
-            // client-side error
-            msg = error.error.message;
-        } else {
-            // server-side error
-            msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        const { message } = error.error.error;
+
+        switch (message) {
+            case 'INVALID_EMAIL':
+                this.error$.next('Wrong email');
+                break;
+            case 'INVALID_PASSWORD':
+                this.error$.next('Wrong password');
+                break;
+            case 'EMAIL_NOT_FOUND':
+                this.error$.next('Nonexistent email');
+                break;
         }
-        return throwError(msg);
+
+        return throwError(error);
+    }
+
+    private setToken(response: FbAuthResponse | null) {
+        if (response) {
+            const expiresDate = new Date(new Date().getTime() + 60 * 60 * 1000);
+            localStorage.setItem('fb-token', response.idToken);
+            localStorage.setItem('fb-token-exp', expiresDate.toString());
+        } else {
+            localStorage.clear();
+        }
+
     }
 }

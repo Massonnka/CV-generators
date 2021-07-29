@@ -1,6 +1,7 @@
 export interface LoginUser {
     email: string;
     password: string;
+    returnSecureToken?: boolean;
 }
 
 export interface RegisterUser {
@@ -9,6 +10,10 @@ export interface RegisterUser {
     password: string;
     email: string;
     specialization: string;
+}
+
+export interface FbAuthResponse {
+    idToken: string;
 }
 
 
