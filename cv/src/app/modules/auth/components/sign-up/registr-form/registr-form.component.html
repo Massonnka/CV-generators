@@ -42,7 +42,12 @@
     <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{ "form.specialization" | translate}}</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid Specialization!">
-            <input nz-input formControlName="specialization" id="specialization" />
+            <!-- <input nz-input formControlName="specialization" id="specialization" /> -->
+            <nz-select>
+                <nz-option [nzLabel]="specializations.React" [nzValue]="'React'"></nz-option>
+                <nz-option [nzLabel]="specializations.Angular" [nzValue]="'Angular'"></nz-option>
+                <nz-option [nzLabel]="specializations.NodeJS" [nzValue]="'Node JS'"></nz-option>
+              </nz-select>
         </nz-form-control>
     </nz-form-item>
     <nz-form-item nz-row class="register-area">

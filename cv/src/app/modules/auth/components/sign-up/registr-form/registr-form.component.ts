@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { Specializations } from 'src/app/shared/constants/specializations.constants';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { AuthService } from 'src/app/core/auth/auth.service';
   styleUrls: ['./registr-form.component.scss']
 })
 export class RegistrFormComponent implements OnInit {
+
+  public specializations = Specializations;
 
   validateForm!: FormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
@@ -37,6 +40,9 @@ export class RegistrFormComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit(): void {
+console.log(this.specializations);
+
+
     this.validateForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(4)]],
       lastName: ['', [Validators.required, Validators.minLength(4)]],
@@ -51,8 +57,11 @@ export class RegistrFormComponent implements OnInit {
   registerUser() {
     this.authService.signUp(this.validateForm.value).subscribe((res) => {
       if (res.result) {
+        console.log('REGISTER SUCCESS');        
         this.validateForm.reset()
         this.router.navigate(['auth/log-in']);
+      } else {
+        console.log("NOT REGISTERED");        
       }
     })
   }
