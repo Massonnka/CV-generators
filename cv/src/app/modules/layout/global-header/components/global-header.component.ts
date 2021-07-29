@@ -13,10 +13,12 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 export class GlobalHeaderComponent implements OnInit {
   public languages = ['en', 'ru'];
 
+
   constructor(private translateService:
     TranslateService, private store: Store,
     private router: Router,
-    public authService: AuthService) { }
+    public authService: AuthService,
+    private token: AuthService) { }
   public currentLanguage = this.translateService.currentLang || 'en';
 
   switchLanguage(language: string): void {
@@ -24,7 +26,9 @@ export class GlobalHeaderComponent implements OnInit {
     this.currentLanguage = language;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+  }
 
   logout(event: Event) {
     event.preventDefault();
