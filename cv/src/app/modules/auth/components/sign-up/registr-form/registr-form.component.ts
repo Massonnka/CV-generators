@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { RegisterUser } from 'src/app/core/interfaces/interfaces';
+import { Specializations } from 'src/app/shared/constants/specializations.constants';
 
 
 @Component({
   selector: 'app-registr-form',
   templateUrl: './registr-form.component.html',
-  styleUrls: ['./registr-form.component.scss']
+  styleUrls: ['./registr-form.component.scss'],
 })
 export class RegistrFormComponent implements OnInit {
+  public specializations = Specializations;
 
   validateForm!: FormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
-    theme: 'twotone'
+    theme: 'twotone',
   };
 
   submitted = false;
@@ -24,7 +31,9 @@ export class RegistrFormComponent implements OnInit {
 
   updateConfirmValidator(): void {
     /** wait for refresh value */
-    Promise.resolve().then(() => this.validateForm.controls.checkPassword.updateValueAndValidity());
+    Promise.resolve().then(() =>
+      this.validateForm.controls.checkPassword.updateValueAndValidity()
+    );
   }
 
   confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
@@ -36,9 +45,11 @@ export class RegistrFormComponent implements OnInit {
     return {};
   };
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     public authService: AuthService,
-    public router: Router) { }
+    public router: Router
+  ) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -48,7 +59,7 @@ export class RegistrFormComponent implements OnInit {
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
       email: [null, [Validators.email, Validators.required]],
       specialization: ['', [Validators.required, Validators.minLength(4)]],
-      agree: [false]
+      agree: [false],
     });
   }
 
@@ -75,5 +86,4 @@ export class RegistrFormComponent implements OnInit {
       this.submitted = false;
     });
   }
-
 }

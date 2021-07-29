@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { EMPLOYEES } from 'src/app/models/employees';
+import { PROJECTS } from 'src/app/models/project';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
@@ -14,7 +15,7 @@ import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
   styleUrls: ['./employee-info-profile.component.scss']
 })
 export class EmployeeInfoProfileComponent implements OnInit {
-
+  public projects = PROJECTS;
   public employees = EMPLOYEES;
 
   public cves: any = [

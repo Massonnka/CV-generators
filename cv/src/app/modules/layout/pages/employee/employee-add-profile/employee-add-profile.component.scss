@@ -6,10 +6,18 @@
   }
   ::ng-deep .ant-tabs-tabpane {
     display: flex;
+    flex-direction: column;
     height: 100%;
   }
 }
 
+:host ::ng-deep .xng-breadcrumb-root {
+  color: var(--text-color);
+
+  .xng-breadcrumb-trail {
+    color: var(--text-color);
+  }
+}
 .page-header {
   display: flex;
   flex-direction: column;
@@ -40,7 +48,27 @@
   padding: 24px 15px 24px 15px;
   height: 100%;
   .tabs {
-    height: 100%;
     color: var(--text-color);
   }
+}
+
+.info {
+  height: 100%;
+}
+
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .button {
+    height: 32px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+:host::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }

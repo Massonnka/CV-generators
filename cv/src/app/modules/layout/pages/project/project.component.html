@@ -1,37 +1,48 @@
-<div class="page-header">
-  <breadcrumb [data]="breadcrumbs"></breadcrumb>
+<div class="wrapper">
+  <div class="page-header">
+    <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-  <div class="title">{{ "pages.project" | translate }}</div>
-  <p>{{ "project.project-list" | translate }}</p>
-</div>
-<nz-content class="content">
-  <div class="actions">
-    <app-primary-button class="sign-up-button">
-      <a routerLink="/layout/project/addinfo">
-        <span>{{ "project.add-project" | translate }}</span>
-      </a>
-    </app-primary-button>
+    <div class="title">{{ "pages.project" | translate }}</div>
+    <p>{{ "project.project-list" | translate }}</p>
   </div>
-  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="projects">
-    <ng-template #headRef>
-      <tr>
-        <th class="table-head">{{ "form.name" | translate }}</th>
-        <th class="table-head">{{ "form.start-date" | translate }}</th>
-        <th class="table-head">{{ "form.end-date" | translate }}</th>
-        <th class="table-head">{{ "form.team-size" | translate }}</th>
-        <th class="table-head">{{ "form.tech-stack" | translate }}</th>
-        <th class="table-head">{{ "form.roles" | translate }}</th>
-      </tr>
-    </ng-template>
-    <ng-template #bodyRef let-data="$implicit">
-      <tr *ngFor="let project of data" class="table-row" [routerLink]="project.id">
-        <td>{{ project.name }}</td>
-        <td>{{ project.startData }}</td>
-        <td>{{ project.endData }}</td>
-        <td>{{ project.teamSize }}</td>
-        <td>{{ project.techStack }}</td>
-        <td>{{ project.roles }}</td>
-      </tr>
-    </ng-template>
-  </app-table>
-</nz-content>
+  <nz-content class="content">
+    <div class="actions">
+      <app-primary-button class="sign-up-button">
+        <a routerLink="/layout/project/addinfo">
+          <span>{{ "project.add-project" | translate }}</span>
+        </a>
+      </app-primary-button>
+    </div>
+    <app-table
+      class="table"
+      [headTemplate]="headRef"
+      [bodyTemplate]="bodyRef"
+      [data]="projects"
+    >
+      <ng-template #headRef>
+        <tr>
+          <th class="table-head">{{ "form.name" | translate }}</th>
+          <th class="table-head">{{ "form.start-date" | translate }}</th>
+          <th class="table-head">{{ "form.end-date" | translate }}</th>
+          <th class="table-head">{{ "form.team-size" | translate }}</th>
+          <th class="table-head">{{ "form.tech-stack" | translate }}</th>
+          <th class="table-head">{{ "form.roles" | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template #bodyRef let-data="$implicit">
+        <tr
+          *ngFor="let project of data"
+          class="table-row"
+          [routerLink]="project.id"
+        >
+          <td>{{ project.name }}</td>
+          <td>{{ project.startData }}</td>
+          <td>{{ project.endData }}</td>
+          <td>{{ project.teamSize }}</td>
+          <td>{{ project.techStack }}</td>
+          <td>{{ project.roles }}</td>
+        </tr>
+      </ng-template>
+    </app-table>
+  </nz-content>
+</div>

@@ -1,10 +1,12 @@
-<div class="page-header">
-  <breadcrumb [data]="breadcrumbs"></breadcrumb>
+<div class="wrapper">
+  <div class="page-header">
+    <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-  <div class="title">{{ "pages.employee" | translate }}</div>
-  <p>
-    {{ "employee.employee-list" | translate }}
-  </p>
+    <div class="title">{{ "pages.employee" | translate }}</div>
+    <p>
+      {{ "employee.employee-list" | translate }}
+    </p>
+  </div>
 </div>
 <nz-content class="content">
   <nz-tabset class="tabs">
@@ -15,15 +17,22 @@
         </app-default-button>
       </app-form-info>
     </nz-tab>
-    <nz-tab nzTitle="CV" class="cv">
-      <app-list [bodyTemplate]="bodyRef" [data]="cves" class="list">
-        <ng-template #bodyRef let-data="$implicit">
-          {{ data.name }}
-        </ng-template>
-      </app-list>
+    <nz-tab nzTitle="CV">
+      <div class="list">
+        <app-list [bodyTemplate]="bodyRef" [data]="cves">
+          <ng-template #bodyRef let-data="$implicit">
+            {{ data.name }}
+          </ng-template>
+        </app-list>
+        <div class="projects">
+          <app-form-cv></app-form-cv>
 
-      <div class="cv-info">
-        <app-form-cv></app-form-cv>
+          <nz-collapse>
+            <nz-collapse-panel *ngFor="let project of projects" [nzHeader]="project.name">
+              <app-form-project></app-form-project>
+            </nz-collapse-panel>
+          </nz-collapse>
+        </div>
       </div>
     </nz-tab>
   </nz-tabset>

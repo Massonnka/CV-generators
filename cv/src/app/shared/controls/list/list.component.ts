@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, ContentChild, Input, OnInit, Templa
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css'],
+  styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListComponent implements OnInit {

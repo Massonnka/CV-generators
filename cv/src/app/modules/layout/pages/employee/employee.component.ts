@@ -10,7 +10,6 @@ import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcr
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { Observable } from 'rxjs';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-employee',
