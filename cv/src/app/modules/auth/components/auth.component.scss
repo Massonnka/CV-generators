@@ -35,6 +35,13 @@
   height: 10%;
   margin-top: 2%;
 
+  ::ng-deep .ant-btn {
+    border: solid var(--hover-background-color) 1px;
+  }
+  ::ng-deep .ant-btn:hover {
+    background-color: var(--hover-background-color);
+  }
+
   i:hover {
     color: var(--text-color);
   }

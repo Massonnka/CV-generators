@@ -15,6 +15,7 @@ export class LoginFormComponent implements OnInit {
   passwordVisible = false;
   password?: string;
 
+  public isPassCorrect = true;
   submitted = false;
   message: string;
 
@@ -58,6 +59,7 @@ export class LoginFormComponent implements OnInit {
       this.router.navigate(['layout/employee']);
       this.submitted = false;
     }, () => {
+      this.isPassCorrect = false;
       this.submitted = false;
     });
   }

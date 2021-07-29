@@ -1,29 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Specializations } from 'src/app/shared/constants/specializations.constants';
 
-
 @Component({
   selector: 'app-registr-form',
   templateUrl: './registr-form.component.html',
-  styleUrls: ['./registr-form.component.scss']
+  styleUrls: ['./registr-form.component.scss'],
 })
 export class RegistrFormComponent implements OnInit {
-
   public specializations = Specializations;
 
   validateForm!: FormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
-    theme: 'twotone'
+    theme: 'twotone',
   };
 
   updateConfirmValidator(): void {
     /** wait for refresh value */
-    Promise.resolve().then(() => this.validateForm.controls.checkPassword.updateValueAndValidity());
+    Promise.resolve().then(() =>
+      this.validateForm.controls.checkPassword.updateValueAndValidity()
+    );
   }
 
   confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
@@ -35,14 +40,13 @@ export class RegistrFormComponent implements OnInit {
     return {};
   };
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     public authService: AuthService,
-    public router: Router) { }
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
-console.log(this.specializations);
-
-
     this.validateForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -50,20 +54,16 @@ console.log(this.specializations);
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
       email: [null, [Validators.email, Validators.required]],
       specialization: ['', [Validators.required, Validators.minLength(4)]],
-      agree: [false]
+      agree: [false],
     });
   }
 
   registerUser() {
     this.authService.signUp(this.validateForm.value).subscribe((res) => {
-      if (res.result) {
-        console.log('REGISTER SUCCESS');        
-        this.validateForm.reset()
+      if (res.result) {        
+        this.validateForm.reset();
         this.router.navigate(['auth/log-in']);
-      } else {
-        console.log("NOT REGISTERED");        
       }
-    })
+    });
   }
-
 }

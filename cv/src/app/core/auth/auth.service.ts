@@ -15,7 +15,7 @@ export class AuthService {
     public error$: Subject<string> = new Subject<string>();
     endpoint: string = 'https://innowise-cv-generator.herokuapp.com';
     headers = new HttpHeaders().set('Content-Type', 'application/json');
-    currentUser = {};
+    private currentUser = {};
 
     constructor(
         private http: HttpClient,
