@@ -10,6 +10,7 @@ import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Specializations } from 'src/app/shared/constants/specializations.constants';
 
+
 @Component({
   selector: 'app-registr-form',
   templateUrl: './registr-form.component.html',

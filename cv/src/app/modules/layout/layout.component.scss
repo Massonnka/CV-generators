@@ -1,15 +1,4 @@
-:host ::ng-deep .ant-menu-inline,
-.ant-menu-vertical,
-.ant-menu-vertical-left {
-  border-right: 0px;
-}
-
-:host ::ng-deep .ant-layout-sider-children {
-  width: fit-content;
-}
-
 .wrapper {
-  // overflow: hidden;
   height: 100%;
 }
 
@@ -23,6 +12,9 @@
   .list {
     background-color: var(--content-color);
     color: var(--text-color);
+  }
+  ::ng-deep .ant-menu-item-selected {
+    background-color: var(--background-color);
   }
 }
 
