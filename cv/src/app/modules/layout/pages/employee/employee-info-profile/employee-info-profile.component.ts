@@ -1,31 +1,21 @@
 import { Location } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EMPLOYEES } from './../../../../../models/employees';
-import { BreadcrumbService } from 'xng-breadcrumb';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
-import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { tap } from 'rxjs/operators';
+import { EMPLOYEES } from 'src/app/models/employees';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
-import { PROJECTS } from 'src/app/models/project';
+import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
 
 @Component({
-  selector: 'app-employee-profile',
-  templateUrl: './employee-profile.component.html',
-  styleUrls: ['./employee-profile.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-employee-info-profile',
+  templateUrl: './employee-info-profile.component.html',
+  styleUrls: ['./employee-info-profile.component.scss']
 })
-export class EmployeeProfileComponent implements OnInit {
+export class EmployeeInfoProfileComponent implements OnInit {
+
   public employees = EMPLOYEES;
-  public projects = PROJECTS;
 
   public cves: any = [
     { name: 'cv 1' },
@@ -68,12 +58,13 @@ export class EmployeeProfileComponent implements OnInit {
             isDisabled: false,
           },
           {
-            url: '/layout/employee/id',
-            name: 'Profile',
+            url: '/layout/employee/info',
+            name: 'Profile Info',
             isDisabled: true,
           },
         ],
       })
     );
   }
+
 }

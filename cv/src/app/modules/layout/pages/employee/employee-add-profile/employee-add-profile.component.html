@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <div class="page-header">
+    <breadcrumb [data]="breadcrumbs"></breadcrumb>
+
+  <div class="title">{{ "pages.employee" | translate }}</div>
+  <p>
+    {{ "employee.employee-list" | translate }}
+  </p>
+</div>
+<nz-content class="content">
+  <nz-tabset class="tabs">
+    <nz-tab nzTitle="Info">
+      <app-form-info>
+        <app-default-button (click)="onBack()" nz-button>
+          {{ "form.cancel" | translate }}
+        </app-default-button>
+      </app-form-info>
+    </nz-tab>
+    <nz-tab nzTitle="CV" class="cv">
+      <app-list [bodyTemplate]="bodyRef" [data]="cves" class="list">
+        <ng-template #bodyRef let-data="$implicit">
+          {{ data.name }}
+        </ng-template>
+      </app-list>
+
+      <div class="cv-info">
+        <app-form-cv></app-form-cv>
+      </div>
+    </nz-tab>
+  </nz-tabset>
+</nz-content>

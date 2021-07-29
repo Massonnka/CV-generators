@@ -8,7 +8,9 @@
   <nz-content class="content">
     <div class="actions">
       <app-primary-button class="sign-up-button">
-        {{ "project.add-project" | translate }}
+        <a routerLink="/layout/project/addinfo">
+          <span>{{ "project.add-project" | translate }}</span>
+        </a>
       </app-primary-button>
     </div>
     <app-table

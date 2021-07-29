@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { User } from '../interfaces/interfaces';
+import { LoginUser, RegisterUser } from '../interfaces/interfaces';
+
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -21,7 +22,7 @@ export class AuthService {
     }
 
     // Sign-up
-    signUp(user: User): Observable<any> {
+    signUp(user: RegisterUser): Observable<any> {
         let api = `${this.endpoint}/user/register`;
         return this.http.post(api, user)
             .pipe(
@@ -30,7 +31,7 @@ export class AuthService {
     }
 
     // Sign-in
-    signIn(user: User) {
+    signIn(user: LoginUser) {
         return this.http.post<any>(`${this.endpoint}/user/login`, user)
             .subscribe((res: any) => {
                 localStorage.setItem('access_token', res.token)
@@ -60,7 +61,7 @@ export class AuthService {
     // User profile
     getUserProfile(id: any): Observable<any> {
         let api = `${this.endpoint}/project/${id}`;
-        return this.http.get<User[]>(api, { headers: this.headers }).pipe(
+        return this.http.get<LoginUser[]>(api, { headers: this.headers }).pipe(
             catchError(this.handleError)
         )
     }

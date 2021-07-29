@@ -20,7 +20,7 @@ import { tap } from 'rxjs/operators';
 })
 export class EmployeeComponent implements OnInit {
   public users = EMPLOYEES;
-  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) {}
+  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) { }
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);

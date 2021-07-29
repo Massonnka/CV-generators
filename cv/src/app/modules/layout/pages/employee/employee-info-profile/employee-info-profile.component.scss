@@ -1,25 +1,23 @@
 :host {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   background-color: var(--background-color);
+  width: 100%;
+  ::ng-deep .ant-tabs-content {
+    height: 100%;
+  }
+  ::ng-deep .ant-tabs-tabpane {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 }
 
 :host ::ng-deep .xng-breadcrumb-root {
-  background-color: var(--content-color);
   color: var(--text-color);
 
   .xng-breadcrumb-trail {
     color: var(--text-color);
   }
 }
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
 .page-header {
   display: flex;
   flex-direction: column;
@@ -28,39 +26,28 @@
   background-color: var(--content-color);
   color: var(--text-color);
   width: 100%;
+
+  .breadcrumb:hover {
+    cursor: pointer;
+    color: var(--primary);
+  }
+
   .title {
-    font-size: 34px;
+    color: var(--text-color);
   }
 }
 
+.title {
+  font-size: 34px;
+}
 .content {
   display: flex;
   flex-direction: column;
   margin: 20px 24px 0 24px;
   background-color: var(--content-color);
   padding: 24px 15px 24px 15px;
-
-  .actions {
-    height: 55px;
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin: 0;
+  height: 100%;
+  .tabs {
+    color: var(--text-color);
   }
-
-  .table {
-    margin: 10px;
-    padding: 10px;
-  }
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-  background: transparent;
-}
-
-:host .ng-star-inserted {
-    display: flex;
 }

@@ -1,0 +1,18 @@
+<div class="page-header">
+  <breadcrumb [data]="breadcrumbs"></breadcrumb>
+
+  <div class="title">{{ "pages.project" | translate }}</div>
+  <p>{{ "project.project-list" | translate }}</p>
+</div>
+<nz-content class="content">
+  <div class="actions">
+    <app-default-button>
+      <span>{{ "project.archieve" | translate }}</span>
+    </app-default-button>
+  </div>
+  <app-form-project>
+    <app-default-button (click)="onBack()" nz-button>
+      {{ "form.cancel" | translate }}
+    </app-default-button>
+  </app-form-project>
+</nz-content>

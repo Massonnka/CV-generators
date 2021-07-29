@@ -39,6 +39,9 @@
         "specialization": "Specialization"
     },
     "form": {
+        "project-info": "Project Info",
+        "user-info": "User Info",
+        "employee-info": "Employee Info",
         "firstname": "First Name",
         "lastname": "Last Name",
         "email": "Email",
@@ -46,6 +49,7 @@
         "department": "Department",
         "save": "Save",
         "cancel": "Cancel",
+        "edit": "Edit",
         "name": "Name",
         "start-date": "Start date",
         "end-date": "End date",
