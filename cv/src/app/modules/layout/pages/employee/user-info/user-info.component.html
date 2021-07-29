@@ -1,9 +1,9 @@
 <nz-descriptions nzBordered nzLayout="vertical" [nzExtra]="extraTpl">
-    <nz-descriptions-item nzTitle="Fist Name">Kykold</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Last Name">Vasilevich</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Email">test@test.ru</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Specialization">React</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="{{ 'form.firstname' | translate }}">Kykold</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="{{ 'form.lastname' | translate }}">Vasilevich</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="{{ 'form.email' | translate }}">test@test.ru</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="{{ 'form.specialization' | translate }}">React</nz-descriptions-item>
 </nz-descriptions>
 <ng-template #extraTpl>
-    <app-primary-button nz-button>Edit</app-primary-button>
+    <app-primary-button nz-button>{{ 'form.edit' | translate }}</app-primary-button>
 </ng-template>
