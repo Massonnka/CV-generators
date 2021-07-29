@@ -2,8 +2,14 @@
     width: 70px;
 }
 
-.login-form {
+.sign-up-form {
     min-width: 600px;
+
+    .success-button {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .register-are {

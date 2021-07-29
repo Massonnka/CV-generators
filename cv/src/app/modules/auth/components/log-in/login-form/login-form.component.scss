@@ -29,6 +29,10 @@
 }
 .login-form {
     min-width: 360px;
+
+    .success-button {
+        width: 100%;
+    }
 }
 .login-form-margin {
     margin-top: 22px;
