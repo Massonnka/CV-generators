@@ -56,5 +56,8 @@
         </nz-form-control>
         <ng-content></ng-content>
     </nz-form-item>
-    <app-primary-button type="submit" nz-button>{{ "auth.sign-up" | translate}}</app-primary-button>
+    <button nz-button type="submit" class="login-form-button login-form-margin" [nzType]="'primary'"
+        [disabled]="validateForm.invalid || submitted">{{ 'auth.sign-up' |
+        translate
+        }}</button>
 </form>
