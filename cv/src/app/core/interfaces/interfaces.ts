@@ -13,7 +13,7 @@ export interface RegisterUser {
 }
 
 export interface FbAuthResponse {
-    idToken: string;
+    accessToken: string;
 }
 
 

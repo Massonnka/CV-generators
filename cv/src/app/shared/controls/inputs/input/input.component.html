@@ -1,6 +1,18 @@
 <div class="label">
-    <ng-content select="label"></ng-content>
-    <ng-content select="nzReq"></ng-content>
+    <label *ngIf="label">{{ label | translate }}</label>
+    <label *ngIf="isRequired" class="favourite">*</label>
 </div>
-<input [formControl]="control" type="text" nz-input placeholder="Input here" />
-<div *ngIf="this.ngControl?.control?.errors" class="error">{{getErrorMessage()}}</div>
+<input (blur)="onBlur()" [formControl]="control" type="text" nz-input placeholder="Input here" />
+<div *ngIf="ngControl?.control?.errors && ngControl?.control?.touched" class="error">{{getErrorMessage()}}</div>
+
+<!-- <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your email!">
+        <div class="label">
+            <label nzFor="email">{{ "profile.email" | translate }}</label>
+            <label class="favourite">*</label>
+        </div>
+        <nz-input-group nzPrefixIcon="user">
+            <input nz-input formControlName="email" id="email" placeholder="Email" />
+        </nz-input-group>
+    </nz-form-control>
+</nz-form-item> -->
