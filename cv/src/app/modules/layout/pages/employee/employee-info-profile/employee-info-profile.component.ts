@@ -5,9 +5,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { EMPLOYEES } from 'src/app/models/employees';
 import { PROJECTS } from 'src/app/models/project';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
 
 @Component({
   selector: 'app-employee-info-profile',
