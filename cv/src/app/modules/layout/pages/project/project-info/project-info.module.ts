@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
+import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-but
     NzDescriptionsModule,
     TranslateModule,
     BreadcrumbModule,
-    DefaultButtonModule
+    DefaultButtonModule,
+    SpinnerModule
   ],
   exports: [ProjectInfoComponent],
 })

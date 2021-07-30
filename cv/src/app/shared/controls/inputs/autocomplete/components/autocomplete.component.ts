@@ -33,6 +33,10 @@ export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValu
   @Input() errorMessages: any = {};
   @Input() label: string = '';
   @Input() placeholder: string = '';
+  @Input() icon: string = '';
+  @Input() nzSuffix: string = '';
+  @Input() type: string = '';
+  @Input() id: string = '';
 
   public onChange = (value: any) => { }
   public onTouched = () => { }

@@ -8,6 +8,10 @@
   background: transparent;
 }
 
+.wrapper {
+  height: 100%;
+}
+
 ::ng-deep .ant-descriptions-item-content {
   background-color: var(--content-color);
   color: var(--text-color);

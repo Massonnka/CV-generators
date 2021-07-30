@@ -12,8 +12,6 @@ import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-but
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './components/auth.component';
 import { LogInModule } from './components/log-in/log-in.module';
-import { LoginFormModule } from './components/log-in/login-form/login-form.module';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignUpModule } from './components/sign-up/sign-up.module';
 
 @NgModule({
@@ -26,7 +24,6 @@ import { SignUpModule } from './components/sign-up/sign-up.module';
     NzIconModule,
     CircleButtonModule,
     PrimaryButtonModule,
-    LoginFormModule,
     ReactiveFormsModule,
     NzInputModule,
     NzButtonModule,

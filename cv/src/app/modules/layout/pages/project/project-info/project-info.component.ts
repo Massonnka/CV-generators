@@ -1,9 +1,12 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
+import { FoundProject, Project } from 'src/app/core/interfaces/interfaces';
+import { ProjectService } from 'src/app/core/services/project.service';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 
@@ -14,10 +17,15 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectInfoComponent implements OnInit {
+  projects$: Observable<FoundProject[]>;
 
   constructor(
+    private router: Router,
+    private projectService: ProjectService,
     private location: Location,
-    private store: Store<{ breadcrumbs: Breadcrumb[] }>
+    private store: Store<{
+      breadcrumbs: Breadcrumb[],
+    }>
   ) { }
 
   public onBack(): void {
@@ -28,7 +36,8 @@ export class ProjectInfoComponent implements OnInit {
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
+    this.projects$ = this.projectService.FoundAllProjects();
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -51,5 +60,24 @@ export class ProjectInfoComponent implements OnInit {
         ],
       })
     );
+  }
+
+  deleteItem(project: Project) {
+    if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
+      return;
+    }
+    this.projectService.DeleteProject(project._id).subscribe(() => {
+      this.projects$ = this.projectService.FoundAllProjects();;
+    });
+  }
+
+  editItem(project: Project) {
+    this.router.navigate(['/layout/project/addinfo'], {
+      state: {
+        options: {
+          project
+        }
+      }
+    });
   }
 }

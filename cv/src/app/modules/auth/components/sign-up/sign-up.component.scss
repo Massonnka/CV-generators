@@ -1,7 +1,40 @@
-:host ::ng-deep .button {
-    max-width: 360px;
-    height: 40px;
+:host ::ng-deep .ant-form-item {
+    margin-bottom: 0px;
 }
+
+.sign-up-form {
+  width: 400px;
+}
+
+.login-form-margin {
+  margin-top: 22px;
+    margin-bottom: 22px;
+  .success-button {
+        width: 100%;
+    }
+}
+
 .login-form-forgot {
-    float: right;
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.register-area {
+    align-items: center;
+}
+
+.checkbox {
+    color: var(--text-color)
+}
+
+.inputs {
+    margin-right: 60px;
+    width: 100%;
+}
+
+app-input {
+  width: 100%;
 }

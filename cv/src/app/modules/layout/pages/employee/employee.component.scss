@@ -8,9 +8,15 @@
 
 }
 
+:host::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+
 .wrapper {
   height: 100%;
-  overflow: scroll;
 }
 .page-header {
   display: flex;

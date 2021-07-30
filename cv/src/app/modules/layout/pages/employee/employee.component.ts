@@ -19,6 +19,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 })
 export class EmployeeComponent implements OnInit {
   public users = EMPLOYEES;
+
   constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) { }
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
@@ -44,4 +45,5 @@ export class EmployeeComponent implements OnInit {
       })
     );
   }
+
 }

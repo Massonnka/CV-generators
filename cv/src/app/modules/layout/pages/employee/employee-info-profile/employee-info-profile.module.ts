@@ -10,6 +10,7 @@ import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { ListModule } from 'src/app/shared/controls/list/list.module';
+import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { FormCvModule } from '../employee-add-profile/form-cv/form-cv.module';
 import { FormInfoModule } from '../employee-add-profile/form-info/form-info.module';
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
@@ -33,7 +34,8 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
     FormCvModule,
     NzCollapseModule,
     NzIconModule,
+    SpinnerModule
   ],
   exports: [EmployeeInfoProfileComponent],
 })
-export class EmployeeInfoProfileModule {}
+export class EmployeeInfoProfileModule { }

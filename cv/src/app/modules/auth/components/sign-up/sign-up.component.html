@@ -1,2 +1,51 @@
-<app-registr-form>
-</app-registr-form>
+<form nz-form [formGroup]="validateForm" class="sign-up-form" (ngSubmit)="registerUser()">
+    <nz-form-item class="inputs">
+        <app-input id="firstname" placeholder="Input your first name!" label="form.firstname"
+            formControlName="firstName" [errorMessages]="{required: 'Please, specify the field'}">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input id="lastname" placeholder="Input your last name!" label="form.lastname" formControlName="lastName"
+            [errorMessages]="{required: 'Please, specify the field'}">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input (ngModelChange)="updateConfirmValidator()" id="password" type="password"
+            placeholder="Input your password!" label="profile.password" formControlName="password"
+            [errorMessages]="{required: 'Please, specify the field'}">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input type="password" placeholder="Input your confirm password" label="profile.confirm-pass"
+            formControlName="checkPassword"
+            [errorMessages]="{required: 'Please confirm your password!',inconsistent: 'Two passwords that you enter is inconsistent!'}">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input placeholder="Input your email!" label="form.email" id="email" formControlName="email"
+            [errorMessages]="{required: 'Please, specify the field'}">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input id="specialization" placeholder="Input your specialization!" label="form.specialization"
+            formControlName="specialization" [errorMessages]="{required: 'Please, specify the field'}">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+        <nz-form-control>
+            <label nz-checkbox formControlName="agree">
+                <span>
+                    I have read the
+                    <a>agreement</a>
+                </span>
+            </label>
+        </nz-form-control>
+        <div nz-col>
+            <a class="login-form-forgot" routerLink="/auth/log-in">{{ "auth.i-have-account" | translate }}</a>
+        </div>
+    </nz-form-item>
+    <button nz-button type="submit" class="login-form-button login-form-margin" [nzType]="'primary'"
+        [disabled]="validateForm.invalid || submitted">{{ 'auth.sign-up' |
+        translate
+        }}</button>
+</form>

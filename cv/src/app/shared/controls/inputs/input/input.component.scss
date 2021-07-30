@@ -1,0 +1,21 @@
+.label {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    color: var(--text-color);
+}
+
+.favourite {
+    margin-left: 10px;
+    color: var(--text-error);
+    font-size: 18px;
+    line-height: 26px;
+}
+input {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+.error {
+    color: var(--text-error);
+}
+

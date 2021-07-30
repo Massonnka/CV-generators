@@ -20,20 +20,20 @@
             {{ data.name }} <i nz-icon nzType="delete" nzTheme="outline"></i>
           </ng-template>
         </app-list>
-      </div>
-      <div class="projects">
-        <app-form-cv></app-form-cv>
+        <div class="projects" *ngIf="projects$ | async as projects; else loading">
+          <app-form-cv></app-form-cv>
 
-        <nz-collapse>
-          <nz-collapse-panel
-            *ngFor="let project of projects"
-            [nzHeader]="project.name"
-          >
-            {{ project.name }} | {{ project.startData }} |
-            {{ project.endData }} | {{ project.teamSize }} |
-            {{ project.techStack }} | {{ project.roles }}
-          </nz-collapse-panel>
-        </nz-collapse>
+          <nz-collapse>
+            <nz-collapse-panel *ngFor="let project of projects" [nzHeader]="project.name">
+              {{ project.name }} | {{ project.startDate }} |
+              {{ project.endDate }} | {{ project.teamSize }} |
+              techStack | project
+            </nz-collapse-panel>
+          </nz-collapse>
+        </div>
+        <ng-template #loading>
+          <app-spinner></app-spinner>
+        </ng-template>
       </div>
     </nz-tab>
   </nz-tabset>

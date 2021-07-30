@@ -15,13 +15,11 @@ const routes: Routes = [
           import('./pages/employee/employee.module').then(
             (m) => m.EmployeeModule
           ),
-        data: { breadcrumb: { alias: 'Employee' } },
       },
       {
         path: 'project',
         loadChildren: () =>
           import('./pages/project/project.module').then((m) => m.ProjectModule),
-        data: { breadcrumb: { alias: 'Project' } },
       },
     ],
     canActivate: [AuthGuard]

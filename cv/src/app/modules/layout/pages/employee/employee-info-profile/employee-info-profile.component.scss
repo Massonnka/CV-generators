@@ -1,7 +1,7 @@
 :host {
   background-color: var(--background-color);
   width: 100%;
-  overflow: scroll;
+  overflow: auto;
   ::ng-deep .ant-tabs-content {
     height: 100%;
   }
@@ -47,7 +47,6 @@
   margin: 20px 24px 0 24px;
   background-color: var(--content-color);
   padding: 24px 15px 24px 15px;
-  height: 100%;
   .tabs {
     color: var(--text-color);
   }

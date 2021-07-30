@@ -7,18 +7,12 @@
   </div>
   <nz-content class="content">
     <div class="actions">
-      <app-primary-button class="sign-up-button">
-        <a routerLink="/layout/project/addinfo">
-          <span>{{ "project.add-project" | translate }}</span>
-        </a>
+      <app-primary-button (click)="addItem()" class="sign-up-button">
+        <span>{{ "project.add-project" | translate }}</span>
       </app-primary-button>
     </div>
-    <app-table
-      class="table"
-      [headTemplate]="headRef"
-      [bodyTemplate]="bodyRef"
-      [data]="projects"
-    >
+    <app-table *ngIf="projects$ | async as projects; else loading" class="table" [headTemplate]="headRef"
+      [bodyTemplate]="bodyRef" [data]="projects">
       <ng-template #headRef>
         <tr>
           <th class="table-head">{{ "form.name" | translate }}</th>
@@ -30,19 +24,18 @@
         </tr>
       </ng-template>
       <ng-template #bodyRef let-data="$implicit">
-        <tr
-          *ngFor="let project of data"
-          class="table-row"
-          [routerLink]="project.id"
-        >
+        <tr *ngFor="let project of projects" class="table-row" [routerLink]="project._id">
           <td>{{ project.name }}</td>
-          <td>{{ project.startData }}</td>
-          <td>{{ project.endData }}</td>
+          <td>{{ project.startDate }}</td>
+          <td>{{ project.endDate }}</td>
           <td>{{ project.teamSize }}</td>
-          <td>{{ project.techStack }}</td>
-          <td>{{ project.roles }}</td>
+          <td>techStack </td>
+          <td>roles </td>
         </tr>
       </ng-template>
     </app-table>
+    <ng-template #loading>
+      <app-spinner></app-spinner>
+    </ng-template>
   </nz-content>
 </div>

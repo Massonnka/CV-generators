@@ -18,7 +18,7 @@
       </app-form-info>
     </nz-tab>
     <nz-tab nzTitle="CV">
-      <div class="list">
+      <div class="list" *ngIf="projects$ | async as projects; else loading">
         <app-list [bodyTemplate]="bodyRef" [data]="cves">
           <ng-template #bodyRef let-data="$implicit">
             {{ data.name }}
@@ -34,6 +34,9 @@
           </nz-collapse>
         </div>
       </div>
+      <ng-template #loading>
+        <app-spinner></app-spinner>
+      </ng-template>
     </nz-tab>
   </nz-tabset>
 </nz-content>

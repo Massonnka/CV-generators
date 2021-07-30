@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { FoundProject, Project } from 'src/app/core/interfaces/interfaces';
+import { ProjectService } from 'src/app/core/services/project.service';
 import { EMPLOYEES } from 'src/app/models/employees';
-import { PROJECTS } from 'src/app/models/project';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
@@ -15,7 +16,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   styleUrls: ['./employee-info-profile.component.scss']
 })
 export class EmployeeInfoProfileComponent implements OnInit {
-  public projects = PROJECTS;
+  projects$: Observable<FoundProject[]>;
   public employees = EMPLOYEES;
 
   public cves: any = [
@@ -29,6 +30,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
   public currentUserId: number;
 
   constructor(
+    private projectService: ProjectService,
     private route: ActivatedRoute,
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
@@ -44,6 +46,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.projects$ = this.projectService.FoundAllProjects();
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
