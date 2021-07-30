@@ -1,4 +1,4 @@
-<form nz-form [formGroup]="validateForm" class="project-form">
+<form nz-form [formGroup]="validateForm" class="project-form" (ngSubmit)="submit()">
     <div class="row">
         <nz-form-item class="inputs">
             <app-input placeholder="Input your name!" label="form.name" formControlName="name"
@@ -48,7 +48,9 @@
     </div>
     <div nz-row>
         <div nz-col [nzSpan]="24" class="search-area">
-            <button nz-button [nzType]="'primary'">{{ "form.save" | translate }}</button>
+            <button nz-button [disabled]="validateForm.invalid || submitted" [nzType]="'primary'">{{ "form.save" |
+                translate
+                }}</button>
             <ng-content></ng-content>
         </div>
     </div>

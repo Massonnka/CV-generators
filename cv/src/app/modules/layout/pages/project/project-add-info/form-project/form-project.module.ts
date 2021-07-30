@@ -28,7 +28,7 @@ import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/
     InputModule,
     DatePickerModule,
     TextareaModule,
-    AutocompleteModule
+    AutocompleteModule,
   ],
   exports: [
     FormProjectComponent
