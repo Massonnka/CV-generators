@@ -10,27 +10,21 @@ import { AuthService } from 'src/app/core/auth/auth.service';
   styleUrls: ['./global-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GlobalHeaderComponent implements OnInit {
-  public languages = ['en', 'ru'];
+export class GlobalHeaderComponent {
+  public languages: string[] = ['en', 'ru'];
 
+  constructor(
+    private translateService: TranslateService,
+    public authService: AuthService
+  ) {}
+  public currentLanguage: string = this.translateService.currentLang || 'en';
 
-  constructor(private translateService:
-    TranslateService, private store: Store,
-    private router: Router,
-    public authService: AuthService,
-    private token: AuthService) { }
-  public currentLanguage = this.translateService.currentLang || 'en';
-
-  switchLanguage(language: string): void {
+  public switchLanguage(language: string): void {
     this.translateService.use(language);
     this.currentLanguage = language;
   }
 
-  ngOnInit(): void {
-
-  }
-
-  logout(event: Event) {
+  public logout(event: Event): void {
     event.preventDefault();
     this.authService.logout();
   }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzListModule } from 'ng-zorro-antd/list';
-import { ListComponent } from './list.component';
+import { ListComponent } from './components/list.component';
 
 @NgModule({
   declarations: [ListComponent],

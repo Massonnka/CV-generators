@@ -20,7 +20,7 @@ export class ProjectInfoComponent implements OnInit {
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
   ) { }
 
-  onBack() {
+  public onBack(): void {
     this.location.back();
   }
 
@@ -28,7 +28,7 @@ export class ProjectInfoComponent implements OnInit {
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({

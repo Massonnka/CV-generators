@@ -30,7 +30,6 @@ import { startWith, takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValueAccessor {
-
   @Input() errorMessages: any = {};
   @Input() label: string = '';
   @Input() placeholder: string = '';

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -6,12 +6,7 @@ import { ChangeDetectionStrategy, Component, ContentChild, Input, OnInit, Templa
   styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   @Input() public data: any[] = [];
   @Input() public bodyTemplate: TemplateRef<any>;
-
-  constructor() { }
-  
-  ngOnInit(): void { }
-
 }

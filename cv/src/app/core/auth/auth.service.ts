@@ -24,16 +24,14 @@ export class AuthService {
 
   constructor(private http: HttpClient, public router: Router) {}
 
-  // Sign-up
   signUp(user: RegisterUser): Observable<any> {
     let api = `${this.endpoint}/user/register`;
     return this.http.post(api, user).pipe(catchError(this.handleError));
   }
 
-  // Sign-in
   signIn(user: LoginUser) {
     return this.http.post(`${this.endpoint}/user/login`, user).pipe(
-      tap((response: any) => this.setToken(response)),
+      tap((response: any) => this.setToken(response)),      
       catchError(this.handleError.bind(this))
     );
   }
@@ -54,10 +52,7 @@ export class AuthService {
 
   logout() {
     this.setToken(null);
-    let removeToken = localStorage.removeItem('access_token');
-    if (removeToken == null) {
-      this.router.navigate(['auth/log-in']);
-    }
+    this.router.navigate(['auth/log-in']);
   }
 
   handleError(error: HttpErrorResponse) {
@@ -77,9 +72,9 @@ export class AuthService {
 
     return throwError(error);
   }
-
+  
   private setToken(response: FbAuthResponse | null) {
-    if (response) {
+    if (response) {      
       const expiresDate = new Date(new Date().getTime() + 60 * 60 * 1000);
       localStorage.setItem('fb-token', response.accessToken);
       localStorage.setItem('fb-token-exp', expiresDate.toString());

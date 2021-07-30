@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -6,14 +6,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   @Input() public data: any[] = [];
   @Input() public bodyTemplate: TemplateRef<any>;
   @Input() public headTemplate: TemplateRef<any>;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

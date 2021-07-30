@@ -2,6 +2,7 @@
     "auth": {
         "sign-up": "Sign Up",
         "log-in": "Log In",
+        "log-out": "Log out",
         "remember-me": "Remember me",
         "forgot-password": "Register now",
         "i-have-account": "I already have an account"

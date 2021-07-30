@@ -9,7 +9,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
-import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +20,6 @@ import { AuthService } from './core/auth/auth.service';
 import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
@@ -29,9 +27,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,7 +42,6 @@ registerLocaleData(en);
       },
     }),
     JwtModule,
-    BreadcrumbModule,
     StoreModule.forRoot({
       toggle: sidebarReducer,
     }),
@@ -65,10 +60,9 @@ registerLocaleData(en);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
     },
-    BreadcrumbService,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -10,7 +10,7 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 import { GlobalHeaderModule } from './global-header/global-header.module';
 import { SiderModule } from './sider/sider.module';
 import { LayoutRoutingModule } from './layout-routing.module';
-import { LayoutComponent } from './layout.component';
+import { LayoutComponent } from './components/layout.component';
 
 @NgModule({
   declarations: [LayoutComponent],
