@@ -1,9 +1,19 @@
+:host {
+  overflow: scroll;
+}
+
+:host::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
 ::ng-deep .ant-descriptions-item-content {
-    background-color: var(--content-color);
-    color: var(--text-color);
+  background-color: var(--content-color);
+  color: var(--text-color);
 }
 
 ::ng-deep .ant-descriptions-bordered .ant-descriptions-item-label {
-    background-color: var(--background-color);
-    color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }

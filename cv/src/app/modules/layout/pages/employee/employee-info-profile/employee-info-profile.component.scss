@@ -1,6 +1,7 @@
 :host {
   background-color: var(--background-color);
   width: 100%;
+  overflow: scroll;
   ::ng-deep .ant-tabs-content {
     height: 100%;
   }
@@ -11,13 +12,12 @@
   }
 }
 
-:host ::ng-deep .xng-breadcrumb-root {
-  color: var(--text-color);
-
-  .xng-breadcrumb-trail {
-    color: var(--text-color);
-  }
+:host::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }
+
 .page-header {
   display: flex;
   flex-direction: column;
@@ -40,6 +40,7 @@
 .title {
   font-size: 34px;
 }
+
 .content {
   display: flex;
   flex-direction: column;
@@ -49,5 +50,16 @@
   height: 100%;
   .tabs {
     color: var(--text-color);
+  }
+  .tabs ::ng-deep .ant-tabs-tabpane {
+    flex-direction: row;
+
+    .list {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .projects {
+      width: 100%;
+    }
   }
 }

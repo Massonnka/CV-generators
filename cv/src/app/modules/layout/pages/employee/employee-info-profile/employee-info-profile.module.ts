@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
@@ -31,6 +32,7 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
     InfoProfileModule,
     FormCvModule,
     NzCollapseModule,
+    NzIconModule,
   ],
   exports: [EmployeeInfoProfileComponent],
 })
