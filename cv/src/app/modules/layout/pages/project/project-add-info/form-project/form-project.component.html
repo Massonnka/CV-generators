@@ -1,7 +1,7 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input label="form.name" formControlName="name"
+            <app-input placeholder="Input your name!" label="form.name" formControlName="name"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-input>
         </nz-form-item>
@@ -18,29 +18,30 @@
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input label="form.teamSize" formControlName="teamSize"
+            <app-input placeholder="Input your team sizw!" label="form.team-size" formControlName="teamSize"
                 [errorMessages]="{required: 'Please, specify the field'}">
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input label="form.tech-stack" formControlName="techStack"
+            <app-input placeholder="Input your tech stack!" label="form.tech-stack" formControlName="techStack"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-autocomplete label="form.roles" formControlName="roles"
+            <app-autocomplete placeholder="Input your roles!" label="form.roles" formControlName="roles"
                 [errorMessages]="{required: 'Please, specify the field'}">
             </app-autocomplete>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-textarea label="form.description" formControlName="description"
+            <app-textarea placeholder="Input your description!" label="form.description" formControlName="description"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-textarea>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-textarea label="form.responsibilities" formControlName="responsibilities"
+            <app-textarea placeholder="Input your responsibilities!" label="form.responsibilities"
+                formControlName="responsibilities"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-textarea>
         </nz-form-item>

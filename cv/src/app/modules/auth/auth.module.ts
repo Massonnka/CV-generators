@@ -11,7 +11,6 @@ import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdow
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './components/auth.component';
-import { LoginFormModule } from './components/log-in/login-form/login-form.module';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -23,7 +22,6 @@ import { LoginFormModule } from './components/log-in/login-form/login-form.modul
     NzIconModule,
     CircleButtonModule,
     PrimaryButtonModule,
-    LoginFormModule,
     ReactiveFormsModule,
     NzInputModule,
     NzButtonModule,

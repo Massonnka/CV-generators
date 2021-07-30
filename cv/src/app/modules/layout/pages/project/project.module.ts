@@ -7,6 +7,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { breadcrumbsFeatureKey, breadcrumbReducer } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
+import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { TableModule } from 'src/app/shared/controls/table/table.module';
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './project.component';
@@ -23,7 +24,8 @@ import { ProjectComponent } from './project.component';
     TableModule,
     BreadcrumbModule,
     StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer),
+    SpinnerModule
   ],
   exports: [ProjectComponent],
 })
-export class ProjectModule {}
+export class ProjectModule { }

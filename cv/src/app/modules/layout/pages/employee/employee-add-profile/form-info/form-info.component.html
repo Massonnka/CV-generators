@@ -1,8 +1,7 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <app-input icon="user" placeholder="Input your firstname!" label="form.firstname"
-                formControlName="firstName"
+            <app-input placeholder="Input your firstname!" label="form.firstname" formControlName="firstName"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-input>
         </nz-form-item>

@@ -3,7 +3,6 @@
         <label *ngIf="label">{{ label | translate }}</label>
         <label *ngIf="isRequired" class="favourite">*</label>
     </div>
-    <textarea rows="4" nz-input (blur)="onBlur()" [formControl]="control" *ngIf="placeholder"
-        placeholder="{{placeholder}}"></textarea>
+    <textarea rows="4" nz-input (blur)="onBlur()" [formControl]="control" placeholder="{{placeholder}}"></textarea>
     <div *ngIf="ngControl?.control?.errors && ngControl?.control?.touched" class="error">{{getErrorMessage()}}</div>
 </nz-form-control>

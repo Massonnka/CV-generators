@@ -1,3 +1,4 @@
+import { TemplateRef } from '@angular/core';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -35,6 +36,9 @@ export class InputComponent implements OnInit, AfterViewInit, ControlValueAccess
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() icon: string = '';
+  @Input() nzSuffix: string | TemplateRef<any> = '';
+  @Input() type: string = '';
+  @Input() id: string = '';
 
   public onChange = (value: any) => { }
   public onTouched = () => { }

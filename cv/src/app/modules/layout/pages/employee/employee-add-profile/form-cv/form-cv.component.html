@@ -1,29 +1,30 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
     <div class="row">
         <nz-form-item class="inputs">
-            <app-autocomplete label="form.email" formControlName="email"
+            <app-autocomplete placeholder="Input your email!" label="form.email" formControlName="email"
                 [errorMessages]="{required: 'Please, specify the field'}">
             </app-autocomplete>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input label="form.lastname" formControlName="lastName"
+            <app-input placeholder="Input your last name!" label="form.lastname" formControlName="lastName"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-input>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-input label="form.skills" formControlName="skills"
+            <app-input placeholder="Input your skills!" label="form.skills" formControlName="skills"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-input>
         </nz-form-item>
     </div>
     <div class="row">
         <nz-form-item class="inputs">
-            <app-autocomplete label="form.specialization" formControlName="specialization"
+            <app-autocomplete placeholder="Input your specialization!" label="form.specialization"
+                formControlName="specialization"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-autocomplete>
         </nz-form-item>
         <nz-form-item class="inputs">
-            <app-autocomplete label="form.department" formControlName="department"
+            <app-autocomplete placeholder="Input your department!" label="form.department" formControlName="department"
                 [errorMessages]="{required: 'Please, specify the field', minlength: 'max len error'}">
             </app-autocomplete>
         </nz-form-item>
