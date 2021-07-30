@@ -5,7 +5,6 @@ import { PrimaryButtonModule } from '../../../../../shared/controls/buttons/prim
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProjectInfoRoutingModule } from './project-info-routing.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
@@ -21,7 +20,6 @@ import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-but
     NzLayoutModule,
     NzDescriptionsModule,
     TranslateModule,
-    ProjectInfoRoutingModule,
     BreadcrumbModule,
     DefaultButtonModule
   ],

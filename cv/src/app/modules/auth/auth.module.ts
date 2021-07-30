@@ -11,7 +11,10 @@ import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdow
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './components/auth.component';
+import { LogInModule } from './components/log-in/log-in.module';
 import { LoginFormModule } from './components/log-in/login-form/login-form.module';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignUpModule } from './components/sign-up/sign-up.module';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -28,6 +31,8 @@ import { LoginFormModule } from './components/log-in/login-form/login-form.modul
     NzInputModule,
     NzButtonModule,
     NzFormModule,
+    LogInModule,
+    SignUpModule,
   ],
   exports: [AuthComponent],
 })

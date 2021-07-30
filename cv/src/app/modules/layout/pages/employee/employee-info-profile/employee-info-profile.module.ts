@@ -11,7 +11,6 @@ import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-but
 import { ListModule } from 'src/app/shared/controls/list/list.module';
 import { FormCvModule } from '../employee-add-profile/form-cv/form-cv.module';
 import { FormInfoModule } from '../employee-add-profile/form-info/form-info.module';
-import { EmployeeInfoProfileRoutingModule } from './employee-info-profile-routing.module';
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
 import { InfoProfileModule } from './info-profile/info-profile.module';
 
@@ -19,7 +18,6 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
   declarations: [EmployeeInfoProfileComponent],
   imports: [
     CommonModule,
-    EmployeeInfoProfileRoutingModule,
     TranslateModule,
     NzBreadCrumbModule,
     NzLayoutModule,
