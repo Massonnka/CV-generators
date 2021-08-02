@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Project } from 'src/app/core/interfaces/interfaces';
+import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 
 @Component({
@@ -11,15 +11,16 @@ import { ProjectService } from 'src/app/core/services/project.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormProjectComponent implements OnInit {
-
   public validateForm!: FormGroup;
-  submitted = false;
-  project: Project;
-  isEditMode = false;
+  public submitted = false;
+  public project: Project;
+  public isEditMode = false;
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private router: Router,
-    private projectService: ProjectService) { }
+    private projectService: ProjectService
+  ) {}
 
   public ngOnInit(): void {
     const options = history.state.options;
@@ -37,7 +38,7 @@ export class FormProjectComponent implements OnInit {
     });
   }
 
-  submit() {
+  public submit() {
     if (this.validateForm.invalid) {
       return;
     }
@@ -52,23 +53,28 @@ export class FormProjectComponent implements OnInit {
     };
     if (this.isEditMode) {
       project._id = this.project._id;
-      this.projectService.UpdateProject(project).subscribe(() => {
-        this.validateForm.reset();
-        this.router.navigate(['/layout/project']);
-        this.submitted = false;
-      }, () => {
-        this.submitted = false;
-        this.isEditMode = false;
-      });
+      this.projectService.UpdateProject(project).subscribe(
+        () => {
+          this.validateForm.reset();
+          this.router.navigate(['/layout/project']);
+          this.submitted = false;
+        },
+        () => {
+          this.submitted = false;
+          this.isEditMode = false;
+        }
+      );
     } else {
-      this.projectService.AddProject(project).subscribe(() => {
-        this.validateForm.reset();
-        this.router.navigate(['/layout/project']);
-        this.submitted = false;
-      }, () => {
-        this.submitted = false;
-      });
+      this.projectService.AddProject(project).subscribe(
+        () => {
+          this.validateForm.reset();
+          this.router.navigate(['/layout/project']);
+          this.submitted = false;
+        },
+        () => {
+          this.submitted = false;
+        }
+      );
     }
   }
-
 }

@@ -23,8 +23,8 @@ import { UserInfoModule } from 'src/app/modules/layout/pages/employee/user-info/
     NzModalModule,
     ModalWindowModule,
     NzButtonModule,
-    UserInfoModule
+    UserInfoModule,
   ],
   exports: [GlobalHeaderComponent],
 })
-export class GlobalHeaderModule { }
+export class GlobalHeaderModule {}

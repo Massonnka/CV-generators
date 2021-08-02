@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { LayoutComponent } from './components/layout.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -22,7 +21,7 @@ const routes: Routes = [
           import('./pages/project/project.module').then((m) => m.ProjectModule),
       },
     ],
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
 ];
 
@@ -30,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LayoutRoutingModule { }
+export class LayoutRoutingModule {}

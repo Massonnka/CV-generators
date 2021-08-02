@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: 'log-in',
-        component: LogInComponent
+        component: LogInComponent,
       },
       {
         path: 'sign-up',
@@ -25,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthRoutingModule { }
+export class AuthRoutingModule {}

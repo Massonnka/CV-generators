@@ -12,12 +12,12 @@ import { AuthService } from '../auth/auth.service';
 export class AuthGuard implements CanActivate {
 
     constructor(
-        public authService: AuthService,
-        public router: Router
+        private authService: AuthService,
+        private router: Router
     ) { }
 
-    canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-        if (this.authService.isAuthenticated() !== true) {
+    public canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+        if (!this.authService.isAuthenticated()) {
             window.alert("Access not allowed!");
             this.router.navigate(['auth/log-in'])
         }

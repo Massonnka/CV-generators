@@ -16,7 +16,7 @@ export class ProjectAddInfoComponent implements OnInit {
   constructor(
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
-  ) { }
+  ) {}
 
   public onBack(): void {
     this.location.back();

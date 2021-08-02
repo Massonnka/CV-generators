@@ -25,12 +25,22 @@
         </app-modal-window>
       </div>
       <li routerLinkActive="active">
-        <a (click)="logout($event)">{{'auth.log-out' | translate}}</a>
+        <a (click)="logout($event)">{{ "auth.log-out" | translate }}</a>
       </li>
       <app-dropdown class="dropdown">
         <a icon class="dropdown-text"> {{ currentLanguage }} </a>
-        <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer">
-          <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">
+        <ul
+          content
+          nz-menu
+          nzSelectable
+          style="list-style-type: none; cursor: pointer"
+        >
+          <li
+            nz-menu-item
+            class="dropdown-item"
+            *ngFor="let language of languages"
+            (click)="switchLanguage(language)"
+          >
             {{ language }}
           </li>
         </ul>

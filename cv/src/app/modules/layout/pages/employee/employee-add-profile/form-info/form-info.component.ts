@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-form-info',
@@ -8,10 +12,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormInfoComponent implements OnInit {
-
   public validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   public ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -22,5 +25,4 @@ export class FormInfoComponent implements OnInit {
       department: ['', [Validators.required, Validators.minLength(4)]],
     });
   }
-
 }

@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user-info',
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserInfoComponent {
   constructor(private location: Location) {}
 
-  onBack() {
+  public onBack() {
     this.location.back();
   }
 }

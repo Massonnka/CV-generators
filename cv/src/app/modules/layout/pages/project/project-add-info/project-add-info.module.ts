@@ -18,8 +18,7 @@ import { ProjectAddInfoComponent } from './project-add-info.component';
     DefaultButtonModule,
     FormProjectModule,
     BreadcrumbModule,
-
   ],
   exports: [ProjectAddInfoComponent],
 })
-export class ProjectAddInfoModule { }
+export class ProjectAddInfoModule {}

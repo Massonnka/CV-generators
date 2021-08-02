@@ -7,12 +7,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzFormModule } from 'ng-zorro-antd/form';
 
-
-
 @NgModule({
-  declarations: [
-    InputComponent
-  ],
+  declarations: [InputComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,10 +16,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     NzInputModule,
     NzIconModule,
     TranslateModule,
-    NzFormModule
+    NzFormModule,
   ],
-  exports: [
-    InputComponent
-  ]
+  exports: [InputComponent],
 })
-export class InputModule { }
+export class InputModule {}

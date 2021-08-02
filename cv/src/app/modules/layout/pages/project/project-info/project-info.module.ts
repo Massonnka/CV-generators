@@ -11,9 +11,7 @@ import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-but
 import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 
 @NgModule({
-  declarations: [
-    ProjectInfoComponent
-  ],
+  declarations: [ProjectInfoComponent],
   imports: [
     CommonModule,
     PrimaryButtonModule,
@@ -23,8 +21,8 @@ import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
     TranslateModule,
     BreadcrumbModule,
     DefaultButtonModule,
-    SpinnerModule
+    SpinnerModule,
   ],
   exports: [ProjectInfoComponent],
 })
-export class ProjectInfoModule { }
+export class ProjectInfoModule {}

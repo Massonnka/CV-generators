@@ -1,4 +1,3 @@
-import { HtmlParser } from '@angular/compiler';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -8,26 +7,11 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./auth.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   public languages = ['en', 'ru'];
-
-  html = document.documentElement;
-  height = Math.max(
-    document.body.scrollHeight,
-    this.html.scrollHeight,
-    document.body.offsetHeight,
-    this.html.offsetHeight,
-    document.body.clientHeight,
-    this.html.clientHeight
-  );
-
   constructor(private translateService: TranslateService) {}
 
-  switchLanguage(language: string): void {
+  public switchLanguage(language: string): void {
     this.translateService.use(language);
-  }
-
-  public ngOnInit(): void {
-    document.body.style.overflow = "hidden";
   }
 }

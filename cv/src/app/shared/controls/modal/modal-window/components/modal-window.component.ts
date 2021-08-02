@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-modal-window',
@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ModalWindowComponent {
-  public isVisible = false;
+  public isVisible: boolean = false;
 
   public showModal(): void {
     this.isVisible = true;

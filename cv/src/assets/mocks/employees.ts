@@ -1,4 +1,4 @@
-import { Employee } from './employees.interface';
+import { Employee } from '../../app/core/interfaces/employees.interface';
 
 export const EMPLOYEES: Employee[] = [
   {

@@ -7,11 +7,8 @@ import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { TranslateModule } from '@ngx-translate/core';
 
-
 @NgModule({
-  declarations: [
-    AutocompleteComponent
-  ],
+  declarations: [AutocompleteComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,10 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     NzInputModule,
     NzAutocompleteModule,
     NzFormModule,
-    TranslateModule
+    TranslateModule,
   ],
-  exports: [
-    AutocompleteComponent
-  ]
+  exports: [AutocompleteComponent],
 })
-export class AutocompleteModule { }
+export class AutocompleteModule {}

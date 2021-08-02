@@ -4,9 +4,9 @@ import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadc
 import { Observable } from 'rxjs';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
-import { FoundProject } from 'src/app/core/interfaces/interfaces';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
+import { Project } from 'src/app/core/interfaces/project.interface';
 
 @Component({
   selector: 'app-project',
@@ -15,12 +15,13 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectComponent implements OnInit {
-  projects$: Observable<FoundProject[]>;
+  projects$: Observable<Project[]>;
 
   constructor(
     private router: Router,
     private projectService: ProjectService,
-    private store: Store<{ breadcrumbs: Breadcrumb[] }>) { }
+    private store: Store<{ breadcrumbs: Breadcrumb[] }>
+  ) {}
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -47,7 +48,7 @@ export class ProjectComponent implements OnInit {
     );
   }
 
-  addItem() {
+  public addItem(): void {
     const log = this.router.navigate(['/layout/project/addinfo']);
   }
 }

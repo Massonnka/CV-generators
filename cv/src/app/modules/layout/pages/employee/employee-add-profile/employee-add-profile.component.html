@@ -28,7 +28,10 @@
           <app-form-cv></app-form-cv>
 
           <nz-collapse>
-            <nz-collapse-panel *ngFor="let project of projects" [nzHeader]="project.name">
+            <nz-collapse-panel
+              *ngFor="let project of projects"
+              [nzHeader]="project.name"
+            >
               <app-form-project></app-form-project>
             </nz-collapse-panel>
           </nz-collapse>

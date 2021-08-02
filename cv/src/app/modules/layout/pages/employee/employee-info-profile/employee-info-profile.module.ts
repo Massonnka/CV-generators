@@ -34,8 +34,8 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
     FormCvModule,
     NzCollapseModule,
     NzIconModule,
-    SpinnerModule
+    SpinnerModule,
   ],
   exports: [EmployeeInfoProfileComponent],
 })
-export class EmployeeInfoProfileModule { }
+export class EmployeeInfoProfileModule {}

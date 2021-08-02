@@ -4,19 +4,9 @@ import { PrimaryButtonComponent } from './components/primary-button.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
-
 @NgModule({
-  declarations: [
-    PrimaryButtonComponent
-  ],
-  imports: [
-    CommonModule,
-    NzIconModule,
-    NzButtonModule,
-
-  ],
-  exports: [
-    PrimaryButtonComponent
-  ]
+  declarations: [PrimaryButtonComponent],
+  imports: [CommonModule, NzIconModule, NzButtonModule],
+  exports: [PrimaryButtonComponent],
 })
-export class PrimaryButtonModule { }
+export class PrimaryButtonModule {}
