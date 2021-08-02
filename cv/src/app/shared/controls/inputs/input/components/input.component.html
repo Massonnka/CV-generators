@@ -3,8 +3,19 @@
     <label *ngIf="label">{{ label | translate }}</label>
     <label *ngIf="isRequired" class="favourite">*</label>
   </div>
-  <nz-input-group [nzSuffix]="nzSuffix" *ngIf="icon || !icon" [nzPrefixIcon]="icon">
-    <input (blur)="onBlur()" [formControl]="control" nz-input [type]=type [id]="id" [placeholder]="placeholder" />
+  <nz-input-group
+    [nzSuffix]="nzSuffix"
+    *ngIf="icon || !icon"
+    [nzPrefixIcon]="icon"
+  >
+    <input
+      (blur)="onBlur()"
+      [formControl]="control"
+      nz-input
+      [type]="type"
+      [id]="id"
+      [placeholder]="placeholder"
+    />
   </nz-input-group>
   <div
     *ngIf="ngControl?.control?.errors && ngControl?.control?.touched"
