@@ -26,7 +26,7 @@ export class ProjectInfoComponent implements OnInit {
     private store: Store<{
       breadcrumbs: Breadcrumb[];
     }>
-  ) {}
+  ) { }
 
   public onBack(): void {
     this.location.back();
@@ -75,7 +75,7 @@ export class ProjectInfoComponent implements OnInit {
     this.router.navigate(['/layout/project/addinfo'], {
       state: {
         options: {
-          project,
+          project
         },
       },
     });

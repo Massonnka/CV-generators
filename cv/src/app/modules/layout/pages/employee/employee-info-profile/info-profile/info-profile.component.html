@@ -1,27 +1,10 @@
 <div class="wrapper">
-  <nz-descriptions
-    nzTitle="{{ 'form.employee-info' | translate }}"
-    nzBordered
-    nzLayout="vertical"
-    [nzExtra]="extraTpl"
-  >
-    <nz-descriptions-item
-      [nzTitle]="'form.firstname' | translate"
-      class="table-item"
-      >Kykold</nz-descriptions-item
-    >
-    <nz-descriptions-item [nzTitle]="'form.lastname' | translate"
-      >Vasilevich</nz-descriptions-item
-    >
-    <nz-descriptions-item [nzTitle]="'form.email' | translate"
-      >test@test.ru</nz-descriptions-item
-    >
-    <nz-descriptions-item [nzTitle]="'form.specialization' | translate"
-      >Bomj</nz-descriptions-item
-    >
-    <nz-descriptions-item [nzTitle]="'form.department' | translate"
-      >JS</nz-descriptions-item
-    >
+  <nz-descriptions nzTitle="{{ 'form.employee-info' | translate }}" nzBordered nzLayout="vertical" [nzExtra]="extraTpl">
+    <nz-descriptions-item [nzTitle]="'form.firstname' | translate" class="table-item">Kykold</nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.lastname' | translate">Vasilevich</nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.email' | translate">test@test.ru</nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.specialization' | translate">Bomj</nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.department' | translate">JS</nz-descriptions-item>
   </nz-descriptions>
   <ng-template class="buttons" #extraTpl>
     <app-primary-button nz-button>
