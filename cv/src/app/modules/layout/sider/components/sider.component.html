@@ -7,7 +7,7 @@
 </app-default-button>
 <app-default-button (click)="onChangeState()" class="toggler">
   <i
-    *ngIf="isVisible else invisibleRef"
+    *ngIf="isVisible; else invisibleRef"
     nz-icon
     nzType="menu-fold"
     nzTheme="outline"

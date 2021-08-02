@@ -33,8 +33,8 @@ import { FormInfoModule } from './form-info/form-info.module';
     NzCollapseModule,
     FormProjectModule,
     NzCollapseModule,
-    SpinnerModule
+    SpinnerModule,
   ],
   exports: [EmployeeAddProfileComponent],
 })
-export class EmployeeAddProfileModule { }
+export class EmployeeAddProfileModule {}

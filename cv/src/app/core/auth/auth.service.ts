@@ -1,10 +1,4 @@
 import { Injectable } from '@angular/core';
-import {
-  FbAuthResponse,
-  LoginUser,
-  RegisterUser,
-  User,
-} from '../interfaces/interfaces';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import {
@@ -14,27 +8,31 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { endpoint } from 'src/app/shared/constants/endpoind.constants';
+import { RegisterUser } from '../interfaces/register-user.interface copy';
+import { LoginUser } from '../interfaces/login-user.interface';
+import { FbAuthResponse } from '../interfaces/auth-response.interface';
+import { User } from '../interfaces/user-info';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
-  endpoint: string = 'https://innowise-cv-generator.herokuapp.com';
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  public headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, public router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  signUp(user: RegisterUser): Observable<any> {
-    let api = `${this.endpoint}/user/register`;
-    return this.http.post(api, user).pipe(catchError(this.handleError));
+  public signUp(user: RegisterUser): Observable<any> {
+    let api = `${endpoint}/user/register`;
+    return this.http.post(api, user).pipe(catchError(error => this.handleError(error)));
   }
 
-  signIn(user: LoginUser) {
-    return this.http.post(`${this.endpoint}/user/login`, user).pipe(
+  public signIn(user: LoginUser) {
+    return this.http.post(`${endpoint}/user/login`, user).pipe(
       tap((response: any) => this.setToken(response)),
       tap((response: any) => this.setUser(response.user)),
-      catchError(this.handleError.bind(this))
+      catchError(error => this.handleError(error))
     );
   }
 
@@ -48,16 +46,16 @@ export class AuthService {
     return localStorage.getItem('fb-token');
   }
 
-  isAuthenticated(): boolean {
-    return !!this.token;
+  public isAuthenticated(): boolean {
+    return Boolean(this.token);
   }
 
-  logout() {
+  public logout() {
     this.setToken(null);
     this.router.navigate(['auth/log-in']);
   }
 
-  handleError(error: HttpErrorResponse) {
+  public handleError(error: HttpErrorResponse) {
     const { message } = error.error.error;
 
     switch (message) {

@@ -7,12 +7,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { TranslateModule } from '@ngx-translate/core';
 
-
-
 @NgModule({
-  declarations: [
-    DatePickerComponent
-  ],
+  declarations: [DatePickerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,10 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     NzInputModule,
     NzDatePickerModule,
     NzFormModule,
-    TranslateModule
+    TranslateModule,
   ],
-  exports: [
-    DatePickerComponent
-  ]
+  exports: [DatePickerComponent],
 })
-export class DatePickerModule { }
+export class DatePickerModule {}

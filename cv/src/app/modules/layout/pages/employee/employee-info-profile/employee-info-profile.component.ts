@@ -1,11 +1,11 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { FoundProject, Project } from 'src/app/core/interfaces/interfaces';
+import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
-import { EMPLOYEES } from 'src/app/models/employees';
+import { EMPLOYEES } from 'src/assets/mocks/employees';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
@@ -13,10 +13,11 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 @Component({
   selector: 'app-employee-info-profile',
   templateUrl: './employee-info-profile.component.html',
-  styleUrls: ['./employee-info-profile.component.scss']
+  styleUrls: ['./employee-info-profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeInfoProfileComponent implements OnInit {
-  projects$: Observable<FoundProject[]>;
+  public projects$: Observable<Project[]>;
   public employees = EMPLOYEES;
 
   public cves: any = [
@@ -35,17 +36,20 @@ export class EmployeeInfoProfileComponent implements OnInit {
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
   ) {
-    this.route.params.subscribe((value) => this.currentUserId = value.user - 1);
+    this.route.params.subscribe(
+      (value) => (this.currentUserId = value.user - 1)
+    );
   }
 
-  private breadcrumbs$: Observable<Breadcrumb[]> = this.store.select(selectBreadcrumb);
+  private breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
 
-  onBack() {
+  public onBack() {
     this.location.back();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.projects$ = this.projectService.FoundAllProjects();
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
@@ -70,5 +74,4 @@ export class EmployeeInfoProfileComponent implements OnInit {
       })
     );
   }
-
 }

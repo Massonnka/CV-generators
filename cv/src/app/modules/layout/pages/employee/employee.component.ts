@@ -1,10 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  OnInit,
-} from '@angular/core';
-import { EMPLOYEES } from './../../../../models/employees';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { EMPLOYEES } from '../../../../../assets/mocks/employees';
 import { Store } from '@ngrx/store';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -20,7 +15,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 export class EmployeeComponent implements OnInit {
   public users = EMPLOYEES;
 
-  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) { }
+  constructor(private store: Store<{ breadcrumbs: Breadcrumb[] }>) {}
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -45,5 +40,4 @@ export class EmployeeComponent implements OnInit {
       })
     );
   }
-
 }

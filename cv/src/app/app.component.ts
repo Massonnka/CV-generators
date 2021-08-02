@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { StateService } from './core/services/state.service';
-import { Themes } from './shared/constants/themes.constants';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +10,7 @@ import { Themes } from './shared/constants/themes.constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  @HostBinding('class') public class = '';
+  @HostBinding('class') public currentTheme = '';
   constructor(private translateService: TranslateService, private stateService: StateService) { }
 
   public ngOnInit(): void {
@@ -25,7 +23,7 @@ export class AppComponent implements OnInit {
   public initThemeListener(): void {
     this.stateService.theme
       .subscribe(value => {
-        this.class = value;
+        this.currentTheme = value;
       });
   }
 }

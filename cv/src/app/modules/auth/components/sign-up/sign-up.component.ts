@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,32 +8,33 @@ import {
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { RegisterUser } from 'src/app/core/interfaces/interfaces';
-import { Specializations } from 'src/app/shared/constants/specializations.constants';
+import { RegisterUser } from 'src/app/core/interfaces/register-user.interface copy';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignUpComponent implements OnInit {
-  validateForm!: FormGroup;
-  captchaTooltipIcon: NzFormTooltipIcon = {
+  public validateForm!: FormGroup;
+  public captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
     theme: 'twotone',
   };
 
-  submitted = false;
-  message: string;
+  public submitted = false;
+  public message: string;
 
-  updateConfirmValidator(): void {
-    /** wait for refresh value */
+  public updateConfirmValidator(): void {
     Promise.resolve().then(() =>
       this.validateForm.controls.checkPassword.updateValueAndValidity()
     );
   }
 
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
+  public confirmationValidator = (
+    control: FormControl
+  ): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };
     } else if (control.value !== this.validateForm.controls.password.value) {
@@ -44,11 +45,11 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public authService: AuthService,
-    public router: Router
-  ) { }
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.validateForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -60,7 +61,7 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  registerUser() {
+  public registerUser() {
     if (this.validateForm.invalid) {
       return;
     }
@@ -72,16 +73,18 @@ export class SignUpComponent implements OnInit {
       lastName: this.validateForm.value.lastName,
       password: this.validateForm.value.password,
       email: this.validateForm.value.email,
-      specialization: this.validateForm.value.specialization
+      specialization: this.validateForm.value.specialization,
     };
 
-    this.authService.signUp(user).subscribe(() => {
-      this.validateForm.reset();
-      this.router.navigate(['auth/log-in']);
-      this.submitted = false;
-    }, () => {
-      this.submitted = false;
-    });
+    this.authService.signUp(user).subscribe(
+      () => {
+        this.validateForm.reset();
+        this.router.navigate(['auth/log-in']);
+        this.submitted = false;
+      },
+      () => {
+        this.submitted = false;
+      }
+    );
   }
-
 }

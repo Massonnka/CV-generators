@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user-info',
@@ -23,7 +23,7 @@ export class UserInfoComponent implements OnInit {
     this.specialization = localStorage.getItem('user-specialization');
   }
 
-  onBack() {
+  public onBack() {
     this.location.back();
   }
 }

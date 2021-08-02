@@ -10,12 +10,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
 import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/autocomplete.module';
 
-
-
 @NgModule({
-  declarations: [
-    FormInfoComponent
-  ],
+  declarations: [FormInfoComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -26,10 +22,8 @@ import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/
     NzInputModule,
     NzDatePickerModule,
     InputModule,
-    AutocompleteModule
+    AutocompleteModule,
   ],
-  exports: [
-    FormInfoComponent
-  ]
+  exports: [FormInfoComponent],
 })
-export class FormInfoModule { }
+export class FormInfoModule {}

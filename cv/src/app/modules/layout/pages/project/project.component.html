@@ -11,8 +11,13 @@
         <span>{{ "project.add-project" | translate }}</span>
       </app-primary-button>
     </div>
-    <app-table *ngIf="projects$ | async as projects; else loading" class="table" [headTemplate]="headRef"
-      [bodyTemplate]="bodyRef" [data]="projects">
+    <app-table
+      *ngIf="projects$ | async as projects; else loading"
+      class="table"
+      [headTemplate]="headRef"
+      [bodyTemplate]="bodyRef"
+      [data]="projects"
+    >
       <ng-template #headRef>
         <tr>
           <th class="table-head">{{ "form.name" | translate }}</th>
@@ -24,13 +29,17 @@
         </tr>
       </ng-template>
       <ng-template #bodyRef let-data="$implicit">
-        <tr *ngFor="let project of projects" class="table-row" [routerLink]="project._id">
+        <tr
+          *ngFor="let project of projects"
+          class="table-row"
+          [routerLink]="project._id"
+        >
           <td>{{ project.name }}</td>
           <td>{{ project.startDate }}</td>
           <td>{{ project.endDate }}</td>
           <td>{{ project.teamSize }}</td>
-          <td>techStack </td>
-          <td>roles </td>
+          <td>techStack</td>
+          <td>roles</td>
         </tr>
       </ng-template>
     </app-table>

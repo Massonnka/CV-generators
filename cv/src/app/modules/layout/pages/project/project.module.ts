@@ -31,8 +31,8 @@ import { ProjectComponent } from './project.component';
     ProjectInfoModule,
     ProjectAddInfoModule,
     StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer),
-    SpinnerModule
+    SpinnerModule,
   ],
   exports: [ProjectComponent],
 })
-export class ProjectModule { }
+export class ProjectModule {}

@@ -17,17 +17,24 @@
       <div class="list">
         <app-list [bodyTemplate]="bodyRef" [data]="cves">
           <ng-template #bodyRef let-data="$implicit">
-            {{ data.name }} <i nz-icon nzType="delete" nzTheme="outline"></i>
+            {{ data.name }}
+            <i nz-icon nzType="delete" nzTheme="outline"></i>
           </ng-template>
         </app-list>
-        <div class="projects" *ngIf="projects$ | async as projects; else loading">
+        <div
+          class="projects"
+          *ngIf="projects$ | async as projects; else loading"
+        >
           <app-form-cv></app-form-cv>
 
           <nz-collapse>
-            <nz-collapse-panel *ngFor="let project of projects" [nzHeader]="project.name">
+            <nz-collapse-panel
+              *ngFor="let project of projects"
+              [nzHeader]="project.name"
+            >
               {{ project.name }} | {{ project.startDate }} |
-              {{ project.endDate }} | {{ project.teamSize }} |
-              techStack | project
+              {{ project.endDate }} | {{ project.teamSize }} | techStack |
+              project
             </nz-collapse-panel>
           </nz-collapse>
         </div>

@@ -1,0 +1,1 @@
+export const endpoint: string = 'https://innowise-cv-generator.herokuapp.com';

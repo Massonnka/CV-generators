@@ -1,11 +1,11 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
-import { FoundProject, Project } from 'src/app/core/interfaces/interfaces';
+import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
@@ -14,19 +14,19 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   selector: 'app-project-info',
   templateUrl: './project-info.component.html',
   styleUrls: ['./project-info.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
-  projects$: Observable<FoundProject[]>;
+  public projects$: Observable<Project[]>;
 
   constructor(
     private router: Router,
     private projectService: ProjectService,
     private location: Location,
     private store: Store<{
-      breadcrumbs: Breadcrumb[],
+      breadcrumbs: Breadcrumb[];
     }>
-  ) { }
+  ) {}
 
   public onBack(): void {
     this.location.back();
@@ -36,7 +36,7 @@ export class ProjectInfoComponent implements OnInit {
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.projects$ = this.projectService.FoundAllProjects();
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
@@ -62,22 +62,22 @@ export class ProjectInfoComponent implements OnInit {
     );
   }
 
-  deleteItem(project: Project) {
+  public deleteItem(project: Project) {
     if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
       return;
     }
     this.projectService.DeleteProject(project._id).subscribe(() => {
-      this.projects$ = this.projectService.FoundAllProjects();;
+      this.projects$ = this.projectService.FoundAllProjects();
     });
   }
 
-  editItem(project: Project) {
+  public editItem(project: Project) {
     this.router.navigate(['/layout/project/addinfo'], {
       state: {
         options: {
-          project
-        }
-      }
+          project,
+        },
+      },
     });
   }
 }

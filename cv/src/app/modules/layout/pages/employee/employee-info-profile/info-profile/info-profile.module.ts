@@ -8,12 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
-
-
 @NgModule({
-  declarations: [
-    InfoProfileComponent
-  ],
+  declarations: [InfoProfileComponent],
   imports: [
     CommonModule,
     NzDescriptionsModule,
@@ -23,8 +19,6 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     TranslateModule,
     NzIconModule,
   ],
-  exports: [
-    InfoProfileComponent
-  ]
+  exports: [InfoProfileComponent],
 })
-export class InfoProfileModule { }
+export class InfoProfileModule {}
