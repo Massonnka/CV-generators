@@ -20,7 +20,7 @@ export class FormProjectComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private projectService: ProjectService
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
     const options = history.state.options;
@@ -36,6 +36,13 @@ export class FormProjectComponent implements OnInit {
       description: ['', [Validators.required, Validators.minLength(4)]],
       responsibilities: ['', [Validators.required, Validators.minLength(4)]],
     });
+    if (this.project) {
+      this.validateForm.get("name")?.setValue(this.project.name);
+      this.validateForm.get("startDate")?.setValue(this.project.startDate);
+      this.validateForm.get("endDate")?.setValue(this.project.endDate);
+      this.validateForm.get("teamSize")?.setValue(this.project.teamSize);
+      this.isEditMode = true;
+    }
   }
 
   public submit() {

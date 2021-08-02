@@ -60,6 +60,7 @@
         "roles": "Роли",
         "description": "Описание",
         "responsibilities": "Обязанности",
-        "skills": "Навыки и умения"
+        "skills": "Навыки и умения",
+        "delete": "Удалить"
     }
 }

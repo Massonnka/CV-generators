@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { Observable } from 'rxjs';
@@ -33,12 +38,12 @@ export class ProjectComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isLoading = true;
-   
-    this.projectService.FoundAllProjects().subscribe(value => {
-      this.projects = value; 
-      this.isLoading = false; 
+
+    this.projectService.FoundAllProjects().subscribe((value) => {
+      this.projects = value;
+      this.isLoading = false;
       this.cdRef.markForCheck();
-      console.log('during subscribtion', this.projects)});
+    });
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
@@ -57,11 +62,18 @@ export class ProjectComponent implements OnInit {
         ],
       })
     );
-    
-    console.log('after subscribtion', this.projects);
   }
 
   public addItem(): void {
     this.router.navigate(['/layout/project/addinfo']);
+  }
+
+  public deleteItem(project: Project) {
+    if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
+      return;
+    }
+    this.projectService.DeleteProject(project._id).subscribe(() => {
+      this.projects$ = this.projectService.FoundAllProjects();
+    });
   }
 }

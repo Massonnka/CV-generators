@@ -60,6 +60,7 @@
         "roles": "Roles",
         "description": "Description",
         "responsibilities": "Responsibilities",
-        "skills": "Skills"
+        "skills": "Skills",
+        "delete": "Delete"
     }
 }

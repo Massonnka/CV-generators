@@ -12,17 +12,15 @@
       </app-primary-button>
     </div>
     <app-table
-
       class="table"
       [headTemplate]="headRef"
       [bodyTemplate]="bodyRef"
       [data]="projects"
     >
-     
     </app-table>
-    <!-- <ng-template #loading>
+    <ng-template #loading>
       <app-spinner></app-spinner>
-    </ng-template> -->
+    </ng-template>
   </nz-content>
 </div>
 
@@ -37,11 +35,7 @@
   </tr>
 </ng-template>
 <ng-template #bodyRef let-data="$implicit">
-  <tr
-    *ngFor="let project of data"
-    class="table-row"
-    [routerLink]="project._id"
-  >
+  <tr *ngFor="let project of data" class="table-row" [routerLink]="project._id">
     <td>{{ project.name }}</td>
     <td>{{ project.startDate }}</td>
     <td>{{ project.endDate }}</td>
