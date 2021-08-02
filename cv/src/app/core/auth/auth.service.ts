@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { RegisterUser } from '../interfaces/register-user.interface copy';
+import { RegisterUser } from '../interfaces/register-user.interface';
 import { LoginUser } from '../interfaces/login-user.interface';
 import { FbAuthResponse } from '../interfaces/auth-response.interface';
 import { User } from '../interfaces/user.interface';
@@ -21,7 +21,7 @@ export class AuthService {
   public error$: Subject<string> = new Subject<string>();
   public headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   public signUp(user: RegisterUser): Observable<any> {
     let api = `${endpoint}/user/register`;

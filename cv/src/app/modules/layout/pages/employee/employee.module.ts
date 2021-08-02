@@ -10,6 +10,7 @@ import {
   breadcrumbsFeatureKey,
 } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
+import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { TableModule } from 'src/app/shared/controls/table/table.module';
 import { GlobalHeaderModule } from '../../global-header/global-header.module';
 import { EmployeeAddProfileModule } from './employee-add-profile/employee-add-profile.module';
@@ -32,7 +33,8 @@ import { EmployeeComponent } from './employee.component';
     EmployeeAddProfileModule,
     EmployeeInfoProfileModule,
     StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer),
+    SpinnerModule
   ],
   exports: [EmployeeComponent],
 })
-export class EmployeeModule {}
+export class EmployeeModule { }

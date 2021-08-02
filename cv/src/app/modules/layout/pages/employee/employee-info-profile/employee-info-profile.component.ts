@@ -5,10 +5,10 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
-import { EMPLOYEES } from 'src/assets/mocks/employees';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { EMPLOYEES } from 'src/assets/mocks/employees';
 
 @Component({
   selector: 'app-employee-info-profile',
