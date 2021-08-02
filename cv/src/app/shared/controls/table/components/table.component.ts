@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnChanges,
   TemplateRef,
 } from '@angular/core';
 
@@ -15,4 +16,5 @@ export class TableComponent {
   @Input() public data: any[] = [];
   @Input() public bodyTemplate: TemplateRef<any>;
   @Input() public headTemplate: TemplateRef<any>;
+
 }

@@ -7,7 +7,6 @@ import {
   Injector,
   Input,
   OnInit,
-  TemplateRef,
 } from '@angular/core';
 import {
   ControlValueAccessor,

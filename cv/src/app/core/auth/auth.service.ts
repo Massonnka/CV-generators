@@ -8,11 +8,11 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { RegisterUser } from '../interfaces/register-user.interface';
 import { LoginUser } from '../interfaces/login-user.interface';
 import { FbAuthResponse } from '../interfaces/auth-response.interface';
 import { User } from '../interfaces/user.interface';
 import { endpoint } from 'src/app/shared/constants/endpoind.constants';
+import { RegisterUser } from '../interfaces/register-user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +33,7 @@ export class AuthService {
   public signIn(user: LoginUser) {
     return this.http.post(`${endpoint}/user/login`, user).pipe(
       tap((response: any) => this.setToken(response)),
+      tap((response: any) => this.setUser(response.user)),
       catchError((error) => this.handleError(error))
     );
   }

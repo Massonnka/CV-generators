@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { EMPLOYEES } from '../../../../../assets/mocks/employees';
 import { Store } from '@ngrx/store';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { Observable } from 'rxjs';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { EMPLOYEES } from 'src/assets/mocks/employees';
 
 @Component({
   selector: 'app-employee',

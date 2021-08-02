@@ -12,39 +12,41 @@
       </app-primary-button>
     </div>
     <app-table
-      *ngIf="projects$ | async as projects; else loading"
+
       class="table"
       [headTemplate]="headRef"
       [bodyTemplate]="bodyRef"
       [data]="projects"
     >
-      <ng-template #headRef>
-        <tr>
-          <th class="table-head">{{ "form.name" | translate }}</th>
-          <th class="table-head">{{ "form.start-date" | translate }}</th>
-          <th class="table-head">{{ "form.end-date" | translate }}</th>
-          <th class="table-head">{{ "form.team-size" | translate }}</th>
-          <th class="table-head">{{ "form.tech-stack" | translate }}</th>
-          <th class="table-head">{{ "form.roles" | translate }}</th>
-        </tr>
-      </ng-template>
-      <ng-template #bodyRef let-data="$implicit">
-        <tr
-          *ngFor="let project of projects"
-          class="table-row"
-          [routerLink]="project._id"
-        >
-          <td>{{ project.name }}</td>
-          <td>{{ project.startDate }}</td>
-          <td>{{ project.endDate }}</td>
-          <td>{{ project.teamSize }}</td>
-          <td>techStack</td>
-          <td>roles</td>
-        </tr>
-      </ng-template>
+     
     </app-table>
-    <ng-template #loading>
+    <!-- <ng-template #loading>
       <app-spinner></app-spinner>
-    </ng-template>
+    </ng-template> -->
   </nz-content>
 </div>
+
+<ng-template #headRef>
+  <tr>
+    <th class="table-head">{{ "form.name" | translate }}</th>
+    <th class="table-head">{{ "form.start-date" | translate }}</th>
+    <th class="table-head">{{ "form.end-date" | translate }}</th>
+    <th class="table-head">{{ "form.team-size" | translate }}</th>
+    <th class="table-head">{{ "form.tech-stack" | translate }}</th>
+    <th class="table-head">{{ "form.roles" | translate }}</th>
+  </tr>
+</ng-template>
+<ng-template #bodyRef let-data="$implicit">
+  <tr
+    *ngFor="let project of data"
+    class="table-row"
+    [routerLink]="project._id"
+  >
+    <td>{{ project.name }}</td>
+    <td>{{ project.startDate }}</td>
+    <td>{{ project.endDate }}</td>
+    <td>{{ project.teamSize }}</td>
+    <td>techStack</td>
+    <td>roles</td>
+  </tr>
+</ng-template>
