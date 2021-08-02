@@ -7,8 +7,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { InputModule } from '../../../../../../shared/controls/inputs/input/input.module';
-import { AutocompleteModule } from '../../../../../../shared/controls/inputs/autocomplete/autocomplete.module';
+import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
+import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/autocomplete.module';
 
 @NgModule({
   declarations: [FormCvComponent],

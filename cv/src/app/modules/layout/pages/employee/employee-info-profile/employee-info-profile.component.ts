@@ -18,6 +18,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 })
 export class EmployeeInfoProfileComponent implements OnInit {
   public projects$: Observable<Project[]>;
+  public projects: Project[];
   public employees = EMPLOYEES;
 
   public cves: any = [
@@ -51,6 +52,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
 
   public ngOnInit(): void {
     this.projects$ = this.projectService.FoundAllProjects();
+    this.projects$.subscribe(projects => this.projects = projects);
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({

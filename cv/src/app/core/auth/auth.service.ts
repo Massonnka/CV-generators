@@ -8,10 +8,11 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { endpoint } from 'src/app/shared/constants/endpoind.constants';
 import { RegisterUser } from '../interfaces/register-user.interface copy';
 import { LoginUser } from '../interfaces/login-user.interface';
 import { FbAuthResponse } from '../interfaces/auth-response.interface';
+import { User } from '../interfaces/user.interface';
+import { endpoint } from 'src/app/shared/constants/endpoind.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -20,17 +21,19 @@ export class AuthService {
   public error$: Subject<string> = new Subject<string>();
   public headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, public router: Router) {}
 
   public signUp(user: RegisterUser): Observable<any> {
     let api = `${endpoint}/user/register`;
-    return this.http.post(api, user).pipe(catchError(error => this.handleError(error)));
+    return this.http
+      .post(api, user)
+      .pipe(catchError((error) => this.handleError(error)));
   }
 
   public signIn(user: LoginUser) {
     return this.http.post(`${endpoint}/user/login`, user).pipe(
-      tap((response: any) => this.setToken(response)),      
-      catchError(error => this.handleError(error))
+      tap((response: any) => this.setToken(response)),
+      catchError((error) => this.handleError(error))
     );
   }
 
@@ -70,9 +73,16 @@ export class AuthService {
 
     return throwError(error);
   }
-  
+
+  public setUser(response: User) {
+    localStorage.setItem('user-firstName', response.firstName);
+    localStorage.setItem('user-lastName', response.lastName);
+    localStorage.setItem('user-email', response.email);
+    localStorage.setItem('user-specialization', response.specialization);
+  }
+
   private setToken(response: FbAuthResponse | null) {
-    if (response) {      
+    if (response) {
       const expiresDate = new Date(new Date().getTime() + 60 * 60 * 1000);
       localStorage.setItem('fb-token', response.accessToken);
       localStorage.setItem('fb-token-exp', expiresDate.toString());

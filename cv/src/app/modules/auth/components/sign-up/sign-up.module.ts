@@ -12,6 +12,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
 import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/autocomplete.module';
+import { SelectModule } from 'src/app/shared/controls/inputs/select/select.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/
     NzSelectModule,
     NzCheckboxModule,
     InputModule,
-    AutocompleteModule
+    AutocompleteModule,
+    SelectModule
   ],
   exports: [
     SignUpComponent

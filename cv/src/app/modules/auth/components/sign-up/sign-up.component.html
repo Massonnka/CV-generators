@@ -27,9 +27,12 @@
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-        <app-input id="specialization" placeholder="Input your specialization!" label="form.specialization"
+        <app-select nzPlaceHolder="Select your specialization!" label="form.specialization"
             formControlName="specialization" [errorMessages]="{required: 'Please, specify the field'}">
-        </app-input>
+            <nz-option nzValue="Angular" nzLabel="Angular"></nz-option>
+            <nz-option nzValue="React" nzLabel="React"></nz-option>
+            <nz-option nzValue="Node Js" nzLabel="Node Js"></nz-option>
+        </app-select>
     </nz-form-item>
     <nz-form-item nz-row class="register-area">
         <nz-form-control>

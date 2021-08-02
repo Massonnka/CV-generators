@@ -5,6 +5,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { ProjectService } from 'src/app/core/services/project.service';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
@@ -35,6 +36,7 @@ import { FormInfoModule } from './form-info/form-info.module';
     NzCollapseModule,
     SpinnerModule,
   ],
+  providers: [ProjectService],
   exports: [EmployeeAddProfileComponent],
 })
 export class EmployeeAddProfileModule {}

@@ -49,6 +49,6 @@ export class ProjectComponent implements OnInit {
   }
 
   public addItem(): void {
-    const log = this.router.navigate(['/layout/project/addinfo']);
+    this.router.navigate(['/layout/project/addinfo']);
   }
 }

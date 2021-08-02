@@ -1,15 +1,15 @@
 <nz-descriptions nzBordered nzLayout="vertical" [nzExtra]="extraTpl">
   <nz-descriptions-item [nzTitle]="'form.firstname' | translate"
-    >Maksim</nz-descriptions-item
+    >{{firstName}}</nz-descriptions-item
   >
   <nz-descriptions-item [nzTitle]="'form.lastname' | translate"
-    >No nameovich</nz-descriptions-item
+    >{{lastName}}</nz-descriptions-item
   >
   <nz-descriptions-item [nzTitle]="'form.email' | translate"
-    >test@test.ru</nz-descriptions-item
+    >{{email}}</nz-descriptions-item
   >
   <nz-descriptions-item [nzTitle]="'form.specialization' | translate"
-    >1C</nz-descriptions-item
+    >{{specialization}}</nz-descriptions-item
   >
 </nz-descriptions>
 <ng-template #extraTpl>
