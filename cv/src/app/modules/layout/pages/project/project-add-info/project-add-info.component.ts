@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { BreadcrumbService } from 'xng-breadcrumb';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
@@ -19,7 +18,7 @@ export class ProjectAddInfoComponent implements OnInit {
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
   ) { }
 
-  onBack() {
+  public onBack(): void {
     this.location.back();
   }
 
@@ -27,7 +26,7 @@ export class ProjectAddInfoComponent implements OnInit {
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({

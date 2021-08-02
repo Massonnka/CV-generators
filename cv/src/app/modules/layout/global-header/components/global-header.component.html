@@ -25,7 +25,7 @@
         </app-modal-window>
       </div>
       <li routerLinkActive="active">
-        <a (click)="logout($event)">Sign out</a>
+        <a (click)="logout($event)">{{'auth.log-out' | translate}}</a>
       </li>
       <app-dropdown class="dropdown">
         <a icon class="dropdown-text"> {{ currentLanguage }} </a>

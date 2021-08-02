@@ -7,19 +7,17 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ModalWindowComponent {
-  isVisible = false;
+  public isVisible = false;
 
-  constructor() { }
-
-  showModal(): void {
+  public showModal(): void {
     this.isVisible = true;
   }
 
-  handleOk(): void {
+  public handleOk(): void {
     this.isVisible = false;
   }
 
-  handleCancel(): void {
+  public handleCancel(): void {
     this.isVisible = false;
   }
 

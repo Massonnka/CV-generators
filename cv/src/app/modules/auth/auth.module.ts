@@ -11,6 +11,8 @@ import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdow
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './components/auth.component';
+import { LogInModule } from './components/log-in/log-in.module';
+import { SignUpModule } from './components/sign-up/sign-up.module';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -26,6 +28,8 @@ import { AuthComponent } from './components/auth.component';
     NzInputModule,
     NzButtonModule,
     NzFormModule,
+    LogInModule,
+    SignUpModule,
   ],
   exports: [AuthComponent],
 })

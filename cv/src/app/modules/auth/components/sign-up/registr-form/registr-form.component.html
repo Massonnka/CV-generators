@@ -1,0 +1,128 @@
+<form
+  nz-form
+  [formGroup]="validateForm"
+  class="sign-up-form"
+  (ngSubmit)="registerUser()"
+>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{
+      "form.firstname" | translate
+    }}</nz-form-label>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="The input is not valid Name!"
+    >
+      <input nz-input formControlName="firstName" id="firstname" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{
+      "form.lastname" | translate
+    }}</nz-form-label>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="The input is not valid Name!"
+    >
+      <input nz-input formControlName="lastName" id="lastname" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired
+      >{{ "profile.password" | translate }}
+    </nz-form-label>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please input your password!"
+    >
+      <input
+        nz-input
+        type="password"
+        id="password"
+        formControlName="password"
+        (ngModelChange)="updateConfirmValidator()"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired
+      >{{ "profile.confirm-pass" | translate }}
+    </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+      <input
+        nz-input
+        type="password"
+        formControlName="checkPassword"
+        id="checkPassword"
+      />
+      <ng-template #errorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')"
+          >Please confirm your password!</ng-container
+        >
+        <ng-container *ngIf="control.hasError('confirm')">
+          Two passwords that you enter is inconsistent!
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired
+      >{{ "form.email" | translate }}
+    </nz-form-label>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please input your email!"
+    >
+      <input nz-input formControlName="email" id="email" placeholder="Email" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>{{
+      "form.specialization" | translate
+    }}</nz-form-label>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="The input is not valid Specialization!"
+    >
+      <!-- <input nz-input formControlName="specialization" id="specialization" /> -->
+      <nz-select>
+        <nz-option
+          [nzLabel]="specializations.React"
+          [nzValue]="'React'"
+        ></nz-option>
+        <nz-option
+          [nzLabel]="specializations.Angular"
+          [nzValue]="'Angular'"
+        ></nz-option>
+        <nz-option
+          [nzLabel]="specializations.NodeJS"
+          [nzValue]="'Node JS'"
+        ></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <label nz-checkbox formControlName="agree">
+        <span>
+          I have read the
+          <a>agreement</a>
+        </span>
+      </label>
+    </nz-form-control>
+    <ng-content></ng-content>
+  </nz-form-item>
+  <button
+    nz-button
+    type="submit"
+    class="login-form-button login-form-margin"
+    [nzType]="'primary'"
+    [disabled]="validateForm.invalid || submitted"
+  >
+    {{ "auth.sign-up" | translate }}
+  </button>
+</form>

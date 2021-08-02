@@ -13,11 +13,11 @@
     <nz-tab nzTitle="Info">
       <app-info-profile></app-info-profile>
     </nz-tab>
-    <nz-tab nzTitle="CV">
+    <nz-tab nzTitle="CV" class="cv-tab">
       <div class="list">
         <app-list [bodyTemplate]="bodyRef" [data]="cves">
           <ng-template #bodyRef let-data="$implicit">
-            {{ data.name }}
+            {{ data.name }} <i nz-icon nzType="delete" nzTheme="outline"></i>
           </ng-template>
         </app-list>
         <div class="projects" *ngIf="projects$ | async as projects; else loading">

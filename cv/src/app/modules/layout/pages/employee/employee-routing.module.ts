@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmployeeAddProfileComponent } from './employee-add-profile/employee-add-profile.component';
+import { EmployeeInfoProfileComponent } from './employee-info-profile/employee-info-profile.component';
 import { EmployeeComponent } from './employee.component';
 
 const routes: Routes = [
@@ -9,19 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'addinfo',
-    loadChildren: () =>
-      import('./employee-add-profile/employee-add-profile.module').then(
-        (m) => m.EmployeeAddProfileModule
-      ),
-    data: { breadcrumb: { alias: 'EmployeeProfile' } },
+    component: EmployeeAddProfileComponent,
   },
   {
     path: ':user',
-    loadChildren: () =>
-      import('./employee-info-profile/employee-info-profile.module').then(
-        (m) => m.EmployeeInfoProfileModule
-      ),
-    data: { breadcrumb: { alias: 'EmployeeProfile' } },
+    component: EmployeeInfoProfileComponent,
   },
 ];
 

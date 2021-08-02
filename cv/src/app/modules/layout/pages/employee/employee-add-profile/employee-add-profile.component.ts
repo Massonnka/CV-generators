@@ -2,13 +2,10 @@ import { Location } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  Inject,
-  Input,
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EMPLOYEES } from '../../../../../models/employees';
-import { BreadcrumbService } from 'xng-breadcrumb';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';

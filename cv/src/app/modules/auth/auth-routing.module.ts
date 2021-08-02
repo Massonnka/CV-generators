@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './../auth/components/auth.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -9,17 +11,11 @@ const routes: Routes = [
     children: [
       {
         path: 'log-in',
-        loadChildren: () =>
-          import('./components/log-in/log-in.module').then(
-            (m) => m.LogInModule
-          ),
+        component: LogInComponent
       },
       {
         path: 'sign-up',
-        loadChildren: () =>
-          import('./components/sign-up/sign-up.module').then(
-            (m) => m.SignUpModule
-          ),
+        component: SignUpComponent,
       },
     ],
   },

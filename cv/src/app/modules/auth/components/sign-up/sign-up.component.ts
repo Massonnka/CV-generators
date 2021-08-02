@@ -17,9 +17,6 @@ import { Specializations } from 'src/app/shared/constants/specializations.consta
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-
-  public specializations = Specializations;
-
   validateForm!: FormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',

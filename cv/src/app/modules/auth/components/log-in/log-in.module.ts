@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogInComponent } from './log-in.component';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
-import { LogInRoutingModule } from './log-in-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,7 +21,6 @@ import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-butto
   imports: [
     CommonModule,
     PrimaryButtonModule,
-    LogInRoutingModule,
     TranslateModule,
     NzFormModule,
     ReactiveFormsModule,

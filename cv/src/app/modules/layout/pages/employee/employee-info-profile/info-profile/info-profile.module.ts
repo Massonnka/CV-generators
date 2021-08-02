@@ -6,6 +6,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 
 
@@ -19,7 +20,8 @@ import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-but
     NzButtonModule,
     DefaultButtonModule,
     PrimaryButtonModule,
-    TranslateModule
+    TranslateModule,
+    NzIconModule,
   ],
   exports: [
     InfoProfileComponent

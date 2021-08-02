@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
@@ -12,7 +13,6 @@ import { ListModule } from 'src/app/shared/controls/list/list.module';
 import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { FormCvModule } from '../employee-add-profile/form-cv/form-cv.module';
 import { FormInfoModule } from '../employee-add-profile/form-info/form-info.module';
-import { EmployeeInfoProfileRoutingModule } from './employee-info-profile-routing.module';
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
 import { InfoProfileModule } from './info-profile/info-profile.module';
 
@@ -20,7 +20,6 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
   declarations: [EmployeeInfoProfileComponent],
   imports: [
     CommonModule,
-    EmployeeInfoProfileRoutingModule,
     TranslateModule,
     NzBreadCrumbModule,
     NzLayoutModule,
@@ -34,6 +33,7 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
     InfoProfileModule,
     FormCvModule,
     NzCollapseModule,
+    NzIconModule,
     SpinnerModule
   ],
   exports: [EmployeeInfoProfileComponent],

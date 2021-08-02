@@ -4,11 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { FoundProject, Project } from 'src/app/core/interfaces/interfaces';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
 
 @Component({
   selector: 'app-project-info',
@@ -21,7 +21,6 @@ export class ProjectInfoComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private projectService: ProjectService,
     private location: Location,
     private store: Store<{
@@ -29,7 +28,7 @@ export class ProjectInfoComponent implements OnInit {
     }>
   ) { }
 
-  onBack() {
+  public onBack(): void {
     this.location.back();
   }
 

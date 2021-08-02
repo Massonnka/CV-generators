@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { Store, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -12,6 +12,8 @@ import {
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { TableModule } from 'src/app/shared/controls/table/table.module';
 import { GlobalHeaderModule } from '../../global-header/global-header.module';
+import { EmployeeAddProfileModule } from './employee-add-profile/employee-add-profile.module';
+import { EmployeeInfoProfileModule } from './employee-info-profile/employee-info-profile.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
 
@@ -27,8 +29,10 @@ import { EmployeeComponent } from './employee.component';
     PrimaryButtonModule,
     TableModule,
     BreadcrumbModule,
+    EmployeeAddProfileModule,
+    EmployeeInfoProfileModule,
     StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer),
   ],
   exports: [EmployeeComponent],
 })
-export class EmployeeModule { }
+export class EmployeeModule {}

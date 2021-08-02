@@ -2,8 +2,10 @@
     "auth": {
         "sign-up": "Зарегистрироваться",
         "log-in": "Авторизоваться",
+        "log-out": "Выйти",
         "remember-me": "Запомнить",
-        "forgot-password": "Зарегистрироваться"
+        "forgot-password": "Зарегистрироваться",
+        "i-have-account": "У меня есть аккаунт"
     },
     "profile": {
         "profile": "Профиль",
@@ -20,8 +22,7 @@
         "dashboard": "Главная",
         "employee": "Сотрудники",
         "project": "Проекты",
-        "info": "Информация",
-        "i-have-account": "У меня уже есть аккаунт"
+        "info": "Информация"
     },
     "employee": {
         "employee-list": "Список сотрудников",

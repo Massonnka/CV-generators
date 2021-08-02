@@ -5,15 +5,6 @@
   background-color: var(--background-color);
 }
 
-:host ::ng-deep .xng-breadcrumb-root {
-  background-color: var(--content-color);
-  color: var(--text-color);
-
-  .xng-breadcrumb-trail {
-    color: var(--text-color);
-  }
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;

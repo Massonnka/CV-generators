@@ -4,7 +4,7 @@ import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadc
 import { Observable } from 'rxjs';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
-import { FoundProject, Project } from 'src/app/core/interfaces/interfaces';
+import { FoundProject } from 'src/app/core/interfaces/interfaces';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
 

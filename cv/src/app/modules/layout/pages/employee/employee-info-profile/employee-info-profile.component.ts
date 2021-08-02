@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
 import { FoundProject, Project } from 'src/app/core/interfaces/interfaces';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { EMPLOYEES } from 'src/app/models/employees';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { Breadcrumb } from 'xng-breadcrumb/lib/types/breadcrumb';
 
 @Component({
   selector: 'app-employee-info-profile',
@@ -30,7 +30,6 @@ export class EmployeeInfoProfileComponent implements OnInit {
   public currentUserId: number;
 
   constructor(
-    private router: Router,
     private projectService: ProjectService,
     private route: ActivatedRoute,
     private location: Location,

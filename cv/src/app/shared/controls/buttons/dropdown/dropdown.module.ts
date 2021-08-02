@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DropdownComponent } from './dropdown.component';
+import { DropdownComponent } from './components/dropdown.component';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 @NgModule({

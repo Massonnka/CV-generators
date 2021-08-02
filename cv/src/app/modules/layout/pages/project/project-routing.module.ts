@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProjectAddInfoComponent } from './project-add-info/project-add-info.component';
+import { ProjectInfoComponent } from './project-info/project-info.component';
 import { ProjectComponent } from './project.component';
 
 const routes: Routes = [
@@ -9,19 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'addinfo',
-    loadChildren: () =>
-      import('./project-add-info/project-add-info.module').then(
-        (m) => m.ProjectAddInfoModule
-      ),
-    data: { breadcrumb: { alias: 'ProjectInfo' } },
+    component: ProjectAddInfoComponent,
   },
   {
     path: ':project',
-    loadChildren: () =>
-      import('./project-info/project-info.module').then(
-        (m) => m.ProjectInfoModule
-      ),
-    data: { breadcrumb: { alias: 'ProjectInfo' } },
+    component: ProjectInfoComponent,
   },
 ];
 
