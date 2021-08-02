@@ -16,6 +16,13 @@ export interface FbAuthResponse {
     accessToken: string;
 }
 
+export interface User {
+    email: string,
+    firstName: string,
+    lastName: string,
+    specialization: string,
+}
+
 export interface FoundProject {
     _id: string;
     name: string;

@@ -3,6 +3,7 @@ import {
   FbAuthResponse,
   LoginUser,
   RegisterUser,
+  User,
 } from '../interfaces/interfaces';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -22,7 +23,7 @@ export class AuthService {
   endpoint: string = 'https://innowise-cv-generator.herokuapp.com';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(private http: HttpClient, public router: Router) { }
 
   signUp(user: RegisterUser): Observable<any> {
     let api = `${this.endpoint}/user/register`;
@@ -31,7 +32,8 @@ export class AuthService {
 
   signIn(user: LoginUser) {
     return this.http.post(`${this.endpoint}/user/login`, user).pipe(
-      tap((response: any) => this.setToken(response)),      
+      tap((response: any) => this.setToken(response)),
+      tap((response: any) => this.setUser(response.user)),
       catchError(this.handleError.bind(this))
     );
   }
@@ -72,9 +74,16 @@ export class AuthService {
 
     return throwError(error);
   }
-  
+
+  public setUser(response: User) {
+    localStorage.setItem('user-firstName', response.firstName);
+    localStorage.setItem('user-lastName', response.lastName);
+    localStorage.setItem('user-email', response.email);
+    localStorage.setItem('user-specialization', response.specialization);
+  }
+
   private setToken(response: FbAuthResponse | null) {
-    if (response) {      
+    if (response) {
       const expiresDate = new Date(new Date().getTime() + 60 * 60 * 1000);
       localStorage.setItem('fb-token', response.accessToken);
       localStorage.setItem('fb-token-exp', expiresDate.toString());
