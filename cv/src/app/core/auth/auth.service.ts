@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import {
   HttpClient,
   HttpHeaders,
@@ -13,6 +13,7 @@ import { RegisterUser } from '../interfaces/register-user.interface copy';
 import { LoginUser } from '../interfaces/login-user.interface';
 import { FbAuthResponse } from '../interfaces/auth-response.interface';
 import { User } from '../interfaces/user-info';
+import { Project } from '../interfaces/project.interface';
 
 @Injectable({
   providedIn: 'root',

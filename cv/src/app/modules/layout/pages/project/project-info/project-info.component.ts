@@ -32,6 +32,7 @@ export class ProjectInfoComponent implements OnInit {
     this.location.back();
   }
 
+
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
