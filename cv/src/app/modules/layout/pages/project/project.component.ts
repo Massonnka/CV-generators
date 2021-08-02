@@ -21,7 +21,7 @@ export class ProjectComponent implements OnInit {
     private router: Router,
     private projectService: ProjectService,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
-  ) {}
+  ) { }
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -50,5 +50,14 @@ export class ProjectComponent implements OnInit {
 
   public addItem(): void {
     const log = this.router.navigate(['/layout/project/addinfo']);
+  }
+
+  deleteItem(project: Project) {
+    if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
+      return;
+    }
+    this.projectService.DeleteProject(project._id).subscribe(() => {
+      this.projects$ = this.projectService.FoundAllProjects();
+    });
   }
 }
