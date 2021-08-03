@@ -82,5 +82,8 @@
         "Input your specialization!": "Введите свою специализацию!",
         "Input your department!": "Введите свой отдел!",
         "Select date": "Выберите дату!"
+    },
+    "modal": {
+        "notification": "Уведомление"
     }
 }

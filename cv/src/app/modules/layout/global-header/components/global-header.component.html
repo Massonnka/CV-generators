@@ -11,8 +11,12 @@
         <app-circle-button class="circle-button">
           <i nz-icon nzType="question-circle" nzTheme="outline"></i>
         </app-circle-button>
-        <app-circle-button class="circle-button">
-          <i nz-icon nzType="bell" nzTheme="outline"></i>
+        <app-circle-button class="circle-button" nz-popover [nzPopoverTitle]="'modal.notification' | translate"
+          [(nzPopoverVisible)]="visible" nzPopoverTrigger="click" [nzPopoverContent]="contentTemplate"
+          (click)="change()">
+          <nz-badge [nzCount]="count" [nzOverflowCount]="10">
+            <i nz-icon nzType="bell" nzTheme="outline"></i>
+          </nz-badge>
         </app-circle-button>
       </div>
       <div class="user">
@@ -29,18 +33,8 @@
       </li>
       <app-dropdown class="dropdown">
         <a icon class="dropdown-text"> {{ currentLanguage }} </a>
-        <ul
-          content
-          nz-menu
-          nzSelectable
-          style="list-style-type: none; cursor: pointer"
-        >
-          <li
-            nz-menu-item
-            class="dropdown-item"
-            *ngFor="let language of languages"
-            (click)="switchLanguage(language)"
-          >
+        <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer">
+          <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">
             {{ language }}
           </li>
         </ul>
@@ -48,3 +42,12 @@
     </nz-page-header-content>
   </nz-page-header>
 </div>
+
+<ng-template #contentTemplate>
+  <div>
+    <div>
+
+    </div>
+    <p>{{createdAt}}</p>
+  </div>
+</ng-template>

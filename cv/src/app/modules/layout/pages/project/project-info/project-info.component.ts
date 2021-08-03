@@ -9,7 +9,6 @@ import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { logging } from 'protractor';
 
 @Component({
   selector: 'app-project-info',
@@ -19,7 +18,6 @@ import { logging } from 'protractor';
 })
 export class ProjectInfoComponent implements OnInit {
   public projects$: Observable<Project>;
-  public projects: Project[] = [];
   public projectId: string;
   public params = {
     id: ''
@@ -44,7 +42,7 @@ export class ProjectInfoComponent implements OnInit {
   public breadcrumbs: Breadcrumb[];
 
   public ngOnInit(): void {
-    const acrivatedRouterSubscriber = this.activatedRouter.params.subscribe(value => this.projectId = value.project);
+    const id = this.activatedRouter.params.subscribe(value => this.projectId = value.project);
     this.params.id = this.projectId;
     this.projects$ = this.projectService.GetProjectById(this.projectId, this.params);
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));

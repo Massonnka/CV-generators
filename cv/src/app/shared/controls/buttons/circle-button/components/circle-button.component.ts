@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
+import { NzTooltipTrigger } from 'ng-zorro-antd/tooltip';
 
 @Component({
   selector: 'app-circle-button',

@@ -1,8 +1,14 @@
-<div class="page-header">
+<div *ngIf="projects$ | async as projects; else loading" class="page-header">
     <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
     <div class="title">{{ "pages.project" | translate }}</div>
-    <p>{{ "project.project-list" | translate }}</p>
+    <div class="title-info">
+        <p>
+            {{ "pages.project" | translate }}
+            {{ projects.name }}
+        </p>
+
+    </div>
 </div>
 <nz-content *ngIf="projects$ | async as projects; else loading" class="content">
     <nz-descriptions nzTitle="{{ 'form.project-info' | translate }}" nzBordered nzLayout="vertical"
@@ -11,10 +17,10 @@
             {{ projects.name }}
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.start-date' | translate }}">
-            {{ projects.startDate }}
+            {{ projects.startDate | date:'fullDate' }}
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.end-date' | translate }}">
-            {{ projects.endDate }}
+            {{ projects.endDate | date:'fullDate' }}
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.team-size' | translate }}">
             {{ projects.teamSize }}
