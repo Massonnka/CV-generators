@@ -5,7 +5,9 @@
         "log-out": "Log out",
         "remember-me": "Remember me",
         "forgot-password": "Register now",
-        "i-have-account": "I already have an account"
+        "i-have-account": "I already have an account",
+        "I have read the": "I have read the",
+        "agreement": "agreement"
     },
     "profile": {
         "profile": "Profile",
@@ -62,5 +64,23 @@
         "responsibilities": "Responsibilities",
         "skills": "Skills",
         "delete": "Delete"
+    },
+    "placeholder": {
+        "Input your email!": "Input your email!",
+        "Input your password!": "Input your password!",
+        "Input your first name!": "Input your first name!",
+        "Input your last name!": "Input your last name!",
+        "Input your confirm password!": "Input your confirm password!",
+        "Select your specialization!": "Select your specialization!",
+        "Input your name!": "Input your name!",
+        "Input your team size!": "Input your team size!",
+        "Input your tech stack!": "Input your tech stack!",
+        "Input your roles!": "Input your roles!",
+        "Input your description!": "Input your description!",
+        "Input your responsibilities!": "Input your responsibilities!",
+        "Input your skills!": "Input your skills!",
+        "Input your specialization!": "Input your specialization!",
+        "Input your department!": "Input your department!",
+        "Select date": "Select date"
     }
 }

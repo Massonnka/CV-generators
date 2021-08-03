@@ -1,33 +1,34 @@
 <form nz-form [formGroup]="validateForm" class="sign-up-form" (ngSubmit)="registerUser()">
     <nz-form-item class="inputs">
-        <app-input id="firstname" placeholder="Input your first name!" label="form.firstname"
-            formControlName="firstName" [errorMessages]="{required: 'Please, specify the field'}">
+        <app-input id="firstname" [placeholder]="'placeholder.Input your first name!' | translate"
+            label="form.firstname" formControlName="firstName"
+            [errorMessages]="{required: 'Please, specify the field'}">
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-        <app-input id="lastname" placeholder="Input your last name!" label="form.lastname" formControlName="lastName"
-            [errorMessages]="{required: 'Please, specify the field'}">
+        <app-input id="lastname" [placeholder]="'placeholder.Input your last name!' | translate" label="form.lastname"
+            formControlName="lastName" [errorMessages]="{required: 'Please, specify the field'}">
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
         <app-input (ngModelChange)="updateConfirmValidator()" id="password" type="password"
-            placeholder="Input your password!" label="profile.password" formControlName="password"
-            [errorMessages]="{required: 'Please, specify the field'}">
+            [placeholder]="'placeholder.Input your password!' | translate" label="profile.password"
+            formControlName="password" [errorMessages]="{required: 'Please, specify the field'}">
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-        <app-input type="password" placeholder="Input your confirm password" label="profile.confirm-pass"
-            formControlName="checkPassword"
+        <app-input type="password" [placeholder]="'placeholder.Input your confirm password!' | translate"
+            label="profile.confirm-pass" formControlName="checkPassword"
             [errorMessages]="{required: 'Please confirm your password!',inconsistent: 'Two passwords that you enter is inconsistent!'}">
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-        <app-input placeholder="Input your email!" label="form.email" id="email" formControlName="email"
-            [errorMessages]="{required: 'Please, specify the field'}">
+        <app-input [placeholder]="'placeholder.Input your email!' | translate" label="form.email" id="email"
+            formControlName="email" [errorMessages]="{required: 'Please, specify the field'}">
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-        <app-select nzPlaceHolder="Select your specialization!" label="form.specialization"
+        <app-select [nzPlaceHolder]="'placeholder.Select your specialization!' | translate" label="form.specialization"
             formControlName="specialization" [errorMessages]="{required: 'Please, specify the field'}">
             <nz-option nzValue="Angular" nzLabel="Angular"></nz-option>
             <nz-option nzValue="React" nzLabel="React"></nz-option>
@@ -38,8 +39,8 @@
         <nz-form-control>
             <label nz-checkbox formControlName="agree">
                 <span>
-                    I have read the
-                    <a>agreement</a>
+                    {{ "auth.I have read the" | translate }}
+                    <a>{{ "auth.agreement" | translate }}</a>
                 </span>
             </label>
         </nz-form-control>

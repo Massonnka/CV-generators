@@ -5,7 +5,9 @@
         "log-out": "Выйти",
         "remember-me": "Запомнить",
         "forgot-password": "Зарегистрироваться",
-        "i-have-account": "У меня есть аккаунт"
+        "i-have-account": "У меня есть аккаунт",
+        "I have read the": "Я прочитал",
+        "agreement": "соглашение"
     },
     "profile": {
         "profile": "Профиль",
@@ -62,5 +64,23 @@
         "responsibilities": "Обязанности",
         "skills": "Навыки и умения",
         "delete": "Удалить"
+    },
+    "placeholder": {
+        "Input your email!": "Введите свой адрес электронной почты!",
+        "Input your password!": "Введите свой пароль!",
+        "Input your first name!": "Введите свое имя!",
+        "Input your last name!": "Введите свою фамилию!",
+        "Input your confirm password!": "Введите свой пароль подтверждения!",
+        "Select your specialization!": "Выберите свою специализацию!",
+        "Input your name!": "Введите свое имя!",
+        "Input your team size!": "Введите размер вашей команды!",
+        "Input your tech stack!": "Введите свой стек технологий!",
+        "Input your roles!": "Введите свои роли!",
+        "Input your description!": "Введите свое описание!",
+        "Input your responsibilities!": "Введите свои обязанности!",
+        "Input your skills!": "Используйте свои навыки!",
+        "Input your specialization!": "Введите свою специализацию!",
+        "Input your department!": "Введите свой отдел!",
+        "Select date": "Выберите дату"
     }
 }
