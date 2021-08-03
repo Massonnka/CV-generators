@@ -14,7 +14,7 @@ export class GlobalHeaderComponent implements OnInit {
   public lastName: string | null;
   public userName: string | null;
   public createdAt: string | null;
-  public date: number;
+  public date: number | string;
   public visible: boolean = false;
 
   @Input() count: number = 1;
@@ -25,7 +25,27 @@ export class GlobalHeaderComponent implements OnInit {
   ) { }
   public currentLanguage: string = this.translateService.currentLang || 'en';
 
-  change(): void {
+  public change() {
+    this.createdAt = localStorage.getItem('user-date-reg');
+    if (this.createdAt) {
+      this.date = Math.round((Date.now() - Date.parse(this.createdAt)) / 86400000);
+      console.log(this.date);
+
+      if (this.date > 30) {
+        if (this.date > 60) {
+          this.date = Math.round(this.date / 30) + ' month ago'
+        } else {
+          this.date = 'One month ago';
+        }
+      }
+
+      if (this.date > 1) {
+        this.date = (this.date) + ' days ago'
+      } else {
+        this.date = 'One day ago';
+      }
+    }
+
     this.count = 0;
   }
 
@@ -35,8 +55,6 @@ export class GlobalHeaderComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.createdAt = localStorage.getItem('user-date-reg');
-    this.date = Date.now();
     this.firstName = localStorage.getItem('user-firstName');
     this.lastName = localStorage.getItem('user-lastName');
     this.userName = this.firstName + " " + this.lastName;
