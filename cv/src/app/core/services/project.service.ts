@@ -12,8 +12,8 @@ export class ProjectService {
         return this.http.get<Project[]>(`${endpoint}/project`);
     }
 
-    public GetProjectById(_id: any): Observable<Project> {
-        return this.http.get<Project>(`${endpoint}/project/${_id}`);
+    public GetProjectById(id: any, params: any): Observable<Project> {
+        return this.http.get<Project>(`${endpoint}/project/${id}`, { params: params });
     }
 
     public AddProject(Project: Project): Observable<Project> {
@@ -21,10 +21,10 @@ export class ProjectService {
     }
 
     public UpdateProject(Project: Project): Observable<Project> {
-        return this.http.put<Project>(`${endpoint}/project/${Project._id}`, Project);
+        return this.http.put<Project>(`${endpoint}/project/${Project.id}`, Project);
     }
 
-    public DeleteProject(_id: any): Observable<any> {
-        return this.http.delete<any>(`${endpoint}/project/${_id}`);
+    public DeleteProject(id: any): Observable<any> {
+        return this.http.delete<any>(`${endpoint}/project/${id}`);
     }
 }

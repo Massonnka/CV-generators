@@ -3,11 +3,8 @@
     <label *ngIf="label">{{ label | translate }}</label>
     <label *ngIf="isRequired" class="favourite">*</label>
   </div>
-  <nz-date-picker [formControl]="control"></nz-date-picker>
-  <div
-    *ngIf="ngControl?.control?.errors && ngControl?.control?.touched"
-    class="error"
-  >
+  <nz-date-picker [nzPlaceHolder]="nzPlaceHolder" [formControl]="control"></nz-date-picker>
+  <div *ngIf="ngControl?.control?.errors && ngControl?.control?.touched" class="error">
     {{ getErrorMessage() }}
   </div>
 </nz-form-control>

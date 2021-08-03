@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -9,6 +9,7 @@ import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { logging } from 'protractor';
 
 @Component({
   selector: 'app-project-info',
@@ -17,10 +18,16 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
-  public projects$: Observable<Project[]>;
+  public projects$: Observable<Project>;
+  public projects: Project[] = [];
+  public projectId: string;
+  public params = {
+    id: ''
+  }
 
   constructor(
     private router: Router,
+    private activatedRouter: ActivatedRoute,
     private projectService: ProjectService,
     private location: Location,
     private store: Store<{
@@ -32,13 +39,14 @@ export class ProjectInfoComponent implements OnInit {
     this.location.back();
   }
 
-
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
 
   public ngOnInit(): void {
-    this.projects$ = this.projectService.FoundAllProjects();
+    const acrivatedRouterSubscriber = this.activatedRouter.params.subscribe(value => this.projectId = value.project);
+    this.params.id = this.projectId;
+    this.projects$ = this.projectService.GetProjectById(this.projectId, this.params);
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -67,8 +75,8 @@ export class ProjectInfoComponent implements OnInit {
     if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
       return;
     }
-    this.projectService.DeleteProject(project._id).subscribe(() => {
-      this.projects$ = this.projectService.FoundAllProjects();
+    this.projectService.DeleteProject(project.id).subscribe(() => {
+      this.projects$ = this.projectService.GetProjectById(this.projectId, this.params);
     });
   }
 

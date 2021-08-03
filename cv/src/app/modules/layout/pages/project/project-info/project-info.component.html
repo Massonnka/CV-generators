@@ -5,19 +5,19 @@
     <p>{{ "project.project-list" | translate }}</p>
 </div>
 <nz-content *ngIf="projects$ | async as projects; else loading" class="content">
-    <nz-descriptions *ngFor="let project of projects" nzTitle="{{ 'form.project-info' | translate }}" nzBordered
-        nzLayout="vertical" [nzExtra]="extraTpl">
+    <nz-descriptions nzTitle="{{ 'form.project-info' | translate }}" nzBordered nzLayout="vertical"
+        [nzExtra]="extraTpl">
         <nz-descriptions-item nzTitle="{{ 'form.name' | translate }}">
-            {{ project.name }}
+            {{ projects.name }}
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.start-date' | translate }}">
-            {{ project.startDate }}
+            {{ projects.startDate }}
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.end-date' | translate }}">
-            {{ project.endDate }}
+            {{ projects.endDate }}
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.team-size' | translate }}">
-            {{ project.teamSize }}
+            {{ projects.teamSize }}
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.tech-stack' | translate }}">Angular</nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'form.roles' | translate }}">React</nz-descriptions-item>
@@ -26,9 +26,6 @@
         <nz-descriptions-item nzTitle="{{ 'form.responsibilities' | translate }}">
             blablalblablalblalbblalbalbaxa</nz-descriptions-item>
         <ng-template class="buttons" #extraTpl>
-            <app-primary-button (click)="editItem(project)" nz-button>
-                {{ "form.edit" | translate }}
-            </app-primary-button>
             <app-default-button (click)="onBack()" nz-button>
                 {{ "form.cancel" | translate }}
             </app-default-button>
