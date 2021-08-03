@@ -12,7 +12,6 @@ import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcr
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/core/interfaces/project.interface';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project',
