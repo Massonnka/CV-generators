@@ -12,8 +12,8 @@ export class ProjectService {
         return this.http.get<Project[]>(`${endpoint}/project`);
     }
 
-    public GetProjectById(_id: any): Observable<Project> {
-        return this.http.get<Project>(`${endpoint}/project/${_id}`);
+    public GetProjectById(id: string): Observable<Project> {
+        return this.http.get<Project>(`${endpoint}/project/${id}`);
     }
 
     public AddProject(Project: Project): Observable<Project> {

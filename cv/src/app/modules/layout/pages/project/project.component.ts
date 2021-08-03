@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  Input,
   OnInit,
+  Output,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -12,7 +14,6 @@ import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcr
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/core/interfaces/project.interface';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project',
@@ -21,6 +22,8 @@ import { take } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectComponent implements OnInit {
+  @Input() public currentProject: Project;
+
   public projects$: Observable<Project[]>;
   public projects: Project[] = [];
   public isLoading = false;
@@ -62,6 +65,11 @@ export class ProjectComponent implements OnInit {
         ],
       })
     );
+  }
+
+  public getProject(id: string): Project {
+    this.currentProject = this.projects.find(currentValue => currentValue._id === id) as Project;
+    return this.currentProject;
   }
 
   public addItem(): void {

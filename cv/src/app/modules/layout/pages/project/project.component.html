@@ -35,7 +35,7 @@
   </tr>
 </ng-template>
 <ng-template #bodyRef let-data="$implicit">
-  <tr *ngFor="let project of data" class="table-row" [routerLink]="project._id">
+  <tr *ngFor="let project of data" class="table-row" [routerLink]="project._id" (click)="getProject(project._id)">
     <td>{{ project.name }}</td>
     <td>{{ project.startDate }}</td>
     <td>{{ project.endDate }}</td>

@@ -1,7 +1,11 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Input,
+} from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -14,10 +18,13 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   selector: 'app-project-info',
   templateUrl: './project-info.component.html',
   styleUrls: ['./project-info.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
   public projects$: Observable<Project[]>;
+  public projects: Project[] = [];
+  public currentProject: any;
+  private projectId: string;
 
   constructor(
     private router: Router,
@@ -25,13 +32,14 @@ export class ProjectInfoComponent implements OnInit {
     private location: Location,
     private store: Store<{
       breadcrumbs: Breadcrumb[];
-    }>
-  ) { }
+    }>,
+    private cdRef: ChangeDetectorRef,
+    private activatedRouter: ActivatedRoute
+  ) {}
 
   public onBack(): void {
     this.location.back();
   }
-
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -39,6 +47,13 @@ export class ProjectInfoComponent implements OnInit {
 
   public ngOnInit(): void {
     this.projects$ = this.projectService.FoundAllProjects();
+    this.projects$.subscribe((value) => {
+      this.projects = value;
+      // this.cdRef.markForCheck();
+    });
+
+    this.currentProject = this.getProjectInfo();
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -63,6 +78,24 @@ export class ProjectInfoComponent implements OnInit {
     );
   }
 
+  public getProjectInfo() {
+    const acrivatedRouterSubscriber = this.activatedRouter.params.subscribe(
+      (value) => {
+        this.projectId = value.project;
+        this.cdRef.markForCheck();
+      }
+    );
+
+    const project = this.projects.find(
+      (currentValue) => currentValue._id === this.projectId
+    );
+
+    console.log(project);
+
+    acrivatedRouterSubscriber.unsubscribe();
+    return project;
+  }
+
   public deleteItem(project: Project) {
     if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
       return;
@@ -76,7 +109,7 @@ export class ProjectInfoComponent implements OnInit {
     this.router.navigate(['/layout/project/addinfo'], {
       state: {
         options: {
-          project
+          project,
         },
       },
     });
