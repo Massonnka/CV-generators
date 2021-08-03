@@ -80,6 +80,7 @@ export class AuthService {
     localStorage.setItem('user-lastName', response.lastName);
     localStorage.setItem('user-email', response.email);
     localStorage.setItem('user-specialization', response.specialization);
+    localStorage.setItem('user-date-reg', response.createdAt)
   }
 
   private setToken(response: FbAuthResponse | null) {

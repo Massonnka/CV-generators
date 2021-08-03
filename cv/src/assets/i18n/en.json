@@ -82,5 +82,8 @@
         "Input your specialization!": "Input your specialization!",
         "Input your department!": "Input your department!",
         "Select date": "Select date!"
+    },
+    "modal": {
+        "notification": "Notification"
     }
 }

@@ -18,7 +18,6 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 })
 export class ProjectInfoComponent implements OnInit {
   public projects$: Observable<Project>;
-  public projects: Project[] = [];
   public projectId: string;
   public params = {
     id: ''
@@ -43,7 +42,7 @@ export class ProjectInfoComponent implements OnInit {
   public breadcrumbs: Breadcrumb[];
 
   public ngOnInit(): void {
-    const acrivatedRouterSubscriber = this.activatedRouter.params.subscribe(value => this.projectId = value.project);
+    const id = this.activatedRouter.params.subscribe(value => this.projectId = value.project);
     this.params.id = this.projectId;
     this.projects$ = this.projectService.GetProjectById(this.projectId, this.params);
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
