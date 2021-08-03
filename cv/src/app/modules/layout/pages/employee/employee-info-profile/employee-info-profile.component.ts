@@ -1,10 +1,9 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Project } from 'src/app/core/interfaces/project.interface';
-import { ProjectService } from 'src/app/core/services/project.service';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
@@ -21,18 +20,13 @@ export class EmployeeInfoProfileComponent implements OnInit {
   public projects: Project[];
   public employees = EMPLOYEES;
 
-  public cves: any = [
-    { name: 'cv 1' },
-    { name: 'cv 2' },
-    { name: 'cv 3' },
-    { name: 'cv 4' },
-    { name: 'cv 5' },
-  ];
+  public isCvInfoHide = true;
+
+  public cves: any = [{ name: 'cv 1' }];
 
   public currentUserId: number;
 
   constructor(
-    private projectService: ProjectService,
     private route: ActivatedRoute,
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
@@ -50,9 +44,11 @@ export class EmployeeInfoProfileComponent implements OnInit {
     this.location.back();
   }
 
+  public toggleCvInfo(): void {
+    this.isCvInfoHide = !this.isCvInfoHide;
+  }
+
   public ngOnInit(): void {
-    this.projects$ = this.projectService.FoundAllProjects();
-    this.projects$.subscribe(projects => this.projects = projects);
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({

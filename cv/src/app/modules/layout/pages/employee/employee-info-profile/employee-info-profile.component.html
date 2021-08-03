@@ -13,34 +13,21 @@
     <nz-tab nzTitle="Info">
       <app-info-profile></app-info-profile>
     </nz-tab>
-    <nz-tab nzTitle="CV" class="cv-tab">
-      <div class="list">
-        <app-list [bodyTemplate]="bodyRef" [data]="cves">
-          <ng-template #bodyRef let-data="$implicit">
-            {{ data.name }}
-            <i nz-icon nzType="delete" nzTheme="outline"></i>
-          </ng-template>
-        </app-list>
-        <div
-          class="projects"
-          *ngIf="projects$ | async as projects; else loading"
-        >
-          <app-form-cv></app-form-cv>
+    <nz-tab nzTitle="CV" class="cv">
+      <div class="content-tabs-cv">
+        <div class="content-tabs-cv-list">
+          <app-list [bodyTemplate]="bodyRef" [data]="cves">
+            <ng-template #bodyRef let-data="$implicit">
+              <div class="item" (click)="toggleCvInfo()">
+                {{ data.name }}
+              </div>
+              <i nz-icon nzType="delete" nzTheme="outline"></i>
+            </ng-template>
+          </app-list>
 
-          <nz-collapse>
-            <nz-collapse-panel
-              *ngFor="let project of projects"
-              [nzHeader]="project.name"
-            >
-              {{ project.name }} | {{ project.startDate }} |
-              {{ project.endDate }} | {{ project.teamSize }} | techStack |
-              project
-            </nz-collapse-panel>
-          </nz-collapse>
+          <app-default-button>+</app-default-button>
         </div>
-        <ng-template #loading>
-          <app-spinner></app-spinner>
-        </ng-template>
+        <app-cv-info [ngClass]="isCvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-info'"></app-cv-info>
       </div>
     </nz-tab>
   </nz-tabset>

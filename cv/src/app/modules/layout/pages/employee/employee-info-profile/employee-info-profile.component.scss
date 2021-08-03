@@ -49,13 +49,25 @@
   padding: 24px 15px 24px 15px;
   .tabs {
     color: var(--text-color);
+    width: 100%;
   }
   .tabs ::ng-deep .ant-tabs-tabpane {
     flex-direction: row;
-
-    .list {
+    .content-tabs-cv {
+      display: flex;
+      flex-direction: row;
       width: 100%;
-      justify-content: space-between;
+      .content-tabs-cv-list {
+        width: 217px;
+        display: flex;
+        flex-direction: column;
+      }
+      .content-tabs-cv-hide {
+       display: none;
+      }
+      .content-tabs-cv-info {
+        width: 100%; 
+       }
     }
     .projects {
       width: 100%;

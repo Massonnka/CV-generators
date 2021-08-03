@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
@@ -13,7 +14,9 @@ import { ListModule } from 'src/app/shared/controls/list/list.module';
 import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { FormCvModule } from '../employee-add-profile/form-cv/form-cv.module';
 import { FormInfoModule } from '../employee-add-profile/form-info/form-info.module';
+import { CvInfoModule } from './cv-info/cv-info.module';
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
+import { EmployeeInfoRoutingModule } from './employee-info-routing.module';
 import { InfoProfileModule } from './info-profile/info-profile.module';
 
 @NgModule({
@@ -35,6 +38,9 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
     NzCollapseModule,
     NzIconModule,
     SpinnerModule,
+    CvInfoModule,
+    RouterModule,
+    EmployeeInfoRoutingModule,
   ],
   exports: [EmployeeInfoProfileComponent],
 })
