@@ -18,7 +18,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   selector: 'app-project-info',
   templateUrl: './project-info.component.html',
   styleUrls: ['./project-info.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
   public projects$: Observable<Project[]>;
@@ -49,10 +49,10 @@ export class ProjectInfoComponent implements OnInit {
     this.projects$ = this.projectService.FoundAllProjects();
     this.projects$.subscribe((value) => {
       this.projects = value;
-      // this.cdRef.markForCheck();
+      this.cdRef.markForCheck();
     });
 
-    this.currentProject = this.getProjectInfo();
+    
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
@@ -76,24 +76,6 @@ export class ProjectInfoComponent implements OnInit {
         ],
       })
     );
-  }
-
-  public getProjectInfo() {
-    const acrivatedRouterSubscriber = this.activatedRouter.params.subscribe(
-      (value) => {
-        this.projectId = value.project;
-        this.cdRef.markForCheck();
-      }
-    );
-
-    const project = this.projects.find(
-      (currentValue) => currentValue._id === this.projectId
-    );
-
-    console.log(project);
-
-    acrivatedRouterSubscriber.unsubscribe();
-    return project;
   }
 
   public deleteItem(project: Project) {
