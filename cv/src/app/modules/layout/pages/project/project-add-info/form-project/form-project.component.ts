@@ -59,7 +59,7 @@ export class FormProjectComponent implements OnInit {
       teamSize: this.validateForm.value.teamSize,
     };
     if (this.isEditMode) {
-      project._id = this.project._id;
+      project.id = this.project.id;
       this.projectService.UpdateProject(project).subscribe(
         () => {
           this.validateForm.reset();

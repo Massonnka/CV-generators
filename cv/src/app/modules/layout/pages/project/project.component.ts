@@ -4,7 +4,6 @@ import {
   Component,
   Input,
   OnInit,
-  Output,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -67,11 +66,6 @@ export class ProjectComponent implements OnInit {
     );
   }
 
-  public getProject(id: string): Project {
-    this.currentProject = this.projects.find(currentValue => currentValue._id === id) as Project;
-    return this.currentProject;
-  }
-
   public addItem(): void {
     this.router.navigate(['/layout/project/addinfo']);
   }
@@ -80,7 +74,7 @@ export class ProjectComponent implements OnInit {
     if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
       return;
     }
-    this.projectService.DeleteProject(project._id).subscribe(() => {
+    this.projectService.DeleteProject(project.id).subscribe(() => {
       this.projects$ = this.projectService.FoundAllProjects();
     });
   }

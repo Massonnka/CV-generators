@@ -1,62 +1,42 @@
 <form nz-form [formGroup]="validateForm" class="project-form">
   <div class="row">
     <nz-form-item class="inputs">
-      <app-input
-        placeholder="Input your firstname!"
-        label="form.firstname"
-        formControlName="firstName"
-        [errorMessages]="{
+      <app-input [placeholder]="'placeholder.Input your first name!' | translate" label="form.firstname"
+        formControlName="firstName" [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-input
-        placeholder="Input your lastname!"
-        label="form.lastname"
-        formControlName="firstName"
-        [errorMessages]="{
+      <app-input [placeholder]="'placeholder.Input your last name!' | translate" label="form.lastname"
+        formControlName="firstName" [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-autocomplete
-        placeholder="Input your email!"
-        label="form.email"
-        formControlName="email"
-        [errorMessages]="{ required: 'Please, specify the field' }"
-      >
+      <app-autocomplete [placeholder]="'placeholder.Input your email!' | translate" label="form.email"
+        formControlName="email" [errorMessages]="{ required: 'Please, specify the field' }">
       </app-autocomplete>
     </nz-form-item>
   </div>
   <div class="row">
     <nz-form-item class="inputs">
-      <app-autocomplete
-        placeholder="Input your specialization!"
-        label="form.specialization"
-        formControlName="specialization"
-        [errorMessages]="{
+      <app-autocomplete [placeholder]="'placeholder.Input your specialization!' | translate" label="form.specialization"
+        formControlName="specialization" [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-autocomplete>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-autocomplete
-        placeholder="Input your department!"
-        label="form.department"
-        formControlName="department"
-        [errorMessages]="{
+      <app-autocomplete [placeholder]="'placeholder.Input your department!' | translate" label="form.department"
+        formControlName="department" [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-autocomplete>
     </nz-form-item>
   </div>

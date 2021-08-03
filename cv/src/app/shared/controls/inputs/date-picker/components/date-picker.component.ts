@@ -32,13 +32,14 @@ import { startWith, takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatePickerComponent
-  implements OnInit, AfterViewInit, ControlValueAccessor
-{
+  implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input() errorMessages: any = {};
   @Input() label: string = '';
+  @Input() nzPlaceHolder: string = '';
+  @Input() id: string = '';
 
-  public onChange = (value: any) => {};
-  public onTouched = () => {};
+  public onChange = (value: any) => { };
+  public onTouched = () => { };
 
   public ngControl: NgControl;
   public control: FormControl;
@@ -49,7 +50,7 @@ export class DatePickerComponent
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
-  constructor(private injector: Injector, private cdr: ChangeDetectorRef) {}
+  constructor(private injector: Injector, private cdr: ChangeDetectorRef) { }
 
   public ngAfterViewInit(): void {
     this.ngControl = this.injector.get(NgControl);

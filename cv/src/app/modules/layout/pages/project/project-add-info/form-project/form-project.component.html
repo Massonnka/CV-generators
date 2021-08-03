@@ -1,104 +1,65 @@
-<form
-  nz-form
-  [formGroup]="validateForm"
-  class="project-form"
-  (ngSubmit)="submit()"
->
+<form nz-form [formGroup]="validateForm" class="project-form" (ngSubmit)="submit()">
   <div class="row">
     <nz-form-item class="inputs">
-      <app-input
-        placeholder="Input your name!"
-        label="form.name"
-        formControlName="name"
+      <app-input [placeholder]="'placeholder.Input your name!' | translate" label="form.name" formControlName="name"
         [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-date-picker
-        label="form.start-date"
-        formControlName="startDate"
-        [errorMessages]="{ required: 'Please, specify the field' }"
-      >
+      <app-date-picker [nzPlaceHolder]="'placeholder.Select date' | translate" label="form.start-date"
+        formControlName="startDate" [errorMessages]="{ required: 'Please, specify the field' }">
       </app-date-picker>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-date-picker
-        label="form.end-date"
-        formControlName="endDate"
-        [errorMessages]="{ required: 'Please, specify the field' }"
-      >
+      <app-date-picker [nzPlaceHolder]="'placeholder.Select date' | translate" label="form.end-date"
+        formControlName="endDate" [errorMessages]="{ required: 'Please, specify the field' }">
       </app-date-picker>
     </nz-form-item>
   </div>
   <div class="row">
     <nz-form-item class="inputs">
-      <app-input
-        placeholder="Input your team sizw!"
-        label="form.team-size"
-        formControlName="teamSize"
-        [errorMessages]="{ required: 'Please, specify the field' }"
-      >
+      <app-input [placeholder]="'placeholder.Input your team size!' | translate" label="form.team-size"
+        formControlName="teamSize" [errorMessages]="{ required: 'Please, specify the field' }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-input
-        placeholder="Input your tech stack!"
-        label="form.tech-stack"
-        formControlName="techStack"
-        [errorMessages]="{
+      <app-input [placeholder]="'placeholder.Input your tech stack!' | translate" label="form.tech-stack"
+        formControlName="techStack" [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-autocomplete
-        placeholder="Input your roles!"
-        label="form.roles"
-        formControlName="roles"
-        [errorMessages]="{ required: 'Please, specify the field' }"
-      >
+      <app-autocomplete [placeholder]="'placeholder.Input your roles!' | translate" label="form.roles"
+        formControlName="roles" [errorMessages]="{ required: 'Please, specify the field' }">
       </app-autocomplete>
     </nz-form-item>
   </div>
   <div class="row">
     <nz-form-item class="inputs">
-      <app-textarea
-        placeholder="Input your description!"
-        label="form.description"
-        formControlName="description"
-        [errorMessages]="{
+      <app-textarea [placeholder]="'placeholder.Input your description!' | translate" label="form.description"
+        formControlName="description" [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-textarea>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-textarea
-        placeholder="Input your responsibilities!"
-        label="form.responsibilities"
-        formControlName="responsibilities"
-        [errorMessages]="{
+      <app-textarea [placeholder]="'placeholder.Input your responsibilities!' | translate" label="form.responsibilities"
+        formControlName="responsibilities" [errorMessages]="{
           required: 'Please, specify the field',
           minlength: 'max len error'
-        }"
-      >
+        }">
       </app-textarea>
     </nz-form-item>
   </div>
   <div nz-row>
     <div nz-col [nzSpan]="24" class="search-area">
-      <button
-        nz-button
-        [disabled]="validateForm.invalid || submitted"
-        [nzType]="'primary'"
-      >
+      <button nz-button [disabled]="validateForm.invalid || submitted" [nzType]="'primary'">
         {{ "form.save" | translate }}
       </button>
       <ng-content></ng-content>

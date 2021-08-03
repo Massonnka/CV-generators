@@ -1,9 +1,5 @@
 import { Location } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Input,
-} from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -21,20 +17,21 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
-  public projects$: Observable<Project[]>;
+  public projects$: Observable<Project>;
   public projects: Project[] = [];
-  public currentProject: any;
-  private projectId: string;
+  public projectId: string;
+  public params = {
+    id: '',
+  };
 
   constructor(
     private router: Router,
+    private activatedRouter: ActivatedRoute,
     private projectService: ProjectService,
     private location: Location,
     private store: Store<{
       breadcrumbs: Breadcrumb[];
-    }>,
-    private cdRef: ChangeDetectorRef,
-    private activatedRouter: ActivatedRoute
+    }>
   ) {}
 
   public onBack(): void {
@@ -46,14 +43,14 @@ export class ProjectInfoComponent implements OnInit {
   public breadcrumbs: Breadcrumb[];
 
   public ngOnInit(): void {
-    this.projects$ = this.projectService.FoundAllProjects();
-    this.projects$.subscribe((value) => {
-      this.projects = value;
-      this.cdRef.markForCheck();
-    });
-
-    
-
+    const acrivatedRouterSubscriber = this.activatedRouter.params.subscribe(
+      (value) => (this.projectId = value.project)
+    );
+    this.params.id = this.projectId;
+    this.projects$ = this.projectService.GetProjectById(
+      this.projectId,
+      this.params
+    );
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -82,8 +79,11 @@ export class ProjectInfoComponent implements OnInit {
     if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
       return;
     }
-    this.projectService.DeleteProject(project._id).subscribe(() => {
-      this.projects$ = this.projectService.FoundAllProjects();
+    this.projectService.DeleteProject(project.id).subscribe(() => {
+      this.projects$ = this.projectService.GetProjectById(
+        this.projectId,
+        this.params
+      );
     });
   }
 
