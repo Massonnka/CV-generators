@@ -1,6 +1,5 @@
-<div class="wrapper">
-  <nz-descriptions *ngIf="employees$ | async as employee; else loading" [nzTitle]="'form.employee-info' | translate"
-    nzBordered nzLayout="vertical" [nzExtra]="extraTpl">
+<div *ngIf="employees$ | async as employee; else loading" class="wrapper">
+  <nz-descriptions [nzTitle]="'form.employee-info' | translate" nzBordered nzLayout="vertical" [nzExtra]="extraTpl">
     <nz-descriptions-item [nzTitle]="'form.firstname' | translate" class="table-item">{{ employee.firstName }}
     </nz-descriptions-item>
     <nz-descriptions-item [nzTitle]="'form.lastname' | translate">{{ employee.lastName }}</nz-descriptions-item>
@@ -10,7 +9,7 @@
     <nz-descriptions-item [nzTitle]="'form.department' | translate">{{ employee.department }}</nz-descriptions-item>
   </nz-descriptions>
   <ng-template class="buttons" #extraTpl>
-    <app-primary-button nz-button>
+    <app-primary-button nz-button (click)="editItem(employee)">
       {{ "form.edit" | translate }}
     </app-primary-button>
     <app-default-button (click)="onBack()" nz-button>

@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeComponent implements OnInit {
   public employees$: Observable<Employee[]>;
-  public employee: Employee[] = [];
+  public employees: Employee[] = [];
   public isLoading = false;
 
   constructor(
@@ -33,7 +33,7 @@ export class EmployeeComponent implements OnInit {
     this.isLoading = true;
 
     this.employeeService.FoundAllEmployees().subscribe((value) => {
-      this.employee = value;
+      this.employees = value;
       this.isLoading = false;
       this.cdRef.markForCheck();
     });
@@ -59,5 +59,18 @@ export class EmployeeComponent implements OnInit {
 
   public addItem(): void {
     this.router.navigate(['/layout/employee/addinfo']);
+  }
+
+
+  public deleteItem(employee: Employee) {
+    this.employees$ = this.employeeService.FoundAllEmployees();
+    console.log(this.employees$);
+
+    if (!confirm(`Are you sure you want to delete ${employee.firstName} ?`)) {
+      return;
+    }
+    this.employeeService.DeleteEmployee(employee.id).subscribe(() => {
+      this.employees$ = this.employeeService.FoundAllEmployees();
+    });
   }
 }

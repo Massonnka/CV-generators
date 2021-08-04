@@ -27,6 +27,9 @@ export class FormInfoComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
+    const options = history.state.options;
+    this.employee = options && options.employee;
+
     this.validateForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(4)]],
       lastName: ['', [Validators.required, Validators.minLength(4)]],
@@ -39,7 +42,7 @@ export class FormInfoComponent implements OnInit {
       this.validateForm.get("lastName")?.setValue(this.employee.lastName);
       this.validateForm.get("email")?.setValue(this.employee.email);
       this.validateForm.get("specialization")?.setValue(this.employee.specialization);
-      this.validateForm.get("departmen")?.setValue(this.employee.department);
+      this.validateForm.get("department")?.setValue(this.employee.department);
       this.isEditMode = true;
     }
   }
