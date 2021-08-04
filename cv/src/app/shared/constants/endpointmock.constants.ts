@@ -1,0 +1,1 @@
+export const endpointmock: string = 'https://610a747a52d56400176afdcc.mockapi.io/api/employee';

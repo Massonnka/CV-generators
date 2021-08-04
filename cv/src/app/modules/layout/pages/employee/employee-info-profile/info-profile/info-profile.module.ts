@@ -7,6 +7,7 @@ import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-but
 import { TranslateModule } from '@ngx-translate/core';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 
 @NgModule({
   declarations: [InfoProfileComponent],
@@ -18,7 +19,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     PrimaryButtonModule,
     TranslateModule,
     NzIconModule,
+    SpinnerModule,
+    TranslateModule
   ],
   exports: [InfoProfileComponent],
 })
-export class InfoProfileModule {}
+export class InfoProfileModule { }

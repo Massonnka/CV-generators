@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EMPLOYEES } from '../../../../../../assets/mocks/employees';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -17,7 +16,6 @@ import { Project } from 'src/app/core/interfaces/project.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeAddProfileComponent implements OnInit {
-  public employees = EMPLOYEES;
   projects$: Observable<Project[]>;
 
   public cves: any = [

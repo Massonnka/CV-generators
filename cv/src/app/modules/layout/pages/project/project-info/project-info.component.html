@@ -1,53 +1,42 @@
 <div *ngIf="projects$ | async as projects; else loading" class="page-header">
-  <breadcrumb [data]="breadcrumbs"></breadcrumb>
+    <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-  <div class="title">{{ "pages.project" | translate }}</div>
-  <div class="title-info">
-    <p>
-      {{ "pages.project" | translate }}
-      {{ projects.name }}
-    </p>
-  </div>
+    <div class="title">{{ "pages.project" | translate }}</div>
+    <div class="title-info">
+        <p>
+            {{ "pages.project" | translate }}
+            {{ projects.name }}
+        </p>
+    </div>
 </div>
 <nz-content *ngIf="projects$ | async as projects; else loading" class="content">
-  <nz-descriptions
-    nzTitle="{{ 'form.project-info' | translate }}"
-    nzBordered
-    nzLayout="vertical"
-    [nzExtra]="extraTpl"
-    class="content-descriptions"
-  >
-    <nz-descriptions-item nzTitle="{{ 'form.name' | translate }}">
-      {{ projects.name }}
-    </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="{{ 'form.start-date' | translate }}">
-      {{ projects.startDate | date: "fullDate" }}
-    </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="{{ 'form.end-date' | translate }}">
-      {{ projects.endDate | date: "fullDate" }}
-    </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="{{ 'form.team-size' | translate }}">
-      {{ projects.teamSize }}
-    </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="{{ 'form.tech-stack' | translate }}"
-      >Angular</nz-descriptions-item
-    >
-    <nz-descriptions-item nzTitle="{{ 'form.roles' | translate }}"
-      >React</nz-descriptions-item
-    >
-    <nz-descriptions-item nzTitle="{{ 'form.description' | translate }}"
-      >blalbalblalblalbalblalbalblalbalbl
-    </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="{{ 'form.responsibilities' | translate }}">
-      blablalblablalblalbblalbalbaxa</nz-descriptions-item
-    >
-    <ng-template class="buttons" #extraTpl>
-      <app-default-button (click)="onBack()" nz-button>
-        {{ "form.cancel" | translate }}
-      </app-default-button>
-    </ng-template>
-  </nz-descriptions>
+    <nz-descriptions nzTitle="{{ 'form.project-info' | translate }}" nzBordered nzLayout="vertical" [nzExtra]="extraTpl"
+        class="content-descriptions">
+        <nz-descriptions-item nzTitle="{{ 'form.name' | translate }}">
+            {{ projects.name }}
+        </nz-descriptions-item>
+        <nz-descriptions-item nzTitle="{{ 'form.start-date' | translate }}">
+            {{ projects.startDate | date: "fullDate" }}
+        </nz-descriptions-item>
+        <nz-descriptions-item nzTitle="{{ 'form.end-date' | translate }}">
+            {{ projects.endDate | date: "fullDate" }}
+        </nz-descriptions-item>
+        <nz-descriptions-item nzTitle="{{ 'form.team-size' | translate }}">
+            {{ projects.teamSize }}
+        </nz-descriptions-item>
+        <nz-descriptions-item nzTitle="{{ 'form.tech-stack' | translate }}">Angular</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="{{ 'form.roles' | translate }}">React</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="{{ 'form.description' | translate }}">blalbalblalblalbalblalbalblalbalbl
+        </nz-descriptions-item>
+        <nz-descriptions-item nzTitle="{{ 'form.responsibilities' | translate }}">
+            blablalblablalblalbblalbalbaxa</nz-descriptions-item>
+        <ng-template class="buttons" #extraTpl>
+            <app-default-button (click)="onBack()" nz-button>
+                {{ "form.cancel" | translate }}
+            </app-default-button>
+        </ng-template>
+    </nz-descriptions>
 </nz-content>
 <ng-template #loading>
-  <app-spinner></app-spinner>
+    <app-spinner></app-spinner>
 </ng-template>
