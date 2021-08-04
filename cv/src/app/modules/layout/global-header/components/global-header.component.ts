@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { formatDistance } from 'date-fns';
+import { Languages } from 'src/app/shared/constants/languages.constants';
 
 @Component({
   selector: 'app-global-header',
@@ -10,7 +11,7 @@ import { formatDistance } from 'date-fns';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GlobalHeaderComponent implements OnInit {
-  public languages: string[] = ['en', 'ru'];
+  public languages = [Languages.English, Languages.Russian];
   public firstName: string | null;
   public lastName: string | null;
   public userName: string | null;
@@ -25,8 +26,8 @@ export class GlobalHeaderComponent implements OnInit {
 
   constructor(
     private translateService: TranslateService,
-    public authService: AuthService
-  ) { }
+    private authService: AuthService
+  ) {}
   public currentLanguage: string = this.translateService.currentLang || 'en';
 
   public change() {
@@ -53,7 +54,7 @@ export class GlobalHeaderComponent implements OnInit {
   public ngOnInit() {
     this.firstName = localStorage.getItem('user-firstName');
     this.lastName = localStorage.getItem('user-lastName');
-    this.userName = this.firstName + " " + this.lastName;
+    this.userName = this.firstName + ' ' + this.lastName;
   }
 
   public logout(event: Event): void {

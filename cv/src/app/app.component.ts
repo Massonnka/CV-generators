@@ -1,7 +1,13 @@
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  OnInit,
+} from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
-import { StateService } from './core/services/state.service';
+import { selectTheme } from './store/themes/themes.selectors';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +17,10 @@ import { StateService } from './core/services/state.service';
 })
 export class AppComponent implements OnInit {
   @HostBinding('class') public currentTheme = '';
-  constructor(private translateService: TranslateService, private stateService: StateService) { }
+  constructor(
+    private translateService: TranslateService,
+    private store: Store
+  ) {}
 
   public ngOnInit(): void {
     this.initThemeListener();
@@ -21,9 +30,8 @@ export class AppComponent implements OnInit {
   }
 
   public initThemeListener(): void {
-    this.stateService.theme
-      .subscribe(value => {
-        this.currentTheme = value;
-      });
+    this.store
+      .select(selectTheme)
+      .subscribe((value) => (this.currentTheme = value.theme));
   }
 }

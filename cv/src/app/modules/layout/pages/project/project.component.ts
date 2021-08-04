@@ -12,7 +12,11 @@ import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcr
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/core/interfaces/project.interface';
-
+import {
+  getProjects,
+  setProjects,
+} from 'src/app/store/projects/projects.actions';
+import { selectProject } from 'src/app/store/projects/projects.selectors';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -28,14 +32,15 @@ export class ProjectComponent implements OnInit {
     private router: Router,
     private projectService: ProjectService,
     private cdRef: ChangeDetectorRef,
-    private store: Store<{ breadcrumbs: Breadcrumb[] }>
-  ) { }
+    private store: Store<{ breadcrumbs: Breadcrumb[]; projects: Project }>
+  ) {}
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[] = [];
 
   public ngOnInit(): void {
+    this.store.select(selectProject).subscribe((value) => console.log(value));
     this.isLoading = true;
 
     this.projectService.FoundAllProjects().subscribe((value) => {
@@ -59,6 +64,14 @@ export class ProjectComponent implements OnInit {
             isDisabled: true,
           },
         ],
+      })
+    );
+  }
+
+  public setProjects(): void {
+    this.store.dispatch(
+      setProjects({
+        projects: this.projects,
       })
     );
   }
