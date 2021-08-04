@@ -20,6 +20,7 @@ import { AuthService } from './core/auth/auth.service';
 import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { themesReducer } from './store/themes/themes.reducer';
+import { projectsReducer } from './store/projects/projects.reducers';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -46,6 +47,7 @@ registerLocaleData(en);
     StoreModule.forRoot({
       toggle: sidebarReducer,
       theme: themesReducer,
+      projects: projectsReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
