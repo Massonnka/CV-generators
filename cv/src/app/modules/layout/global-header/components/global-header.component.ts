@@ -1,6 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { Languages } from 'src/app/shared/constants/languages.constants';
 
 @Component({
   selector: 'app-global-header',
@@ -9,7 +15,7 @@ import { AuthService } from 'src/app/core/auth/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GlobalHeaderComponent implements OnInit {
-  public languages: string[] = ['en', 'ru'];
+  public languages = [Languages.English, Languages.Russian];
   public firstName: string | null;
   public lastName: string | null;
   public userName: string | null;
@@ -22,31 +28,33 @@ export class GlobalHeaderComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     public authService: AuthService
-  ) { }
+  ) {}
   public currentLanguage: string = this.translateService.currentLang || 'en';
 
-  public change() {
+  public change(): string {
     this.createdAt = localStorage.getItem('user-date-reg');
-    if (this.createdAt) {
-      this.date = Math.round((Date.now() - Date.parse(this.createdAt)) / 86400000);
-      console.log(this.date);
-
-      if (this.date > 30) {
-        if (this.date > 60) {
-          this.date = Math.round(this.date / 30) + ' month ago'
-        } else {
-          this.date = 'One month ago';
-        }
-      }
+    if (!this.createdAt) {
+      return 'You ate not registered yet... So, how did you enter this page?';
+    } else {
+      this.date = Math.round(
+        (Date.now() - Date.parse(this.createdAt)) / 86400000
+      );
 
       if (this.date > 1) {
-        this.date = (this.date) + ' days ago'
+        if (this.date > 30) {
+          if (this.date > 60) {
+            return this.date = Math.round(this.date / 30) + ' months ago';
+          } else {
+            return 'One month ago';
+          }
+        }
       } else {
-        this.date = 'One day ago';
+        return 'One day ago';
       }
     }
 
     this.count = 0;
+    return this.date = this.date + ' days ago';
   }
 
   public switchLanguage(language: string): void {
@@ -57,7 +65,7 @@ export class GlobalHeaderComponent implements OnInit {
   public ngOnInit() {
     this.firstName = localStorage.getItem('user-firstName');
     this.lastName = localStorage.getItem('user-lastName');
-    this.userName = this.firstName + " " + this.lastName;
+    this.userName = this.firstName + ' ' + this.lastName;
   }
 
   public logout(event: Event): void {
