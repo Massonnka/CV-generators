@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { Project } from 'src/app/core/interfaces/project.interface';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
@@ -25,13 +26,14 @@ export class EmployeeInfoProfileComponent implements OnInit {
   public cves: any = [{ name: 'cv 1' }];
 
   public currentUserId: number;
+  private currentUser: Employee;
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
   ) {
-    this.route.params.subscribe(
+    this.activatedRoute.params.subscribe(
       (value) => (this.currentUserId = value.user - 1)
     );
   }
@@ -49,6 +51,8 @@ export class EmployeeInfoProfileComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.currentUser = this.employees[this.currentUserId];    
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -65,7 +69,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
           },
           {
             url: '/layout/employee/info',
-            name: 'Profile Info',
+            name: this.currentUser.firstname,
             isDisabled: true,
           },
         ],

@@ -11,9 +11,11 @@
   .link:hover {
     transform: scale(1.12);
     color: var(--primary);
+    transition: 0.5s;
   }
 
   .disabled {
+    color: var(--hover-background-color);
     pointer-events: none;
   }
 }

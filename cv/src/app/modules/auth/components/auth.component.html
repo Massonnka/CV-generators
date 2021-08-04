@@ -17,6 +17,23 @@
     <div class="form">
       <div class="logo"></div>
       <router-outlet></router-outlet>
+      <a
+        *ngIf="isRegistration"
+        (click)="switchAuthPage()"
+        class="form-account-state"
+        routerLink="log-in"
+      >
+        {{ "auth.i-have-account" | translate }}
+      </a>
+      <a
+        (click)="isRegistration = false"
+        *ngIf="!isRegistration"
+        (click)="switchAuthPage()"
+        class="form-account-state"
+        routerLink="sign-up"
+      >
+        {{ "auth.register-now" | translate }}
+      </a>
     </div>
   </div>
   <app-circle-button class="question">

@@ -1,17 +1,38 @@
-<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="loginUser()">
+<form
+  nz-form
+  [formGroup]="validateForm"
+  class="login-form"
+  (ngSubmit)="loginUser()"
+>
   <nz-form-item class="inputs">
-    <app-input icon="user" id="email" [placeholder]="'placeholder.Input your email!' | translate" label="form.email"
-      formControlName="email" [errorMessages]="{ required: 'Please, specify the field' }">
+    <app-input
+      icon="user"
+      id="email"
+      [placeholder]="'placeholder.Input your email!' | translate"
+      label="form.email"
+      formControlName="email"
+      [errorMessages]="{ required: 'Please, specify the field' }"
+    >
     </app-input>
   </nz-form-item>
   <nz-form-item class="inputs">
-    <app-input [nzSuffix]="suffix" [type]="passwordVisible ? 'text' : 'password'" icon="lock"
-      [placeholder]="'placeholder.Input your password!' | translate" label="profile.password" formControlName="password"
-      [errorMessages]="{ required: 'Please, specify the field' }">
+    <app-input
+      [nzSuffix]="suffix"
+      [type]="passwordVisible ? 'text' : 'password'"
+      icon="lock"
+      [placeholder]="'placeholder.Input your password!' | translate"
+      label="profile.password"
+      formControlName="password"
+      [errorMessages]="{ required: 'Please, specify the field' }"
+    >
     </app-input>
     <ng-template #suffix>
-      <i class="passicon" nz-icon [nzType]="passwordVisible ? 'eye' : 'eye-invisible'"
-        (click)="passwordVisible = !passwordVisible"></i>
+      <i
+        class="passicon"
+        nz-icon
+        [nzType]="passwordVisible ? 'eye' : 'eye-invisible'"
+        (click)="passwordVisible = !passwordVisible"
+      ></i>
     </ng-template>
   </nz-form-item>
   <div nz-row class="login-form-margin">
@@ -21,13 +42,18 @@
       </label>
     </div>
     <div nz-col [nzSpan]="12">
-      <a class="login-form-forgot" routerLink="/auth/sign-up">{{
-        "auth.forgot-password" | translate
-        }}</a>
+      <a class="login-form-forgot" routerLink="sign-up">
+        {{ "auth.forgot-password" | translate }}
+      </a>
     </div>
   </div>
-  <button nz-button type="submit" class="login-form-button login-form-margin" [nzType]="'primary'"
-    [disabled]="validateForm.invalid || submitted">
+  <button
+    nz-button
+    type="submit"
+    class="login-form-button login-form-margin"
+    [nzType]="'primary'"
+    [disabled]="validateForm.invalid || submitted"
+  >
     {{ "auth.log-in" | translate }}
   </button>
 </form>

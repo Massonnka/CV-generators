@@ -90,5 +90,10 @@
     position: absolute;
     padding-bottom: 10%;
     background-size: cover;
+    z-index: 0;
   }
+}
+
+.form-account-state {
+  z-index: 100;
 }
