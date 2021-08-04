@@ -30,9 +30,9 @@ export class LayoutComponent {
     },
   ];
 
-  constructor(private stateService: StateService) {}
+  // constructor(private stateService: StateService) {}
 
-  public onChangeTheme(value: Themes): void {
-    this.stateService.theme.next(value);
-  }
+  // public onChangeTheme(value: Themes): void {
+  //   this.stateService.theme.next(value);
+  // }
 }

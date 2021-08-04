@@ -85,6 +85,16 @@
         "Select date": "Select date!"
     },
     "modal": {
-        "notification": "Notification"
+        "notification": "Notifications",
+        "search": "Search",
+        "directory": "Directory",
+        "cv": "My CV",
+        "profile": "My Profile"
+    },
+    "text": {
+        "notific-text": "Thank you for creating an account with CV Generators. For the next 12 months, you will have access to CV services for computing, data storage, applications within limits",
+        "notific-text-hello": "Welcome to the CV Generators community!",
+        "notific-profile-label": "You have viewed all notifications! This is professionalism!",
+        "notific-profile-footer": "You have no messages."
     }
 }
