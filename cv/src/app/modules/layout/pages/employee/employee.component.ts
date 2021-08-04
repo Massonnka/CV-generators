@@ -33,8 +33,8 @@ export class EmployeeComponent implements OnInit {
           },
           {
             url: '/layout/employee',
-            name: 'Employee',
-            isDisabled: false,
+            name: "Employee",
+            isDisabled: true,
           },
         ],
       })

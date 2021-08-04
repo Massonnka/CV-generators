@@ -44,9 +44,6 @@
                 </span>
             </label>
         </nz-form-control>
-        <div nz-col>
-            <a class="login-form-forgot" routerLink="/auth/log-in">{{ "auth.i-have-account" | translate }}</a>
-        </div>
     </nz-form-item>
     <button nz-button type="submit" class="login-form-button login-form-margin" [nzType]="'primary'"
         [disabled]="validateForm.invalid || submitted">{{ 'auth.sign-up' |

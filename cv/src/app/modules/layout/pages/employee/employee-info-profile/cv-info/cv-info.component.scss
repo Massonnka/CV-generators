@@ -1,0 +1,15 @@
+.projects {
+  .projects-collapse {
+    background-color: var(--content-color);
+    color: var(--text-color);
+    .projects-collapse-panel {
+      ::ng-deep .ant-collapse-header {
+        color: var(--text-color);
+      }
+      ::ng-deep .ant-collapse-content {
+        color: var(--text-color);
+        background-color: var(--content-color);
+      }
+    }
+  }
+}

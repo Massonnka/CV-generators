@@ -56,7 +56,7 @@ export class ProjectComponent implements OnInit {
           {
             url: '/layout/project',
             name: 'Project',
-            isDisabled: false,
+            isDisabled: true,
           },
         ],
       })

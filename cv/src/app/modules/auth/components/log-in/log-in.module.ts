@@ -12,12 +12,8 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
 import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
 
-
-
 @NgModule({
-  declarations: [
-    LogInComponent
-  ],
+  declarations: [LogInComponent],
   imports: [
     CommonModule,
     PrimaryButtonModule,
@@ -29,10 +25,8 @@ import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-butto
     NzIconModule,
     NzCheckboxModule,
     InputModule,
-    CircleButtonModule
+    CircleButtonModule,
   ],
-  exports: [
-    LogInComponent
-  ]
+  exports: [LogInComponent],
 })
-export class LogInModule { }
+export class LogInModule {}

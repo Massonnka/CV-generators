@@ -30,6 +30,7 @@
   .breadcrumb:hover {
     cursor: pointer;
     color: var(--primary);
+    transition: 0.5s;
   }
 
   .title {

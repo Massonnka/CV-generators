@@ -6,7 +6,7 @@ import { ProjectService } from 'src/app/core/services/project.service';
 @Component({
   selector: 'app-cv-info',
   templateUrl: './cv-info.component.html',
-  styleUrls: ['./cv-info.component.css']
+  styleUrls: ['./cv-info.component.scss']
 })
 export class CvInfoComponent implements OnInit {
   public projects$: Observable<Project[]>;
@@ -17,8 +17,6 @@ export class CvInfoComponent implements OnInit {
   ngOnInit(): void {
     this.projects$ = this.projectService.FoundAllProjects();
     this.projects$.subscribe(projects => this.projects = projects);
-    console.log("ПЕРЕШЛО");
-    
   }
 
 }
