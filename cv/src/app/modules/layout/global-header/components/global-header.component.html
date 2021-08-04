@@ -5,15 +5,18 @@
     </nz-page-header-title>
     <nz-page-header-content class="nz-page-header-content">
       <div class="buttons">
-        <app-circle-button class="circle-button">
+        <app-circle-button nz-tooltip [nzTooltipTitle]="'modal.search' | translate" nzTooltipPlacement="bottom"
+          class="circle-button">
           <i nz-icon nzType="search" nzTheme="outline"></i>
         </app-circle-button>
-        <app-circle-button class="circle-button">
+        <app-circle-button nz-tooltip [nzTooltipTitle]="'modal.directory' | translate" nzTooltipPlacement="bottom"
+          class="circle-button">
           <i nz-icon nzType="question-circle" nzTheme="outline"></i>
         </app-circle-button>
-        <app-circle-button class="circle-button" nz-popover [nzPopoverTitle]="'modal.notification' | translate"
+        <app-circle-button nz-tooltip [nzTooltipTitle]="'modal.notification' | translate" nzTooltipPlacement="bottom"
+          class="circle-button" nz-popover [nzPopoverTitle]="'modal.notification' | translate"
           [(nzPopoverVisible)]="visible" nzPopoverTrigger="click" [nzPopoverContent]="contentTemplate"
-          (click)="change()">
+          nzPopoverPlacement="bottomRight" (click)="change()">
           <nz-badge [nzCount]="count" [nzOverflowCount]="10">
             <i nz-icon nzType="bell" nzTheme="outline"></i>
           </nz-badge>
@@ -45,9 +48,50 @@
 
 <ng-template #contentTemplate>
   <div>
-    <div>
-
-    </div>
-    <p>{{ date }}</p>
+    <nz-tabset nzCentered class="tabs">
+      <nz-tab class="my-info-cv" [nzTitle]="'modal.cv' | translate" class="notification">
+        <div>
+          <p class="modal-text">
+            НЕДАВНЕЕ
+          </p>
+        </div>
+        <nz-comment class="modal-list" nzAuthor="Admin CV" [nzDatetime]="time">
+          <nz-avatar nz-comment-avatar nz-comment-avatar nzIcon="user"
+            nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png">
+          </nz-avatar>
+          <nz-comment-content>
+            <p>
+              {{ 'text.notific-text' | translate }}<br>
+              {{ 'text.notific-text-hello' | translate }}
+            </p>
+          </nz-comment-content>
+          <nz-comment-action>
+            <i nz-tooltip nzTitle="Like" nz-icon nzType="like" [nzTheme]="likes > 0 ? 'twotone' : 'outline'"
+              (click)="like()"></i>
+            <span class="count like">{{ likes }}</span>
+          </nz-comment-action>
+          <nz-comment-action>
+            <i nz-tooltip nzTitle="Dislike" nz-icon nzType="dislike" [nzTheme]="dislikes > 0 ? 'twotone' : 'outline'"
+              (click)="dislike()"></i>
+            <span class="count dislike">{{ dislikes }}</span>
+          </nz-comment-action>
+          <nz-comment-action>Reply to</nz-comment-action>
+        </nz-comment>
+      </nz-tab>
+      <nz-tab [nzTitle]="'modal.profile' | translate">
+        <div class="my-profile-info">
+          <div class="img">
+            <img alt="Улыбающийся смайлик, показывающий, что новых сообщений нет" class="tw-image"
+              src="https://static.twitchcdn.net/assets/all_caught_up-ad8f3f09b1a1e5e62130.svg">
+          </div>
+          <div>
+            <p class="tw-title">{{ 'text.notific-profile-label' | translate }}</p>
+          </div>
+          <div>
+            <p class="tw-footer">{{ 'text.notific-profile-footer' | translate }}</p>
+          </div>
+        </div>
+      </nz-tab>
+    </nz-tabset>
   </div>
 </ng-template>

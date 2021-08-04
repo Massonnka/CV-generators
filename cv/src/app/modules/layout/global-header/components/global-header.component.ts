@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { formatDistance } from 'date-fns';
 
 @Component({
   selector: 'app-global-header',
@@ -13,9 +14,12 @@ export class GlobalHeaderComponent implements OnInit {
   public firstName: string | null;
   public lastName: string | null;
   public userName: string | null;
-  public createdAt: string | null;
+  public createdAt: string | number | Date;
   public date: number | string;
   public visible: boolean = false;
+  public likes = 0;
+  public dislikes = 0;
+  public time: string | TemplateRef<void> | undefined;
 
   @Input() count: number = 1;
 
@@ -26,27 +30,19 @@ export class GlobalHeaderComponent implements OnInit {
   public currentLanguage: string = this.translateService.currentLang || 'en';
 
   public change() {
-    this.createdAt = localStorage.getItem('user-date-reg');
-    if (this.createdAt) {
-      this.date = Math.round((Date.now() - Date.parse(this.createdAt)) / 86400000);
-      console.log(this.date);
-
-      if (this.date > 30) {
-        if (this.date > 60) {
-          this.date = Math.round(this.date / 30) + ' month ago'
-        } else {
-          this.date = 'One month ago';
-        }
-      }
-
-      if (this.date > 1) {
-        this.date = (this.date) + ' days ago'
-      } else {
-        this.date = 'One day ago';
-      }
-    }
-
+    this.createdAt = String(localStorage.getItem('user-date-reg'));
+    this.time = formatDistance(new Date(), new Date(this.createdAt));
     this.count = 0;
+  }
+
+  like(): void {
+    this.likes = 1;
+    this.dislikes = 0;
+  }
+
+  dislike(): void {
+    this.likes = 0;
+    this.dislikes = 1;
   }
 
   public switchLanguage(language: string): void {

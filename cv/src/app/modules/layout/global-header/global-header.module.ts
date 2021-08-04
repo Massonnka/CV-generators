@@ -13,6 +13,9 @@ import { UserInfoModule } from 'src/app/modules/layout/pages/employee/user-info/
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
 @NgModule({
   declarations: [GlobalHeaderComponent],
@@ -29,7 +32,10 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
     UserInfoModule,
     NzBadgeModule,
     DefaultButtonModule,
-    NzPopoverModule
+    NzPopoverModule,
+    NzToolTipModule,
+    NzCommentModule,
+    NzTabsModule
   ],
   exports: [GlobalHeaderComponent],
 })
