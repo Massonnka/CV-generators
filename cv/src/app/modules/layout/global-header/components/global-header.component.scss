@@ -72,3 +72,51 @@
 a {
   color: var(--header-text);
 }
+
+.count {
+  padding-left: 8px;
+  cursor: auto;
+}
+.ant-comment-rtl .count {
+  padding-right: 8px;
+  padding-left: 0;
+}
+.my-info-cv {
+  min-width: 400px;
+  min-height: 500px; 
+}
+.modal-list {
+  max-width: 400px;
+}
+.modal-text {
+  color: var(--modal-notific-text);
+  letter-spacing: .02em;
+}
+
+.my-profile-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  max-height: 263px;
+}
+.img {
+  margin: auto;
+  padding: 30px 0px;
+}
+.tw-image {
+  width: 92px;
+  height: 92px;
+}
+.tw-title {
+  margin: auto;
+  font-family: var(--font-display);
+  line-height: var(--line-height-heading) ;
+  font-size: var(--font-size-8) ;
+  font-weight: var(--font-weight-semibold) ;
+}
+.tw-footer {
+  padding: 10px 0px;
+  margin: auto;
+  font-size: var(--font-size-10) ;
+}
+

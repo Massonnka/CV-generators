@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { formatDistance } from 'date-fns';
+import { Languages } from 'src/app/shared/constants/languages.constants';
 
 @Component({
   selector: 'app-global-header',
@@ -9,16 +11,40 @@ import { AuthService } from 'src/app/core/auth/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GlobalHeaderComponent implements OnInit {
-  public languages: string[] = ['en', 'ru'];
+  public languages = [Languages.English, Languages.Russian];
   public firstName: string | null;
   public lastName: string | null;
   public userName: string | null;
+  public createdAt: string | number | Date;
+  public date: number | string;
+  public visible: boolean = false;
+  public likes = 0;
+  public dislikes = 0;
+  public time: string | TemplateRef<void> | undefined;
+
+  @Input() count: number = 1;
 
   constructor(
     private translateService: TranslateService,
-    public authService: AuthService
-  ) { }
+    private authService: AuthService
+  ) {}
   public currentLanguage: string = this.translateService.currentLang || 'en';
+
+  public change() {
+    this.createdAt = String(localStorage.getItem('user-date-reg'));
+    this.time = formatDistance(new Date(), new Date(this.createdAt));
+    this.count = 0;
+  }
+
+  like(): void {
+    this.likes = 1;
+    this.dislikes = 0;
+  }
+
+  dislike(): void {
+    this.likes = 0;
+    this.dislikes = 1;
+  }
 
   public switchLanguage(language: string): void {
     this.translateService.use(language);
@@ -28,7 +54,7 @@ export class GlobalHeaderComponent implements OnInit {
   public ngOnInit() {
     this.firstName = localStorage.getItem('user-firstName');
     this.lastName = localStorage.getItem('user-lastName');
-    this.userName = this.firstName + " " + this.lastName;
+    this.userName = this.firstName + ' ' + this.lastName;
   }
 
   public logout(event: Event): void {

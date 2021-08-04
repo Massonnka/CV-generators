@@ -10,6 +10,12 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { ModalWindowModule } from 'src/app/shared/controls/modal/modal-window/modal-window.module';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { UserInfoModule } from 'src/app/modules/layout/pages/employee/user-info/user-info.module';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
 @NgModule({
   declarations: [GlobalHeaderComponent],
@@ -24,7 +30,13 @@ import { UserInfoModule } from 'src/app/modules/layout/pages/employee/user-info/
     ModalWindowModule,
     NzButtonModule,
     UserInfoModule,
+    NzBadgeModule,
+    DefaultButtonModule,
+    NzPopoverModule,
+    NzToolTipModule,
+    NzCommentModule,
+    NzTabsModule
   ],
   exports: [GlobalHeaderComponent],
 })
-export class GlobalHeaderModule {}
+export class GlobalHeaderModule { }

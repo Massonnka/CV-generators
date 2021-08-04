@@ -4,7 +4,8 @@
         "log-in": "Log In",
         "log-out": "Log out",
         "remember-me": "Remember me",
-        "forgot-password": "Register now",
+        "forgot-password": "Forgot password?",
+        "register-now": "Register now",
         "i-have-account": "I already have an account",
         "I have read the": "I have read the",
         "agreement": "agreement"
@@ -82,5 +83,18 @@
         "Input your specialization!": "Input your specialization!",
         "Input your department!": "Input your department!",
         "Select date": "Select date!"
+    },
+    "modal": {
+        "notification": "Notifications",
+        "search": "Search",
+        "directory": "Directory",
+        "cv": "My CV",
+        "profile": "My Profile"
+    },
+    "text": {
+        "notific-text": "Thank you for creating an account with CV Generators. For the next 12 months, you will have access to CV services for computing, data storage, applications within limits",
+        "notific-text-hello": "Welcome to the CV Generators community!",
+        "notific-profile-label": "You have viewed all notifications! This is professionalism!",
+        "notific-profile-footer": "You have no messages."
     }
 }

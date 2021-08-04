@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Languages } from 'src/app/shared/constants/languages.constants';
 
 @Component({
   selector: 'app-auth',
@@ -8,10 +9,18 @@ import { TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent {
-  public languages = ['en', 'ru'];
-  constructor(private translateService: TranslateService) {}
+  public languages = [Languages.English, Languages.Russian];
+  public isRegistration: boolean = true;
+  constructor(
+    private translateService: TranslateService
+  ) {}
 
   public switchLanguage(language: string): void {
     this.translateService.use(language);
+  }
+
+  public switchAuthPage(): void {
+    this.isRegistration = !this.isRegistration;
+    console.log(this.isRegistration);    
   }
 }

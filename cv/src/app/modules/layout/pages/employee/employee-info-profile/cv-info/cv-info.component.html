@@ -1,0 +1,17 @@
+<div *ngIf="projects$ | async as projects; else loading" class="projects" >
+  <app-form-cv></app-form-cv>
+
+  <nz-collapse class="projects-collapse" >
+    <nz-collapse-panel
+      *ngFor="let project of projects"
+      [nzHeader]="project.name"
+      class="projects-collapse-panel"
+    >
+      {{ project.name }} | {{ project.startDate }} | {{ project.endDate }} |
+      {{ project.teamSize }} | techStack | project
+    </nz-collapse-panel>
+  </nz-collapse>
+</div>
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

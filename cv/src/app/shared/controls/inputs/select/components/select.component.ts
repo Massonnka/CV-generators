@@ -32,15 +32,15 @@ import { startWith, takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent
-  implements OnInit, AfterViewInit, ControlValueAccessor
-{
+  implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input() errorMessages: any = {};
   @Input() label: string = '';
   @Input() nzPlaceHolder: string = '';
   @Input() id: string = '';
+  @Input() ngModel: string = '';
 
-  public onChange = (value: any) => {};
-  public onTouched = () => {};
+  public onChange = (value: any) => { };
+  public onTouched = () => { };
 
   public ngControl: NgControl;
   public control: FormControl;
@@ -51,7 +51,7 @@ export class SelectComponent
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
-  constructor(private injector: Injector, private cdr: ChangeDetectorRef) {}
+  constructor(private injector: Injector, private cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
     this.ngControl = this.injector.get(NgControl);

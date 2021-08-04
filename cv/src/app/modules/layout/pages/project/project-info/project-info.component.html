@@ -10,15 +10,16 @@
     nzBordered
     nzLayout="vertical"
     [nzExtra]="extraTpl"
+    class="content-descriptions"
   >
     <nz-descriptions-item nzTitle="{{ 'form.name' | translate }}">
       {{ projects.name }}
     </nz-descriptions-item>
     <nz-descriptions-item nzTitle="{{ 'form.start-date' | translate }}">
-      {{ projects.startDate }}
+      {{ projects.startDate | date: "fullDate" }}
     </nz-descriptions-item>
     <nz-descriptions-item nzTitle="{{ 'form.end-date' | translate }}">
-      {{ projects.endDate }}
+      {{ projects.endDate | date: "fullDate" }}
     </nz-descriptions-item>
     <nz-descriptions-item nzTitle="{{ 'form.team-size' | translate }}">
       {{ projects.teamSize }}

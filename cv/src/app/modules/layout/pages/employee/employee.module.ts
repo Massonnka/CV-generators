@@ -33,8 +33,8 @@ import { EmployeeComponent } from './employee.component';
     EmployeeAddProfileModule,
     EmployeeInfoProfileModule,
     StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer),
-    SpinnerModule
+    SpinnerModule,
   ],
   exports: [EmployeeComponent],
 })
-export class EmployeeModule { }
+export class EmployeeModule {}

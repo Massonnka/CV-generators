@@ -22,6 +22,9 @@
   .title {
     font-size: 34px;
   }
+  .title-info {
+    display: flex;
+  }
 }
 
 .content {
@@ -30,6 +33,18 @@
   margin: 20px 24px 0 24px;
   background-color: var(--content-color);
   padding: 24px 15px 24px 15px;
+
+  ::ng-deep .ant-descriptions-title {
+    color: var(--text-color);
+  }
+  ::ng-deep .ant-descriptions-item-label {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  ::ng-deep .ant-descriptions-item-content {
+    background-color: var(--content-color);
+    color: var(--text-color);
+  }
 
   .actions {
     height: 55px;

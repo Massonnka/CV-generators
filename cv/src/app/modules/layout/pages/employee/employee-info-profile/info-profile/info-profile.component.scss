@@ -1,5 +1,9 @@
 :host {
   overflow: scroll;
+  width: 100%;
+  ::ng-deep .ant-descriptions-title {
+    color: var(--text-color);
+  }
 }
 
 :host::-webkit-scrollbar {

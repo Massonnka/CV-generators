@@ -11,7 +11,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
   imports: [
     CommonModule,
     NzIconModule,
-    NzButtonModule
+    NzButtonModule,
   ],
   exports: [
     CircleButtonComponent

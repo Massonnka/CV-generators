@@ -2,7 +2,7 @@
   <ng-container *ngFor="let breadcrumb of data" class="content">
     <div
       [routerLink]="breadcrumb.url"
-      [ngClass]="breadcrumb.isDisabled === true ? 'disabled' : 'link'"
+      [ngClass]="breadcrumb.isDisabled ? 'disabled' : 'link'"
     >
       {{ breadcrumb.name }}
     </div>
