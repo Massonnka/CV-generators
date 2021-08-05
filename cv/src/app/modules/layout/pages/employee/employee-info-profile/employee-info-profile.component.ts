@@ -23,7 +23,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
 
   public currentUserId: number;
 
-  public employees$: Observable<Employee>;
+  public employee$: Observable<Employee>;
   public employeeId: string;
 
   constructor(
@@ -51,7 +51,8 @@ export class EmployeeInfoProfileComponent implements OnInit {
 
   public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
-    this.employees$ = this.employeeService.GetEmployeeById(this.employeeId);
+    this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({

@@ -1,5 +1,10 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
@@ -9,7 +14,7 @@ import { EmployeeService } from 'src/app/core/services/employees.service';
   selector: 'app-info-profile',
   templateUrl: './info-profile.component.html',
   styleUrls: ['./info-profile.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoProfileComponent implements OnInit {
   public employees$: Observable<Employee[]>;
@@ -21,26 +26,29 @@ export class InfoProfileComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private employeeService: EmployeeService,
-    private cdRef: ChangeDetectorRef,
-    private location: Location) { }
+    private location: Location
+  ) {}
 
   public onBack() {
     this.location.back();
   }
 
   public ngOnInit() {
-    const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
+    const id = this.activatedRouter.params.subscribe(
+      (value) => (this.employeeId = value.user)
+    );
     this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
-    console.log(this.employee$);
+
+    id.unsubscribe();
   }
 
   editItem(employee: Employee) {
     this.router.navigate(['/layout/employee/addinfo'], {
       state: {
         options: {
-          employee
-        }
-      }
+          employee,
+        },
+      },
     });
   }
 
