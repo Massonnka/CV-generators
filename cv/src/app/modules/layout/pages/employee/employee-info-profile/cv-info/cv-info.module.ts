@@ -7,6 +7,7 @@ import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
+import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 
 @NgModule({
   declarations: [CvInfoComponent],
@@ -17,7 +18,8 @@ import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-but
     SpinnerModule,
     TranslateModule,
     NzDescriptionsModule,
-    PrimaryButtonModule
+    PrimaryButtonModule,
+    DefaultButtonModule
   ],
   exports: [CvInfoComponent],
 })
