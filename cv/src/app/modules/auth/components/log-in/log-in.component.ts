@@ -26,7 +26,7 @@ export class LogInComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
@@ -38,7 +38,7 @@ export class LogInComponent implements OnInit {
     });
 
     this.validateForm = this.fb.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       remember: [false],
     });
