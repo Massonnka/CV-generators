@@ -30,7 +30,9 @@
   <tr *ngFor="let project of data" class="table-row" [routerLink]="project._id">
     <td>{{ project.name }}</td>
     <td>{{ project.startDate | date:'fullDate' }}</td>
-    <td>{{ project.endDate | date:'fullDate'}}</td>
+    <td>{{ project.endDate | date:'fullDate'}}
+
+    </td>
     <td>{{ project.teamSize }}</td>
     <td>techStack</td>
     <td>roles</td>

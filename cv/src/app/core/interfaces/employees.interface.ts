@@ -1,11 +1,12 @@
 export interface Employee {
   id?: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  department: string;
-  specialization: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  department?: string;
+  specialization?: string;
   cv?: {
+    id?: number;
     email: string,
     lastName: string,
     skills: string,

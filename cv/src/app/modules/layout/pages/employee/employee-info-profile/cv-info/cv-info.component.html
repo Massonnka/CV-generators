@@ -1,6 +1,7 @@
 <div *ngIf="employeeCves; else loading">
   <div *ngFor="let cv of employeeCves" class="projects">
-    <nz-descriptions class="cv-info" [nzTitle]="'form.employee-info' | translate" nzBordered nzLayout="vertical">
+    <nz-descriptions class="cv-info" [nzTitle]="'form.employee-info' | translate" nzBordered nzLayout="vertical"
+      [nzExtra]="extraTpl">
       <nz-descriptions-item [nzTitle]="'form.email' | translate" class="table-item">{{ cv.email }}
       </nz-descriptions-item>
       <nz-descriptions-item [nzTitle]="'form.lastname' | translate">{{ cv.lastName }}</nz-descriptions-item>
@@ -9,6 +10,11 @@
       </nz-descriptions-item>
       <nz-descriptions-item [nzTitle]="'form.department' | translate">{{ cv.department }}</nz-descriptions-item>
     </nz-descriptions>
+    <ng-template class="buttons" #extraTpl>
+      <app-primary-button nz-button (click)="editItem(cv)">
+        {{ "form.edit" | translate }}
+      </app-primary-button>
+    </ng-template>
     <nz-collapse *ngFor="let project of cv.projects" class="projects-collapse">
       <nz-collapse-panel class="projects-collapse-panel">
         {{ project.name }} | {{ project.startDate }} | {{ project.endDate }} |

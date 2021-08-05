@@ -28,6 +28,16 @@ export class CvInfoComponent implements OnInit {
     this.location.back();
   }
 
+  editItem(employee: Employee) {
+    this.router.navigate(['/layout/employee/addinfo'], {
+      state: {
+        options: {
+          employee
+        }
+      }
+    });
+  }
+
   ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
     this.employees$ = this.employeeService.GetEmployeeById(this.employeeId);
