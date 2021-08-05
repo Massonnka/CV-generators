@@ -10,10 +10,8 @@ import { Languages } from 'src/app/shared/constants/languages.constants';
 })
 export class AuthComponent {
   public languages = [Languages.English, Languages.Russian];
-  public isRegistration: boolean = true;
-  constructor(
-    private translateService: TranslateService
-  ) {}
+  public isRegistration: boolean = false;
+  constructor(private translateService: TranslateService) {}
 
   public switchLanguage(language: string): void {
     this.translateService.use(language);
@@ -21,6 +19,5 @@ export class AuthComponent {
 
   public switchAuthPage(): void {
     this.isRegistration = !this.isRegistration;
-    console.log(this.isRegistration);    
   }
 }

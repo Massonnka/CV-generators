@@ -26,12 +26,11 @@ export class SiderComponent implements OnInit {
   public isVisible$: Observable<boolean> = this.store.select(selectSidebar);
   public isVisible: boolean = true;
 
-  private currentThemeIndex = 0;
+  private currentThemeIndex = 1;
   private themes = [Themes.Light, Themes.Dark];
 
   public ngOnInit(): void {
     this.isVisible$.subscribe((value) => (this.isVisible = value));
-    this.onChangeTheme();
   }
 
   public onChangeTheme(): void {

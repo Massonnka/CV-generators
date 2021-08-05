@@ -1,12 +1,16 @@
-<div *ngIf="projects$ | async as projects; else loading" class="projects" >
-  <app-form-cv></app-form-cv>
-
-  <nz-collapse class="projects-collapse" >
-    <nz-collapse-panel
-      *ngFor="let project of projects"
-      [nzHeader]="project.name"
-      class="projects-collapse-panel"
-    >
+<div *ngIf="projects$ | async as projects; else loading" class="projects">
+  <nz-descriptions class="cv-info" *ngIf="employees$ | async as employee; else loading"
+    [nzTitle]="'form.employee-info' | translate" nzBordered nzLayout="vertical">
+    <nz-descriptions-item [nzTitle]="'form.email' | translate" class="table-item">{{ employee.email }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.lastname' | translate">{{ employee.lastName }}</nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.skills' | translate">{{ employee.skills }}</nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.specialization' | translate">{{ employee.specialization }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.department' | translate">{{ employee.department }}</nz-descriptions-item>
+  </nz-descriptions>
+  <nz-collapse class="projects-collapse">
+    <nz-collapse-panel *ngFor="let project of projects" [nzHeader]="project.name" class="projects-collapse-panel">
       {{ project.name }} | {{ project.startDate }} | {{ project.endDate }} |
       {{ project.teamSize }} | techStack | project
     </nz-collapse-panel>

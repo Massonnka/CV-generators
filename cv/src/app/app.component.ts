@@ -16,17 +16,17 @@ import { selectTheme } from './store/themes/themes.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  @HostBinding('class') public currentTheme = '';
+  @HostBinding('class') public currentTheme: string = 'light';
   constructor(
     private translateService: TranslateService,
     private store: Store
   ) {}
 
   public ngOnInit(): void {
-    this.initThemeListener();
     this.translateService.setDefaultLang(
       environment.localization.defaultLanguage
     );
+    this.initThemeListener();
   }
 
   public initThemeListener(): void {

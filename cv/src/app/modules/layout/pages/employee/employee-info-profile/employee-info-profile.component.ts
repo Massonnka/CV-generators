@@ -4,11 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
-import { Project } from 'src/app/core/interfaces/project.interface';
+import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { EMPLOYEES } from 'src/assets/mocks/employees';
 
 @Component({
   selector: 'app-employee-info-profile',
@@ -17,23 +16,23 @@ import { EMPLOYEES } from 'src/assets/mocks/employees';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeInfoProfileComponent implements OnInit {
-  public projects$: Observable<Project[]>;
-  public projects: Project[];
-  public employees = EMPLOYEES;
-
   public isCvInfoHide = true;
+  public isLoading = false;
 
   public cves: any = [{ name: 'cv 1' }];
 
   public currentUserId: number;
-  private currentUser: Employee;
+
+  public employees$: Observable<Employee>;
+  public employeeId: string;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private activatedRouter: ActivatedRoute,
+    private employeeService: EmployeeService,
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
   ) {
-    this.activatedRoute.params.subscribe(
+    this.activatedRouter.params.subscribe(
       (value) => (this.currentUserId = value.user - 1)
     );
   }
@@ -51,8 +50,8 @@ export class EmployeeInfoProfileComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.currentUser = this.employees[this.currentUserId];    
-
+    const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
+    this.employees$ = this.employeeService.GetEmployeeById(this.employeeId);
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -69,7 +68,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
           },
           {
             url: '/layout/employee/info',
-            name: this.currentUser.firstname,
+            name: 'Info',
             isDisabled: true,
           },
         ],

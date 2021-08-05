@@ -48,7 +48,7 @@ export class SignUpComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   public ngOnInit(): void {
     this.validateForm = this.fb.group({

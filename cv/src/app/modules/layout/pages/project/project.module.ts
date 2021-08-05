@@ -12,7 +12,10 @@ import {
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { TableModule } from 'src/app/shared/controls/table/table.module';
-import { projectsFeatureKey, projectsReducer } from 'src/app/store/projects/projects.reducers';
+import {
+  projectsFeatureKey,
+  projectsReducer,
+} from 'src/app/store/projects/projects.reducers';
 import { ProjectAddInfoModule } from './project-add-info/project-add-info.module';
 import { ProjectInfoModule } from './project-info/project-info.module';
 import { ProjectRoutingModule } from './project-routing.module';
@@ -31,7 +34,10 @@ import { ProjectComponent } from './project.component';
     BreadcrumbModule,
     ProjectInfoModule,
     ProjectAddInfoModule,
-    StoreModule.forFeature(breadcrumbsFeatureKey || projectsFeatureKey, breadcrumbReducer || projectsReducer),
+    StoreModule.forFeature(
+      breadcrumbsFeatureKey || projectsFeatureKey,
+      breadcrumbReducer || projectsReducer
+    ),
     SpinnerModule,
   ],
   exports: [ProjectComponent],

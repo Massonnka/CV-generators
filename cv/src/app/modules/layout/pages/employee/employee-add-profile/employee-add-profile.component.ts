@@ -1,14 +1,13 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EMPLOYEES } from '../../../../../../assets/mocks/employees';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
-import { ProjectService } from 'src/app/core/services/project.service';
-import { Project } from 'src/app/core/interfaces/project.interface';
+import { EmployeeService } from 'src/app/core/services/employees.service';
+import { Employee } from 'src/app/core/interfaces/employees.interface';
 
 @Component({
   selector: 'app-employee-add-profile',
@@ -17,29 +16,17 @@ import { Project } from 'src/app/core/interfaces/project.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeAddProfileComponent implements OnInit {
-  public employees = EMPLOYEES;
-  projects$: Observable<Project[]>;
+  public isCvInfoHide = true;
+  public isLoading = false;
 
-  public cves: any = [
-    { name: 'cv 1' },
-    { name: 'cv 2' },
-    { name: 'cv 3' },
-    { name: 'cv 4' },
-    { name: 'cv 5' },
-  ];
+  public cves: any = [{ name: 'cv 1' }];
 
   public currentUserId: number;
 
   constructor(
-    private projectService: ProjectService,
-    private route: ActivatedRoute,
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
-  ) {
-    this.route.params.subscribe(
-      (value) => (this.currentUserId = value.user - 1)
-    );
-  }
+  ) {}
 
   private breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -49,8 +36,11 @@ export class EmployeeAddProfileComponent implements OnInit {
     this.location.back();
   }
 
+  public toggleCvInfo(): void {
+    this.isCvInfoHide = !this.isCvInfoHide;
+  }
+
   public ngOnInit(): void {
-    this.projects$ = this.projectService.FoundAllProjects();
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -66,8 +56,8 @@ export class EmployeeAddProfileComponent implements OnInit {
             isDisabled: false,
           },
           {
-            url: '/layout/employee/addinfo',
-            name: 'Add Info',
+            url: '/layout/employee/addInfo',
+            name: 'Info',
             isDisabled: true,
           },
         ],

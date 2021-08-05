@@ -18,10 +18,6 @@ const _projectsReducer = createReducer(
     ...state,
     projects,
   })),
-  on(ProjectActions.addProject, (state, { projects }) => ({
-    ...state.projects,
-    projects,
-  })),
   on(ProjectActions.getProjects, (state) => state)
 );
 

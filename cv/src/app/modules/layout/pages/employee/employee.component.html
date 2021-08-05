@@ -7,13 +7,11 @@
   </div>
   <nz-content class="content">
     <div class="actions">
-      <app-primary-button class="add-button">
-        <a routerLink="/layout/employee/addinfo">
-          <span>{{ "employee.add-employee" | translate }}</span>
-        </a>
+      <app-primary-button (click)="addItem()" class="add-button">
+        <span>{{ "employee.add-employee" | translate }}</span>
       </app-primary-button>
     </div>
-    <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="users">
+    <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="employees">
       <ng-template #headRef>
         <tr>
           <th class="table-head">{{ "table.firstname" | translate }}</th>
@@ -24,12 +22,17 @@
         </tr>
       </ng-template>
       <ng-template #bodyRef let-data="$implicit">
-        <tr *ngFor="let user of data" class="table-row" [routerLink]="user.id">
-          <td>{{ user.firstname }}</td>
-          <td>{{ user.lastname }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.department }}</td>
-          <td>{{ user.specialization }}</td>
+        <tr *ngFor="let employee of data" class="table-row" [routerLink]="employee.id">
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.department }}</td>
+          <td>{{ employee.specialization }}</td>
+          <td>
+            <app-primary-button (click)="deleteItem(employee)">
+              {{ "form.delete" | translate }}
+            </app-primary-button>
+          </td>
         </tr>
       </ng-template>
     </app-table>
