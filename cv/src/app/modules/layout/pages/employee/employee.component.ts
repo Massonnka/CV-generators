@@ -62,15 +62,4 @@ export class EmployeeComponent implements OnInit {
   }
 
 
-  public deleteItem(employee: Employee) {
-    this.employees$ = this.employeeService.FoundAllEmployees();
-    console.log(this.employees$);
-
-    if (!confirm(`Are you sure you want to delete ${employee.firstName} ?`)) {
-      return;
-    }
-    this.employeeService.DeleteEmployee(employee.id).subscribe(() => {
-      this.employees$ = this.employeeService.FoundAllEmployees();
-    });
-  }
 }

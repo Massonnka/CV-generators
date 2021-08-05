@@ -9,22 +9,22 @@ export class EmployeeService {
     constructor(private http: HttpClient) { }
 
     public FoundAllEmployees(): Observable<Employee[]> {
-        return this.http.get<Employee[]>(`${endpointmock}/employees`);
+        return this.http.get<Employee[]>(`${endpointmock}/cv`);
     }
 
     public GetEmployeeById(id: any): Observable<Employee> {
-        return this.http.get<Employee>(`${endpointmock}/employees/${id}`);
+        return this.http.get<Employee>(`${endpointmock}/cv/${id}`);
     }
 
     public AddEmployee(employee: Employee): Observable<Employee> {
-        return this.http.post<Employee>(`${endpointmock}/employees`, employee);
+        return this.http.post<Employee>(`${endpointmock}/cv`, employee);
     }
 
     public UpdateEmployee(employee: Employee): Observable<Employee> {
-        return this.http.put<Employee>(`${endpointmock}/employees/${employee.id}`, employee);
+        return this.http.put<Employee>(`${endpointmock}/cv/${employee.id}`, employee);
     }
 
     public DeleteEmployee(id: any): Observable<any> {
-        return this.http.delete<any>(`${endpointmock}/employees/${id}`);
+        return this.http.delete<any>(`${endpointmock}/cv/${id}`);
     }
 }
