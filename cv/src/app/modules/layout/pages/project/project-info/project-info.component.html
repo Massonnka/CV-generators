@@ -9,7 +9,7 @@
         </p>
     </div>
 </div>
-<nz-content *ngIf="projects$ | async as projects; else loading" class="content">
+<nz-content *ngIf="projects$ | async as projects" class="content">
     <nz-descriptions nzTitle="{{ 'form.project-info' | translate }}" nzBordered nzLayout="vertical" [nzExtra]="extraTpl"
         class="content-descriptions">
         <nz-descriptions-item nzTitle="{{ 'form.name' | translate }}">

@@ -29,11 +29,11 @@ export class InfoProfileComponent implements OnInit {
     private location: Location
   ) {}
 
-  public onBack() {
+  public onBack(): void {
     this.location.back();
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.employeeId = value.user)
     );
@@ -42,7 +42,7 @@ export class InfoProfileComponent implements OnInit {
     id.unsubscribe();
   }
 
-  editItem(employee: Employee) {
+  public editItem(employee: Employee): void {
     this.router.navigate(['/layout/employee/addinfo'], {
       state: {
         options: {
@@ -52,7 +52,7 @@ export class InfoProfileComponent implements OnInit {
     });
   }
 
-  public deleteItem(employee: Employee) {
+  public deleteItem(employee: Employee): void {
     this.employees$ = this.employeeService.FoundAllEmployees();
 
     if (!confirm(`Are you sure you want to delete ${employee.firstName} ?`)) {
