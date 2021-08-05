@@ -1,4 +1,4 @@
-<div *ngIf="employees$ | async as employee; else loading" class="wrapper">
+<div *ngIf="employee$ | async as employee; else loading" class="wrapper">
   <nz-descriptions [nzTitle]="'form.employee-info' | translate" nzBordered nzLayout="vertical" [nzExtra]="extraTpl">
     <nz-descriptions-item [nzTitle]="'form.firstname' | translate" class="table-item">{{ employee.firstName }}
     </nz-descriptions-item>
@@ -11,6 +11,9 @@
   <ng-template class="buttons" #extraTpl>
     <app-primary-button nz-button (click)="editItem(employee)">
       {{ "form.edit" | translate }}
+    </app-primary-button>
+    <app-primary-button (click)="deleteItem(employee)">
+      {{ "form.delete" | translate }}
     </app-primary-button>
     <app-default-button (click)="onBack()" nz-button>
       {{ "form.cancel" | translate }}

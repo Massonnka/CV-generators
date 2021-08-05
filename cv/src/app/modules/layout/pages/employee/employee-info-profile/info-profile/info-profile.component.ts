@@ -12,7 +12,8 @@ import { EmployeeService } from 'src/app/core/services/employees.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InfoProfileComponent implements OnInit {
-  public employees$: Observable<Employee>;
+  public employees$: Observable<Employee[]>;
+  public employee$: Observable<Employee>;
   public employeeId: string;
   public isLoading = false;
 
@@ -29,8 +30,8 @@ export class InfoProfileComponent implements OnInit {
 
   public ngOnInit() {
     const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
-    this.employees$ = this.employeeService.GetEmployeeById(this.employeeId);
-    console.log(this.employees$);
+    this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
+    console.log(this.employee$);
   }
 
   editItem(employee: Employee) {
@@ -43,4 +44,15 @@ export class InfoProfileComponent implements OnInit {
     });
   }
 
+  public deleteItem(employee: Employee) {
+    this.employees$ = this.employeeService.FoundAllEmployees();
+
+    if (!confirm(`Are you sure you want to delete ${employee.firstName} ?`)) {
+      return;
+    }
+    this.employeeService.DeleteEmployee(employee.id).subscribe(() => {
+      this.employees$ = this.employeeService.FoundAllEmployees();
+    });
+    this.router.navigate(['/layout/employee']);
+  }
 }
