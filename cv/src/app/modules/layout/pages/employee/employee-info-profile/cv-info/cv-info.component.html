@@ -17,11 +17,34 @@
     </ng-template>
     <nz-collapse *ngFor="let project of cv.projects" class="projects-collapse">
       <nz-collapse-panel class="projects-collapse-panel">
-        {{ project.name }} | {{ project.startDate }} | {{ project.endDate }} |
-        {{ project.teamSize }} | {{ project.techStack }} | {{ project.roles }}
+        <nz-descriptions nzTitle="{{ 'form.project-info' | translate }}" nzBordered nzLayout="vertical"
+          class="content-descriptions">
+          <nz-descriptions-item nzTitle="{{ 'form.name' | translate }}">
+            {{ project.name }}
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="{{ 'form.start-date' | translate }}">
+            {{ project.startDate | date: "fullDate" }}
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="{{ 'form.end-date' | translate }}">
+            {{ project.endDate | date: "fullDate" }}
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="{{ 'form.team-size' | translate }}">
+            {{ project.teamSize }}
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="{{ 'form.tech-stack' | translate }}">{{ project.techStack }}
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="{{ 'form.roles' | translate }}">{{ project.roles }}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="{{ 'form.description' | translate }}">{{ project.description }}
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="{{ 'form.responsibilities' | translate }}">{{ project.responsibilities }}
+          </nz-descriptions-item>
+        </nz-descriptions>
       </nz-collapse-panel>
     </nz-collapse>
   </div>
+  <app-default-button (click)="onBack()" nz-button>
+    {{ "form.cancel" | translate }}
+  </app-default-button>
 </div>
 <ng-template #loading>
   <app-spinner></app-spinner>
