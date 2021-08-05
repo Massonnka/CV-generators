@@ -31,7 +31,6 @@ export class InfoProfileComponent implements OnInit {
   public ngOnInit() {
     const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
     this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
-    console.log(this.employee$);
   }
 
   editItem(employee: Employee) {

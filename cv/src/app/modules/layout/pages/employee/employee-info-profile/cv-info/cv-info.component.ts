@@ -43,8 +43,6 @@ export class CvInfoComponent implements OnInit {
     this.employees$ = this.employeeService.GetEmployeeById(this.employeeId);
     this.employees$.subscribe(value => {
       this.employeeCves = value.cv;
-      console.log(this.employeeCves);
-
       this.cdRef.markForCheck();
     });
   }
