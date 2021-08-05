@@ -15,7 +15,6 @@ describe('SiderComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SiderComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
