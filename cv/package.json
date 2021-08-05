@@ -25,6 +25,7 @@
     "@ngrx/store-devtools": "^12.3.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "e2e": "0.0.8",
     "ng-zorro-antd": "^12.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
