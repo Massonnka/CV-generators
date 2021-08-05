@@ -13,7 +13,7 @@ export class AuthComponent {
   public isRegistration: boolean = true;
   constructor(
     private translateService: TranslateService
-  ) {}
+  ) { }
 
   public switchLanguage(language: string): void {
     this.translateService.use(language);
@@ -21,6 +21,5 @@ export class AuthComponent {
 
   public switchAuthPage(): void {
     this.isRegistration = !this.isRegistration;
-    console.log(this.isRegistration);    
   }
 }

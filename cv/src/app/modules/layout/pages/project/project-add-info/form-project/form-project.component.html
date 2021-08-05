@@ -21,15 +21,14 @@
   </div>
   <div class="row">
     <nz-form-item class="inputs">
-      <app-input [placeholder]="'placeholder.Input your team size!' | translate" label="form.team-size"
+      <app-input type="number" [placeholder]="'placeholder.Input your team size!' | translate" label="form.team-size"
         formControlName="teamSize" [errorMessages]="{ required: 'Please, specify the field' }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-input [placeholder]="'placeholder.Input your tech stack!' | translate" label="form.tech-stack"
         formControlName="techStack" [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'max len error'
+          required: 'Please, specify the field'
         }">
       </app-input>
     </nz-form-item>

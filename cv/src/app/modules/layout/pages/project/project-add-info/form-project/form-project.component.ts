@@ -27,14 +27,14 @@ export class FormProjectComponent implements OnInit {
     this.project = options && options.project;
 
     this.validateForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(4)]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      teamSize: ['', Validators.required],
-      techStack: ['', [Validators.required, Validators.minLength(4)]],
+      teamSize: ['', [Validators.required, Validators.pattern]],
+      techStack: ['', Validators.required],
       roles: ['', Validators.required],
-      description: ['', [Validators.required, Validators.minLength(4)]],
-      responsibilities: ['', [Validators.required, Validators.minLength(4)]],
+      description: ['', [Validators.required, Validators.minLength(8)]],
+      responsibilities: ['', [Validators.required, Validators.minLength(8)]],
     });
     if (this.project) {
       this.validateForm.get("name")?.setValue(this.project.name);
