@@ -20,6 +20,7 @@ export class FormCvComponent implements OnInit {
   public submitted = false;
   public employee: Employee;
   public isEditMode = false;
+  public employeesId: number | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -27,8 +28,10 @@ export class FormCvComponent implements OnInit {
     private employeeService: EmployeeService) { }
 
   public ngOnInit(): void {
+
     const options = history.state.options;
     this.employee = options && options.employee;
+    this.employeesId = Number(localStorage.getItem('employee-id'));
 
     this.validateForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -54,16 +57,19 @@ export class FormCvComponent implements OnInit {
 
     this.submitted = true;
 
-    const employee: Cv = {
-      email: this.validateForm.value.email,
-      lastName: this.validateForm.value.lastName,
-      skills: this.validateForm.value.skills,
-      specialization: this.validateForm.value.specialization,
-      department: this.validateForm.value.department,
+    const employee: Employee = {
+      cv: {
+        email: this.validateForm.value.email,
+        lastName: this.validateForm.value.lastName,
+        skills: this.validateForm.value.skills,
+        specialization: this.validateForm.value.specialization,
+        department: this.validateForm.value.department,
+      }
     };
 
     if (this.isEditMode) {
       employee.id = this.employee.id;
+
       this.employeeService.UpdateEmployee(employee).subscribe(
         () => {
           this.validateForm.reset();
