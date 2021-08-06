@@ -13,7 +13,7 @@
 }
 input {
   min-width: 200px;
-  background-color: transparent !important;
+  background-color: var(--content-color) !important;
 }
 .error {
   color: var(--text-error);
