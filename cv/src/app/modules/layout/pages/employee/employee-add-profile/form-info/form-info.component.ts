@@ -34,8 +34,8 @@ export class FormInfoComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      specialization: ['', [Validators.required, Validators.minLength(8)]],
-      department: ['', [Validators.required, Validators.minLength(8)]],
+      specialization: ['', [Validators.required, Validators.minLength(3)]],
+      department: ['', [Validators.required, Validators.minLength(3)]],
     });
     if (this.employee) {
       this.validateForm.get("firstName")?.setValue(this.employee.firstName);
