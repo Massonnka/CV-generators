@@ -31,11 +31,11 @@ export class FormInfoComponent implements OnInit {
     this.employee = options && options.employee;
 
     this.validateForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(4)]],
-      lastName: ['', [Validators.required, Validators.minLength(4)]],
-      email: ['', Validators.required],
-      specialization: ['', [Validators.required, Validators.minLength(4)]],
-      department: ['', [Validators.required, Validators.minLength(4)]],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      specialization: ['', [Validators.required, Validators.minLength(8)]],
+      department: ['', [Validators.required, Validators.minLength(8)]],
     });
     if (this.employee) {
       this.validateForm.get("firstName")?.setValue(this.employee.firstName);

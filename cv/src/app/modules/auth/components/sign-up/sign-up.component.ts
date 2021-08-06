@@ -23,6 +23,7 @@ export class SignUpComponent implements OnInit {
     theme: 'twotone',
   };
 
+  public userTypes: string[];
   public selectedValue = 'Angular';
   public submitted = false;
   public message: string;
@@ -48,16 +49,18 @@ export class SignUpComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
+    this.userTypes = ['Angular', 'React', 'Node JS'];
+
     this.validateForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      password: [null, [Validators.required]],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
       email: [null, [Validators.email, Validators.required]],
-      specialization: ['', [Validators.required, Validators.minLength(4)]],
+      specialization: ['', Validators.required],
       agree: [false],
     });
   }

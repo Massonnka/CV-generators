@@ -52,7 +52,7 @@
       <nz-tab class="my-info-cv" [nzTitle]="'modal.cv' | translate" class="notification">
         <div>
           <p class="modal-text">
-            НЕДАВНЕЕ
+            {{ 'modal.recently' | translate}}
           </p>
         </div>
         <nz-comment class="modal-list" nzAuthor="Admin CV" [nzDatetime]="time">
@@ -63,6 +63,7 @@
             <p>
               {{ 'text.notific-text' | translate }}<br>
               {{ 'text.notific-text-hello' | translate }}
+              {{ userName }}
             </p>
           </nz-comment-content>
           <nz-comment-action>
@@ -75,7 +76,7 @@
               (click)="dislike()"></i>
             <span class="count dislike">{{ dislikes }}</span>
           </nz-comment-action>
-          <nz-comment-action>Reply to</nz-comment-action>
+          <nz-comment-action>{{ 'modal.reply' | translate}}</nz-comment-action>
         </nz-comment>
       </nz-tab>
       <nz-tab [nzTitle]="'modal.profile' | translate">
@@ -88,7 +89,7 @@
             <p class="tw-title">{{ 'text.notific-profile-label' | translate }}</p>
           </div>
           <div>
-            <p class="tw-footer">{{ 'text.notific-profile-footer' | translate }} {{ userName }}</p>
+            <p class="tw-footer">{{ 'text.notific-profile-footer' | translate }}</p>
           </div>
         </div>
       </nz-tab>

@@ -16,7 +16,6 @@ export class GlobalHeaderComponent implements OnInit {
   public lastName: string | null;
   public userName: string | null;
   public createdAt: string | number | Date;
-  public date: number | string;
   public visible: boolean = false;
   public likes = 0;
   public dislikes = 0;
@@ -27,7 +26,7 @@ export class GlobalHeaderComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private authService: AuthService
-  ) {}
+  ) { }
   public currentLanguage: string = this.translateService.currentLang || 'en';
 
   public change() {

@@ -3,22 +3,25 @@
     <nz-form-item class="inputs">
       <app-input [placeholder]="'placeholder.Input your first name!' | translate" label="form.firstname"
         formControlName="firstName" [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'max len error'
+          required: 'validator.required' | translate,
+          minlength: 'validator.name' | translate
         }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-input [placeholder]="'placeholder.Input your last name!' | translate" label="form.lastname"
         formControlName="lastName" [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'max len error'
+          required: 'validator.required' | translate,
+          minlength: 'validator.name' | translate
         }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-autocomplete [placeholder]="'placeholder.Input your email!' | translate" label="form.email"
-        formControlName="email" [errorMessages]="{ required: 'Please, specify the field' }">
+        formControlName="email" [errorMessages]="{ 
+          required: 'validator.required' | translate, 
+          minlength: 'validator.email' | translate 
+        }">
       </app-autocomplete>
     </nz-form-item>
   </div>
@@ -26,16 +29,16 @@
     <nz-form-item class="inputs">
       <app-autocomplete [placeholder]="'placeholder.Input your specialization!' | translate" label="form.specialization"
         formControlName="specialization" [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'max len error'
+          required: 'validator.required' | translate,
+          minlength: 'validator.minlength8' | translate
         }">
       </app-autocomplete>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-autocomplete [placeholder]="'placeholder.Input your department!' | translate" label="form.department"
         formControlName="department" [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'max len error'
+          required: 'validator.required' | translate,
+          minlength: 'validator.minlength8' | translate
         }">
       </app-autocomplete>
     </nz-form-item>

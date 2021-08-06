@@ -1,93 +1,66 @@
-<form
-  nz-form
-  [formGroup]="validateForm"
-  class="sign-up-form"
-  (ngSubmit)="registerUser()"
->
-  <nz-form-item class="inputs">
-    <app-input
-      id="firstname"
-      [placeholder]="'placeholder.Input your first name!' | translate"
-      label="form.firstname"
-      formControlName="firstName"
-      [errorMessages]="{ required: 'Please, specify the field' }"
-    >
-    </app-input>
-  </nz-form-item>
-  <nz-form-item class="inputs">
-    <app-input
-      id="lastname"
-      [placeholder]="'placeholder.Input your last name!' | translate"
-      label="form.lastname"
-      formControlName="lastName"
-      [errorMessages]="{ required: 'Please, specify the field' }"
-    >
-    </app-input>
-  </nz-form-item>
-  <nz-form-item class="inputs">
-    <app-input
-      (ngModelChange)="updateConfirmValidator()"
-      id="password"
-      type="password"
-      [placeholder]="'placeholder.Input your password!' | translate"
-      label="profile.password"
-      formControlName="password"
-      [errorMessages]="{ required: 'Please, specify the field' }"
-    >
-    </app-input>
-  </nz-form-item>
-  <nz-form-item class="inputs">
-    <app-input
-      type="password"
-      [placeholder]="'placeholder.Input your confirm password!' | translate"
-      label="profile.confirm-pass"
-      formControlName="checkPassword"
-      [errorMessages]="{
-        required: 'Please confirm your password!',
+<form nz-form [formGroup]="validateForm" class="sign-up-form" (ngSubmit)="registerUser()">
+    <nz-form-item class="inputs">
+        <app-input id="firstname" [placeholder]="'placeholder.Input your first name!' | translate"
+            label="form.firstname" formControlName="firstName" [errorMessages]="{ 
+                required: 'validator.required' | translate, 
+                minlength: 'validator.name' | translate 
+            }">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input id="lastname" [placeholder]="'placeholder.Input your last name!' | translate" label="form.lastname"
+            formControlName="lastName" [errorMessages]="{ 
+                required: 'validator.required' | translate, 
+                minlength: 'validator.name' | translate 
+            }">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input (ngModelChange)="updateConfirmValidator()" id="password" type="password"
+            [placeholder]="'placeholder.Input your password!' | translate" label="profile.password"
+            formControlName="password" [errorMessages]="{ 
+                required: 'validator.required' | translate, 
+                minlength: 'validator.password' | translate 
+            }">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input type="password" [placeholder]="'placeholder.Input your confirm password!' | translate"
+            label="profile.confirm-pass" formControlName="checkPassword" [errorMessages]="{
+        required: 'validator.confirmpass' | translate,
         inconsistent: 'Two passwords that you enter is inconsistent!'
-      }"
-    >
-    </app-input>
-  </nz-form-item>
-  <nz-form-item class="inputs">
-    <app-input
-      [placeholder]="'placeholder.Input your email!' | translate"
-      label="form.email"
-      id="email"
-      formControlName="email"
-      [errorMessages]="{ required: 'Please, specify the field' }"
-    >
-    </app-input>
-  </nz-form-item>
-  <nz-form-item class="inputs">
-    <app-select
-      [nzPlaceHolder]="'placeholder.Select your specialization!' | translate"
-      label="form.specialization"
-      formControlName="specialization"
-      [errorMessages]="{ required: 'Please, specify the field' }"
-    >
-      <nz-option nzValue="Angular" nzLabel="Angular"></nz-option>
-      <nz-option nzValue="React" nzLabel="React"></nz-option>
-      <nz-option nzValue="Node Js" nzLabel="Node Js"></nz-option>
-    </app-select>
-  </nz-form-item>
-  <nz-form-item nz-row class="register-area">
-    <nz-form-control>
-      <label nz-checkbox formControlName="agree">
-        <span>
-          {{ "auth.I have read the" | translate }}
-          <a>{{ "auth.agreement" | translate }}</a>
-        </span>
-      </label>
-    </nz-form-control>
-  </nz-form-item>
-  <button
-    nz-button
-    type="submit"
-    class="login-form-button login-form-margin"
-    [nzType]="'primary'"
-    [disabled]="validateForm.invalid || submitted"
-  >
-    {{ "auth.sign-up" | translate }}
-  </button>
+      }">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-input [placeholder]="'placeholder.Input your email!' | translate" label="form.email" id="email"
+            formControlName="email" [errorMessages]="{ 
+                required: 'validator.required' | translate, 
+                email: 'validator.email' | translate 
+            }">
+        </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+        <app-select id="type" [nzPlaceHolder]="'placeholder.Select your specialization!' | translate"
+            label="form.specialization" formControlName="specialization" [errorMessages]="{ 
+                required: 'validator.required' | translate 
+            }">
+            <option disabled value="null">{{ "auth.select" | translate }}</option>
+            <option *ngFor="let userType of userTypes">{{ userType }}</option>
+        </app-select>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+        <nz-form-control>
+            <label nz-checkbox formControlName="agree">
+                <span>
+                    {{ "auth.I have read the" | translate }}
+                    <a>{{ "auth.agreement" | translate }}</a>
+                </span>
+            </label>
+        </nz-form-control>
+    </nz-form-item>
+    <button nz-button type="submit" class="login-form-button login-form-margin" [nzType]="'primary'"
+        [disabled]="validateForm.invalid || submitted">
+        {{ "auth.sign-up" | translate }}
+    </button>
 </form>

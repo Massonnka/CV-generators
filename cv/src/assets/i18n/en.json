@@ -8,7 +8,8 @@
         "register-now": "Register now",
         "i-have-account": "I already have an account",
         "I have read the": "I have read the",
-        "agreement": "agreement"
+        "agreement": "agreement",
+        "select": "Choose a specialization"
     },
     "profile": {
         "profile": "Profile",
@@ -89,12 +90,24 @@
         "search": "Search",
         "directory": "Directory",
         "cv": "My CV",
-        "profile": "My Profile"
+        "profile": "My Profile",
+        "recently": "RECENTLY",
+        "reply": "Reply to"
     },
     "text": {
         "notific-text": "Thank you for creating an account with CV Generators. For the next 12 months, you will have access to CV services for computing, data storage, applications within limits.",
         "notific-text-hello": "Welcome to the CV Generators community!",
         "notific-profile-label": "You have viewed all notifications! This is professionalism!",
         "notific-profile-footer": "You have no messages."
+    },
+    "validator": {
+        "email": "Invalid email",
+        "required": "Please, specify the field",
+        "confirmpass": "Please confirm your password!",
+        "password": "Password must be more than 6 characters",
+        "name": "Name must be at least 3 characters long.",
+        "minlength3": "Please enter more than 3 characters",
+        "minlength6": "Please enter more than 6 characters",
+        "minlength8": "Please enter more than 8 characters"
     }
 }

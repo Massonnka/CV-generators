@@ -11,10 +11,9 @@
   font-size: 18px;
   line-height: 26px;
 }
-nz-select {
+select {
   min-width: 200px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: transparent !important;
 }
 .error {
   color: var(--text-error);

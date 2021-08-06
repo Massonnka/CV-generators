@@ -11,7 +11,7 @@ import { Languages } from 'src/app/shared/constants/languages.constants';
 export class AuthComponent {
   public languages = [Languages.English, Languages.Russian];
   public isRegistration: boolean = false;
-  constructor(private translateService: TranslateService) {}
+  constructor(private translateService: TranslateService) { }
 
   public switchLanguage(language: string): void {
     this.translateService.use(language);

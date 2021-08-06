@@ -3,9 +3,9 @@
     <label *ngIf="label">{{ label | translate }}</label>
     <label *ngIf="isRequired" class="favourite">*</label>
   </div>
-  <nz-select [id]="id" [formControl]="control" [nzPlaceHolder]="nzPlaceHolder">
+  <select [id]="id" [formControl]="control">
     <ng-content></ng-content>
-  </nz-select>
+  </select>
   <div *ngIf="ngControl?.control?.errors && ngControl?.control?.touched" class="error">
     {{ getErrorMessage() }}
   </div>
