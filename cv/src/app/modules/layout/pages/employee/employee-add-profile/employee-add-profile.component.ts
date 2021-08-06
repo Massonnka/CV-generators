@@ -19,7 +19,7 @@ export class EmployeeAddProfileComponent implements OnInit {
   public isCvInfoHide = true;
   public isLoading = false;
 
-  public cves: any = [{ name: 'cv 1' }];
+  public cves: any = [{ name: 'cv', index: 1 }];
 
   public currentUserId: number;
 
@@ -38,6 +38,10 @@ export class EmployeeAddProfileComponent implements OnInit {
 
   public toggleCvInfo(): void {
     this.isCvInfoHide = !this.isCvInfoHide;
+  }
+
+  public addCv(): void {
+    this.cves = [...this.cves, { name: 'cv', index: this.cves.length + 1 }];
   }
 
   public ngOnInit(): void {

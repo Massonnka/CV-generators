@@ -25,7 +25,7 @@
               class="content-tabs-cv-list-item"
             >
               <div class="content-tabs-cv-list-item-name">
-                {{ data.name }}
+                {{ data.name }} {{ data.index }}
               </div>
               <i
                 nz-icon
@@ -36,15 +36,17 @@
             </ng-template>
           </app-list>
 
-          <app-default-button class="content-tabs-cv-list-button"
+          <app-default-button
+            class="content-tabs-cv-list-button"
+            (click)="addCv()"
             >+</app-default-button
           >
         </div>
-        <app-form-info
+        <app-form-cv
           [ngClass]="
             isCvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-info'
           "
-        ></app-form-info>
+        ></app-form-cv>
       </div>
     </nz-tab>
   </nz-tabset>
