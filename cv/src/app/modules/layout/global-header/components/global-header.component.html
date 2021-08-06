@@ -52,7 +52,7 @@
       <nz-tab class="my-info-cv" [nzTitle]="'modal.cv' | translate" class="notification">
         <div>
           <p class="modal-text">
-            НЕДАВНЕЕ
+            {{ 'modal.recently' | translate}}
           </p>
         </div>
         <nz-comment class="modal-list" nzAuthor="Admin CV" [nzDatetime]="time">
@@ -76,7 +76,7 @@
               (click)="dislike()"></i>
             <span class="count dislike">{{ dislikes }}</span>
           </nz-comment-action>
-          <nz-comment-action>Reply to</nz-comment-action>
+          <nz-comment-action>{{ 'modal.reply' | translate}}</nz-comment-action>
         </nz-comment>
       </nz-tab>
       <nz-tab [nzTitle]="'modal.profile' | translate">
