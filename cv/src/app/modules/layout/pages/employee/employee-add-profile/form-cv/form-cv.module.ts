@@ -1,14 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormCvComponent } from './form-cv.component';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NzFormModule } from 'ng-zorro-antd/form';
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { TranslateModule } from '@ngx-translate/core';
-import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
 import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/autocomplete.module';
+import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
+import { FormCvComponent } from './form-cv.component';
 
 @NgModule({
   declarations: [FormCvComponent],
@@ -23,6 +24,7 @@ import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/
     NzDatePickerModule,
     InputModule,
     AutocompleteModule,
+    NzCollapseModule,
   ],
   exports: [FormCvComponent],
 })

@@ -39,4 +39,4 @@ import { FormInfoModule } from './form-info/form-info.module';
   providers: [ProjectService],
   exports: [EmployeeAddProfileComponent],
 })
-export class EmployeeAddProfileModule {}
+export class EmployeeAddProfileModule { }

@@ -19,9 +19,23 @@ export class EmployeeAddProfileComponent implements OnInit {
   public isCvInfoHide = true;
   public isLoading = false;
 
-  public cves: any = [{ name: 'cv 1' }];
+  public cves: any = [
+    {
+      name: 'cv',
+      index: 1,
+      employee: {
+        email: '',
+        lastname: '',
+        skills: '',
+        specialization: '',
+        department: '',
+      },
+      projects: [],
+    },
+  ];
 
   public currentUserId: number;
+  private currentCvId: number = 1;
 
   constructor(
     private location: Location,
@@ -36,8 +50,46 @@ export class EmployeeAddProfileComponent implements OnInit {
     this.location.back();
   }
 
-  public toggleCvInfo(): void {
+  public toggleCvInfo(index: number): void {
     this.isCvInfoHide = !this.isCvInfoHide;
+    this.currentCvId = index - 1;
+    console.log(this.currentCvId);
+  }
+
+  public addCv(): void {
+    this.cves = [
+      ...this.cves,
+      {
+        name: 'cv',
+        index: this.cves.length + 1,
+        employee: {
+          email: '',
+          lastname: '',
+          skills: '',
+          specialization: '',
+          department: '',
+        },
+        projects: [],
+      },
+    ];
+  }
+
+  public addProject(
+    name: string,
+    startDate: string,
+    endDate: string,
+    id: string,
+    teamSize: number
+  ): void {
+    this.cves[this.currentCvId].projects.push({
+      name,
+      startDate,
+      endDate,
+      id,
+      teamSize,
+    });
+
+    console.log(this.cves);
   }
 
   public ngOnInit(): void {
