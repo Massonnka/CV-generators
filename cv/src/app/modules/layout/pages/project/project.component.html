@@ -1,20 +1,23 @@
-<div class="wrapper">
-  <div class="page-header">
-    <breadcrumb [data]="breadcrumbs"></breadcrumb>
+<div class="page-header">
+  <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-    <div class="title">{{ "pages.project" | translate }}</div>
-    <p>{{ "project.project-list" | translate }}</p>
-  </div>
-  <nz-content class="content">
-    <div class="actions">
-      <app-primary-button (click)="addItem()" class="sign-up-button">
-        <span>{{ "project.add-project" | translate }}</span>
-      </app-primary-button>
-    </div>
-    <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="projects">
-    </app-table>
-  </nz-content>
+  <div class="title">{{ "pages.project" | translate }}</div>
+  <p>{{ "project.project-list" | translate }}</p>
 </div>
+<nz-content class="content">
+  <div class="actions">
+    <app-primary-button (click)="addItem()" class="sign-up-button">
+      <span>{{ "project.add-project" | translate }}</span>
+    </app-primary-button>
+  </div>
+  <app-table
+    class="table"
+    [headTemplate]="headRef"
+    [bodyTemplate]="bodyRef"
+    [data]="projects"
+  >
+  </app-table>
+</nz-content>
 
 <ng-template #headRef>
   <tr>
@@ -29,14 +32,10 @@
 <ng-template #bodyRef let-data="$implicit">
   <tr *ngFor="let project of data" class="table-row" [routerLink]="project._id">
     <td>{{ project.name }}</td>
-    <td>{{ project.startDate | date:'fullDate' }}</td>
-    <td>{{ project.endDate | date:'fullDate'}}
-
-    </td>
+    <td>{{ project.startDate | date: "fullDate" }}</td>
+    <td>{{ project.endDate | date: "fullDate" }}</td>
     <td>{{ project.teamSize }}</td>
     <td>techStack</td>
     <td>roles</td>
   </tr>
 </ng-template>
-
-<button (click)="setProjects()">set projects</button>

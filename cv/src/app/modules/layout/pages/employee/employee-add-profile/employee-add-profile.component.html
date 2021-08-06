@@ -1,45 +1,54 @@
-<div class="wrapper">
-  <div class="page-header">
-    <breadcrumb [data]="breadcrumbs"></breadcrumb>
+<div class="page-header">
+  <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-    <div class="title">{{ "pages.employee" | translate }}</div>
-    <p>
-      {{ "employee.employee-list" | translate }}
-    </p>
-  </div>
+  <div class="title">{{ "pages.employee" | translate }}</div>
+  <p>
+    {{ "profile.profile" | translate }}
+  </p>
 </div>
 <nz-content class="content">
   <nz-tabset class="tabs">
     <nz-tab nzTitle="Info">
-      <app-form-info>
-        <app-default-button (click)="onBack()" nz-button>
-          {{ "form.cancel" | translate }}
-        </app-default-button>
-      </app-form-info>
+      <app-form-info></app-form-info>
     </nz-tab>
-    <nz-tab nzTitle="CV">
-      <div class="list" *ngIf="projects$ | async as projects; else loading">
-        <app-list [bodyTemplate]="bodyRef" [data]="cves">
-          <ng-template #bodyRef let-data="$implicit">
-            {{ data.name }}
-          </ng-template>
-        </app-list>
-        <div class="projects">
-          <app-form-cv></app-form-cv>
-
-          <nz-collapse>
-            <nz-collapse-panel
-              *ngFor="let project of projects"
-              [nzHeader]="project.name"
+    <nz-tab nzTitle="CV" class="cv">
+      <div class="content-tabs-cv">
+        <div class="content-tabs-cv-list">
+          <app-list
+            [bodyTemplate]="bodyRef"
+            [data]="cves"
+            (click)="toggleCvInfo()"
+          >
+            <ng-template
+              #bodyRef
+              let-data="$implicit"
+              class="content-tabs-cv-list-item"
             >
-              <app-form-project></app-form-project>
-            </nz-collapse-panel>
-          </nz-collapse>
+              <div class="content-tabs-cv-list-item-name">
+                {{ data.name }}
+              </div>
+              <i
+                nz-icon
+                nzType="delete"
+                nzTheme="outline"
+                class="content-tabs-cv-list-item-icon"
+              ></i>
+            </ng-template>
+          </app-list>
+
+          <app-default-button class="content-tabs-cv-list-button"
+            >+</app-default-button
+          >
         </div>
+        <app-cv-info
+          [ngClass]="
+            isCvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-info'
+          "
+        ></app-cv-info>
       </div>
-      <ng-template #loading>
-        <app-spinner></app-spinner>
-      </ng-template>
     </nz-tab>
   </nz-tabset>
 </nz-content>
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

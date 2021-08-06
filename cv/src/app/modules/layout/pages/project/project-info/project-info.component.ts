@@ -20,8 +20,8 @@ export class ProjectInfoComponent implements OnInit {
   public projects$: Observable<Project>;
   public projectId: string;
   public params = {
-    id: ''
-  }
+    id: '',
+  };
 
   constructor(
     private router: Router,
@@ -31,7 +31,7 @@ export class ProjectInfoComponent implements OnInit {
     private store: Store<{
       breadcrumbs: Breadcrumb[];
     }>
-  ) { }
+  ) {}
 
   public onBack(): void {
     this.location.back();
@@ -42,9 +42,14 @@ export class ProjectInfoComponent implements OnInit {
   public breadcrumbs: Breadcrumb[];
 
   public ngOnInit(): void {
-    const id = this.activatedRouter.params.subscribe(value => this.projectId = value.project);
+    const id = this.activatedRouter.params.subscribe(
+      (value) => (this.projectId = value.project)
+    );
     this.params.id = this.projectId;
-    this.projects$ = this.projectService.GetProjectById(this.projectId, this.params);
+    this.projects$ = this.projectService.GetProjectById(
+      this.projectId,
+      this.params
+    );
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
@@ -74,7 +79,10 @@ export class ProjectInfoComponent implements OnInit {
       return;
     }
     this.projectService.DeleteProject(project.id).subscribe(() => {
-      this.projects$ = this.projectService.GetProjectById(this.projectId, this.params);
+      this.projects$ = this.projectService.GetProjectById(
+        this.projectId,
+        this.params
+      );
     });
   }
 
@@ -82,7 +90,7 @@ export class ProjectInfoComponent implements OnInit {
     this.router.navigate(['/layout/project/addinfo'], {
       state: {
         options: {
-          project
+          project,
         },
       },
     });

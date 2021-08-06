@@ -1,6 +1,7 @@
 :host {
   background-color: var(--background-color);
   width: 100%;
+  overflow: auto;
   ::ng-deep .ant-tabs-content {
     height: 100%;
   }
@@ -11,13 +12,12 @@
   }
 }
 
-:host ::ng-deep .xng-breadcrumb-root {
-  color: var(--text-color);
-
-  .xng-breadcrumb-trail {
-    color: var(--text-color);
-  }
+:host::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }
+
 .page-header {
   display: flex;
   flex-direction: column;
@@ -30,6 +30,7 @@
   .breadcrumb:hover {
     cursor: pointer;
     color: var(--primary);
+    transition: 0.5s;
   }
 
   .title {
@@ -40,35 +41,45 @@
 .title {
   font-size: 34px;
 }
+
 .content {
   display: flex;
   flex-direction: column;
   margin: 20px 24px 0 24px;
   background-color: var(--content-color);
   padding: 24px 15px 24px 15px;
-  height: 100%;
   .tabs {
     color: var(--text-color);
+    width: 100%;
   }
-}
-
-.info {
-  height: 100%;
-}
-
-.list-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  .button {
-    height: 32px;
-    display: flex;
-    justify-content: flex-end;
+  .tabs ::ng-deep .ant-tabs-tabpane {
+    flex-direction: row;
+    .content-tabs-cv {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      .content-tabs-cv-list {
+        width: 217px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .content-tabs-cv-list-item-name,
+        .content-tabs-cv-list-item-icon {
+          color: var(--text-color);
+        }
+        .content-tabs-cv-list-button {
+          justify-content: flex-end;
+        }
+      }
+      .content-tabs-cv-hide {
+        display: none;
+      }
+      .content-tabs-cv-info {
+        width: 100%;
+      }
+    }
+    .projects {
+      width: 100%;
+    }
   }
-}
-
-:host::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-  background: transparent;
 }

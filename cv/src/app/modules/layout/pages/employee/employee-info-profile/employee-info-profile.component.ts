@@ -1,10 +1,9 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
-import { Project } from 'src/app/core/interfaces/project.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
@@ -24,14 +23,12 @@ export class EmployeeInfoProfileComponent implements OnInit {
 
   public currentUserId: number;
 
-  public employees$: Observable<Employee>;
+  public employee$: Observable<Employee>;
   public employeeId: string;
 
   constructor(
-    private router: Router,
     private activatedRouter: ActivatedRoute,
     private employeeService: EmployeeService,
-    private cdRef: ChangeDetectorRef,
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
   ) {
@@ -54,7 +51,8 @@ export class EmployeeInfoProfileComponent implements OnInit {
 
   public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
-    this.employees$ = this.employeeService.GetEmployeeById(this.employeeId);
+    this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({

@@ -18,6 +18,12 @@
   background: transparent;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .page-header {
   display: flex;
   flex-direction: column;
@@ -48,16 +54,20 @@
   margin: 20px 24px 0 24px;
   background-color: var(--content-color);
   padding: 24px 15px 24px 15px;
+
   .tabs {
     color: var(--text-color);
     width: 100%;
   }
+
   .tabs ::ng-deep .ant-tabs-tabpane {
     flex-direction: row;
+
     .content-tabs-cv {
       display: flex;
       flex-direction: row;
       width: 100%;
+      
       .content-tabs-cv-list {
         width: 217px;
         display: flex;

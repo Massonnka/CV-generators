@@ -60,6 +60,4 @@ export class EmployeeComponent implements OnInit {
   public addItem(): void {
     this.router.navigate(['/layout/employee/addinfo']);
   }
-
-
 }

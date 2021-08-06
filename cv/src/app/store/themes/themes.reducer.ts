@@ -9,7 +9,7 @@ export interface ThemeState {
 }
 
 const initialState: ThemeState = {
-  theme: '',
+  theme: 'light',
 };
 
 const _themesReducer = createReducer(

@@ -1,4 +1,4 @@
-<div *ngIf="employees$ | async as employees; else loading">
+<div *ngIf="employee$ | async as employees; else loading" class="wrapper">
   <div class="page-header">
     <breadcrumb [data]="breadcrumbs"></breadcrumb>
 

@@ -15,9 +15,7 @@ import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/
 import { SelectModule } from 'src/app/shared/controls/inputs/select/select.module';
 
 @NgModule({
-  declarations: [
-    SignUpComponent
-  ],
+  declarations: [SignUpComponent],
   imports: [
     CommonModule,
     PrimaryButtonModule,
@@ -32,10 +30,8 @@ import { SelectModule } from 'src/app/shared/controls/inputs/select/select.modul
     NzCheckboxModule,
     InputModule,
     AutocompleteModule,
-    SelectModule
+    SelectModule,
   ],
-  exports: [
-    SignUpComponent
-  ]
+  exports: [SignUpComponent],
 })
-export class SignUpModule { }
+export class SignUpModule {}
