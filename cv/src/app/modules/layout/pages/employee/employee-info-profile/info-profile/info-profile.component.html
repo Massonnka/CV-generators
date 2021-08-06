@@ -9,13 +9,13 @@
     <nz-descriptions-item [nzTitle]="'form.department' | translate">{{ employee.department }}</nz-descriptions-item>
   </nz-descriptions>
   <ng-template class="buttons" #extraTpl>
-    <app-primary-button nz-button (click)="editItem(employee)">
+    <app-primary-button nz-button (click)="editItem(employee)" class="buttons-putton">
       {{ "form.edit" | translate }}
     </app-primary-button>
-    <app-primary-button (click)="deleteItem(employee)">
+    <app-primary-button (click)="deleteItem(employee)" class="buttons-putton">
       {{ "form.delete" | translate }}
     </app-primary-button>
-    <app-default-button (click)="onBack()" nz-button>
+    <app-default-button (click)="onBack()" nz-button class="buttons-putton">
       {{ "form.cancel" | translate }}
     </app-default-button>
   </ng-template>

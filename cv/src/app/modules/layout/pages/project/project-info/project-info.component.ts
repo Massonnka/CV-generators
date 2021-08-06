@@ -22,6 +22,7 @@ export class ProjectInfoComponent implements OnInit {
   public params = {
     id: '',
   };
+  private currentProject: Project;
 
   constructor(
     private router: Router,
@@ -50,28 +51,12 @@ export class ProjectInfoComponent implements OnInit {
       this.projectId,
       this.params
     );
+
+    this.projects$.subscribe((value) => {
+      this.currentProject = value;
+      this.onBreadcrumbsChange();
+    });
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
-    this.store.dispatch(
-      setBreadcrumbs({
-        breadcrumbs: [
-          {
-            url: '/layout',
-            name: 'Home',
-            isDisabled: true,
-          },
-          {
-            url: '/layout/project',
-            name: 'Project',
-            isDisabled: false,
-          },
-          {
-            url: '/layout/project/info',
-            name: 'Info',
-            isDisabled: true,
-          },
-        ],
-      })
-    );
   }
 
   public deleteItem(project: Project) {
@@ -94,5 +79,29 @@ export class ProjectInfoComponent implements OnInit {
         },
       },
     });
+  }
+  
+  private onBreadcrumbsChange(): void {
+    this.store.dispatch(
+      setBreadcrumbs({
+        breadcrumbs: [
+          {
+            url: '/layout',
+            name: 'Home',
+            isDisabled: true,
+          },
+          {
+            url: '/layout/project',
+            name: 'Project',
+            isDisabled: false,
+          },
+          {
+            url: '/layout/project/info',
+            name: this.currentProject.name!,
+            isDisabled: true,
+          },
+        ],
+      })
+    );
   }
 }

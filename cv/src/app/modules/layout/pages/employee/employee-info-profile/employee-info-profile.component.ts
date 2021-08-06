@@ -26,6 +26,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
   public employee$: Observable<Employee>;
   public employeeId: string;
 
+  private currentEmployee: Employee = {};
   constructor(
     private activatedRouter: ActivatedRoute,
     private employeeService: EmployeeService,
@@ -50,10 +51,19 @@ export class EmployeeInfoProfileComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    const id = this.activatedRouter.params.subscribe(value => this.employeeId = value.user);
+    this.onBreadcrumbsChange();
+    const id = this.activatedRouter.params.subscribe(
+      (value) => (this.employeeId = value.user)
+    );
     this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
+    this.employee$.subscribe(value => {
+      this.currentEmployee = value;
+      this.onBreadcrumbsChange();
+    });
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+  }
+  private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
@@ -69,7 +79,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
           },
           {
             url: '/layout/employee/info',
-            name: 'Info',
+            name: this.currentEmployee.firstName!,
             isDisabled: true,
           },
         ],
