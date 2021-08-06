@@ -31,11 +31,11 @@ export class FormCvComponent implements OnInit {
     this.employee = options && options.employee;
 
     this.validateForm = this.fb.group({
-      email: ['', Validators.required],
-      lastName: ['', [Validators.required, Validators.minLength(4)]],
-      skills: ['', [Validators.required, Validators.minLength(4)]],
-      specialization: ['', [Validators.required, Validators.minLength(4)]],
-      department: ['', [Validators.required, Validators.minLength(4)]],
+      email: ['', [Validators.required, Validators.email]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      skills: ['', [Validators.required, Validators.minLength(6)]],
+      specialization: ['', [Validators.required, Validators.minLength(8)]],
+      department: ['', [Validators.required, Validators.minLength(8)]],
     });
     if (this.employee) {
       this.validateForm.get("email")?.setValue(this.employee.cv?.email);

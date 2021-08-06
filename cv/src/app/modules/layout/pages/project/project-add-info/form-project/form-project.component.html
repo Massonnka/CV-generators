@@ -3,38 +3,38 @@
     <nz-form-item class="inputs">
       <app-input [placeholder]="'placeholder.Input your name!' | translate" label="form.name" formControlName="name"
         [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'Name must be at least 3 characters long.'
+          required: 'validator.required' | translate,
+          minlength: 'validator.name' | translate
         }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-date-picker [nzPlaceHolder]="'placeholder.Select date' | translate" label="form.start-date"
-        formControlName="startDate" [errorMessages]="{ required: 'Please, specify the field' }">
+        formControlName="startDate" [errorMessages]="{ required: 'validator.required' | translate }">
       </app-date-picker>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-date-picker [nzPlaceHolder]="'placeholder.Select date' | translate" label="form.end-date"
-        formControlName="endDate" [errorMessages]="{ required: 'Please, specify the field' }">
+        formControlName="endDate" [errorMessages]="{ required: 'validator.required' | translate }">
       </app-date-picker>
     </nz-form-item>
   </div>
   <div class="row">
     <nz-form-item class="inputs">
       <app-input type="number" [placeholder]="'placeholder.Input your team size!' | translate" label="form.team-size"
-        formControlName="teamSize" [errorMessages]="{ required: 'Please, specify the field' }">
+        formControlName="teamSize" [errorMessages]="{ required: 'validator.required' | translate }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-input [placeholder]="'placeholder.Input your tech stack!' | translate" label="form.tech-stack"
         formControlName="techStack" [errorMessages]="{
-          required: 'Please, specify the field'
+          required: 'validator.required' | translate
         }">
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-autocomplete [placeholder]="'placeholder.Input your roles!' | translate" label="form.roles"
-        formControlName="roles" [errorMessages]="{ required: 'Please, specify the field' }">
+        formControlName="roles" [errorMessages]="{ required: 'validator.required' | translate }">
       </app-autocomplete>
     </nz-form-item>
   </div>
@@ -42,16 +42,16 @@
     <nz-form-item class="inputs">
       <app-textarea [placeholder]="'placeholder.Input your description!' | translate" label="form.description"
         formControlName="description" [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'max len error'
+          required: 'validator.required' | translate,
+          minlength: 'validator.minlength8' | translate
         }">
       </app-textarea>
     </nz-form-item>
     <nz-form-item class="inputs">
       <app-textarea [placeholder]="'placeholder.Input your responsibilities!' | translate" label="form.responsibilities"
         formControlName="responsibilities" [errorMessages]="{
-          required: 'Please, specify the field',
-          minlength: 'max len error'
+          required: 'validator.required' | translate,
+          minlength: 'validator.minlength8' | translate
         }">
       </app-textarea>
     </nz-form-item>

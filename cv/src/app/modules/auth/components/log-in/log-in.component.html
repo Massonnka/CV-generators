@@ -1,16 +1,23 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="loginUser()">
   <nz-form-item class="inputs">
+    <div class="alert alert-danger" *ngIf="authService.error$ | async as error">{{ error }}</div>
+
+    <div class="alert alert-info" *ngIf="message">{{ message }}</div>
+
     <app-input icon="user" id="email" [placeholder]="'placeholder.Input your email!' | translate" label="form.email"
       formControlName="email" [errorMessages]="{ 
-        required: 'Please, specify the field',
-        email: 'asdasd'
+        required: 'validator.required' | translate,
+        email: 'validator.email' | translate
        }">
     </app-input>
   </nz-form-item>
   <nz-form-item class="inputs">
     <app-input [nzSuffix]="suffix" [type]="passwordVisible ? 'text' : 'password'" icon="lock"
       [placeholder]="'placeholder.Input your password!' | translate" label="profile.password" formControlName="password"
-      [errorMessages]="{ required: 'Please, specify the field' }">
+      [errorMessages]="{ 
+                required: 'validator.required' | translate, 
+                minlength: 'validator.password' | translate 
+            }">
     </app-input>
     <ng-template #suffix>
       <i class="passicon" nz-icon [nzType]="passwordVisible ? 'eye' : 'eye-invisible'"

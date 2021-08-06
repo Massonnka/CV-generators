@@ -22,9 +22,9 @@ export class LogInComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
+    public authService: AuthService,
   ) { }
 
   public ngOnInit(): void {
@@ -38,7 +38,7 @@ export class LogInComponent implements OnInit {
 
     this.validateForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', Validators.required, Validators.minLength(6)],
       remember: [false],
     });
   }
