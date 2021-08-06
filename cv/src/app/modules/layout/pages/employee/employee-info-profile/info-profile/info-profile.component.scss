@@ -14,6 +14,14 @@
 
 .wrapper {
   height: 100%;
+
+  ::ng-deep .ant-descriptions-extra {
+    display: flex;
+
+    .buttons-putton {
+      margin: 7px;
+    }
+  }
 }
 
 ::ng-deep .ant-descriptions-item-content {

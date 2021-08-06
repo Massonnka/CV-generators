@@ -11,9 +11,10 @@
   font-size: 18px;
   line-height: 26px;
 }
-input {
+.input {
   min-width: 200px;
   background-color: var(--content-color) !important;
+  color: var(--hover-background-color);
 }
 .error {
   color: var(--text-error);

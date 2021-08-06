@@ -83,14 +83,14 @@ a {
 }
 .my-info-cv {
   min-width: 400px;
-  min-height: 500px; 
+  min-height: 500px;
 }
 .modal-list {
   max-width: 400px;
 }
 .modal-text {
   color: var(--modal-notific-text);
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 
 .my-profile-info {
@@ -110,13 +110,16 @@ a {
 .tw-title {
   margin: auto;
   font-family: var(--font-display);
-  line-height: var(--line-height-heading) ;
-  font-size: var(--font-size-8) ;
-  font-weight: var(--font-weight-semibold) ;
+  line-height: var(--line-height-heading);
+  font-size: var(--font-size-8);
+  font-weight: var(--font-weight-semibold);
 }
 .tw-footer {
   padding: 10px 0px;
   margin: auto;
-  font-size: var(--font-size-10) ;
+  font-size: var(--font-size-10);
 }
 
+.notifications-notification {
+  background-color: red;
+}
