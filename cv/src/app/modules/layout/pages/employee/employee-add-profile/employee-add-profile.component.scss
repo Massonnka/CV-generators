@@ -63,13 +63,16 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .content-tabs-cv-list-item-name,
+        .content-tabs-cv-list-item-content,
         .content-tabs-cv-list-item-icon {
           color: var(--text-color);
         }
         .content-tabs-cv-list-button {
           justify-content: flex-end;
         }
+      }
+      .content-tabs-cv-form {
+        width: 100%;
       }
       .content-tabs-cv-hide {
         display: none;
