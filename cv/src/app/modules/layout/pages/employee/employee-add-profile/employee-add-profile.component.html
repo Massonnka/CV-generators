@@ -15,45 +15,25 @@
       <div class="content-tabs-cv">
         <div class="content-tabs-cv-list">
           <app-list [bodyTemplate]="bodyRef" [data]="cves">
-            <ng-template
-              #bodyRef
-              let-data="$implicit"
-              class="content-tabs-cv-list-item"
-            >
-              <div
-                class="content-tabs-cv-list-item-content"
-                (click)="toggleCvInfo(data.index)"
-              >
+            <ng-template #bodyRef let-data="$implicit" class="content-tabs-cv-list-item">
+              <div class="content-tabs-cv-list-item-content" (click)="toggleCvInfo(data.index)">
                 {{ data.name }} {{ data.index }}
               </div>
-              <i
-                nz-icon
-                nzType="delete"
-                nzTheme="outline"
-                class="content-tabs-cv-list-item-icon"
-              ></i>
+              <i nz-icon nzType="delete" nzTheme="outline" class="content-tabs-cv-list-item-icon"></i>
             </ng-template>
           </app-list>
 
-          <app-default-button
-            class="content-tabs-cv-list-button"
-            (click)="addCv()"
-            >+</app-default-button
-          >
+          <app-default-button class="content-tabs-cv-list-button" (click)="addCv()">+</app-default-button>
         </div>
-        <div
-          [ngClass]="
+        <div [ngClass]="
             isCvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-form'
-          "
-        >
+          ">
           <app-form-cv></app-form-cv>
-          <app-primary-button
-            (click)="addProject('cv', '01.01.2001', '01.01.2002', '2', 2)"
-            >Add project</app-primary-button
-          >
+          <app-primary-button (click)="addProject('cv', '01.01.2001', '01.01.2002', '2', 2)">Add project
+          </app-primary-button>
           <nz-collapse class="projects-collapse">
             <nz-collapse-panel class="projects-collapse-panel">
-              There should be form
+              <app-form-project></app-form-project>
             </nz-collapse-panel>
           </nz-collapse>
         </div>

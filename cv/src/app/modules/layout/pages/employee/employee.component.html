@@ -10,12 +10,7 @@
       <span>{{ "employee.add-employee" | translate }}</span>
     </app-primary-button>
   </div>
-  <app-table
-    class="table"
-    [headTemplate]="headRef"
-    [bodyTemplate]="bodyRef"
-    [data]="employees"
-  >
+  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="employees">
     <ng-template #headRef>
       <tr>
         <th class="table-head">{{ "table.firstname" | translate }}</th>
@@ -26,11 +21,7 @@
       </tr>
     </ng-template>
     <ng-template #bodyRef let-data="$implicit">
-      <tr
-        *ngFor="let employee of data"
-        class="table-row"
-        [routerLink]="employee.id"
-      >
+      <tr *ngFor="let employee of data" class="table-row" [routerLink]="employee.id">
         <td>{{ employee.firstName }}</td>
         <td>{{ employee.lastName }}</td>
         <td>{{ employee.email }}</td>

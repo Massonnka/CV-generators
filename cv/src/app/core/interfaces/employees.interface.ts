@@ -14,6 +14,7 @@ export interface Employee {
     department: string,
     projects?: [
       {
+        id?: number;
         name: string,
         startDate: string,
         endDate: string,

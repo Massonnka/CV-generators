@@ -27,7 +27,7 @@ export class InfoProfileComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private employeeService: EmployeeService,
     private location: Location
-  ) {}
+  ) { }
 
   public onBack(): void {
     this.location.back();
@@ -38,7 +38,7 @@ export class InfoProfileComponent implements OnInit {
       (value) => (this.employeeId = value.user)
     );
     this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
-
+    localStorage.setItem('employee-id', this.employeeId);
     id.unsubscribe();
   }
 

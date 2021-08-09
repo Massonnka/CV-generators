@@ -32,7 +32,7 @@ export class CvInfoComponent implements OnInit {
     this.router.navigate(['/layout/employee/addinfo'], {
       state: {
         options: {
-          employee
+          employee: employee,
         }
       }
     });

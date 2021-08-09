@@ -2,36 +2,21 @@
   <app-dropdown class="global">
     <i class="global-icon" icon nz-icon nzType="global" nzTheme="outline"></i>
     <ul content nz-menu nzSelectable>
-      <li
-        nz-menu-item
-        class="dropdown-item"
-        *ngFor="let language of languages"
-        (click)="switchLanguage(language)"
-      >
+      <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">
         {{ language }}
       </li>
     </ul>
   </app-dropdown>
   <div class="bg">
-    <img src="/assets/images/bg.png" class="bg-img" />
+    <img [src]="bg" class="bg-img" />
     <div class="form">
       <div class="logo"></div>
       <router-outlet></router-outlet>
-      <a
-        *ngIf="isRegistration"
-        (click)="switchAuthPage()"
-        class="form-account-state"
-        routerLink="log-in"
-      >
+      <a *ngIf="isRegistration" (click)="switchAuthPage()" class="form-account-state" routerLink="log-in">
         {{ "auth.i-have-account" | translate }}
       </a>
-      <a
-        (click)="isRegistration = false"
-        *ngIf="!isRegistration"
-        (click)="switchAuthPage()"
-        class="form-account-state"
-        routerLink="sign-up"
-      >
+      <a (click)="isRegistration = false" *ngIf="!isRegistration" (click)="switchAuthPage()" class="form-account-state"
+        routerLink="sign-up">
         {{ "auth.register-now" | translate }}
       </a>
     </div>

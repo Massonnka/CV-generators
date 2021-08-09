@@ -22,7 +22,6 @@ export class FormInfoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private employeeService: EmployeeService
   ) { }
 
@@ -34,8 +33,8 @@ export class FormInfoComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      specialization: ['', [Validators.required, Validators.minLength(8)]],
-      department: ['', [Validators.required, Validators.minLength(8)]],
+      specialization: ['', [Validators.required, Validators.minLength(3)]],
+      department: ['', [Validators.required, Validators.minLength(3)]],
     });
     if (this.employee) {
       this.validateForm.get("firstName")?.setValue(this.employee.firstName);
@@ -67,7 +66,6 @@ export class FormInfoComponent implements OnInit {
       this.employeeService.UpdateEmployee(employee).subscribe(
         () => {
           this.validateForm.reset();
-          this.router.navigate(['/layout/employee']);
           this.submitted = false;
         },
         () => {
@@ -79,7 +77,6 @@ export class FormInfoComponent implements OnInit {
       this.employeeService.AddEmployee(employee).subscribe(
         () => {
           this.validateForm.reset();
-          this.router.navigate(['/layout/employee']);
           this.submitted = false;
         },
         () => {

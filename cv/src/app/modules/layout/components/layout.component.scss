@@ -1,32 +1,36 @@
 .wrapper {
   height: 100%;
-}
 
-.header {
+  .header {
   padding: 0;
   height: 48px;
-}
+  }
 
-.sider-wrapper {
+  .sider-wrapper {
   flex: none !important;
   min-width: 48px !important;
   width: auto !important;
   background-color: var(--content-color);
 
-  .hide {
-    min-width: 48px;
-    width: fit-content;
-    flex: none;
-  }
+    .hide {
+      min-width: 48px;
+      width: fit-content;
+      flex: none;
+    }
 
-  .list {
-    background-color: var(--content-color);
-    color: var(--text-color);
-  }
-  ::ng-deep .ant-menu-item-selected {
-    background-color: var(--background-color);
+    .list {
+      background-color: var(--content-color);
+      color: var(--text-color);
+    }
+    ::ng-deep .ant-menu-item-selected {
+      background-color: var(--background-color);
+    }
+
   }
 }
+
+
+
 
 .sider-item {
   margin: 8px 0px;

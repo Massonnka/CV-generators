@@ -9,4 +9,4 @@ import { TableComponent } from './components/table.component';
   imports: [CommonModule, TranslateModule, NzTableModule],
   exports: [TableComponent],
 })
-export class TableModule {}
+export class TableModule { }

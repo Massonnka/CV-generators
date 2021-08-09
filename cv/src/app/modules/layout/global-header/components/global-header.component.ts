@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { formatDistance } from 'date-fns';
 import { Languages } from 'src/app/shared/constants/languages.constants';
+import { headLogo } from 'src/app/shared/constants/images.constants';
 
 @Component({
   selector: 'app-global-header',
@@ -20,6 +21,7 @@ export class GlobalHeaderComponent implements OnInit {
   public likes = 0;
   public dislikes = 0;
   public time: string | TemplateRef<void> | undefined;
+  public headLogo = headLogo;
 
   @Input() count: number = 1;
 
