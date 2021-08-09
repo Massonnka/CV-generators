@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  TemplateRef,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { formatDistance } from 'date-fns';
@@ -28,8 +34,9 @@ export class GlobalHeaderComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private authService: AuthService
-  ) { }
-  public currentLanguage: string = this.translateService.currentLang || 'en';
+  ) {}
+  public currentLanguage: string =
+    this.translateService.currentLang || Languages.English;
 
   public change() {
     this.createdAt = String(localStorage.getItem('user-date-reg'));

@@ -9,6 +9,7 @@ import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-info',
@@ -29,6 +30,7 @@ export class ProjectInfoComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private projectService: ProjectService,
     private location: Location,
+    private translateService: TranslateService,
     private store: Store<{
       breadcrumbs: Breadcrumb[];
     }>
@@ -41,6 +43,10 @@ export class ProjectInfoComponent implements OnInit {
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
+
+  private breadcrumbHome: string;
+  private breadcrumbProject: string;
+  private breadcrumbInfo: string;
 
   public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(
@@ -56,6 +62,18 @@ export class ProjectInfoComponent implements OnInit {
       this.currentProject = value;
       this.onBreadcrumbsChange();
     });
+
+    this.translateService
+      .get(['pages.home', 'pages.project'])
+      .subscribe((translations) => {
+        this.breadcrumbHome = this.translateService.instant(
+          translations['pages.home']
+        );
+        this.breadcrumbProject = this.translateService.instant(
+          translations['pages.project']
+        );
+      });
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
   }
 
@@ -80,19 +98,19 @@ export class ProjectInfoComponent implements OnInit {
       },
     });
   }
-  
+
   private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: 'Home',
+            name: this.breadcrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/project',
-            name: 'Project',
+            name: this.breadcrumbProject,
             isDisabled: false,
           },
           {

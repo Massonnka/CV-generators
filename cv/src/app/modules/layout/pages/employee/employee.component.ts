@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -7,6 +12,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-employee',
@@ -23,7 +29,12 @@ export class EmployeeComponent implements OnInit {
     private router: Router,
     private employeeService: EmployeeService,
     private cdRef: ChangeDetectorRef,
-    private store: Store<{ breadcrumbs: Breadcrumb[] }>) { }
+    private translateService: TranslateService,
+    private store: Store<{ breadcrumbs: Breadcrumb[] }>
+  ) {}
+
+  private breacrumbHome: string;
+  private breacrumbEmployee: string;
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -38,18 +49,29 @@ export class EmployeeComponent implements OnInit {
       this.cdRef.markForCheck();
     });
 
+    this.translateService
+      .get(['pages.home', 'pages.employee'])
+      .subscribe((translations) => {
+        this.breacrumbHome = this.translateService.instant(
+          translations['pages.home']
+        );
+        this.breacrumbEmployee = this.translateService.instant(
+          translations['pages.employee']
+        );
+      });
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: 'Home',
+            name: this.breacrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/employee',
-            name: "Employee",
+            name: this.breacrumbEmployee,
             isDisabled: true,
           },
         ],

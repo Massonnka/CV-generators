@@ -8,6 +8,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-employee-add-profile',
@@ -39,6 +40,7 @@ export class EmployeeAddProfileComponent implements OnInit {
 
   constructor(
     private location: Location,
+    private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb }>
   ) {}
 
@@ -92,24 +94,42 @@ export class EmployeeAddProfileComponent implements OnInit {
     console.log(this.cves);
   }
 
+  private breadcrumbHome: string;
+  private breadcrumbEmployee: string;
+  private breadcrumbInfo: string;
+
   public ngOnInit(): void {
+    this.translateService
+      .get(['pages.home', 'pages.project', 'pages.info'])
+      .subscribe((translations) => {
+        this.breadcrumbHome = this.translateService.instant(
+          translations['pages.home']
+        );
+        this.breadcrumbEmployee = this.translateService.instant(
+          translations['pages.project']
+        );
+        this.breadcrumbInfo = this.translateService.instant(
+          translations['pages.info']
+        );
+      });
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: 'Home',
+            name: this.breadcrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/employee',
-            name: 'Employee',
+            name: this.breadcrumbEmployee,
             isDisabled: false,
           },
           {
             url: '/layout/employee/addInfo',
-            name: 'Info',
+            name: this.breadcrumbInfo,
             isDisabled: true,
           },
         ],

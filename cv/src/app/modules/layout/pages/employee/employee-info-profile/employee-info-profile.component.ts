@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
@@ -31,6 +32,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private employeeService: EmployeeService,
     private location: Location,
+    private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb }>
   ) {
     this.activatedRouter.params.subscribe(
@@ -50,31 +52,46 @@ export class EmployeeInfoProfileComponent implements OnInit {
     this.isCvInfoHide = !this.isCvInfoHide;
   }
 
+  private breadcrumbHome: string;
+  private breadcrumbEmployee: string;
+
   public ngOnInit(): void {
     this.onBreadcrumbsChange();
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.employeeId = value.user)
     );
     this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
-    this.employee$.subscribe(value => {
+    this.employee$.subscribe((value: Employee) => {
       this.currentEmployee = value;
       this.onBreadcrumbsChange();
     });
 
+    this.translateService
+      .get(['pages.home', 'pages.project', 'pages.info'])
+      .subscribe((translations) => {
+        this.breadcrumbHome = this.translateService.instant(
+          translations['pages.home']
+        );
+        this.breadcrumbEmployee = this.translateService.instant(
+          translations['pages.project']
+        );
+      });
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
   }
+
   private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: 'Home',
+            name: this.breadcrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/employee',
-            name: 'Employee',
+            name: this.breadcrumbEmployee,
             isDisabled: false,
           },
           {
