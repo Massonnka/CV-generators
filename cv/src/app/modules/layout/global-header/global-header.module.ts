@@ -16,6 +16,7 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 @NgModule({
   declarations: [GlobalHeaderComponent],
@@ -35,7 +36,8 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
     NzPopoverModule,
     NzToolTipModule,
     NzCommentModule,
-    NzTabsModule
+    NzTabsModule,
+    NzAvatarModule
   ],
   exports: [GlobalHeaderComponent],
 })

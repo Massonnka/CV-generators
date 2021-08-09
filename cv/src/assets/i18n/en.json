@@ -86,13 +86,15 @@
         "Select date": "Select date!"
     },
     "modal": {
+        "admin": "Admin CV",
         "notification": "Notifications",
         "search": "Search",
         "directory": "Directory",
         "cv": "My CV",
         "profile": "My Profile",
         "recently": "RECENTLY",
-        "reply": "Reply to"
+        "reply": "Reply to",
+        "smileIcon": "Smiling emoticon showing no new messages"
     },
     "text": {
         "notific-text": "Thank you for creating an account with CV Generators. For the next 12 months, you will have access to CV services for computing, data storage, applications within limits.",

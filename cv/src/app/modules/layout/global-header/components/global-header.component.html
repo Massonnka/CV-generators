@@ -25,18 +25,18 @@
       <div class="user">
         <app-modal-window>
           <span label>{{ userName }}</span>
-          <span title>{{ "profile.userinfo" | translate }}</span>
+          <span title>{{ 'profile.userinfo' | translate }}</span>
           <div content>
             <app-user-info></app-user-info>
           </div>
         </app-modal-window>
       </div>
       <li routerLinkActive="active">
-        <a (click)="logout($event)">{{ "auth.log-out" | translate }}</a>
+        <a (click)="logout($event)">{{ 'auth.log-out' | translate }}</a>
       </li>
       <app-dropdown class="dropdown">
         <a icon class="dropdown-text"> {{ currentLanguage }} </a>
-        <ul content nz-menu nzSelectable style="list-style-type: none; cursor: pointer">
+        <ul content nz-menu nzSelectable class="dropdown-menu">
           <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">
             {{ language }}
           </li>
@@ -51,17 +51,16 @@
     <nz-tab class="my-info-cv" [nzTitle]="'modal.cv' | translate">
       <div>
         <p class="modal-text">
-          {{ "modal.recently" | translate }}
+          {{ 'modal.recently' | translate }}
         </p>
       </div>
-      <nz-comment class="modal-list" nzAuthor="Admin CV" [nzDatetime]="time">
-        <nz-avatar nz-comment-avatar nzIcon="user"
-          nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png">
+      <nz-comment class="modal-list" [nzAuthor]="'modal.admin' | translate" [nzDatetime]="time">
+        <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="adminIcon">
         </nz-avatar>
         <nz-comment-content>
           <p>
-            {{ "text.notific-text" | translate }}<br />
-            {{ "text.notific-text-hello" | translate }}
+            {{ 'text.notific-text' | translate }}<br />
+            {{ 'text.notific-text-hello' | translate }}
             {{ userName }}
           </p>
         </nz-comment-content>
@@ -75,21 +74,20 @@
             (click)="dislike()"></i>
           <span class="count dislike">{{ dislikes }}</span>
         </nz-comment-action>
-        <nz-comment-action>{{ "modal.reply" | translate }}</nz-comment-action>
+        <nz-comment-action>{{ 'modal.reply' | translate }}</nz-comment-action>
       </nz-comment>
     </nz-tab>
     <nz-tab [nzTitle]="'modal.profile' | translate">
       <div class="my-profile-info">
         <div class="img">
-          <img alt="Улыбающийся смайлик, показывающий, что новых сообщений нет" class="tw-image"
-            src="https://static.twitchcdn.net/assets/all_caught_up-ad8f3f09b1a1e5e62130.svg" />
+          <img alt="'modal.smileIcon' | translate" class="tw-image" [src]="smileIcon" />
         </div>
         <div>
-          <p class="tw-title">{{ "text.notific-profile-label" | translate }}</p>
+          <p class="tw-title">{{ 'text.notific-profile-label' | translate }}</p>
         </div>
         <div>
           <p class="tw-footer">
-            {{ "text.notific-profile-footer" | translate }}
+            {{ 'text.notific-profile-footer' | translate }}
           </p>
         </div>
       </div>
