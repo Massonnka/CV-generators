@@ -46,7 +46,6 @@ export class ProjectInfoComponent implements OnInit {
 
   private breadcrumbHome: string;
   private breadcrumbProject: string;
-  private breadcrumbInfo: string;
 
   public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(

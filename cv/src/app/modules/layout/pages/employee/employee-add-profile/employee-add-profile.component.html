@@ -29,10 +29,10 @@
             isCvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-form'
           ">
           <app-form-cv></app-form-cv>
-          <app-primary-button (click)="addProject('cv', '01.01.2001', '01.01.2002', '2', 2)">Add project
+          <app-primary-button (click)="addProject()">Add project
           </app-primary-button>
           <nz-collapse class="projects-collapse">
-            <nz-collapse-panel class="projects-collapse-panel">
+            <nz-collapse-panel *ngFor="let project of cves[currentCvId]?.projects" class="projects-collapse-panel">
               <app-form-project></app-form-project>
             </nz-collapse-panel>
           </nz-collapse>

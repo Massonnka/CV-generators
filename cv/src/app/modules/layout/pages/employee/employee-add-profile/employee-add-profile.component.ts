@@ -36,7 +36,7 @@ export class EmployeeAddProfileComponent implements OnInit {
   ];
 
   public currentUserId: number;
-  private currentCvId: number = 1;
+  public currentCvId: number = 1;
 
   constructor(
     private location: Location,
@@ -55,43 +55,6 @@ export class EmployeeAddProfileComponent implements OnInit {
   public toggleCvInfo(index: number): void {
     this.isCvInfoHide = !this.isCvInfoHide;
     this.currentCvId = index - 1;
-    console.log(this.currentCvId);
-  }
-
-  public addCv(): void {
-    this.cves = [
-      ...this.cves,
-      {
-        name: 'cv',
-        index: this.cves.length + 1,
-        employee: {
-          email: '',
-          lastname: '',
-          skills: '',
-          specialization: '',
-          department: '',
-        },
-        projects: [],
-      },
-    ];
-  }
-
-  public addProject(
-    name: string,
-    startDate: string,
-    endDate: string,
-    id: string,
-    teamSize: number
-  ): void {
-    this.cves[this.currentCvId].projects.push({
-      name,
-      startDate,
-      endDate,
-      id,
-      teamSize,
-    });
-
-    console.log(this.cves);
   }
 
   private breadcrumbHome: string;
@@ -135,5 +98,27 @@ export class EmployeeAddProfileComponent implements OnInit {
         ],
       })
     );
+  }
+
+  public addCv(): void {
+    this.cves = [
+      ...this.cves,
+      {
+        name: 'cv',
+        index: this.cves.length + 1,
+        employee: {
+          email: '',
+          lastname: '',
+          skills: '',
+          specialization: '',
+          department: '',
+        },
+        projects: [],
+      },
+    ];
+  }
+
+  public addProject(): void {
+    this.cves[this.currentCvId].projects.push({});
   }
 }
