@@ -9,11 +9,13 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ProjectInfoComponent],
   imports: [
     CommonModule,
+    RouterModule,
     PrimaryButtonModule,
     NzButtonModule,
     NzLayoutModule,
@@ -25,4 +27,4 @@ import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
   ],
   exports: [ProjectInfoComponent],
 })
-export class ProjectInfoModule {}
+export class ProjectInfoModule { }

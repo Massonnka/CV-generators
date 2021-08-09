@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { environment } from '../environments/environment';
@@ -21,6 +21,8 @@ import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { themesReducer } from './store/themes/themes.reducer';
 import { projectsReducer } from './store/projects/projects.reducers';
+import { RouterModule } from '@angular/router';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -32,10 +34,12 @@ registerLocaleData(en);
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    StoreRouterConnectingModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -61,6 +65,8 @@ registerLocaleData(en);
       useValue: en_US,
     },
     AuthService,
+    TranslateService,
+    TranslateStore,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
@@ -69,4 +75,4 @@ registerLocaleData(en);
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

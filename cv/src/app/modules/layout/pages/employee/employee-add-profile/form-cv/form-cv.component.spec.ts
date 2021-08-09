@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FormCvComponent } from './form-cv.component';
 
@@ -8,9 +9,13 @@ describe('FormCvComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormCvComponent ]
+      imports: [
+        ReactiveFormsModule,
+        FormsModule
+      ],
+      declarations: [FormCvComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
