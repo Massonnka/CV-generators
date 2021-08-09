@@ -1,5 +1,12 @@
+import { HttpHandler } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreModule } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
 
@@ -9,8 +16,20 @@ describe('EmployeeInfoProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        BrowserDynamicTestingModule,
+        HttpClientModule,
+        TranslateModule,
+        StoreModule,
+        StoreRouterConnectingModule.forRoot()
+      ],
       providers: [
-        ActivatedRoute
+        Store,
+        StateObservable,
+        ActionsSubject,
+        ReducerManager,
+        ReducerManagerDispatcher
       ],
       declarations: [EmployeeInfoProfileComponent]
     })

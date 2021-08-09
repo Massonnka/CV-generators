@@ -23,6 +23,7 @@ import { themesReducer } from './store/themes/themes.reducer';
 import { projectsReducer } from './store/projects/projects.reducers';
 import { RouterModule } from '@angular/router';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { I18nModule } from './i18n.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -39,14 +40,7 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreRouterConnectingModule.forRoot(),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
+    I18nModule,
     JwtModule,
     Store,
     StoreModule.forRoot({

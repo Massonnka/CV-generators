@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreModule } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { EmployeeAddProfileComponent } from './employee-add-profile.component';
 
@@ -11,7 +13,16 @@ describe('EmployeeAddProfileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        Store
+        RouterTestingModule,
+        BrowserDynamicTestingModule,
+        TranslateModule,
+        StoreModule
+      ],
+      providers: [
+        StateObservable,
+        ActionsSubject,
+        ReducerManager,
+        ReducerManagerDispatcher
       ],
       declarations: [EmployeeAddProfileComponent]
     })

@@ -10,7 +10,6 @@ describe('EmployeeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
-        Router
       ],
       declarations: [EmployeeComponent]
     })

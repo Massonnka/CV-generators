@@ -11,8 +11,6 @@ describe('ProjectInfoComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
-        Router,
-        Store
       ],
       declarations: [ProjectInfoComponent]
     })
