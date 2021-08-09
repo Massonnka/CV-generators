@@ -12,7 +12,7 @@ import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { sidebarReducer } from './store/sidebar/sidebar.reducer';
@@ -48,6 +48,7 @@ registerLocaleData(en);
       },
     }),
     JwtModule,
+    Store,
     StoreModule.forRoot({
       toggle: sidebarReducer,
       theme: themesReducer,
@@ -65,8 +66,6 @@ registerLocaleData(en);
       useValue: en_US,
     },
     AuthService,
-    TranslateService,
-    TranslateStore,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
 
@@ -8,9 +9,12 @@ describe('EmployeeInfoProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmployeeInfoProfileComponent ]
+      providers: [
+        ActivatedRoute
+      ],
+      declarations: [EmployeeInfoProfileComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

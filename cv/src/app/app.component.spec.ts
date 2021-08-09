@@ -1,10 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store } from '@ngrx/store';
+import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreModule } from '@ngrx/store';
 import { DEFAULT_LANGUAGE, MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
-import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -12,7 +11,8 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         BrowserDynamicTestingModule,
-        TranslateModule
+        TranslateModule,
+        StoreModule
       ],
       providers: [
         { provide: USE_DEFAULT_LANG, useValue: undefined },
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
         TranslateCompiler,
         TranslateParser,
         MissingTranslationHandler,
-        Store,
+        { provide: Store, useValue: undefined },
         StateObservable,
         ActionsSubject,
         ReducerManager,

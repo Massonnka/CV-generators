@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgControl } from '@angular/forms';
 
 
 import { DatePickerComponent } from './date-picker.component';
@@ -11,6 +12,9 @@ describe('DatePickerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
 
+      ],
+      providers: [
+        NgControl
       ],
       declarations: [DatePickerComponent]
     })

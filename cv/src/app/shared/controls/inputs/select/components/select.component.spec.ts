@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgControl } from '@angular/forms';
 
 
 import { SelectComponent } from './select.component';
@@ -11,6 +12,9 @@ describe('SelectComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
 
+      ],
+      providers: [
+        NgControl
       ],
       declarations: [SelectComponent]
     })
