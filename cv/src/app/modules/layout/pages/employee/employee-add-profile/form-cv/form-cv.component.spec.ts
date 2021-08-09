@@ -21,7 +21,6 @@ describe('FormCvComponent', () => {
         BrowserDynamicTestingModule,
         I18nModule,
         HttpClientModule,
-        StoreModule
       ],
       providers: [
         FormBuilder,

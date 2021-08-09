@@ -23,7 +23,6 @@ describe('GlobalHeaderComponent', () => {
         BrowserDynamicTestingModule,
         I18nModule,
         HttpClientModule,
-        StoreModule
       ],
       providers: [
         TranslateService,

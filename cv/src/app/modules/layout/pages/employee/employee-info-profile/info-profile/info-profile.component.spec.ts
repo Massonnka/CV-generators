@@ -21,7 +21,6 @@ describe('InfoProfileComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         TranslateModule,
-        StoreModule,
         HttpClientModule
       ],
       declarations: [InfoProfileComponent]

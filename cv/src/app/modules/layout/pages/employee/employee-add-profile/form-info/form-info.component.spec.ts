@@ -22,7 +22,6 @@ describe('FormInfoComponent', () => {
         BrowserDynamicTestingModule,
         HttpClientModule,
         I18nModule,
-        StoreModule
       ],
       providers: [
         FormBuilder,

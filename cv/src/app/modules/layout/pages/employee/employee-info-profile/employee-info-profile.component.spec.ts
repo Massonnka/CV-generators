@@ -21,11 +21,8 @@ describe('EmployeeInfoProfileComponent', () => {
         BrowserDynamicTestingModule,
         HttpClientModule,
         TranslateModule,
-        StoreModule,
-        StoreRouterConnectingModule.forRoot()
       ],
       providers: [
-        Store,
         StateObservable,
         ActionsSubject,
         ReducerManager,

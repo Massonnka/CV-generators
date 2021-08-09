@@ -21,13 +21,11 @@ describe('LogInComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         I18nModule,
-        StoreModule,
         HttpClientModule
       ],
       providers: [
         FormBuilder,
         TranslateService,
-
       ],
       declarations: [LogInComponent]
     })

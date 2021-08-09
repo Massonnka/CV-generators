@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import { DropdownComponent } from './dropdown.component';
 
@@ -8,9 +11,16 @@ describe('DropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DropdownComponent ]
+      imports: [
+        RouterTestingModule,
+        BrowserDynamicTestingModule,
+        NzDropDownModule
+      ],
+      declarations: [
+        DropdownComponent
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

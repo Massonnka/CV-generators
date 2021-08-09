@@ -42,7 +42,6 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     I18nModule,
     JwtModule,
-    Store,
     StoreModule.forRoot({
       toggle: sidebarReducer,
       theme: themesReducer,

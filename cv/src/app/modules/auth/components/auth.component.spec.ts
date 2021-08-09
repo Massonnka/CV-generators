@@ -17,11 +17,9 @@ describe('AuthComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         I18nModule,
-        StoreModule
       ],
       providers: [
         TranslateService,
-
       ],
       declarations: [AuthComponent]
     })

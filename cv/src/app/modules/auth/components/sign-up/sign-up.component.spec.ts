@@ -21,7 +21,6 @@ describe('SignUpComponent', () => {
         BrowserDynamicTestingModule,
         HttpClientModule,
         I18nModule,
-        StoreModule
       ],
       providers: [
         FormBuilder,

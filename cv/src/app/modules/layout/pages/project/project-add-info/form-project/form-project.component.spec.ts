@@ -23,7 +23,6 @@ describe('FormProjectComponent', () => {
         BrowserDynamicTestingModule,
         HttpClientModule,
         I18nModule,
-        StoreModule
       ],
       providers: [
         FormBuilder,

@@ -1,13 +1,10 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
-import { EmployeeService } from 'src/app/core/services/employees.service';
-import { Employee } from 'src/app/core/interfaces/employees.interface';
 
 @Component({
   selector: 'app-employee-add-profile',
@@ -40,7 +37,7 @@ export class EmployeeAddProfileComponent implements OnInit {
   constructor(
     private location: Location,
     private store: Store<{ breadcrumbs: Breadcrumb }>
-  ) {}
+  ) { }
 
   private breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);

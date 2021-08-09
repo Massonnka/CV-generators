@@ -17,7 +17,6 @@ describe('UserInfoComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         I18nModule,
-        StoreModule
       ],
       providers: [
         TranslateService,
