@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
@@ -28,6 +27,7 @@ describe('SiderComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SiderComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
