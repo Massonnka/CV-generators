@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { CvInfoComponent } from './cv-info.component';
 
@@ -8,9 +9,12 @@ describe('CvInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CvInfoComponent ]
+      providers: [
+        Router
+      ],
+      declarations: [CvInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 import { Themes } from 'src/app/shared/constants/themes.constants';
 import { toggleSidebar } from 'src/app/store/sidebar/sidebar.actions';
 import { setTheme } from 'src/app/store/themes/themes.actions';
-import { selectTheme } from 'src/app/store/themes/themes.selectors';
 import { selectSidebar } from './../../../../store/sidebar/sidebar.selectors';
 @Component({
   selector: 'app-sider',

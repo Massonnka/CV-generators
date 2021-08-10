@@ -1,23 +1,23 @@
 <div class="page-header">
   <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-  <div class="title">{{ "pages.employee" | translate }}</div>
-  <p>{{ "employee.employee-list" | translate }}</p>
+  <div class="title">{{ 'pages.employee' | translate }}</div>
+  <p>{{ 'employee.employee-list' | translate }}</p>
 </div>
 <nz-content class="content">
   <div class="actions">
     <app-primary-button (click)="addItem()" class="add-button">
-      <span>{{ "employee.add-employee" | translate }}</span>
+      <span>{{ 'employee.add-employee' | translate }}</span>
     </app-primary-button>
   </div>
   <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="employees">
     <ng-template #headRef>
       <tr>
-        <th class="table-head">{{ "table.firstname" | translate }}</th>
-        <th class="table-head">{{ "table.lastname" | translate }}</th>
-        <th class="table-head">{{ "table.email" | translate }}</th>
-        <th class="table-head">{{ "table.department" | translate }}</th>
-        <th class="table-head">{{ "table.specialization" | translate }}</th>
+        <th class="table-head">{{ 'table.firstname' | translate }}</th>
+        <th class="table-head">{{ 'table.lastname' | translate }}</th>
+        <th class="table-head">{{ 'table.email' | translate }}</th>
+        <th class="table-head">{{ 'table.department' | translate }}</th>
+        <th class="table-head">{{ 'table.specialization' | translate }}</th>
       </tr>
     </ng-template>
     <ng-template #bodyRef let-data="$implicit">

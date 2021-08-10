@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
@@ -32,9 +33,10 @@ import { EmployeeComponent } from './employee.component';
     BreadcrumbModule,
     EmployeeAddProfileModule,
     EmployeeInfoProfileModule,
+    RouterModule,
     StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer),
     SpinnerModule,
   ],
   exports: [EmployeeComponent],
 })
-export class EmployeeModule {}
+export class EmployeeModule { }

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { UserInfoComponent } from './user-info.component';
 
@@ -8,9 +9,15 @@ describe('UserInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserInfoComponent ]
+      imports: [
+        TranslateModule
+      ],
+      providers: [
+
+      ],
+      declarations: [UserInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

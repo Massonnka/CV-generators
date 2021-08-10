@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { ProjectInfoComponent } from './project-info.component';
 
@@ -8,9 +10,13 @@ describe('ProjectInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectInfoComponent ]
+      providers: [
+        Router,
+        Store
+      ],
+      declarations: [ProjectInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

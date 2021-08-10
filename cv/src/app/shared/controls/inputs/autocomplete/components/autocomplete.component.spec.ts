@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgControl } from '@angular/forms';
+
 
 import { AutocompleteComponent } from './autocomplete.component';
 
@@ -8,9 +10,15 @@ describe('AutocompleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AutocompleteComponent ]
+      imports: [
+
+      ],
+      providers: [
+        NgControl
+      ],
+      declarations: [AutocompleteComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

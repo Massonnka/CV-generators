@@ -44,4 +44,4 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
   ],
   exports: [EmployeeInfoProfileComponent],
 })
-export class EmployeeInfoProfileModule {}
+export class EmployeeInfoProfileModule { }

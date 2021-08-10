@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateService } from '@ngx-translate/core';
 
 import { GlobalHeaderComponent } from './global-header.component';
 
@@ -8,9 +9,12 @@ describe('GlobalHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GlobalHeaderComponent ]
+      providers: [
+        TranslateService
+      ],
+      declarations: [GlobalHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

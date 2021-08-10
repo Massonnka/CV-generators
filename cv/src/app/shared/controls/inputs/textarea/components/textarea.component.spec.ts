@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgControl } from '@angular/forms';
+
 
 import { TextareaComponent } from './textarea.component';
 
@@ -8,9 +10,15 @@ describe('TextareaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextareaComponent ]
+      imports: [
+
+      ],
+      providers: [
+        NgControl
+      ],
+      declarations: [TextareaComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

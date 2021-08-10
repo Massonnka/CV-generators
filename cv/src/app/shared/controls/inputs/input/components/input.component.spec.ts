@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgControl } from '@angular/forms';
+
 
 import { InputComponent } from './input.component';
 
@@ -8,9 +10,15 @@ describe('InputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputComponent ]
+      imports: [
+
+      ],
+      providers: [
+        NgControl
+      ],
+      declarations: [InputComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

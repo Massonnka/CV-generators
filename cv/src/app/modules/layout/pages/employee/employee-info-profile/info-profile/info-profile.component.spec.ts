@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { InfoProfileComponent } from './info-profile.component';
 
@@ -8,9 +10,13 @@ describe('InfoProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InfoProfileComponent ]
+      providers: [
+        HttpClient
+      ],
+      imports: [RouterTestingModule],
+      declarations: [InfoProfileComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

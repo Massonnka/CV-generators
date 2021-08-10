@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgControl } from '@angular/forms';
+
 
 import { DatePickerComponent } from './date-picker.component';
 
@@ -8,9 +10,15 @@ describe('DatePickerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DatePickerComponent ]
+      imports: [
+
+      ],
+      providers: [
+        NgControl
+      ],
+      declarations: [DatePickerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

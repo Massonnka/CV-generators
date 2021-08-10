@@ -8,11 +8,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [CvInfoComponent],
   imports: [
     CommonModule,
+    RouterModule,
     NzCollapseModule,
     FormCvModule,
     SpinnerModule,

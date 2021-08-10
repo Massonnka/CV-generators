@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { selectTheme } from './store/themes/themes.selectors';
 
@@ -20,7 +21,10 @@ export class AppComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private store: Store
-  ) {}
+  ) { }
+  getTranslation(lang: string): Observable<any> {
+    throw new Error('Method not implemented.');
+  }
 
   public ngOnInit(): void {
     this.translateService.setDefaultLang(
