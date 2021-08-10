@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, StoreFeatureModule, StoreModule } from '@ngrx/store';
+import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreFeatureModule, StoreModule } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 import { I18nModule } from 'src/app/i18n.module';
 import { sidebarFeatureKey, sidebarReducer } from 'src/app/store/sidebar/sidebar.reducer';
 import { themesFeatureKey, themesReducer } from 'src/app/store/themes/themes.reducer';
