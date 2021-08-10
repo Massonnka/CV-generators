@@ -13,6 +13,10 @@ import {
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
 import { TableModule } from 'src/app/shared/controls/table/table.module';
+import {
+  employeeFeatureKey,
+  employeeReducer,
+} from 'src/app/store/employee/employee.reducers';
 import { GlobalHeaderModule } from '../../global-header/global-header.module';
 import { EmployeeAddProfileModule } from './employee-add-profile/employee-add-profile.module';
 import { EmployeeInfoProfileModule } from './employee-info-profile/employee-info-profile.module';
@@ -35,8 +39,11 @@ import { EmployeeComponent } from './employee.component';
     EmployeeInfoProfileModule,
     RouterModule,
     SpinnerModule,
-    StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer)
+    StoreModule.forFeature(
+      breadcrumbsFeatureKey || employeeFeatureKey,
+      breadcrumbReducer || employeeReducer
+    ),
   ],
   exports: [EmployeeComponent],
 })
-export class EmployeeModule { }
+export class EmployeeModule {}

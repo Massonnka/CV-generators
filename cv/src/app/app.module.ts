@@ -11,7 +11,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
-import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -23,6 +22,8 @@ import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { AuthService } from './core/auth/auth.service';
 import { I18nModule } from './i18n.module';
 import { authReducer } from './modules/auth/store/auth.reducers';
+import { employeeReducer } from './store/employee/employee.reducers';
+import { languageReducer } from './store/languages/languages.reducers';
 import { projectsReducer } from './store/projects/projects.reducers';
 import { sidebarReducer } from './store/sidebar/sidebar.reducer';
 import { themesReducer } from './store/themes/themes.reducer';
@@ -48,13 +49,14 @@ registerLocaleData(en);
       toggle: sidebarReducer,
       theme: themesReducer,
       projects: projectsReducer,
+      employees: employeeReducer,
       login: authReducer,
+      language: languageReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
   ],
   providers: [
     {

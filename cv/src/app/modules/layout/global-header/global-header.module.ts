@@ -1,22 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
-import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
-import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
-import { GlobalHeaderComponent } from './components/global-header.component';
-import { NzModalModule } from 'ng-zorro-antd/modal';
-import { ModalWindowModule } from 'src/app/shared/controls/modal/modal-window/modal-window.module';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { UserInfoModule } from 'src/app/modules/layout/global-header/components/user-info/user-info.module';
-import { NzBadgeModule } from 'ng-zorro-antd/badge';
-import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
-import { NzPopoverModule } from 'ng-zorro-antd/popover';
-import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { NzCommentModule } from 'ng-zorro-antd/comment';
-import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { UserInfoModule } from 'src/app/modules/layout/global-header/components/user-info/user-info.module';
+import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
+import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
+import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
+import { ModalWindowModule } from 'src/app/shared/controls/modal/modal-window/modal-window.module';
+import {
+  languageFeatureKey,
+  languageReducer,
+} from 'src/app/store/languages/languages.reducers';
+import { GlobalHeaderComponent } from './components/global-header.component';
 
 @NgModule({
   declarations: [GlobalHeaderComponent],
@@ -37,8 +42,9 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
     NzToolTipModule,
     NzCommentModule,
     NzTabsModule,
-    NzAvatarModule
+    NzAvatarModule,
+    StoreModule.forFeature(languageFeatureKey, languageReducer),
   ],
   exports: [GlobalHeaderComponent],
 })
-export class GlobalHeaderModule { }
+export class GlobalHeaderModule {}
