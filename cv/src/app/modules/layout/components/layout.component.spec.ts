@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
+import { DEFAULT_LANGUAGE, MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE } from '@ngx-translate/core';
+import { I18nModule } from 'src/app/i18n.module';
 
 import { LayoutComponent } from './layout.component';
 
@@ -10,10 +11,10 @@ describe('LayoutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        TranslateModule
+        I18nModule
       ],
       providers: [
-
+        TranslateService,
       ],
       declarations: [LayoutComponent]
     })

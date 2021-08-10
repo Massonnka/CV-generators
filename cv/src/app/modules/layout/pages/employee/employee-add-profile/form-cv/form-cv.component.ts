@@ -5,7 +5,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Cv } from 'src/app/core/interfaces/cv.interface';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 
@@ -20,7 +19,7 @@ export class FormCvComponent implements OnInit {
   public submitted = false;
   public employee: Employee;
   public isEditMode = false;
-  public employeesId: number | undefined;
+  public employeesId = Number(localStorage.getItem('employee-id'));
 
   constructor(
     private fb: FormBuilder,
@@ -28,10 +27,8 @@ export class FormCvComponent implements OnInit {
     private employeeService: EmployeeService) { }
 
   public ngOnInit(): void {
-
     const options = history.state.options;
     this.employee = options && options.employee;
-    this.employeesId = Number(localStorage.getItem('employee-id'));
 
     this.validateForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],

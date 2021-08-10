@@ -7,7 +7,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
   declarations: [DropdownComponent],
   imports: [
     CommonModule,
-    NzDropDownModule
+    NzDropDownModule,
   ],
   exports: [DropdownComponent],
 })
