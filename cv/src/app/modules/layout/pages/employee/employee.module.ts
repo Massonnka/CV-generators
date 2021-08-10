@@ -35,7 +35,6 @@ import { EmployeeComponent } from './employee.component';
     EmployeeInfoProfileModule,
     RouterModule,
     SpinnerModule,
-    StoreModule.forRoot({}),
     StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer)
   ],
   exports: [EmployeeComponent],
