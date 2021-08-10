@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { LoginUser } from 'src/app/core/interfaces/login-user.interface';
+
+import * as fromAuthActions from '../../store/auth.actions';
 
 @Component({
   selector: 'app-log-in',
@@ -21,11 +24,12 @@ export class LogInComponent implements OnInit {
   public validateForm!: FormGroup;
 
   constructor(
+    public authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    public authService: AuthService,
-  ) { }
+    private store: Store
+  ) {}
 
   public ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
@@ -43,7 +47,7 @@ export class LogInComponent implements OnInit {
     });
   }
 
-  public loginUser() {
+  public loginUser(): void {
     if (this.validateForm.invalid) {
       return;
     }
@@ -57,12 +61,17 @@ export class LogInComponent implements OnInit {
 
     this.authService.signIn(user).subscribe(
       () => {
+        this.store.dispatch(fromAuthActions.loginSuccess({ user }));
         this.validateForm.reset();
         this.router.navigate(['layout/employee']);
       },
       () => {
         this.isPassCorrect = false;
         this.submitted = false;
+
+        // this.store.dispatch(
+        //   fromAuthActions.loginFailure({ error: 'Fail to login' })
+        // );
       }
     );
     this.submitted = false;

@@ -11,6 +11,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
 import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
+import { StoreModule } from '@ngrx/store';
+import { loginSuccess } from '../../store/auth.actions';
+import { authReducer } from '../../store/auth.reducers';
 
 @NgModule({
   declarations: [LogInComponent],
@@ -26,6 +29,7 @@ import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-butto
     NzCheckboxModule,
     InputModule,
     CircleButtonModule,
+    StoreModule.forFeature('login', authReducer),
   ],
   exports: [LogInComponent],
 })
