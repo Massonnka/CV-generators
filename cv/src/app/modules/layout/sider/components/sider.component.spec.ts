@@ -15,7 +15,6 @@ describe('SiderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        BrowserDynamicTestingModule,
         I18nModule,
       ],
       providers: [

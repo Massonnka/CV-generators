@@ -9,12 +9,12 @@ export interface BreadcrumbsState {
 }
 
 const initialState: BreadcrumbsState = {
-  breadcrumbs: [],
+  breadcrumbs: null,
 };
 
 const _breadcrumbReducer = createReducer(
   initialState,
-  on(breadcumbsActions.setBreadcrumbs, (state, {breadcrumbs}) => ({
+  on(breadcumbsActions.setBreadcrumbs, (state, { breadcrumbs }) => ({
     ...state,
     breadcrumbs
   })),

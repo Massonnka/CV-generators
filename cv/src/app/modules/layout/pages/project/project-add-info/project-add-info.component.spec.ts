@@ -23,7 +23,6 @@ describe('ProjectInfoComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        BrowserDynamicTestingModule,
         HttpClientModule,
         I18nModule,
         BreadcrumbModule
