@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
+import { catchError, tap } from "rxjs/operators";
 import { endpointmock } from "src/app/shared/constants/endpointmock.constants";
 import { Employee } from "../interfaces/employees.interface";
 
@@ -27,4 +28,5 @@ export class EmployeeService {
     public DeleteEmployee(id: any): Observable<any> {
         return this.http.delete<any>(`${endpointmock}/cv/${id}`);
     }
+
 }
