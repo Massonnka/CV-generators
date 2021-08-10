@@ -3,6 +3,7 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+import { breadcrumbReducer, breadcrumbsFeatureKey } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
 
 import { EmployeeAddProfileComponent } from './employee-add-profile.component';
 
@@ -16,7 +17,7 @@ describe('EmployeeAddProfileComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         TranslateModule,
-        StoreModule
+        StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer)
       ],
       providers: [
         StateObservable,

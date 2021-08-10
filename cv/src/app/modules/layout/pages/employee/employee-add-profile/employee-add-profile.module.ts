@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
@@ -7,6 +8,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
+import { breadcrumbReducer, breadcrumbsFeatureKey } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { ListModule } from 'src/app/shared/controls/list/list.module';
@@ -35,6 +37,7 @@ import { FormInfoModule } from './form-info/form-info.module';
     FormProjectModule,
     NzCollapseModule,
     SpinnerModule,
+    StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer)
   ],
   providers: [ProjectService],
   exports: [EmployeeAddProfileComponent],

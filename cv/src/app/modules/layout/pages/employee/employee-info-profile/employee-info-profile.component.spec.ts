@@ -7,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+import { breadcrumbReducer, breadcrumbsFeatureKey } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
 
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
 

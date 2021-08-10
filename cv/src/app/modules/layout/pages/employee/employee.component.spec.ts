@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { breadcrumbReducer, breadcrumbsFeatureKey } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
 
 import { EmployeeComponent } from './employee.component';
 
@@ -14,6 +16,7 @@ describe('EmployeeComponent', () => {
       providers: [
         RouterTestingModule,
         BrowserDynamicTestingModule,
+        StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer)
       ],
       declarations: [EmployeeComponent]
     })
