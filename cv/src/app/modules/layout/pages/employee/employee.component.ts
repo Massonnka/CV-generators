@@ -61,3 +61,5 @@ export class EmployeeComponent implements OnInit {
     this.router.navigate(['/layout/employee/addinfo']);
   }
 }
+
+

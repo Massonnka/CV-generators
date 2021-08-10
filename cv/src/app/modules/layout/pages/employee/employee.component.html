@@ -9,6 +9,7 @@
     <app-primary-button (click)="addItem()" class="add-button">
       <span>{{ 'employee.add-employee' | translate }}</span>
     </app-primary-button>
+    <input placeholder="Item name...">
   </div>
   <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="employees">
     <ng-template #headRef>
