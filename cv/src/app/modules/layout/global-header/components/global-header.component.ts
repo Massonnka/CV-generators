@@ -5,15 +5,17 @@ import {
   OnInit,
   TemplateRef,
 } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from 'src/app/core/auth/auth.service';
 import { formatDistance } from 'date-fns';
-import { Languages } from 'src/app/shared/constants/languages.constants';
+import { AuthService } from 'src/app/core/auth/auth.service';
 import {
   adminIcon,
   headLogo,
   smileIcon,
 } from 'src/app/shared/constants/images.constants';
+import { Languages } from 'src/app/shared/constants/languages.constants';
+import { setLanguage } from 'src/app/store/languages/languages.actions';
 
 @Component({
   selector: 'app-global-header',
@@ -39,10 +41,18 @@ export class GlobalHeaderComponent implements OnInit {
 
   constructor(
     private translateService: TranslateService,
-    private authService: AuthService
+    private authService: AuthService,
+    private store: Store
   ) {}
+
   public currentLanguage: string =
     this.translateService.currentLang || Languages.English;
+
+  public ngOnInit() {
+    this.store.dispatch(setLanguage({ language: this.currentLanguage }));
+
+    this.userName = this.firstName + ' ' + this.lastName;
+  }
 
   public change() {
     this.time = formatDistance(new Date(), new Date(this.createdAt));
@@ -60,12 +70,9 @@ export class GlobalHeaderComponent implements OnInit {
   }
 
   public switchLanguage(language: string): void {
+    this.store.dispatch(setLanguage({ language: language }));
     this.translateService.use(language);
     this.currentLanguage = language;
-  }
-
-  public ngOnInit() {
-    this.userName = this.firstName + ' ' + this.lastName;
   }
 
   public logout(event: Event): void {

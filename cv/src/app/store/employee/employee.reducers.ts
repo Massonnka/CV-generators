@@ -5,10 +5,10 @@ import * as EmployeeActions from './employee.actions';
 
 export const employeeFeatureKey = 'employees';
 
-export interface ProjectsState {
+export interface EmployeesState {
   employees: Employee[];
 }
-const initialState: ProjectsState = {
+const initialState: EmployeesState = {
   employees: null,
 };
 
