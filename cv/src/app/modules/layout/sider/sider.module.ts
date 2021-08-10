@@ -16,7 +16,7 @@ import { SiderComponent } from './components/sider.component';
     CommonModule,
     NzIconModule,
     DefaultButtonModule,
-    StoreModule.forFeature(sidebarFeatureKey || themesFeatureKey, sidebarReducer || themesReducer),
+    // StoreModule.forFeature(sidebarFeatureKey || themesFeatureKey, sidebarReducer || themesReducer),
   ],
   exports: [SiderComponent],
 })

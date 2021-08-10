@@ -13,6 +13,7 @@ import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcr
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/core/interfaces/project.interface';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -30,6 +31,7 @@ export class ProjectComponent implements OnInit {
     private router: Router,
     private projectService: ProjectService,
     private cdRef: ChangeDetectorRef,
+    private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
   ) {}
 
@@ -37,6 +39,9 @@ export class ProjectComponent implements OnInit {
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[] = [];
 
+  private breadcrumbHome: string;
+  private breadcrumbProjects: string;
+  
   public ngOnInit(): void {
     this.isLoading = true;
 
@@ -46,18 +51,29 @@ export class ProjectComponent implements OnInit {
       this.cdRef.markForCheck();
     });
 
+    this.translateService
+      .get(['pages.home', 'pages.project'])
+      .subscribe((translations) => {
+        this.breadcrumbHome = this.translateService.instant(
+          translations['pages.home']
+        );
+        this.breadcrumbProjects = this.translateService.instant(
+          translations['pages.project']
+        );
+      });
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: 'Home',
+            name: this.breadcrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/project',
-            name: 'Project',
+            name: this.breadcrumbProjects,
             isDisabled: true,
           },
         ],

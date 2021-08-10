@@ -5,6 +5,7 @@ import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadc
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-project-info',
@@ -15,6 +16,7 @@ import { Store } from '@ngrx/store';
 export class ProjectAddInfoComponent implements OnInit {
   constructor(
     private location: Location,
+    private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
   ) {}
 
@@ -26,24 +28,42 @@ export class ProjectAddInfoComponent implements OnInit {
     this.store.select(selectBreadcrumb);
   public breadcrumbs: Breadcrumb[];
 
+  private breadcrumbHome: string;
+  private breadcrumbProject: string;
+  private breadcrumbAddInfo: string;
+
   public ngOnInit(): void {
+    this.translateService
+      .get(['pages.home', 'pages.project', 'pages.info'])
+      .subscribe((translations) => {
+        this.breadcrumbHome = this.translateService.instant(
+          translations['pages.home']
+        );
+        this.breadcrumbProject = this.translateService.instant(
+          translations['pages.project']
+        );
+        this.breadcrumbAddInfo = this.translateService.instant(
+          translations['pages.info']
+        );
+      });
+
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: 'Home',
+            name: this.breadcrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/project',
-            name: 'Project',
+            name: this.breadcrumbProject,
             isDisabled: false,
           },
           {
             url: '/layout/project/addinfo',
-            name: 'Add Info',
+            name: this.breadcrumbAddInfo,
             isDisabled: true,
           },
         ],

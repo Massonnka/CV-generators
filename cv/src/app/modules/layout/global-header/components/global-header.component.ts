@@ -1,10 +1,19 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  TemplateRef,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { formatDistance } from 'date-fns';
 import { Languages } from 'src/app/shared/constants/languages.constants';
-import { adminIcon, headLogo, smileIcon } from 'src/app/shared/constants/images.constants';
-
+import {
+  adminIcon,
+  headLogo,
+  smileIcon,
+} from 'src/app/shared/constants/images.constants';
 
 @Component({
   selector: 'app-global-header',
@@ -31,8 +40,9 @@ export class GlobalHeaderComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private authService: AuthService
-  ) { }
-  public currentLanguage: string = this.translateService.currentLang || Languages.English;
+  ) {}
+  public currentLanguage: string =
+    this.translateService.currentLang || Languages.English;
 
   public change() {
     this.time = formatDistance(new Date(), new Date(this.createdAt));

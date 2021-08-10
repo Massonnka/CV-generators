@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
-import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
+import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 
 @Component({
   selector: 'app-employee-add-profile',
@@ -32,12 +33,13 @@ export class EmployeeAddProfileComponent implements OnInit {
   ];
 
   public currentUserId: number;
-  private currentCvId: number = 1;
+  public currentCvId: number = 1;
 
   constructor(
     private location: Location,
+    private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb }>
-  ) { }
+  ) {}
 
   private breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -50,7 +52,49 @@ export class EmployeeAddProfileComponent implements OnInit {
   public toggleCvInfo(index: number): void {
     this.isCvInfoHide = !this.isCvInfoHide;
     this.currentCvId = index - 1;
-    console.log(this.currentCvId);
+  }
+
+  private breadcrumbHome: string;
+  private breadcrumbEmployee: string;
+  private breadcrumbInfo: string;
+
+  public ngOnInit(): void {
+    this.translateService
+      .get(['pages.home', 'pages.project', 'pages.info'])
+      .subscribe((translations) => {
+        this.breadcrumbHome = this.translateService.instant(
+          translations['pages.home']
+        );
+        this.breadcrumbEmployee = this.translateService.instant(
+          translations['pages.project']
+        );
+        this.breadcrumbInfo = this.translateService.instant(
+          translations['pages.info']
+        );
+      });
+
+    this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+    this.store.dispatch(
+      setBreadcrumbs({
+        breadcrumbs: [
+          {
+            url: '/layout',
+            name: this.breadcrumbHome,
+            isDisabled: true,
+          },
+          {
+            url: '/layout/employee',
+            name: this.breadcrumbEmployee,
+            isDisabled: false,
+          },
+          {
+            url: '/layout/employee/addInfo',
+            name: this.breadcrumbInfo,
+            isDisabled: true,
+          },
+        ],
+      })
+    );
   }
 
   public addCv(): void {
@@ -71,46 +115,7 @@ export class EmployeeAddProfileComponent implements OnInit {
     ];
   }
 
-  public addProject(
-    name: string,
-    startDate: string,
-    endDate: string,
-    id: string,
-    teamSize: number
-  ): void {
-    this.cves[this.currentCvId].projects.push({
-      name,
-      startDate,
-      endDate,
-      id,
-      teamSize,
-    });
-
-    console.log(this.cves);
-  }
-
-  public ngOnInit(): void {
-    this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
-    this.store.dispatch(
-      setBreadcrumbs({
-        breadcrumbs: [
-          {
-            url: '/layout',
-            name: 'Home',
-            isDisabled: true,
-          },
-          {
-            url: '/layout/employee',
-            name: 'Employee',
-            isDisabled: false,
-          },
-          {
-            url: '/layout/employee/addInfo',
-            name: 'Info',
-            isDisabled: true,
-          },
-        ],
-      })
-    );
+  public addProject(): void {
+    this.cves[this.currentCvId].projects.push({});
   }
 }
