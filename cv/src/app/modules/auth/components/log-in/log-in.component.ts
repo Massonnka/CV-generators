@@ -69,9 +69,9 @@ export class LogInComponent implements OnInit {
         this.isPassCorrect = false;
         this.submitted = false;
 
-        // this.store.dispatch(
-        //   fromAuthActions.loginFailure({ error: 'Fail to login' })
-        // );
+        this.store.dispatch(
+          fromAuthActions.loginFailure({ error: 'Fail to login' })
+        );
       }
     );
     this.submitted = false;

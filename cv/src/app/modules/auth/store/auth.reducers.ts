@@ -32,7 +32,6 @@ export const authReducer = createReducer(
       user: {
         email: null,
         password: null,
-        returnSecureToken: null,
       },
       error: action.error,
     };
