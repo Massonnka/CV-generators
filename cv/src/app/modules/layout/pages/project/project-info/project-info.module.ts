@@ -9,13 +9,14 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { SpinnerModule } from 'src/app/shared/controls/spinner/spinner.module';
-import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { breadcrumbReducer, breadcrumbsFeatureKey } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
+import { projectsFeatureKey, projectsReducer } from 'src/app/store/projects/projects.reducers';
 
 @NgModule({
   declarations: [ProjectInfoComponent],
   imports: [
     CommonModule,
-    RouterModule,
     PrimaryButtonModule,
     NzButtonModule,
     NzLayoutModule,
@@ -24,6 +25,10 @@ import { RouterModule } from '@angular/router';
     BreadcrumbModule,
     DefaultButtonModule,
     SpinnerModule,
+    StoreModule.forFeature(
+      projectsFeatureKey,
+      projectsReducer
+    ),
   ],
   exports: [ProjectInfoComponent],
 })

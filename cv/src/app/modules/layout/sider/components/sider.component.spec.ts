@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreModule } from '@ngrx/store';
-import { DEFAULT_LANGUAGE, MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE } from '@ngx-translate/core';
+import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, StoreFeatureModule, StoreModule } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
+import { sidebarFeatureKey, sidebarReducer } from 'src/app/store/sidebar/sidebar.reducer';
+import { themesFeatureKey, themesReducer } from 'src/app/store/themes/themes.reducer';
 
 import { SiderComponent } from './sider.component';
 
@@ -17,10 +19,11 @@ describe('SiderComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         I18nModule,
+        StoreModule.forFeature(sidebarFeatureKey || themesFeatureKey, sidebarReducer || themesReducer)
       ],
       providers: [
-        StateObservable,
         TranslateService,
+        StateObservable,
         ActionsSubject,
         ReducerManager,
         ReducerManagerDispatcher

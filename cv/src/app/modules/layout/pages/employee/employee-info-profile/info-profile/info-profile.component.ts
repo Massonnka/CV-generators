@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
+
   Component,
   OnInit,
 } from '@angular/core';

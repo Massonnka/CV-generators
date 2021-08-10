@@ -17,6 +17,7 @@ describe('FormProjectComponent', () => {
   let fixture: ComponentFixture<FormProjectComponent>;
 
   beforeEach(async () => {
+    window.history.pushState({ options: 'somevalue' }, '', '');
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,

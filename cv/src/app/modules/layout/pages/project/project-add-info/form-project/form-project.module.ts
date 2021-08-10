@@ -11,7 +11,6 @@ import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
 import { DatePickerModule } from 'src/app/shared/controls/inputs/date-picker/date-picker.module';
 import { TextareaModule } from 'src/app/shared/controls/inputs/textarea/textarea.module';
 import { AutocompleteModule } from 'src/app/shared/controls/inputs/autocomplete/autocomplete.module';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

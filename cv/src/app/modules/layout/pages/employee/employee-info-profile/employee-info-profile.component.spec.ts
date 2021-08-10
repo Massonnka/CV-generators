@@ -1,13 +1,10 @@
-import { HttpHandler } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, Store, StoreModule } from '@ngrx/store';
-import { TranslateModule } from '@ngx-translate/core';
-import { breadcrumbReducer, breadcrumbsFeatureKey } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
+import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, StoreModule } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
+import { I18nModule } from 'src/app/i18n.module';
 
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
 
@@ -21,9 +18,11 @@ describe('EmployeeInfoProfileComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         HttpClientModule,
-        TranslateModule,
+        I18nModule,
+        StoreModule.forRoot({})
       ],
       providers: [
+        TranslateService,
         StateObservable,
         ActionsSubject,
         ReducerManager,
