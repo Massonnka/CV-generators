@@ -14,6 +14,8 @@ import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/core/interfaces/project.interface';
 import { TranslateService } from '@ngx-translate/core';
+
+import * as ProjectsActions from './../../../../store/projects/projects.actions';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -41,11 +43,12 @@ export class ProjectComponent implements OnInit {
 
   private breadcrumbHome: string;
   private breadcrumbProjects: string;
-  
+
   public ngOnInit(): void {
     this.isLoading = true;
 
     this.projectService.FoundAllProjects().subscribe((value) => {
+      this.store.dispatch(ProjectsActions.setProjects({ projects: value }));
       this.projects = value;
       this.isLoading = false;
       this.cdRef.markForCheck();

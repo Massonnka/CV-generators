@@ -9,16 +9,15 @@ export interface ProjectsState {
   projects: Project[];
 }
 const initialState: ProjectsState = {
-  projects: [],
+  projects: null,
 };
 
 const _projectsReducer = createReducer(
   initialState,
   on(ProjectActions.setProjects, (state, { projects }) => ({
     ...state,
-    projects,
-  })),
-  on(ProjectActions.getProjects, (state) => state)
+    projects: projects,
+  }))
 );
 
 export function projectsReducer(state: any, action: Action) {

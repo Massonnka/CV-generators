@@ -23,6 +23,7 @@ import { AuthInterceptor } from './core/auth/auth.interseptor';
 import { AuthService } from './core/auth/auth.service';
 import { I18nModule } from './i18n.module';
 import { authReducer } from './modules/auth/store/auth.reducers';
+import { employeeReducer } from './store/employee/employee.reducers';
 import { projectsReducer } from './store/projects/projects.reducers';
 import { sidebarReducer } from './store/sidebar/sidebar.reducer';
 import { themesReducer } from './store/themes/themes.reducer';
@@ -48,6 +49,7 @@ registerLocaleData(en);
       toggle: sidebarReducer,
       theme: themesReducer,
       projects: projectsReducer,
+      employees: employeeReducer,
       login: authReducer,
     }),
     StoreDevtoolsModule.instrument({
