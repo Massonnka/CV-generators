@@ -1,10 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
-import { HttpHandler } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { InfoProfileComponent } from './info-profile.component';

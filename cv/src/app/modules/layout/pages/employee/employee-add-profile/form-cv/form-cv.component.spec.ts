@@ -15,6 +15,7 @@ describe('FormCvComponent', () => {
   let fixture: ComponentFixture<FormCvComponent>;
 
   beforeEach(async () => {
+    window.history.pushState({ options: 'somevalue' }, '', '');
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,

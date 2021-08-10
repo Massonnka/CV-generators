@@ -37,7 +37,6 @@ import { FormInfoModule } from './form-info/form-info.module';
     FormProjectModule,
     NzCollapseModule,
     SpinnerModule,
-    StoreModule.forFeature(breadcrumbsFeatureKey, breadcrumbReducer)
   ],
   providers: [ProjectService],
   exports: [EmployeeAddProfileComponent],

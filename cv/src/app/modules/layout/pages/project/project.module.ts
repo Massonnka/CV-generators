@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
@@ -26,7 +25,6 @@ import { ProjectComponent } from './project.component';
   declarations: [ProjectComponent],
   imports: [
     CommonModule,
-    RouterModule,
     ProjectRoutingModule,
     TranslateModule,
     NzLayoutModule,

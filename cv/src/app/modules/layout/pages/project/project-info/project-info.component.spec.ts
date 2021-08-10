@@ -1,8 +1,12 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
-import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Store } from '@ngrx/store';
+import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, StoreModule } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
+import { I18nModule } from 'src/app/i18n.module';
+import { breadcrumbReducer, breadcrumbsFeatureKey } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.reducer';
+import { projectsFeatureKey, projectsReducer } from 'src/app/store/projects/projects.reducers';
 
 import { ProjectInfoComponent } from './project-info.component';
 
@@ -12,9 +16,23 @@ describe('ProjectInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [
+      imports: [
         RouterTestingModule,
         BrowserDynamicTestingModule,
+        HttpClientModule,
+        I18nModule,
+        StoreModule.forRoot({}),
+        StoreModule.forFeature(
+          projectsFeatureKey,
+          projectsReducer
+        ),
+      ],
+      providers: [
+        TranslateService,
+        StateObservable,
+        ActionsSubject,
+        ReducerManager,
+        ReducerManagerDispatcher
       ],
       declarations: [ProjectInfoComponent]
     })

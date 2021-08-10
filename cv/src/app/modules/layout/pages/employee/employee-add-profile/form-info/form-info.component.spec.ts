@@ -16,12 +16,13 @@ describe('FormInfoComponent', () => {
   let fixture: ComponentFixture<FormInfoComponent>;
 
   beforeEach(async () => {
+    window.history.pushState({ options: 'somevalue' }, '', '');
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         BrowserDynamicTestingModule,
         HttpClientModule,
-        I18nModule,
+        I18nModule
       ],
       providers: [
         FormBuilder,
