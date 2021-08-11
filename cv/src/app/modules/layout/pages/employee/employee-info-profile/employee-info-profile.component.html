@@ -26,7 +26,7 @@
               </ng-template>
             </app-list>
 
-            <app-default-button class="content-tabs-cv-list-button">+</app-default-button>
+            <app-default-button *ngIf="!cves" class="content-tabs-cv-list-button">+</app-default-button>
           </div>
           <app-cv-info [ngClass]="isCvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-info'"></app-cv-info>
         </div>

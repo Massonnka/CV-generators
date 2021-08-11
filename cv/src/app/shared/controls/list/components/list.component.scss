@@ -5,6 +5,7 @@
   .list-item {
     border: solid var(--background-color) 1px;
     cursor: pointer;
+    padding: 0px;
   }
   .list-item:hover {
     background-color: var(--background-color);

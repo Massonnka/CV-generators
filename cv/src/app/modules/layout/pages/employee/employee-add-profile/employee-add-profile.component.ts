@@ -14,7 +14,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeAddProfileComponent implements OnInit {
-  public isCvInfoHide = true;
+  public cvInfoHide = true;
   public isLoading = false;
 
   public cves: any = [
@@ -45,15 +45,6 @@ export class EmployeeAddProfileComponent implements OnInit {
     private store: Store<{ breadcrumbs: Breadcrumb }>
   ) {}
 
-  public onBack() {
-    this.location.back();
-  }
-
-  public toggleCvInfo(index: number): void {
-    this.isCvInfoHide = !this.isCvInfoHide;
-    this.currentCvId = index - 1;
-  }
-
   private breadcrumbHome: string;
   private breadcrumbEmployee: string;
   private breadcrumbInfo: string;
@@ -63,6 +54,21 @@ export class EmployeeAddProfileComponent implements OnInit {
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.onBreadcrumbsChange();
+  }
+
+  public onBack() {
+    this.location.back();
+  }
+
+  public toggleCvInfo(index: number): void {
+    if (this.currentCvId === index - 1) {
+      this.cvInfoHide = !this.cvInfoHide;
+    } else {
+      if (this.cvInfoHide) {
+        this.cvInfoHide = !this.cvInfoHide;
+      }
+    }
+    this.currentCvId = index - 1;
   }
 
   public addCv(): void {

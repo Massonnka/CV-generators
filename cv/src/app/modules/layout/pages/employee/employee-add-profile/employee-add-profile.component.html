@@ -15,24 +15,46 @@
       <div class="content-tabs-cv">
         <div class="content-tabs-cv-list">
           <app-list [bodyTemplate]="bodyRef" [data]="cves">
-            <ng-template #bodyRef let-data="$implicit" class="content-tabs-cv-list-item">
-              <div class="content-tabs-cv-list-item-content" (click)="toggleCvInfo(data.index)">
+            <ng-template
+              #bodyRef
+              let-data="$implicit"
+              class="content-tabs-cv-list-item"
+            >
+              <div
+                class="content-tabs-cv-list-item-content"
+                (click)="toggleCvInfo(data.index)"
+              >
                 {{ data.name }} {{ data.index }}
               </div>
-              <i nz-icon nzType="delete" nzTheme="outline" class="content-tabs-cv-list-item-icon"></i>
+              <i
+                nz-icon
+                nzType="delete"
+                nzTheme="outline"
+                class="content-tabs-cv-list-item-icon"
+              ></i>
             </ng-template>
           </app-list>
 
-          <app-default-button class="content-tabs-cv-list-button" (click)="addCv()">+</app-default-button>
+          <app-default-button
+            class="content-tabs-cv-list-button"
+            (click)="addCv()"
+            >+</app-default-button
+          >
         </div>
-        <div [ngClass]="
-            isCvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-form'
-          ">
+        <div
+          [ngClass]="
+            cvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-form'
+          "
+        >
           <app-form-cv></app-form-cv>
-          <app-primary-button (click)="addProject()">Add project
+          <app-primary-button (click)="addProject()" class="content-tabs-cv-button"
+            >Add project
           </app-primary-button>
           <nz-collapse class="projects-collapse">
-            <nz-collapse-panel *ngFor="let project of cves[currentCvId]?.projects" class="projects-collapse-panel">
+            <nz-collapse-panel
+              *ngFor="let project of cves[currentCvId]?.projects"
+              class="projects-collapse-panel"
+            >
               <app-form-project></app-form-project>
             </nz-collapse-panel>
           </nz-collapse>
