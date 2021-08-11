@@ -93,7 +93,7 @@ export class ProjectComponent implements OnInit {
             isDisabled: true,
           },
           {
-            url: '/layout/employee',
+            url: '/layout/project',
             name: this.breadcrumbProjects,
             isDisabled: true,
           },

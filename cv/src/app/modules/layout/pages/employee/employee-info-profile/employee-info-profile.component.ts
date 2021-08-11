@@ -66,18 +66,19 @@ export class EmployeeInfoProfileComponent implements OnInit {
       this.onBreadcrumbsChange();
     });
 
-    this.translateService
-      .get(['pages.home', 'pages.project', 'pages.info'])
-      .subscribe((translations) => {
-        this.breadcrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breadcrumbEmployee = this.translateService.instant(
-          translations['pages.project']
-        );
-      });
-
+    this.onLangChange();
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+  }
+
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.employee'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbEmployee =
+          this.translateService.instant('pages.employee');
+        this.onBreadcrumbsChange();
+      });
   }
 
   private onBreadcrumbsChange(): void {
@@ -96,7 +97,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
           },
           {
             url: '/layout/employee/info',
-            name: this.currentEmployee.firstName!,
+            name: this.currentEmployee?.firstName!,
             isDisabled: true,
           },
         ],

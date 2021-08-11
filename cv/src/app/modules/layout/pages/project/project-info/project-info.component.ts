@@ -18,11 +18,17 @@ import { TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
-  public projects$: Observable<Project>;
+  public project$: Observable<Project>;
   public projectId: string;
   public params = {
     id: '',
   };
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
+  public breadcrumbs: Breadcrumb[];
+
+  private breadcrumbHome: string;
+  private breadcrumbProjects: string;
   private currentProject: Project;
 
   constructor(
@@ -40,38 +46,23 @@ export class ProjectInfoComponent implements OnInit {
     this.location.back();
   }
 
-  public breadcrumbs$: Observable<Breadcrumb[]> =
-    this.store.select(selectBreadcrumb);
-  public breadcrumbs: Breadcrumb[];
-
-  private breadcrumbHome: string;
-  private breadcrumbProject: string;
-
   public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.projectId = value.project)
     );
+
     this.params.id = this.projectId;
-    this.projects$ = this.projectService.GetProjectById(
+    this.project$ = this.projectService.GetProjectById(
       this.projectId,
       this.params
     );
 
-    this.projects$.subscribe((value) => {
+    this.project$.subscribe((value) => {
       this.currentProject = value;
       this.onBreadcrumbsChange();
     });
 
-    this.translateService
-      .get(['pages.home', 'pages.project'])
-      .subscribe((translations) => {
-        this.breadcrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breadcrumbProject = this.translateService.instant(
-          translations['pages.project']
-        );
-      });
+    this.onLangChange();
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
   }
@@ -81,7 +72,7 @@ export class ProjectInfoComponent implements OnInit {
       return;
     }
     this.projectService.DeleteProject(project.id).subscribe(() => {
-      this.projects$ = this.projectService.GetProjectById(
+      this.project$ = this.projectService.GetProjectById(
         this.projectId,
         this.params
       );
@@ -98,6 +89,17 @@ export class ProjectInfoComponent implements OnInit {
     });
   }
 
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.projects'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbProjects =
+          this.translateService.instant('pages.project');
+        this.onBreadcrumbsChange();
+      });
+  }
+
   private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
@@ -109,12 +111,12 @@ export class ProjectInfoComponent implements OnInit {
           },
           {
             url: '/layout/project',
-            name: this.breadcrumbProject,
+            name: this.breadcrumbProjects,
             isDisabled: false,
           },
           {
-            url: '/layout/project/info',
-            name: this.currentProject.name!,
+            url: '/layout/project/id',
+            name: this.currentProject?.name!,
             isDisabled: true,
           },
         ],
