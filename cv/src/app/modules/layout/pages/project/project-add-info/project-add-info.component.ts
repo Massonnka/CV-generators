@@ -14,40 +14,43 @@ import { TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectAddInfoComponent implements OnInit {
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
+  public breadcrumbs: Breadcrumb[];
+
   constructor(
     private location: Location,
     private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
   ) {}
 
-  public onBack(): void {
-    this.location.back();
-  }
-
-  public breadcrumbs$: Observable<Breadcrumb[]> =
-    this.store.select(selectBreadcrumb);
-  public breadcrumbs: Breadcrumb[];
-
   private breadcrumbHome: string;
   private breadcrumbProject: string;
   private breadcrumbAddInfo: string;
 
   public ngOnInit(): void {
-    this.translateService
-      .get(['pages.home', 'pages.project', 'pages.info'])
-      .subscribe((translations) => {
-        this.breadcrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breadcrumbProject = this.translateService.instant(
-          translations['pages.project']
-        );
-        this.breadcrumbAddInfo = this.translateService.instant(
-          translations['pages.info']
-        );
-      });
+    this.onLangChange();
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+    this.onBreadcrumbsChange();
+  }
+
+  public onBack(): void {
+    this.location.back();
+  }
+
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.project', 'pages.info'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbProject = this.translateService.instant('pages.project');
+        this.breadcrumbAddInfo = this.translateService.instant('pages.info');
+        this.onBreadcrumbsChange();
+      });
+  }
+
+  private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
@@ -57,12 +60,12 @@ export class ProjectAddInfoComponent implements OnInit {
             isDisabled: true,
           },
           {
-            url: '/layout/project',
+            url: '/layout/employee',
             name: this.breadcrumbProject,
             isDisabled: false,
           },
           {
-            url: '/layout/project/addinfo',
+            url: '/layout/employee/info',
             name: this.breadcrumbAddInfo,
             isDisabled: true,
           },
