@@ -24,8 +24,8 @@
     "pages": {
         "home": "Home",
         "dashboard": "Dashboard",
-        "employee": "Employee",
-        "project": "Project",
+        "employee": "Employees",
+        "project": "Projects",
         "info": "Info"
     },
     "employee": {

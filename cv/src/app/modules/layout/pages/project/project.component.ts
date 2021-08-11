@@ -28,6 +28,12 @@ export class ProjectComponent implements OnInit {
   public projects$: Observable<Project[]>;
   public projects: Project[] = [];
   public isLoading = false;
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
+  public breadcrumbs: Breadcrumb[] = [];
+
+  private breadcrumbHome: string;
+  private breadcrumbProjects: string;
 
   constructor(
     private router: Router,
@@ -36,13 +42,6 @@ export class ProjectComponent implements OnInit {
     private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
   ) {}
-
-  public breadcrumbs$: Observable<Breadcrumb[]> =
-    this.store.select(selectBreadcrumb);
-  public breadcrumbs: Breadcrumb[] = [];
-
-  private breadcrumbHome: string;
-  private breadcrumbProjects: string;
 
   public ngOnInit(): void {
     this.isLoading = true;
@@ -54,34 +53,10 @@ export class ProjectComponent implements OnInit {
       this.cdRef.markForCheck();
     });
 
-    this.translateService
-      .get(['pages.home', 'pages.project'])
-      .subscribe((translations) => {
-        this.breadcrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breadcrumbProjects = this.translateService.instant(
-          translations['pages.project']
-        );
-      });
+    this.onLangChange();
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
-    this.store.dispatch(
-      setBreadcrumbs({
-        breadcrumbs: [
-          {
-            url: '/layout',
-            name: this.breadcrumbHome,
-            isDisabled: true,
-          },
-          {
-            url: '/layout/project',
-            name: this.breadcrumbProjects,
-            isDisabled: true,
-          },
-        ],
-      })
-    );
+    this.onBreadcrumbsChange();
   }
 
   public addItem(): void {
@@ -95,5 +70,35 @@ export class ProjectComponent implements OnInit {
     this.projectService.DeleteProject(project.id).subscribe(() => {
       this.projects$ = this.projectService.FoundAllProjects();
     });
+  }
+
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.projects'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbProjects =
+          this.translateService.instant('pages.project');
+        this.onBreadcrumbsChange();
+      });
+  }
+
+  private onBreadcrumbsChange(): void {
+    this.store.dispatch(
+      setBreadcrumbs({
+        breadcrumbs: [
+          {
+            url: '/layout',
+            name: this.breadcrumbHome,
+            isDisabled: true,
+          },
+          {
+            url: '/layout/employee',
+            name: this.breadcrumbProjects,
+            isDisabled: true,
+          },
+        ],
+      })
+    );
   }
 }

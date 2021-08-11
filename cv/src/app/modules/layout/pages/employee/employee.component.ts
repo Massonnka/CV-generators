@@ -1,3 +1,4 @@
+import { LowerCasePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -6,7 +7,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
@@ -34,8 +35,8 @@ export class EmployeeComponent implements OnInit {
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
   ) {}
 
-  private breacrumbHome: string;
-  private breacrumbEmployee: string;
+  private breadcrumbHome: string;
+  private breadcrumbEmployee: string;
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -51,39 +52,41 @@ export class EmployeeComponent implements OnInit {
       this.cdRef.markForCheck();
     });
 
-    this.translateService
-      .get(['pages.home', 'pages.employee'])
-      .subscribe((translations) => {
-        this.breacrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breacrumbEmployee = this.translateService.instant(
-          translations['pages.employee']
-        );
-      });
-
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+
+    this.onLangChange();
+    this.onBreadcrumbsChange();
+  }
+  public addItem(): void {
+    this.router.navigate(['/layout/employee/addinfo']);
+  }
+
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.employee'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbEmployee = this.translateService.instant('pages.employee');
+        this.onBreadcrumbsChange();
+      });
+  }
+
+  private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: this.breacrumbHome,
+            name: this.breadcrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/employee',
-            name: this.breacrumbEmployee,
+            name: this.breadcrumbEmployee,
             isDisabled: true,
           },
         ],
       })
     );
   }
-
-  public addItem(): void {
-    this.router.navigate(['/layout/employee/addinfo']);
-  }
 }
-
-
