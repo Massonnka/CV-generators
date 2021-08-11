@@ -10,6 +10,7 @@ import { SiderModule } from './sider/sider.module';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './components/layout.component';
 
+
 @NgModule({
   declarations: [LayoutComponent],
   imports: [
@@ -25,4 +26,4 @@ import { LayoutComponent } from './components/layout.component';
   ],
   exports: [LayoutComponent],
 })
-export class LayoutModule {}
+export class LayoutModule { }

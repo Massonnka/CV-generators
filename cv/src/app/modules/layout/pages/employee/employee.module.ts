@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
@@ -22,11 +23,17 @@ import { EmployeeAddProfileModule } from './employee-add-profile/employee-add-pr
 import { EmployeeInfoProfileModule } from './employee-info-profile/employee-info-profile.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchEmployeePipe } from 'src/app/shared/pipes/searchEmployee.pipe';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 @NgModule({
-  declarations: [EmployeeComponent],
+  declarations: [EmployeeComponent, SearchEmployeePipe],
   imports: [
     CommonModule,
+    HttpClientModule,
+    FormsModule,
     EmployeeRoutingModule,
     GlobalHeaderModule,
     NzBreadCrumbModule,
@@ -34,9 +41,11 @@ import { EmployeeComponent } from './employee.component';
     TranslateModule,
     PrimaryButtonModule,
     TableModule,
+    NzTableModule,
     BreadcrumbModule,
     EmployeeAddProfileModule,
     EmployeeInfoProfileModule,
+    NgxPaginationModule,
     RouterModule,
     SpinnerModule,
     StoreModule.forFeature(
@@ -46,4 +55,4 @@ import { EmployeeComponent } from './employee.component';
   ],
   exports: [EmployeeComponent],
 })
-export class EmployeeModule {}
+export class EmployeeModule { }

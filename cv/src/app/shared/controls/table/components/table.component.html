@@ -1,10 +1,10 @@
 <div class="table">
-  <nz-table #basicTable [nzData]="data" [nzPageSize]="8" [nzPageIndex]="1">
+  <nz-table #filterTable [nzData]="data" [nzFrontPagination]="false" [nzShowPagination]="false">
     <thead>
       <ng-container [ngTemplateOutlet]="headTemplate"></ng-container>
     </thead>
     <tbody>
-      <ng-container [ngTemplateOutlet]="bodyTemplate" [ngTemplateOutletContext]="{ $implicit: basicTable.data }">
+      <ng-container [ngTemplateOutlet]="bodyTemplate" [ngTemplateOutletContext]="{ $implicit: filterTable.data }">
       </ng-container>
     </tbody>
   </nz-table>

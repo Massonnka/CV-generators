@@ -5,33 +5,45 @@
   <p>{{ 'employee.employee-list' | translate }}</p>
 </div>
 <nz-content class="content">
+  <input type="search" [(ngModel)]="query" id="search-text">
   <div class="actions">
     <app-primary-button (click)="addItem()" class="add-button">
       <span>{{ 'employee.add-employee' | translate }}</span>
     </app-primary-button>
-    <input placeholder="Item name...">
   </div>
   <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="employees">
-    <ng-template #headRef>
-      <tr>
-        <th class="table-head">{{ 'table.firstname' | translate }}</th>
-        <th class="table-head">{{ 'table.lastname' | translate }}</th>
-        <th class="table-head">{{ 'table.email' | translate }}</th>
-        <th class="table-head">{{ 'table.department' | translate }}</th>
-        <th class="table-head">{{ 'table.specialization' | translate }}</th>
-      </tr>
-    </ng-template>
-    <ng-template #bodyRef let-data="$implicit">
-      <tr *ngFor="let employee of data" class="table-row" [routerLink]="employee.id">
-        <td>{{ employee.firstName }}</td>
-        <td>{{ employee.lastName }}</td>
-        <td>{{ employee.email }}</td>
-        <td>{{ employee.department }}</td>
-        <td>{{ employee.specialization }}</td>
-      </tr>
-    </ng-template>
   </app-table>
+  <div class="pag">
+    <pagination-controls [responsive]="true" previousLabel="Prev" nextLabel="Next"
+      (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+  </div>
   <ng-template #loading>
     <app-spinner></app-spinner>
   </ng-template>
 </nz-content>
+
+<ng-template #headRef>
+  <tr>
+    <th class="table-head" [nzSortFn]="sortFirst">{{ 'table.firstname' | translate }}</th>
+    <th class="table-head" [nzSortFn]="sortLast">{{ 'table.lastname' | translate }}</th>
+    <th class="table-head" [nzSortFn]="sortEmail">{{ 'table.email' | translate }}</th>
+    <th class="table-head" [nzSortFn]="sortDepartment">{{ 'table.department' | translate }}</th>
+    <th class="table-head" [nzSortFn]="sortSpecialization">{{ 'table.specialization' | translate }}</th>
+  </tr>
+</ng-template>
+<ng-template #bodyRef let-data="$implicit">
+  <tr *ngFor="let employee of data | 
+              search:'firstName,lastName,email,department,specialization':query | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index" class="table-row" class.active="i == currentIndex" [routerLink]="employee.id">
+    <td>{{ employee.firstName }}</td>
+    <td>{{ employee.lastName }}</td>
+    <td>{{ employee.email }}</td>
+    <td>{{ employee.department }}</td>
+    <td>{{ employee.specialization }}</td>
+  </tr>
+</ng-template>
