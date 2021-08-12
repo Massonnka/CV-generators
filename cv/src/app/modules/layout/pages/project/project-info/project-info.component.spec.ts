@@ -1,15 +1,33 @@
+import { of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
-import { I18nModule } from 'src/app/i18n.module';
 import { ProjectInfoComponent } from './project-info.component';
 import { provideMockStore } from '@ngrx/store/testing';
-import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
+import { ProjectService } from 'src/app/core/services/project.service';
+import { Pipe, PipeTransform } from '@angular/core';
+
+const MOCK_PROJECT = {
+  id: 'project-id',
+  name: 'project-name',
+  startDate: '01-01-2000',
+  endDate: '01-01-2010',
+  teamSize: 10
+};
+
+@Pipe({ name: 'translate' })
+class MockTranslatePipe implements PipeTransform {
+  transform(): any {
+    return 'test-translation';
+  }
+}
 
 describe('ProjectInfoComponent', () => {
   let component: ProjectInfoComponent;
   let fixture: ComponentFixture<ProjectInfoComponent>;
+  const fakeTranslateService = jasmine.createSpyObj('TranslateService', ['instant', 'get']);
+  const fakeProjectService = jasmine.createSpyObj('ProjectService', ['GetProjectById']);
 
   beforeEach(async () => {
     const initialState = {
@@ -23,23 +41,29 @@ describe('ProjectInfoComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientModule,
-        I18nModule,
-        BreadcrumbModule
       ],
       providers: [
-        TranslateService,
+        { provide: TranslateService, useValue: fakeTranslateService },
+        { provide: ProjectService, useValue: fakeProjectService },
         provideMockStore({ initialState })
       ],
-      declarations: [ProjectInfoComponent]
+      declarations: [
+        ProjectInfoComponent,
+        MockTranslatePipe
+      ]
     })
       .compileComponents();
   });
 
-  beforeEach(() => {
+  beforeEach(waitForAsync(() => {
+    fakeProjectService.GetProjectById.and.returnValue(of(MOCK_PROJECT));
+    fakeTranslateService.instant.and.returnValue('test-translation');
+    fakeTranslateService.get.and.returnValue(of('test-translation'));
+
     fixture = TestBed.createComponent(ProjectInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

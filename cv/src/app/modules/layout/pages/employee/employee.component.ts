@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { NzTableSortFn } from 'ng-zorro-antd/table';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -105,6 +105,5 @@ export class EmployeeComponent implements OnInit {
   public addItem(): void {
     this.router.navigate(['/layout/employee/addinfo']);
   }
+
 }
-
-
