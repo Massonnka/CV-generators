@@ -25,15 +25,16 @@
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-        <app-input type="password" [placeholder]="'placeholder.Input your confirm password!' | translate"
-            label="profile.confirm-pass" formControlName="checkPassword" [errorMessages]="{
+        <app-input id="confirmpass" type="password"
+            [placeholder]="'placeholder.Input your confirm password!' | translate" label="profile.confirm-pass"
+            formControlName="checkPassword" [errorMessages]="{
         required: 'validator.confirmpass' | translate,
         inconsistent: 'Two passwords that you enter is inconsistent!'
       }">
         </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-        <app-input [placeholder]="'placeholder.Input your email!' | translate" label="form.email" id="email"
+        <app-input id="email" [placeholder]="'placeholder.Input your email!' | translate" label="form.email" id="email"
             formControlName="email" [errorMessages]="{ 
                 required: 'validator.required' | translate, 
                 email: 'validator.email' | translate 
