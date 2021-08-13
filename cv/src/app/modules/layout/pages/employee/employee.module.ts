@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { NgxPaginationModule, PaginatePipe } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import {
   breadcrumbReducer,
@@ -48,7 +48,7 @@ import { EmployeeComponent } from './employee.component';
     RouterModule,
     SpinnerModule,
     NgxPaginationModule,
-    PaginatePipe,
+    // PaginatePipe,
     StoreModule.forFeature(
       breadcrumbsFeatureKey || employeeFeatureKey,
       breadcrumbReducer || employeeReducer

@@ -55,13 +55,7 @@
   <tr
     *ngFor="
       let employee of data
-        | search: 'firstName,lastName,email,department,specialization':query
-        | paginate
-          : {
-              itemsPerPage: tableSize,
-              currentPage: page,
-              totalItems: count
-            };
+        | search: 'firstName,lastName,email,department,specialization':query;
       let i = index
     "
     class="table-row"
