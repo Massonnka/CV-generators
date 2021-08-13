@@ -1,7 +1,14 @@
 import { HttpClientModule } from '@angular/common/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, StoreModule } from '@ngrx/store';
+import {
+  ActionsSubject,
+  ReducerManager,
+  ReducerManagerDispatcher,
+  StateObservable,
+  StoreModule,
+} from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
 import { ProjectComponent } from './project.component';
@@ -16,18 +23,18 @@ describe('ProjectComponent', () => {
         RouterTestingModule,
         HttpClientModule,
         I18nModule,
-        StoreModule.forRoot({})
+        StoreModule.forRoot({}),
       ],
       providers: [
         TranslateService,
         StateObservable,
         ActionsSubject,
         ReducerManager,
-        ReducerManagerDispatcher
+        ReducerManagerDispatcher,
       ],
-      declarations: [ProjectComponent]
-    })
-      .compileComponents();
+      declarations: [ProjectComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

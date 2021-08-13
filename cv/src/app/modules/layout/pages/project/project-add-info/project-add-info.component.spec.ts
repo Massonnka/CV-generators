@@ -7,6 +7,7 @@ import { I18nModule } from 'src/app/i18n.module';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import { ProjectAddInfoComponent } from './project-add-info.component';
 import { provideMockStore } from '@ngrx/store/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ProjectInfoComponent', () => {
   let component: ProjectAddInfoComponent;
@@ -18,22 +19,19 @@ describe('ProjectInfoComponent', () => {
         url: '',
         name: '',
         isDisabled: false,
-      }
+      },
     };
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         HttpClientModule,
         I18nModule,
-        BreadcrumbModule
+        BreadcrumbModule,
       ],
-      providers: [
-        TranslateService,
-        provideMockStore({ initialState })
-      ],
-      declarations: [ProjectAddInfoComponent]
-    })
-      .compileComponents();
+      providers: [TranslateService, provideMockStore({ initialState })],
+      declarations: [ProjectAddInfoComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

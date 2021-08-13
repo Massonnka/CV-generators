@@ -1,10 +1,16 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, StoreModule } from '@ngrx/store';
+import {
+  ActionsSubject,
+  ReducerManager,
+  ReducerManagerDispatcher,
+  StateObservable,
+  StoreModule,
+} from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
-
 import { EmployeeAddProfileComponent } from './employee-add-profile.component';
 
 describe('EmployeeAddProfileComponent', () => {
@@ -17,18 +23,18 @@ describe('EmployeeAddProfileComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         I18nModule,
-        StoreModule.forRoot({})
+        StoreModule.forRoot({}),
       ],
       providers: [
         TranslateService,
         StateObservable,
         ActionsSubject,
         ReducerManager,
-        ReducerManagerDispatcher
+        ReducerManagerDispatcher,
       ],
-      declarations: [EmployeeAddProfileComponent]
-    })
-      .compileComponents();
+      declarations: [EmployeeAddProfileComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

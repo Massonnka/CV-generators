@@ -16,6 +16,7 @@ import { Project } from 'src/app/core/interfaces/project.interface';
 import { TranslateService } from '@ngx-translate/core';
 
 import * as ProjectsActions from './../../../../store/projects/projects.actions';
+
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -34,6 +35,10 @@ export class ProjectComponent implements OnInit {
 
   private breadcrumbHome: string;
   private breadcrumbProjects: string;
+  public query: string = '';
+  public page: number = 1;
+  public count: number = 0;
+  public tableSize: number = 8;
 
   constructor(
     private router: Router,
@@ -45,31 +50,12 @@ export class ProjectComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isLoading = true;
-
-    this.projectService.FoundAllProjects().subscribe((value) => {
-      this.store.dispatch(ProjectsActions.setProjects({ projects: value }));
-      this.projects = value;
-      this.isLoading = false;
-      this.cdRef.markForCheck();
-    });
+    this.fetchPosts();
 
     this.onLangChange();
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
     this.onBreadcrumbsChange();
-  }
-
-  public addItem(): void {
-    this.router.navigate(['/layout/project/addinfo']);
-  }
-
-  public deleteItem(project: Project) {
-    if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
-      return;
-    }
-    this.projectService.DeleteProject(project.id).subscribe(() => {
-      this.projects$ = this.projectService.FoundAllProjects();
-    });
   }
 
   private onLangChange() {
@@ -100,5 +86,32 @@ export class ProjectComponent implements OnInit {
         ],
       })
     );
+  }
+
+  public fetchPosts(): void {
+    this.projectService.FoundAllProjects().subscribe((value) => {
+      this.store.dispatch(ProjectsActions.setProjects({ projects: value }));
+      this.projects = value;
+      this.isLoading = false;
+      this.cdRef.markForCheck();
+    });
+  }
+
+  public addItem(): void {
+    this.router.navigate(['/layout/project/addinfo']);
+  }
+
+  public onTableDataChange(event: any) {
+    this.page = event;
+    this.fetchPosts();
+  }
+
+  public deleteItem(project: Project) {
+    if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
+      return;
+    }
+    this.projectService.DeleteProject(project.id).subscribe(() => {
+      this.projects$ = this.projectService.FoundAllProjects();
+    });
   }
 }

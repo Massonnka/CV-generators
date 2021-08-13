@@ -1,5 +1,5 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CircleButtonComponent } from './circle-button.component';
 
 describe('CircleButtonComponent', () => {
@@ -8,9 +8,9 @@ describe('CircleButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CircleButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [CircleButtonComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

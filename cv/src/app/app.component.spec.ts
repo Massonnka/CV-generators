@@ -1,7 +1,14 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActionsSubject, ReducerManager, ReducerManagerDispatcher, StateObservable, StoreModule } from '@ngrx/store';
+import {
+  ActionsSubject,
+  ReducerManager,
+  ReducerManagerDispatcher,
+  StateObservable,
+  StoreModule,
+} from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
@@ -26,7 +33,7 @@ describe('AppComponent', () => {
         StoreDevtoolsModule.instrument({
           maxAge: 25,
           logOnly: environment.production,
-        })
+        }),
       ],
       providers: [
         TranslateService,
@@ -35,9 +42,8 @@ describe('AppComponent', () => {
         ReducerManager,
         ReducerManagerDispatcher,
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
@@ -46,5 +52,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
 });

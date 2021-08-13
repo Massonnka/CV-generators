@@ -1,13 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
-import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
-
 import { FormCvComponent } from './form-cv.component';
 
 describe('FormCvComponent', () => {
@@ -23,13 +21,10 @@ describe('FormCvComponent', () => {
         I18nModule,
         HttpClientModule,
       ],
-      providers: [
-        FormBuilder,
-        TranslateService
-      ],
-      declarations: [FormCvComponent]
-    })
-      .compileComponents();
+      providers: [FormBuilder, TranslateService],
+      declarations: [FormCvComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

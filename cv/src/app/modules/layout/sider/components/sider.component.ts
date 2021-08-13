@@ -20,7 +20,7 @@ import { selectSidebar } from './../../../../store/sidebar/sidebar.selectors';
 export class SiderComponent implements OnInit {
   @Output() public changeTheme = new EventEmitter();
 
-  constructor(private store: Store<{ toggle: boolean; theme: string }>) {}
+  constructor(private store: Store<{ toggle: boolean; theme: string }>) { }
 
   public isVisible$: Observable<boolean> = this.store.select(selectSidebar);
   public isVisible: boolean = true;
@@ -47,4 +47,5 @@ export class SiderComponent implements OnInit {
   public onChangeState(): void {
     this.store.dispatch(toggleSidebar());
   }
+
 }
