@@ -9,23 +9,23 @@ import { Employee } from "../interfaces/employees.interface";
 export class EmployeeService {
     constructor(private http: HttpClient) { }
 
-    public FoundAllEmployees(): Observable<Employee[]> {
+    public foundAllEmployees(): Observable<Employee[]> {
         return this.http.get<Employee[]>(`${endpointmock}/cv`);
     }
 
-    public GetEmployeeById(id: any): Observable<Employee> {
+    public getEmployeeById(id: any): Observable<Employee> {
         return this.http.get<Employee>(`${endpointmock}/cv/${id}`);
     }
 
-    public AddEmployee(employee: Employee): Observable<Employee> {
+    public addEmployee(employee: Employee): Observable<Employee> {
         return this.http.post<Employee>(`${endpointmock}/cv`, employee);
     }
 
-    public UpdateEmployee(employee: Employee): Observable<Employee> {
+    public updateEmployee(employee: Employee): Observable<Employee> {
         return this.http.put<Employee>(`${endpointmock}/cv/${employee.id}`, employee);
     }
 
-    public DeleteEmployee(id: any): Observable<any> {
+    public deleteEmployee(id: any): Observable<any> {
         return this.http.delete<any>(`${endpointmock}/cv/${id}`);
     }
 

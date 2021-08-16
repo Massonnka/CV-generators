@@ -67,7 +67,7 @@ export class FormCvComponent implements OnInit {
     if (this.isEditMode) {
       employee.id = this.employee.id;
 
-      this.employeeService.UpdateEmployee(employee).subscribe(
+      this.employeeService.updateEmployee(employee).subscribe(
         () => {
           this.validateForm.reset();
           this.router.navigate(['/layout/employee']);
@@ -79,7 +79,7 @@ export class FormCvComponent implements OnInit {
         }
       );
     } else {
-      this.employeeService.AddEmployee(employee).subscribe(
+      this.employeeService.addEmployee(employee).subscribe(
         () => {
           this.validateForm.reset();
           this.router.navigate(['/layout/employee']);

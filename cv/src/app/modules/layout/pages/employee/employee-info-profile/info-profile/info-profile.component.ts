@@ -37,7 +37,7 @@ export class InfoProfileComponent implements OnInit {
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.employeeId = value.user)
     );
-    this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
+    this.employee$ = this.employeeService.getEmployeeById(this.employeeId);
     localStorage.setItem('employee-id', this.employeeId);
     id.unsubscribe();
   }
@@ -53,13 +53,13 @@ export class InfoProfileComponent implements OnInit {
   }
 
   public deleteItem(employee: Employee): void {
-    this.employees$ = this.employeeService.FoundAllEmployees();
+    this.employees$ = this.employeeService.foundAllEmployees();
 
     if (!confirm(`Are you sure you want to delete ${employee.firstName} ?`)) {
       return;
     }
-    this.employeeService.DeleteEmployee(employee.id).subscribe(() => {
-      this.employees$ = this.employeeService.FoundAllEmployees();
+    this.employeeService.deleteEmployee(employee.id).subscribe(() => {
+      this.employees$ = this.employeeService.foundAllEmployees();
     });
     this.router.navigate(['/layout/employee']);
   }

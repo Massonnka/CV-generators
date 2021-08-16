@@ -13,11 +13,6 @@
   </div>
   <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="employees">
   </app-table>
-  <div class="pag">
-    <pagination-controls [responsive]="true" previousLabel="Prev" nextLabel="Next"
-      (pageChange)="onTableDataChange($event)">
-    </pagination-controls>
-  </div>
   <ng-template #loading>
     <app-spinner></app-spinner>
   </ng-template>
@@ -34,12 +29,8 @@
 </ng-template>
 <ng-template #bodyRef let-data="$implicit">
   <tr *ngFor="let employee of data | 
-              search:'firstName,lastName,email,department,specialization':query | paginate : {
-                itemsPerPage: tableSize,
-                currentPage: page,
-                totalItems: count
-              };
-        let i = index" class="table-row" class.active="i == currentIndex" [routerLink]="employee.id">
+              search:'firstName,lastName,email,department,specialization':query" class="table-row"
+    [routerLink]="employee.id">
     <td>{{ employee.firstName }}</td>
     <td>{{ employee.lastName }}</td>
     <td>{{ employee.email }}</td>

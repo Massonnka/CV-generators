@@ -27,8 +27,8 @@ export class EmployeeAddProfileComponent implements OnInit {
         skills: '',
         specialization: '',
         department: '',
+        projects: [],
       },
-      projects: [],
     },
   ];
 
@@ -39,7 +39,7 @@ export class EmployeeAddProfileComponent implements OnInit {
     private location: Location,
     private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb }>
-  ) {}
+  ) { }
 
   private breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -109,8 +109,8 @@ export class EmployeeAddProfileComponent implements OnInit {
           skills: '',
           specialization: '',
           department: '',
+          projects: [],
         },
-        projects: [],
       },
     ];
   }

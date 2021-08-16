@@ -60,7 +60,7 @@ export class FormProjectComponent implements OnInit {
     };
     if (this.isEditMode) {
       project.id = this.project.id;
-      this.projectService.UpdateProject(project).subscribe(
+      this.projectService.updateProject(project).subscribe(
         () => {
           this.validateForm.reset();
           this.router.navigate(['/layout/project']);
@@ -72,7 +72,7 @@ export class FormProjectComponent implements OnInit {
         }
       );
     } else {
-      this.projectService.AddProject(project).subscribe(
+      this.projectService.addProject(project).subscribe(
         () => {
           this.validateForm.reset();
           this.router.navigate(['/layout/project']);

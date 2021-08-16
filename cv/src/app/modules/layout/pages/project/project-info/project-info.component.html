@@ -10,13 +10,8 @@
   </div>
 </div>
 <nz-content *ngIf="projects$ | async as projects" class="content">
-  <nz-descriptions
-    nzTitle="{{ 'form.project-info' | translate }}"
-    nzBordered
-    nzLayout="vertical"
-    [nzExtra]="extraTpl"
-    class="content-descriptions"
-  >
+  <nz-descriptions nzTitle="{{ 'form.project-info' | translate }}" nzBordered nzLayout="vertical" [nzExtra]="extraTpl"
+    class="content-descriptions">
     <nz-descriptions-item nzTitle="{{ 'form.name' | translate }}">
       {{ projects.name }}
     </nz-descriptions-item>
@@ -29,18 +24,12 @@
     <nz-descriptions-item nzTitle="{{ 'form.team-size' | translate }}">
       {{ projects.teamSize }}
     </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="{{ 'form.tech-stack' | translate }}"
-      >Angular</nz-descriptions-item
-    >
-    <nz-descriptions-item nzTitle="{{ 'form.roles' | translate }}"
-      >React</nz-descriptions-item
-    >
-    <nz-descriptions-item nzTitle="{{ 'form.description' | translate }}"
-      >blalbalblalblalbalblalbalblalbalbl
+    <nz-descriptions-item nzTitle="{{ 'form.tech-stack' | translate }}">Angular</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="{{ 'form.roles' | translate }}">React</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="{{ 'form.description' | translate }}">blalbalblalblalbalblalbalblalbalbl
     </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="{{ 'form.responsibilities' | translate }}">
-      blablalblablalblalbblalbalbaxa</nz-descriptions-item
-    >
+    <nz-descriptions-item nzTitle="{{ 'form.responsibilities' | translate }}">blablalblablalblalbblalbalbaxa
+    </nz-descriptions-item>
     <ng-template class="buttons" #extraTpl>
       <app-default-button (click)="onBack()" nz-button>
         {{ "form.cancel" | translate }}

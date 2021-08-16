@@ -1,5 +1,5 @@
 <div class="table">
-  <nz-table #filterTable [nzData]="data" [nzFrontPagination]="false" [nzShowPagination]="false">
+  <nz-table #filterTable [nzData]="data" [nzPageSize]="8" [nzPageIndex]="page">
     <thead>
       <ng-container [ngTemplateOutlet]="headTemplate"></ng-container>
     </thead>
