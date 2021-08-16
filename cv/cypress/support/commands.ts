@@ -59,6 +59,51 @@ function signup(firstname: string,
 }
 
 Cypress.Commands.add('signup', signup);
+
+declare namespace Cypress {
+    interface Chainable<Subject = any> {
+        editEmployee(
+            firstname: string,
+            lastname: string,
+            email: string,
+            specialization: string,
+            department: string,
+        ): typeof editEmployee;
+    }
+}
+
+function editEmployee(
+    firstname: string,
+    lastname: string,
+    email: string,
+    specialization: string,
+    department: string
+): void {
+    cy.write('app-input #firstname', firstname);
+    cy.write('app-input #lastname', lastname);
+    cy.write('app-autocomplete #email', email);
+    cy.write('app-autocomplete #specialization', specialization);
+    cy.write('app-autocomplete #department', department);
+    cy.get('button[type="submit"]').click();
+}
+
+Cypress.Commands.add('editEmployee', editEmployee);
+
+declare namespace Cypress {
+    interface Chainable<Subject = any> {
+        clearEmployee(): typeof clearEmployee;
+    }
+}
+
+function clearEmployee(): void {
+    cy.get('app-input #firstname').clear;
+    cy.get('app-input #lastname').clear;
+    cy.get('app-autocomplete #email').clear;
+    cy.get('app-autocomplete #specialization').clear;
+    cy.get('app-autocomplete #department').clear;
+}
+
+Cypress.Commands.add('clearEmployee', clearEmployee);
 //
 // ***********************************************
 // This example commands.js shows you how to
