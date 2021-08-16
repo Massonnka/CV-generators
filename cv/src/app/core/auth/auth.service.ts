@@ -21,7 +21,7 @@ export class AuthService {
   public error$: Subject<string> = new Subject<string>();
   public headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   public signUp(user: RegisterUser): Observable<any> {
     let api = `${endpoint}/user/register`;
@@ -58,20 +58,6 @@ export class AuthService {
   }
 
   public handleError(error: HttpErrorResponse) {
-    const { message } = error.error.error;
-
-    switch (message) {
-      case 'INVALID_EMAIL':
-        this.error$.next('Wrong email');
-        break;
-      case 'INVALID_PASSWORD':
-        this.error$.next('Wrong password');
-        break;
-      case 'EMAIL_NOT_FOUND':
-        this.error$.next('Nonexistent email');
-        break;
-    }
-
     return throwError(error);
   }
 
@@ -80,7 +66,7 @@ export class AuthService {
     localStorage.setItem('user-lastName', response.lastName);
     localStorage.setItem('user-email', response.email);
     localStorage.setItem('user-specialization', response.specialization);
-    localStorage.setItem('user-date-reg', response.createdAt)
+    localStorage.setItem('user-date-reg', response.createdAt);
   }
 
   private setToken(response: FbAuthResponse | null) {

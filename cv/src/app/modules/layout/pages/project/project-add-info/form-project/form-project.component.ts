@@ -20,7 +20,7 @@ export class FormProjectComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private projectService: ProjectService
-  ) { }
+  ) {}
 
   public ngOnInit(): void {
     const options = history.state.options;
@@ -37,15 +37,45 @@ export class FormProjectComponent implements OnInit {
       responsibilities: ['', [Validators.required, Validators.minLength(8)]],
     });
     if (this.project) {
-      this.validateForm.get("name")?.setValue(this.project.name);
-      this.validateForm.get("startDate")?.setValue(this.project.startDate);
-      this.validateForm.get("endDate")?.setValue(this.project.endDate);
-      this.validateForm.get("teamSize")?.setValue(this.project.teamSize);
+      this.validateForm.get('name')?.setValue(this.project.name);
+      this.validateForm.get('startDate')?.setValue(this.project.startDate);
+      this.validateForm.get('endDate')?.setValue(this.project.endDate);
+      this.validateForm.get('teamSize')?.setValue(this.project.teamSize);
       this.isEditMode = true;
     }
   }
 
-  public submit() {
+  private updateProject(project: Project): void {
+    project.id = this.project.id;
+    this.projectService.UpdateProject(project).subscribe(
+      () => {
+        this.validateForm.reset();
+        this.router.navigate(['/layout/project']);
+        this.submitted = false;
+      },
+      () => {
+        this.submitted = false;
+        this.isEditMode = false;
+      }
+    );
+  }
+
+  private addProject(project: Project): void {
+    this.projectService.AddProject(project).subscribe(
+      () => {
+        this.validateForm.reset();
+        this.router.navigate(['/layout/project']);
+        this.submitted = false;
+        console.log(1);
+      },
+      () => {
+        console.log(2);
+        this.submitted = false;
+      }
+    );
+  }
+
+  public submit(): void {
     if (this.validateForm.invalid) {
       return;
     }
@@ -59,29 +89,9 @@ export class FormProjectComponent implements OnInit {
       teamSize: this.validateForm.value.teamSize,
     };
     if (this.isEditMode) {
-      project.id = this.project.id;
-      this.projectService.UpdateProject(project).subscribe(
-        () => {
-          this.validateForm.reset();
-          this.router.navigate(['/layout/project']);
-          this.submitted = false;
-        },
-        () => {
-          this.submitted = false;
-          this.isEditMode = false;
-        }
-      );
+      this.updateProject(project);
     } else {
-      this.projectService.AddProject(project).subscribe(
-        () => {
-          this.validateForm.reset();
-          this.router.navigate(['/layout/project']);
-          this.submitted = false;
-        },
-        () => {
-          this.submitted = false;
-        }
-      );
+      this.addProject(project);
     }
   }
 }

@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +28,8 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "e2e": "0.0.8",
+    "jquery": "^3.6.0",
+    "jspdf": "^2.3.1",
     "ng-zorro-antd": "^12.0.1",
     "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
@@ -41,7 +45,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@cypress/schematic": "^1.5.0",
     "@types/jasmine": "~3.6.0",
-    "@types/node": "^12.20.19",
+    "@types/node": "^12.11.1",
     "cypress": "8.2.0",
     "jasmine": "^3.8.0",
     "jasmine-browser-runner": "^0.7.0",

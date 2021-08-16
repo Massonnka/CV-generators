@@ -12,7 +12,7 @@
     </app-input>
   </nz-form-item>
   <nz-form-item class="inputs">
-    <app-input [nzSuffix]="suffix" [type]="passwordVisible ? 'text' : 'password'" icon="lock"
+    <app-input [nzSuffix]="suffix" id="password" [type]="passwordVisible ? 'text' : 'password'" icon="lock"
       [placeholder]="'placeholder.Input your password!' | translate" label="profile.password" formControlName="password"
       [errorMessages]="{ 
                 required: 'validator.required' | translate, 
@@ -26,7 +26,7 @@
   </nz-form-item>
   <div nz-row class="login-form-margin">
     <div nz-col [nzSpan]="12">
-      <label nz-checkbox formControlName="remember">
+      <label id="checkbox" nz-checkbox formControlName="remember">
         <span class="checkbox">{{ "auth.remember-me" | translate }}</span>
       </label>
     </div>
