@@ -96,11 +96,11 @@ declare namespace Cypress {
 }
 
 function clearEmployee(): void {
-    cy.get('app-input #firstname').clear;
-    cy.get('app-input #lastname').clear;
-    cy.get('app-autocomplete #email').clear;
-    cy.get('app-autocomplete #specialization').clear;
-    cy.get('app-autocomplete #department').clear;
+    cy.get('app-input #firstname').clear();
+    cy.get('app-input #lastname').clear();
+    cy.get('app-autocomplete #email').clear();
+    cy.get('app-autocomplete #specialization').clear();
+    cy.get('app-autocomplete #department').clear();
 }
 
 Cypress.Commands.add('clearEmployee', clearEmployee);

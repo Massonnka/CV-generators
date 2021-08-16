@@ -45,7 +45,7 @@
   </div>
   <div nz-row>
     <div nz-col [nzSpan]="24" class="search-area">
-      <button nz-button [disabled]="validateForm.invalid || submitted" [nzType]="'primary'">
+      <button type="submit" nz-button [disabled]="validateForm.invalid || submitted" [nzType]="'primary'">
         {{ "form.save" | translate }}
       </button>
       <ng-content></ng-content>
