@@ -4,6 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs/internal/observable/of';
@@ -23,6 +24,7 @@ describe('FormProjectComponent', () => {
     endDate: '16.08.2021',
     teamSize: 3,
   };
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -48,6 +50,9 @@ describe('FormProjectComponent', () => {
       declarations: [FormProjectComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
+
+    router = TestBed.inject(Router);
+    const navigateSpy = spyOn(router, 'navigate');
   });
 
   beforeEach(() => {
@@ -81,19 +86,6 @@ describe('FormProjectComponent', () => {
       ],
     });
     fixture.detectChanges();
-
-    // // projectService.AddProject(mockProject).subscribe(() => {
-    // //   expect(component.validateForm.value).toEqual({
-    // //     name: null,
-    // //     startDate: null,
-    // //     endDate: null,
-    // //     teamSize: null,
-    // //     techStack: null,
-    // //     roles: null,
-    // //     description: null,
-    // //     responsibilities: null,
-    // //   });
-    // // });
   });
 
   it('should add project', () => {
@@ -131,13 +123,16 @@ describe('FormProjectComponent', () => {
   });
 
   xit('should get project data', () => {
+    component.project = mockProject;
     component.ngOnInit();
 
+    fixture.detectChanges();
+
     expect(component.validateForm.value).toEqual({
-      name: mockProject.name,
-      startDate: mockProject.startDate,
-      endDate: mockProject.endDate,
-      teamSize: mockProject.teamSize,
+      name: component.project.name,
+      startDate: component.project.startDate,
+      endDate: component.project.endDate,
+      teamSize: component.project.teamSize,
       techStack: '',
       roles: '',
       description: '',

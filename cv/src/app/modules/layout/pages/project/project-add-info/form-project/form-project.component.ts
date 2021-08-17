@@ -66,10 +66,8 @@ export class FormProjectComponent implements OnInit {
         this.validateForm.reset();
         this.router.navigate(['/layout/project']);
         this.submitted = false;
-        console.log(1);
       },
       () => {
-        console.log(2);
         this.submitted = false;
       }
     );
