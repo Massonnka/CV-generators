@@ -99,6 +99,7 @@ describe('FormCvComponent', () => {
   });
 
   it('should return undefined if form is invalid', () => {
+    component.submit();
     expect(component.submit()).toBeUndefined();
   });
 
@@ -186,7 +187,7 @@ describe('FormCvComponent', () => {
 
     expect(component.validateForm.value).toEqual({
       email: component.employee.cv?.email,
-      lastname: component.employee.cv?.lastName,
+      lastName: component.employee.cv?.lastName,
       skills: component.employee.cv?.skills,
       specialization: component.employee.cv?.specialization,
       department: component.employee.cv?.department,
