@@ -1,7 +1,7 @@
 :host {
   background-color: var(--background-color);
   width: 100%;
-  overflow: auto;
+  overflow:scroll;
   ::ng-deep .ant-tabs-content {
     height: 100%;
   }
