@@ -6,27 +6,27 @@ import { Project } from '../interfaces/project.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  public FoundAllProjects(): Observable<Project[]> {
+  public foundAllProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(`${endpoint}/project`);
   }
 
-  public GetProjectById(id: any, params: any): Observable<Project> {
+  public getProjectById(id: any, params: any): Observable<Project> {
     return this.http.get<Project>(`${endpoint}/project/${id}`, {
       params: params,
     });
   }
 
-  public AddProject(Project: Project): Observable<Project> {
+  public addProject(Project: Project): Observable<Project> {
     return this.http.post<Project>(`${endpoint}/project`, Project);
   }
 
-  public UpdateProject(Project: Project): Observable<Project> {
+  public updateProject(Project: Project): Observable<Project> {
     return this.http.put<Project>(`${endpoint}/project/${Project.id}`, Project);
   }
 
-  public DeleteProject(id: any): Observable<any> {
+  public deleteProject(id: any): Observable<any> {
     return this.http.delete<any>(`${endpoint}/project/${id}`);
   }
 }

@@ -22,12 +22,12 @@ export class AppComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private store: Store
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
-    this.translateService.setDefaultLang(
-      environment.localization.defaultLanguage
-    );
+    // this.translateService.setDefaultLang(
+    //    environment.localization.defaultLanguage
+    // );
     this.initThemeListener();
   }
 

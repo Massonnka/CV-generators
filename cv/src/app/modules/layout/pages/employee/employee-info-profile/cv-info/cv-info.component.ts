@@ -33,7 +33,7 @@ export class CvInfoComponent implements OnInit {
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.employeeId = value.user)
     );
-    this.employees$ = this.employeeService.GetEmployeeById(this.employeeId);
+    this.employees$ = this.employeeService.getEmployeeById(this.employeeId);
     this.employees$.subscribe((value) => {
       this.employeeCves = value.cv;
       this.cdRef.markForCheck();
@@ -49,8 +49,8 @@ export class CvInfoComponent implements OnInit {
       state: {
         options: {
           employee,
-        },
-      },
+        }
+      }
     });
   }
 }

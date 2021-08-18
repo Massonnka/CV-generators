@@ -40,7 +40,7 @@ export class ProjectInfoComponent implements OnInit {
     private store: Store<{
       breadcrumbs: Breadcrumb[];
     }>
-  ) {}
+  ) { }
 
   public onBack(): void {
     this.location.back();
@@ -52,7 +52,7 @@ export class ProjectInfoComponent implements OnInit {
     );
 
     this.params.id = this.projectId;
-    this.project$ = this.projectService.GetProjectById(
+    this.project$ = this.projectService.getProjectById(
       this.projectId,
       this.params
     );
@@ -71,8 +71,8 @@ export class ProjectInfoComponent implements OnInit {
     if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
       return;
     }
-    this.projectService.DeleteProject(project.id).subscribe(() => {
-      this.project$ = this.projectService.GetProjectById(
+    this.projectService.deleteProject(project.id).subscribe(() => {
+      this.project$ = this.projectService.getProjectById(
         this.projectId,
         this.params
       );

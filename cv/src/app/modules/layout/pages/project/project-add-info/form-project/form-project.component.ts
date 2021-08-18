@@ -47,7 +47,7 @@ export class FormProjectComponent implements OnInit {
 
   private updateProject(project: Project): void {
     project.id = this.project.id;
-    this.projectService.UpdateProject(project).subscribe(
+    this.projectService.updateProject(project).subscribe(
       () => {
         this.validateForm.reset();
         this.router.navigate(['/layout/project']);
@@ -61,7 +61,7 @@ export class FormProjectComponent implements OnInit {
   }
 
   private addProject(project: Project): void {
-    this.projectService.AddProject(project).subscribe(
+    this.projectService.addProject(project).subscribe(
       () => {
         this.validateForm.reset();
         this.router.navigate(['/layout/project']);

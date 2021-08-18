@@ -60,7 +60,7 @@ export class EmployeeInfoProfileComponent implements OnInit {
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.employeeId = value.user)
     );
-    this.employee$ = this.employeeService.GetEmployeeById(this.employeeId);
+    this.employee$ = this.employeeService.getEmployeeById(this.employeeId);
     this.employee$.subscribe((value: Employee) => {
       this.currentEmployee = value;
       this.onBreadcrumbsChange();

@@ -36,7 +36,7 @@ export class DatePickerComponent
   @Input() errorMessages: any = {};
   @Input() label: string = '';
   @Input() nzPlaceHolder: string = '';
-  @Input() id: string = '';
+  @Input() nzId: string = '';
 
   public onChange = (value: any) => { };
   public onTouched = () => { };

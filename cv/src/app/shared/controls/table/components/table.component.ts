@@ -13,6 +13,7 @@ import {
 })
 export class TableComponent {
   @Input() public data: any[] = [];
+  @Input() public page: number = 1;
   @Input() public bodyTemplate: TemplateRef<any>;
   @Input() public headTemplate: TemplateRef<any>;
 

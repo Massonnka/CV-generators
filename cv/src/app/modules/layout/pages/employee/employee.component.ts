@@ -102,7 +102,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   public fetchPosts(): void {
-    this.employeeService.FoundAllEmployees().subscribe((value) => {
+    this.employeeService.foundAllEmployees().subscribe((value) => {
       this.store.dispatch(setEmployee({ employees: value }));
       this.employees = value;
       this.isLoading = false;

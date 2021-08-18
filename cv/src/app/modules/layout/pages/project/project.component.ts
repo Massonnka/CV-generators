@@ -89,7 +89,7 @@ export class ProjectComponent implements OnInit {
   }
 
   public fetchPosts(): void {
-    this.projectService.FoundAllProjects().subscribe((value) => {
+    this.projectService.foundAllProjects().subscribe((value) => {
       this.store.dispatch(ProjectsActions.setProjects({ projects: value }));
       this.projects = value;
       this.isLoading = false;
@@ -110,8 +110,8 @@ export class ProjectComponent implements OnInit {
     if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
       return;
     }
-    this.projectService.DeleteProject(project.id).subscribe(() => {
-      this.projects$ = this.projectService.FoundAllProjects();
+    this.projectService.deleteProject(project.id).subscribe(() => {
+      this.projects$ = this.projectService.foundAllProjects();
     });
   }
 }

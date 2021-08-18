@@ -18,6 +18,7 @@ import { CvInfoModule } from './cv-info/cv-info.module';
 import { EmployeeInfoProfileComponent } from './employee-info-profile.component';
 import { EmployeeInfoRoutingModule } from './employee-info-routing.module';
 import { InfoProfileModule } from './info-profile/info-profile.module';
+import { ProfileCvModule } from './profile-cv/profile-cv.module';
 
 @NgModule({
   declarations: [EmployeeInfoProfileComponent],
@@ -41,6 +42,7 @@ import { InfoProfileModule } from './info-profile/info-profile.module';
     CvInfoModule,
     RouterModule,
     EmployeeInfoRoutingModule,
+    ProfileCvModule
   ],
   exports: [EmployeeInfoProfileComponent],
 })
