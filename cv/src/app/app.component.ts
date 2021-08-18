@@ -1,13 +1,13 @@
+import { DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  Inject,
   OnInit,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Themes } from './shared/constants/themes.constants';
 import { selectTheme } from './store/themes/themes.selectors';
 
@@ -18,8 +18,9 @@ import { selectTheme } from './store/themes/themes.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  @HostBinding('class') public currentTheme: string = Themes.Light;
+  public currentTheme: string = Themes.Light;
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private translateService: TranslateService,
     private store: Store
   ) { }
@@ -28,12 +29,17 @@ export class AppComponent implements OnInit {
     // this.translateService.setDefaultLang(
     //    environment.localization.defaultLanguage
     // );
+
     this.initThemeListener();
   }
 
   public initThemeListener(): void {
     this.store
       .select(selectTheme)
-      .subscribe((value) => (this.currentTheme = value.theme));
+      .subscribe((value) => {
+        this.document.body.classList.remove(this.currentTheme);
+        this.currentTheme = value.theme;
+        this.document.body.classList.add(this.currentTheme);
+      });
   }
 }

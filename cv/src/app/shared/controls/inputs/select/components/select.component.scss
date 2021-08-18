@@ -12,8 +12,10 @@
   line-height: 26px;
 }
 select {
-  min-width: 200px;
-  background-color: transparent !important;
+  width: 400px;
+  height: 32px;
+  background-color: var(--content-color) !important;
+  color: var(--text-color);
 }
 .error {
   color: var(--text-error);

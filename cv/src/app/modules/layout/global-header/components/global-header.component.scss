@@ -1,9 +1,23 @@
-:host ::ng-deep .ant-popover, .ant-popover-title  {
-  color: white !important;
+::ng-deep .ant-tabs-nav-list {
+  width: 100%;
 }
-:host ::ng-deep .ant-popover-inner {
-  background-color: var(--text-error);
+::ng-deep .ant-tabs-tab {
+  color: var(--text-color);
+  width: 100%;
+  justify-content: center;
 }
+::ng-deep .ant-popover-inner {
+  background-color: var(--content-color);
+}
+::ng-deep .ant-popover-title {
+  display: flex;
+  justify-content: center;
+  color: var(--text-color);
+}
+::ng-deep .ant-comment-content-author-name, .count {
+  color: var(--text-color);
+}
+
 .header {
   z-index: 1000;
   background-color: var(--background-header);
@@ -92,25 +106,36 @@ a {
   padding-right: 8px;
   padding-left: 0;
 }
-.my-info-cv {
-  min-width: 400px;
-  min-height: 500px;
+.tabs {
+  p {
+    color: var(--text-color);
+  }
+  .my-info-cv {
+    min-width: 400px;
+    min-height: 500px;
+    .modal-text {
+      color: var(--modal-notific-text);
+      letter-spacing: 0.02em;
+    }
+    nz-comment-action {
+      color: var(--text-color);
+    }
+  }
+  .my-profile-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 400px;
+    max-height: 263px;
+  }
 }
+
 .modal-list {
   max-width: 400px;
 }
-.modal-text {
-  color: var(--modal-notific-text);
-  letter-spacing: 0.02em;
-}
 
-.my-profile-info {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  max-width: 400px;
-  max-height: 263px;
-}
+
+
 
 .img {
   margin: auto;

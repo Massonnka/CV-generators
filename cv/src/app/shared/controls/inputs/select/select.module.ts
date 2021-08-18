@@ -4,7 +4,6 @@ import { SelectComponent } from './components/select.component';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
   declarations: [SelectComponent],
@@ -14,8 +13,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     ReactiveFormsModule,
     NzFormModule,
     TranslateModule,
-    NzSelectModule,
   ],
   exports: [SelectComponent],
 })
-export class SelectModule {}
+export class SelectModule { }

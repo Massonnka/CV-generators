@@ -34,16 +34,18 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  public confirmationValidator = (
-    control: FormControl
-  ): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
-      return { confirm: true, error: true };
+  public checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
+    return (group: FormGroup) => {
+      let passwordInput = group.controls[passwordKey],
+        passwordConfirmationInput = group.controls[passwordConfirmationKey];
+      if (passwordInput.value !== passwordConfirmationInput.value) {
+        return passwordConfirmationInput.setErrors({ notEquivalent: true })
+      }
+      else {
+        return passwordConfirmationInput.setErrors(null);
+      }
     }
-    return {};
-  };
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -58,11 +60,11 @@ export class SignUpComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
       password: [null, [Validators.required, Validators.minLength(6)]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
+      confirmPass: [null, Validators.required],
       email: [null, [Validators.email, Validators.required]],
       specialization: ['', Validators.required],
       agree: [false],
-    });
+    }, { validator: this.checkIfMatchingPasswords('password', 'confirmPass') });
   }
 
   public registerUser() {

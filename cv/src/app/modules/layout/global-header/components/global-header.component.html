@@ -74,7 +74,9 @@
             (click)="dislike()"></i>
           <span class="count dislike">{{ dislikes }}</span>
         </nz-comment-action>
-        <nz-comment-action>{{ 'modal.reply' | translate }}</nz-comment-action>
+        <nz-comment-action>
+          {{ 'modal.reply' | translate }}
+        </nz-comment-action>
       </nz-comment>
     </nz-tab>
     <nz-tab [nzTitle]="'modal.profile' | translate">
