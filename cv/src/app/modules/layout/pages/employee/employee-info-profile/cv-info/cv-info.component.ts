@@ -16,6 +16,7 @@ export class CvInfoComponent implements OnInit {
   public employees$: Observable<Employee>;
   public employeeCves: any = [];
   public employeeId: string;
+  public isVisible = false;
 
   constructor(
     private router: Router,
@@ -26,6 +27,18 @@ export class CvInfoComponent implements OnInit {
 
   public onBack() {
     this.location.back();
+  }
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
   }
 
   editItem(employee: Employee) {

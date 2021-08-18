@@ -1,3 +1,9 @@
+:host ::ng-deep .ant-popover, .ant-popover-title  {
+  color: white !important;
+}
+:host ::ng-deep .ant-popover-inner {
+  background-color: var(--text-error);
+}
 .header {
   z-index: 1000;
   background-color: var(--background-header);
@@ -100,10 +106,12 @@ a {
 
 .my-profile-info {
   display: flex;
+  align-items: center;
   flex-direction: column;
   max-width: 400px;
   max-height: 263px;
 }
+
 .img {
   margin: auto;
   padding: 30px 0px;
@@ -114,6 +122,7 @@ a {
 }
 .tw-title {
   margin: auto;
+  text-align: center;
   font-family: var(--font-display);
   line-height: var(--line-height-heading);
   font-size: var(--font-size-8);

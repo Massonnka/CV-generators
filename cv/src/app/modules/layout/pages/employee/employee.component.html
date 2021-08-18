@@ -5,8 +5,10 @@
   <p>{{ 'employee.employee-list' | translate }}</p>
 </div>
 <nz-content class="content">
-  <input type="search" [(ngModel)]="query" id="search-text">
   <div class="actions">
+    <app-input label="form.search" [nzSuffix]="suffixIconButton" type="search" [(ngModel)]="query" id="search-text"
+      [placeholder]="'placeholder.Input search text' | translate">
+    </app-input>
     <app-primary-button (click)="addItem()" class="add-button">
       <span>{{ 'employee.add-employee' | translate }}</span>
     </app-primary-button>
@@ -37,4 +39,8 @@
     <td>{{ employee.department }}</td>
     <td>{{ employee.specialization }}</td>
   </tr>
+</ng-template>
+
+<ng-template #suffixIconButton>
+  <i nz-icon nzType="search"></i>
 </ng-template>

@@ -9,6 +9,8 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { PrimaryButtonModule } from 'src/app/shared/controls/buttons/primary-button/primary-button.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { RouterModule } from '@angular/router';
+import { ProfileCvModule } from '../profile-cv/profile-cv.module';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({
   declarations: [CvInfoComponent],
@@ -21,7 +23,9 @@ import { RouterModule } from '@angular/router';
     TranslateModule,
     NzDescriptionsModule,
     PrimaryButtonModule,
-    DefaultButtonModule
+    DefaultButtonModule,
+    ProfileCvModule,
+    NzModalModule
   ],
   exports: [CvInfoComponent],
 })

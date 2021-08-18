@@ -27,6 +27,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchEmployeePipe } from 'src/app/shared/pipes/searchEmployee.pipe';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
 
 @NgModule({
   declarations: [EmployeeComponent, SearchEmployeePipe],
@@ -47,6 +49,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     EmployeeInfoProfileModule,
     NgxPaginationModule,
     RouterModule,
+    InputModule,
+    NzIconModule,
     SpinnerModule,
     StoreModule.forFeature(
       breadcrumbsFeatureKey || employeeFeatureKey,

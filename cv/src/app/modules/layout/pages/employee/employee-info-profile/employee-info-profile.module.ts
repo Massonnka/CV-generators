@@ -42,7 +42,6 @@ import { ProfileCvModule } from './profile-cv/profile-cv.module';
     CvInfoModule,
     RouterModule,
     EmployeeInfoRoutingModule,
-    ProfileCvModule
   ],
   exports: [EmployeeInfoProfileComponent],
 })
