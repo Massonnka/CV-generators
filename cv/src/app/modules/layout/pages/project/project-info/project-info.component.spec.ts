@@ -8,6 +8,8 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { I18nModule } from 'src/app/i18n.module';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
+import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
 import { ProjectAddInfoComponent } from '../project-add-info/project-add-info.component';
 import { ProjectComponent } from '../project.component';
 import { ProjectInfoComponent } from './project-info.component';
@@ -96,14 +98,6 @@ describe('ProjectInfoComponent', () => {
     const navigateSpy = spyOn(mockRouter, 'navigate');
     component.editItem(mockProject);
     expect(navigateSpy).toHaveBeenCalled();
-  });
-
-  it('should set breadcrumbs', () => {
-    const onBreadcrumbsChangeSpy = spyOn(<any>component, 'onBreadcrumbsChange');
-
-    (<any>component).onBreadcrumbsChange();
-
-    expect(onBreadcrumbsChangeSpy).toHaveBeenCalledTimes(1);
   });
 
   xit("should't delete project equal to null", () => {
