@@ -50,9 +50,6 @@ describe('FormProjectComponent', () => {
       declarations: [FormProjectComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
-
-    router = TestBed.inject(Router);
-    const navigateSpy = spyOn(router, 'navigate');
   });
 
   beforeEach(() => {

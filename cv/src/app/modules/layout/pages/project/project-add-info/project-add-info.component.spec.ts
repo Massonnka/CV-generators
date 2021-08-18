@@ -53,9 +53,7 @@ describe('ProjectInfoComponent', () => {
 
   it('should go prev location', async () => {
     let methodSpy = spyOn(component, 'onBack').and.callThrough();
-    const button =
-      fixture.debugElement.nativeElement.querySelector('#back-button');
-    button.click();
+    component.onBack();
     expect(methodSpy).toHaveBeenCalled();
   });
 });

@@ -1,72 +1,129 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NO_ERRORS_SCHEMA, Pipe, PipeTransform } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { provideMockStore } from '@ngrx/store/testing';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { of } from 'rxjs';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { TranslateService } from '@ngx-translate/core';
 import { ProjectService } from 'src/app/core/services/project.service';
+import { I18nModule } from 'src/app/i18n.module';
+import { ProjectAddInfoComponent } from '../project-add-info/project-add-info.component';
+import { ProjectComponent } from '../project.component';
 import { ProjectInfoComponent } from './project-info.component';
-
-const MOCK_PROJECT = {
-  id: 'project-id',
-  name: 'project-name',
-  startDate: '01-01-2000',
-  endDate: '01-01-2010',
-  teamSize: 10,
-};
-
-@Pipe({ name: 'translate' })
-class MockTranslatePipe implements PipeTransform {
-  transform(): any {
-    return 'test-translation';
-  }
-}
 
 describe('ProjectInfoComponent', () => {
   let component: ProjectInfoComponent;
   let fixture: ComponentFixture<ProjectInfoComponent>;
-  const fakeTranslateService = jasmine.createSpyObj('TranslateService', [
-    'instant',
-    'stream',
-  ]);
-  const fakeProjectService = jasmine.createSpyObj('ProjectService', [
-    'GetProjectById',
-  ]);
+  let mockLocation = {
+    back: jasmine.createSpy('back'),
+  };
+  const mockProject = {
+    id: 'project-id',
+    name: 'project-name',
+    startDate: '01-01-2000',
+    endDate: '01-01-2010',
+    teamSize: 10,
+  };
+  let mockStore: MockStore;
+  const initialState = {
+    breadcrumbs: {
+      url: '',
+      name: '',
+      isDisable: false,
+    },
+  };
 
   beforeEach(async () => {
-    const initialState = {
-      breadcrumbs: {
-        url: '',
-        name: '',
-        isDisabled: false,
-      },
-    };
-    await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientModule, TranslateModule],
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([
+          {
+            path: 'layout/project',
+            component: ProjectComponent,
+          },
+          {
+            path: 'layout/project/addinfo',
+            component: ProjectAddInfoComponent,
+          },
+          {
+            path: 'layout/project/:project',
+            component: ProjectInfoComponent,
+          },
+        ]),
+        BrowserDynamicTestingModule,
+        HttpClientTestingModule,
+        I18nModule,
+      ],
       providers: [
-        { provide: TranslateService, useValue: fakeTranslateService },
-        { provide: ProjectService, useValue: fakeProjectService },
+        TranslateService,
+        { provide: Location, useValue: mockLocation },
+        ProjectService,
         provideMockStore({ initialState }),
       ],
-      declarations: [ProjectInfoComponent, MockTranslatePipe],
-      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [ProjectInfoComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
+
+    mockStore = TestBed.inject(MockStore);
   });
 
-  beforeEach(
-    waitForAsync(async () => {
-      fakeProjectService.GetProjectById.and.returnValue(of(MOCK_PROJECT));
-      fakeTranslateService.instant.and.returnValue('test-translation');
-      fakeTranslateService.stream.and.returnValue(of('test-translation'));
-
-      fixture = TestBed.createComponent(ProjectInfoComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    })
-  );
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ProjectInfoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should change location back', () => {
+    let methodSpy = spyOn(component, 'onBack').and.callThrough();
+    component.onBack();
+    expect(methodSpy).toHaveBeenCalledWith();
+  });
+
+  it('should delete project', () => {
+    let deleteItemSpy = spyOn(component, 'deleteItem').and.callThrough();
+    component.deleteItem(mockProject);
+
+    expect(deleteItemSpy).toHaveBeenCalled();
+  });
+
+  it('should edit project', () => {
+    const mockRouter = TestBed.inject(Router);
+    const navigateSpy = spyOn(mockRouter, 'navigate');
+    component.editItem(mockProject);
+    expect(navigateSpy).toHaveBeenCalled();
+  });
+
+  it('should set breadcrumbs', () => {
+    const onBreadcrumbsChangeSpy = spyOn(<any>component, 'onBreadcrumbsChange');
+
+    (<any>component).onBreadcrumbsChange();
+
+    expect(onBreadcrumbsChangeSpy).toHaveBeenCalledTimes(1);
+  });
+
+  xit("should't delete project equal to null", () => {
+    let deleteItemSpy = spyOn(component, 'deleteItem').and.callThrough();
+    component.deleteItem(undefined);
+
+    expect(deleteItemSpy).toBeUndefined();
+  });
+
+  xit('should set current project', () => {
+    let expectedCurrentProjectValue: any = null;
+    component.ngOnInit();
+    component.project$.subscribe((value) => {
+      expectedCurrentProjectValue = value;
+
+      console.log('expectedCurrentProjectValue: ', expectedCurrentProjectValue);
+
+      expect((<any>component).currentProject).toEqual(
+        expectedCurrentProjectValue
+      );
+    });
   });
 });

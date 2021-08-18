@@ -182,9 +182,6 @@ describe('FormCvComponent', () => {
     fixture.detectChanges();
     component.ngOnInit();
 
-    console.log('component.employee.cv: ', component.employee.cv);
-    console.log('component.validateForm.value: ', component.validateForm.value);
-
     expect(component.validateForm.value).toEqual({
       email: component.employee.cv?.email,
       lastName: component.employee.cv?.lastName,

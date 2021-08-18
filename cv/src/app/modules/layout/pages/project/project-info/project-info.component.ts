@@ -1,15 +1,14 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-info',
@@ -40,7 +39,7 @@ export class ProjectInfoComponent implements OnInit {
     private store: Store<{
       breadcrumbs: Breadcrumb[];
     }>
-  ) { }
+  ) {}
 
   public onBack(): void {
     this.location.back();
@@ -68,15 +67,17 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   public deleteItem(project: Project) {
-    if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
-      return;
+    if (project) {
+      if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
+        return;
+      }
+      this.projectService.deleteProject(project.id).subscribe(() => {
+        this.project$ = this.projectService.getProjectById(
+          this.projectId,
+          this.params
+        );
+      });
     }
-    this.projectService.deleteProject(project.id).subscribe(() => {
-      this.project$ = this.projectService.getProjectById(
-        this.projectId,
-        this.params
-      );
-    });
   }
 
   public editItem(project: Project) {
