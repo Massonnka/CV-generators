@@ -18,6 +18,12 @@
   background: transparent;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .page-header {
   display: flex;
   flex-direction: column;
@@ -92,7 +98,7 @@
         display: flex;
         justify-content: flex-end;
         margin-top: 10px;
-        
+
         .button {
           width: auto;
         }

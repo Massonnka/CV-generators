@@ -1,68 +1,72 @@
-<div class="page-header">
-  <breadcrumb [data]="breadcrumbs"></breadcrumb>
+<div class="wrapper">
+  <div class="page-header">
+    <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-  <div class="title">{{ "pages.employee" | translate }}</div>
-  <p>
-    {{ "profile.profile" | translate }}
-  </p>
-</div>
-<nz-content class="content">
-  <nz-tabset class="tabs">
-    <nz-tab nzTitle="Info">
-      <app-form-info></app-form-info>
-    </nz-tab>
-    <nz-tab nzTitle="CV" class="cv">
-      <div class="content-tabs-cv">
-        <div class="content-tabs-cv-list">
-          <app-list [bodyTemplate]="bodyRef" [data]="cves">
-            <ng-template
-              #bodyRef
-              let-data="$implicit"
-              class="content-tabs-cv-list-item"
-            >
-              <div
-                class="content-tabs-cv-list-item-content"
-                (click)="toggleCvInfo(data.index)"
+    <div class="title">{{ "pages.employee" | translate }}</div>
+    <p>
+      {{ "profile.profile" | translate }}
+    </p>
+  </div>
+  <nz-content class="content">
+    <nz-tabset class="tabs">
+      <nz-tab nzTitle="Info">
+        <app-form-info></app-form-info>
+      </nz-tab>
+      <nz-tab nzTitle="CV" class="cv">
+        <div class="content-tabs-cv">
+          <div class="content-tabs-cv-list">
+            <app-list [bodyTemplate]="bodyRef" [data]="cves">
+              <ng-template
+                #bodyRef
+                let-data="$implicit"
+                class="content-tabs-cv-list-item"
               >
-                {{ data.name }} {{ data.index }}
-              </div>
-              <i
-                nz-icon
-                nzType="delete"
-                nzTheme="outline"
-                class="content-tabs-cv-list-item-icon"
-              ></i>
-            </ng-template>
-          </app-list>
+                <div
+                  class="content-tabs-cv-list-item-content"
+                  (click)="toggleCvInfo(data.index)"
+                >
+                  {{ data.name }} {{ data.index }}
+                </div>
+                <i
+                  nz-icon
+                  nzType="delete"
+                  nzTheme="outline"
+                  class="content-tabs-cv-list-item-icon"
+                ></i>
+              </ng-template>
+            </app-list>
 
-          <app-default-button
-            class="content-tabs-cv-list-button"
-            (click)="addCv()"
-            >+</app-default-button
-          >
-        </div>
-        <div
-          [ngClass]="
-            cvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-form'
-          "
-        >
-          <app-form-cv></app-form-cv>
-          <app-primary-button (click)="addProject()" class="content-tabs-cv-button"
-            >Add project
-          </app-primary-button>
-          <nz-collapse class="projects-collapse">
-            <nz-collapse-panel
-              *ngFor="let project of cves[currentCvId]?.projects"
-              class="projects-collapse-panel"
+            <app-default-button
+              class="content-tabs-cv-list-button"
+              (click)="addCv()"
+              >+</app-default-button
             >
-              <app-form-project></app-form-project>
-            </nz-collapse-panel>
-          </nz-collapse>
+          </div>
+          <div
+            [ngClass]="
+              cvInfoHide ? 'content-tabs-cv-hide' : 'content-tabs-cv-form'
+            "
+          >
+            <app-form-cv></app-form-cv>
+            <app-primary-button
+              (click)="addProject()"
+              class="content-tabs-cv-button"
+              >Add project
+            </app-primary-button>
+            <nz-collapse class="projects-collapse">
+              <nz-collapse-panel
+                *ngFor="let project of cves[currentCvId]?.projects"
+                class="projects-collapse-panel"
+              >
+                <app-form-project></app-form-project>
+              </nz-collapse-panel>
+            </nz-collapse>
+          </div>
         </div>
-      </div>
-    </nz-tab>
-  </nz-tabset>
-</nz-content>
-<ng-template #loading>
-  <app-spinner></app-spinner>
-</ng-template>
+      </nz-tab>
+    </nz-tabset>
+  </nz-content>
+  <ng-template #loading>
+    <app-spinner></app-spinner>
+  </ng-template>
+</div>
