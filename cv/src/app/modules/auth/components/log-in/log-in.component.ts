@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { LoginUser } from 'src/app/core/interfaces/login-user.interface';
+import { User } from 'src/app/core/interfaces/user.interface';
 
 import * as fromAuthActions from '../../store/auth.actions';
 
@@ -22,6 +23,8 @@ export class LogInComponent implements OnInit {
   public message: string;
 
   public validateForm!: FormGroup;
+
+  public user: LoginUser;
 
   constructor(
     public authService: AuthService,
@@ -54,18 +57,20 @@ export class LogInComponent implements OnInit {
 
     this.submitted = true;
 
-    const user: LoginUser = {
+    this.user = {
       email: this.validateForm.value.email,
       password: this.validateForm.value.password,
     };
 
-    this.authService.signIn(user).subscribe(
+    this.authService.signIn(this.user).subscribe(
       () => {
-        this.store.dispatch(fromAuthActions.loginSuccess({ user }));
+        this.store.dispatch(fromAuthActions.loginSuccess({ user: this.user }));
         this.validateForm.reset();
         this.router.navigate(['layout/employee']);
       },
-      () => {
+      (error) => {
+        console.log(error);
+
         this.isPassCorrect = false;
         this.submitted = false;
 
