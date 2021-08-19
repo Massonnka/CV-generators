@@ -27,9 +27,9 @@
     <nz-form-item class="inputs">
         <app-input id="confirmpass" type="password"
             [placeholder]="'placeholder.Input your confirm password!' | translate" label="profile.confirm-pass"
-            formControlName="checkPassword" [errorMessages]="{
-        required: 'validator.confirmpass' | translate,
-        inconsistent: 'Two passwords that you enter is inconsistent!'
+            formControlName="confirmPass" [errorMessages]="{
+        required: 'validator.required' | translate, 
+        notEquivalent: 'validator.confirmpass' | translate
       }">
         </app-input>
     </nz-form-item>

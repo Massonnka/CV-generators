@@ -20,6 +20,7 @@ export class CvInfoComponent implements OnInit {
   public employees$: Observable<Employee>;
   public employeeCves: any = [];
   public employeeId: string;
+  public isVisible = false;
 
   constructor(
     private router: Router,
@@ -29,7 +30,7 @@ export class CvInfoComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.employeeId = value.user)
     );
@@ -39,18 +40,30 @@ export class CvInfoComponent implements OnInit {
       this.cdRef.markForCheck();
     });
   }
-  
+
   public onBack() {
     this.location.back();
   }
 
-  public editItem(employee: Employee): void {
+  public showModal(): void {
+    this.isVisible = true;
+  }
+
+  public handleOk(): void {
+    this.isVisible = false;
+  }
+
+  public handleCancel(): void {
+    this.isVisible = false;
+  }
+
+  public editItem(employee: Employee) {
     this.router.navigate(['/layout/employee/addinfo'], {
       state: {
         options: {
           employee,
-        }
-      }
+        },
+      },
     });
   }
 }

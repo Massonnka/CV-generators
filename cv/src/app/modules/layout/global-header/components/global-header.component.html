@@ -46,7 +46,7 @@
   </nz-page-header>
 </div>
 
-<ng-template #contentTemplate class="notifications">
+<ng-template #contentTemplate>
   <nz-tabset nzCentered class="tabs">
     <nz-tab class="my-info-cv" [nzTitle]="'modal.cv' | translate">
       <div>
@@ -74,7 +74,9 @@
             (click)="dislike()"></i>
           <span class="count dislike">{{ dislikes }}</span>
         </nz-comment-action>
-        <nz-comment-action>{{ 'modal.reply' | translate }}</nz-comment-action>
+        <nz-comment-action>
+          {{ 'modal.reply' | translate }}
+        </nz-comment-action>
       </nz-comment>
     </nz-tab>
     <nz-tab [nzTitle]="'modal.profile' | translate">
@@ -83,7 +85,9 @@
           <img alt="'modal.smileIcon' | translate" class="tw-image" [src]="smileIcon" />
         </div>
         <div>
-          <p class="tw-title">{{ 'text.notific-profile-label' | translate }}</p>
+          <p class="tw-title">
+            {{ 'text.notific-profile-label' | translate }}
+          </p>
         </div>
         <div>
           <p class="tw-footer">

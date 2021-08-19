@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
@@ -24,7 +20,7 @@ export class FormInfoComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private employeeService: EmployeeService
-  ) { }
+  ) {}
 
   public ngOnInit(): void {
     const options = history.state.options;
@@ -38,13 +34,43 @@ export class FormInfoComponent implements OnInit {
       department: ['', [Validators.required, Validators.minLength(3)]],
     });
     if (this.employee) {
-      this.validateForm.get("firstName")?.setValue(this.employee.firstName);
-      this.validateForm.get("lastName")?.setValue(this.employee.lastName);
-      this.validateForm.get("email")?.setValue(this.employee.email);
-      this.validateForm.get("specialization")?.setValue(this.employee.specialization);
-      this.validateForm.get("department")?.setValue(this.employee.department);
+      this.validateForm.get('firstName')?.setValue(this.employee.firstName);
+      this.validateForm.get('lastName')?.setValue(this.employee.lastName);
+      this.validateForm.get('email')?.setValue(this.employee.email);
+      this.validateForm
+        .get('specialization')
+        ?.setValue(this.employee.specialization);
+      this.validateForm.get('department')?.setValue(this.employee.department);
       this.isEditMode = true;
     }
+  }
+
+  private updateEmployee(employee: Employee): void {
+    employee.id = this.employee.id;
+    this.employeeService.updateEmployee(employee).subscribe(
+      () => {
+        this.validateForm.reset();
+        this.router.navigate(['/layout/employee']);
+        this.submitted = false;
+      },
+      () => {
+        this.submitted = false;
+        this.isEditMode = false;
+      }
+    );
+  }
+
+  private addEmployee(employee: Employee): void {
+    this.employeeService.addEmployee(employee).subscribe(
+      () => {
+        this.validateForm.reset();
+        this.router.navigate(['/layout/employee']);
+        this.submitted = false;
+      },
+      () => {
+        this.submitted = false;
+      }
+    );
   }
 
   public submit() {
@@ -63,29 +89,9 @@ export class FormInfoComponent implements OnInit {
     };
 
     if (this.isEditMode) {
-      employee.id = this.employee.id;
-      this.employeeService.updateEmployee(employee).subscribe(
-        () => {
-          this.validateForm.reset();
-          this.router.navigate(['/layout/employee']);
-          this.submitted = false;
-        },
-        () => {
-          this.submitted = false;
-          this.isEditMode = false;
-        }
-      );
+      this.updateEmployee(employee);
     } else {
-      this.employeeService.addEmployee(employee).subscribe(
-        () => {
-          this.validateForm.reset();
-          this.router.navigate(['/layout/employee']);
-          this.submitted = false;
-        },
-        () => {
-          this.submitted = false;
-        }
-      );
+      this.addEmployee(employee);
     }
   }
 }

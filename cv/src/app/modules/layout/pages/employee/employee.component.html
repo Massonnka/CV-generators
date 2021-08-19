@@ -5,8 +5,19 @@
   <p>{{ "employee.employee-list" | translate }}</p>
 </div>
 <nz-content class="content">
+  <<<<<<< HEAD
   <input type="search" [(ngModel)]="query" id="search-text" />
+  ======= >>>>>>> 9e8b785fe960f6f80491268e877d2bf953486f10
   <div class="actions">
+    <app-input
+      label="form.search"
+      [nzSuffix]="suffixIconButton"
+      type="search"
+      [(ngModel)]="query"
+      id="search-text"
+      [placeholder]="'placeholder.Input search text' | translate"
+    >
+    </app-input>
     <app-primary-button (click)="addItem()" class="add-button">
       <span>{{ "employee.add-employee" | translate }}</span>
     </app-primary-button>
@@ -43,13 +54,22 @@
   </tr>
 </ng-template>
 <ng-template #bodyRef let-data="$implicit">
-  <tr *ngFor="let employee of data | 
-              search:'firstName,lastName,email,department,specialization':query" class="table-row"
-    [routerLink]="employee.id">
+  <tr
+    *ngFor="
+      let employee of data
+        | search: 'firstName,lastName,email,department,specialization':query
+    "
+    class="table-row"
+    [routerLink]="employee.id"
+  >
     <td>{{ employee.firstName }}</td>
     <td>{{ employee.lastName }}</td>
     <td>{{ employee.email }}</td>
     <td>{{ employee.department }}</td>
     <td>{{ employee.specialization }}</td>
   </tr>
+</ng-template>
+
+<ng-template #suffixIconButton>
+  <i nz-icon nzType="search"></i>
 </ng-template>

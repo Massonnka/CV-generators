@@ -10,25 +10,33 @@
       <nz-descriptions-item
         [nzTitle]="'form.email' | translate"
         class="table-item"
-        >{{ cv.email }}
+      >
+        {{ cv.email }}
       </nz-descriptions-item>
-      <nz-descriptions-item [nzTitle]="'form.lastname' | translate">{{
-        cv.lastName
-      }}</nz-descriptions-item>
-      <nz-descriptions-item [nzTitle]="'form.skills' | translate">{{
-        cv.skills
-      }}</nz-descriptions-item>
-      <nz-descriptions-item [nzTitle]="'form.specialization' | translate"
-        >{{ cv.specialization }}
+      <nz-descriptions-item [nzTitle]="'form.lastname' | translate">
+        {{ cv.lastName }}
       </nz-descriptions-item>
-      <nz-descriptions-item [nzTitle]="'form.department' | translate">{{
-        cv.department
-      }}</nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="'form.skills' | translate">
+        {{ cv.skills }}
+      </nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="'form.specialization' | translate">
+        {{ cv.specialization }}
+      </nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="'form.department' | translate">
+        {{ cv.department }}
+      </nz-descriptions-item>
     </nz-descriptions>
     <ng-template class="buttons" #extraTpl>
-      <app-primary-button nz-button (click)="editItem(cv)">
+      <app-primary-button
+        nz-button
+        (click)="editItem(cv)"
+        class="buttons-putton"
+      >
         {{ "form.edit" | translate }}
       </app-primary-button>
+      <app-default-button (click)="showModal()" class="buttons-putton">
+        {{ "form.readmore" | translate }}
+      </app-default-button>
     </ng-template>
     <nz-collapse *ngFor="let project of cv.projects" class="projects-collapse">
       <nz-collapse-panel
@@ -73,6 +81,19 @@
     {{ "form.cancel" | translate }}
   </app-default-button>
 </div>
+
+<nz-modal
+  [nzStyle]="{ width: '1250px' }"
+  [(nzVisible)]="isVisible"
+  nzTitle="CV"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+    <app-profile-cv></app-profile-cv>
+  </ng-container>
+</nz-modal>
+
 <ng-template #loading>
   <app-spinner></app-spinner>
 </ng-template>

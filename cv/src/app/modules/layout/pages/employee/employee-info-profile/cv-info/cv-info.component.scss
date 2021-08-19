@@ -6,7 +6,18 @@
   height: 0px;
   background: transparent;
 }
+:host ::ng-deep .ant-modal-content {
+  width: 700px;
+}
 .projects {
+  height: 100%;
+  ::ng-deep .ant-descriptions-extra {
+    display: flex;
+
+    .buttons-putton {
+      margin: 7px;
+    }
+  }
   .projects-collapse {
     background-color: var(--content-color);
     color: var(--text-color);

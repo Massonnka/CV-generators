@@ -45,6 +45,7 @@
         "specialization": "Specialization"
     },
     "form": {
+        "search": "Search:",
         "project-info": "Project Info",
         "user-info": "User Info",
         "employee-info": "Employee Info",
@@ -56,6 +57,7 @@
         "save": "Save",
         "cancel": "Cancel",
         "edit": "Edit",
+        "readmore": "Read more...",
         "name": "Name",
         "start-date": "Start date",
         "end-date": "End date",
@@ -83,7 +85,8 @@
         "Input your skills!": "Input your skills!",
         "Input your specialization!": "Input your specialization!",
         "Input your department!": "Input your department!",
-        "Select date": "Select date!"
+        "Select date": "Select date!",
+        "Input search text": "Input search text..."
     },
     "modal": {
         "admin": "Admin CV",

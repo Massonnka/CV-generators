@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule, PaginatePipe } from 'ngx-pagination';
 import { BreadcrumbModule } from 'src/app/shared/controls/breadcrumb/breadcrumb.module';
 import {
   breadcrumbReducer,
@@ -27,6 +27,8 @@ import { EmployeeAddProfileModule } from './employee-add-profile/employee-add-pr
 import { EmployeeInfoProfileModule } from './employee-info-profile/employee-info-profile.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { InputModule } from 'src/app/shared/controls/inputs/input/input.module';
 
 @NgModule({
   declarations: [EmployeeComponent, SearchEmployeePipe],
@@ -46,9 +48,11 @@ import { EmployeeComponent } from './employee.component';
     EmployeeAddProfileModule,
     EmployeeInfoProfileModule,
     RouterModule,
+    InputModule,
+    NzIconModule,
     SpinnerModule,
     NgxPaginationModule,
-    // PaginatePipe,
+    PaginatePipe,
     StoreModule.forFeature(
       breadcrumbsFeatureKey || employeeFeatureKey,
       breadcrumbReducer || employeeReducer

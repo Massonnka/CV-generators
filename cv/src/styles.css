@@ -72,7 +72,7 @@ body {
   --background-color: #f0f2f5;
   --backgorund-image: url("/assets/images/LogoAuthBlack.png");
   --background-header: #001529;
-  --modal-notific-text: #51515c;
+  --modal-notific-text: #b2b2c4;
   --text-color: #333;
   --text-error: orangered;
   --icon-color: #ffff;
@@ -86,7 +86,7 @@ body {
   --background-color: #333;
   --backgorund-image: url("/assets/images/logoAuthWhite.png");
   --background-header: #001529;
-  --modal-notific-text: #848494;
+  --modal-notific-text: #4a4a52;
   --text-color: #ffff;
   --text-error: orangered;
   --icon-color: #ffff;

@@ -33,8 +33,7 @@ import { startWith, takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent
-  implements OnInit, AfterViewInit, ControlValueAccessor
-{
+  implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input() errorMessages: any = {};
   @Input() label: string = '';
   @Input() placeholder: string = '';
@@ -43,8 +42,8 @@ export class InputComponent
   @Input() type: string = '';
   @Input() id: string = '';
 
-  public onChange = (value: any) => {};
-  public onTouched = () => {};
+  public onChange = (value: any) => { };
+  public onTouched = () => { };
 
   public ngControl: NgControl;
   public control: FormControl;
@@ -55,7 +54,7 @@ export class InputComponent
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
-  constructor(private injector: Injector, private cdr: ChangeDetectorRef) {}
+  constructor(private injector: Injector, private cdr: ChangeDetectorRef) { }
 
   public ngAfterViewInit(): void {
     this.ngControl = this.injector.get(NgControl);
