@@ -27,14 +27,16 @@ export class AuthService {
     let api = `${endpoint}/user/register`;
     return this.http
       .post(api, user)
-      .pipe(catchError((error) => this.handleError(error)));
+      .pipe(
+        catchError((error) => this.handleError(error))
+      );
   }
 
   public signIn(user: LoginUser) {
     return this.http.post(`${endpoint}/user/login`, user).pipe(
       tap((response: any) => this.setToken(response)),
       tap((response: any) => this.setUser(response.user)),
-      catchError((error) => this.handleError(error))
+      catchError(this.handleError.bind(this))
     );
   }
 
@@ -58,7 +60,7 @@ export class AuthService {
   }
 
   public handleError(error: HttpErrorResponse) {
-    const { message } = error.error.error;
+    const { message } = error.error;
 
     switch (message) {
       case 'INVALID_EMAIL':
