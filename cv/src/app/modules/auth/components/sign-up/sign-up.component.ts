@@ -34,37 +34,58 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  public checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
+  public checkIfMatchingPasswords(
+    passwordKey: string,
+    passwordConfirmationKey: string
+  ) {
     return (group: FormGroup) => {
       let passwordInput = group.controls[passwordKey],
         passwordConfirmationInput = group.controls[passwordConfirmationKey];
       if (passwordInput.value !== passwordConfirmationInput.value) {
-        return passwordConfirmationInput.setErrors({ notEquivalent: true })
-      }
-      else {
+        return passwordConfirmationInput.setErrors({ notEquivalent: true });
+      } else {
         return passwordConfirmationInput.setErrors(null);
       }
-    }
+    };
   }
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   public ngOnInit(): void {
     this.userTypes = ['Angular', 'React', 'Node JS'];
 
-    this.validateForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-      lastName: ['', [Validators.required, Validators.minLength(3)]],
-      password: [null, [Validators.required, Validators.minLength(6)]],
-      confirmPass: [null, Validators.required],
-      email: [null, [Validators.email, Validators.required]],
-      specialization: ['', Validators.required],
-      agree: [false],
-    }, { validator: this.checkIfMatchingPasswords('password', 'confirmPass') });
+    this.validateForm = this.fb.group(
+      {
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.minLength(3)]],
+        password: [null, [Validators.required, Validators.minLength(6)]],
+        confirmPass: [null, Validators.required],
+        email: [null, [Validators.email, Validators.required]],
+        specialization: ['', Validators.required],
+        agree: [false],
+      },
+      { validator: this.checkIfMatchingPasswords('password', 'confirmPass') }
+    );
+  }
+
+  private userCheck(user: RegisterUser) {
+    this.authService.signUp(user).subscribe(
+      () => {
+        console.log(1);
+
+        this.validateForm.reset();
+        this.router.navigate(['auth/log-in']);
+        this.submitted = false;
+      },
+      (error) => {
+        console.log(error);
+        this.submitted = false;
+      }
+    );
   }
 
   public registerUser() {
@@ -82,15 +103,6 @@ export class SignUpComponent implements OnInit {
       specialization: this.validateForm.value.specialization,
     };
 
-    this.authService.signUp(user).subscribe(
-      () => {
-        this.validateForm.reset();
-        this.router.navigate(['auth/log-in']);
-        this.submitted = false;
-      },
-      () => {
-        this.submitted = false;
-      }
-    );
+    this.userCheck(user);
   }
 }
