@@ -21,20 +21,22 @@ export class AuthService {
   public error$: Subject<string> = new Subject<string>();
   public headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   public signUp(user: RegisterUser): Observable<any> {
     let api = `${endpoint}/user/register`;
     return this.http
       .post(api, user)
-      .pipe(catchError((error) => this.handleError(error)));
+      .pipe(
+        catchError((error) => this.handleError(error))
+      );
   }
 
   public signIn(user: LoginUser) {
     return this.http.post(`${endpoint}/user/login`, user).pipe(
       tap((response: any) => this.setToken(response)),
       tap((response: any) => this.setUser(response.user)),
-      catchError((error) => this.handleError(error))
+      catchError(this.handleError.bind(this))
     );
   }
 

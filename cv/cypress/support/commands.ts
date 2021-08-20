@@ -4,61 +4,52 @@
 // IDE or Text Editor.
 // ***********************************************
 declare namespace Cypress {
-  interface Chainable<Subject = any> {
-    write(identifer: any, data: any): typeof login;
-  }
+    interface Chainable<Subject = any> {
+        write(identifer: any, data: any): typeof login;
+    }
 }
 
 Cypress.Commands.add('write', (identifer, data) => {
-  cy.get(identifer).type(data);
+    cy.get(identifer).type(data);
 });
 
 declare namespace Cypress {
-  interface Chainable<Subject = any> {
-    login(email: string, password: string): typeof login;
-  }
+    interface Chainable<Subject = any> {
+        login(email: string, password: string): typeof login;
+    }
 }
 
 function login(email: string, password: string): void {
-  cy.visit('/');
-  cy.url().should('includes', 'auth/log-in');
-  cy.write('app-input #email', email);
-  cy.write('app-input #password', password);
-  cy.get('button[type="submit"]').click();
+    cy.visit('/');
+    cy.url().should('includes', 'auth/log-in');
+    cy.write('app-input #email', email);
+    cy.write('app-input #password', password);
+    cy.get('button[type="submit"]').click();
 }
 
 Cypress.Commands.add('login', login);
 
 declare namespace Cypress {
-  interface Chainable<Subject = any> {
-    signup(
-      firstname: string,
-      lastname: string,
-      password: string,
-      confirmpass: string,
-      email: string,
-      select: string
-    ): typeof signup;
-  }
+    interface Chainable<Subject = any> {
+        signup(
+            firstname: string,
+            lastname: string,
+            password: string,
+            confirmpass: string,
+            email: string,
+            select: string
+        ): typeof signup;
+    }
 }
 
 function signup(
-  firstname: string,
-  lastname: string,
-  password: string,
-  confirmpass: string,
-  email: string,
-  select: string
+    firstname: string,
+    lastname: string,
+    password: string,
+    confirmpass: string,
+    email: string,
+    select: string
 ): void {
-<<<<<<< HEAD
-  cy.write('app-input #firstname', firstname);
-  cy.write('app-input #lastname', lastname);
-  cy.write('app-input #password', password);
-  cy.write('app-input #confirmpass', confirmpass);
-  cy.write('app-input #email', email);
-  cy.get('app-select #type').select(select);
-  cy.get('button[type="submit"]').click();
-=======
     cy.url().should('includes', 'auth/sign-up');
     cy.write('app-input #firstname', firstname);
     cy.write('app-input #lastname', lastname);
@@ -67,7 +58,6 @@ function signup(
     cy.write('app-input #email', email);
     cy.get('app-select #type').select(select);
     cy.get('button[type="submit"]').click();
->>>>>>> 3ced4deb00286cf4bf8dce9a32e8e34d8cac6f6d
 }
 
 Cypress.Commands.add('signup', signup);

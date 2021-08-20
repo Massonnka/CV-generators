@@ -12,6 +12,7 @@ describe("Add Employee CV", () => {
         cy.write('app-input #lastname', "lalalalal");
         cy.write('app-autocomplete #email', "lalalalal");
         cy.write('app-autocomplete #department', "lalalalal");
+
     });
     it("Should add if the form is valid", () => {
         cy.clearEmployee();

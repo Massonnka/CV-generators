@@ -15,8 +15,9 @@ describe("Edit Employee CV", () => {
         cy.clearEmployee();
         cy.write('app-input #firstname', "lallalalla");
         cy.write('app-input #lastname', "lalalalal");
-        cy.write('app-autocomplete', "lalalalal");
-        cy.write('app-autocomplete', "lalalalal");
+        cy.write('app-autocomplete #specialization', "lalalalal");
+        cy.write('app-autocomplete #department', "lalalalal");
+        cy.url().should('not.include', 'layout/employee/2')
     });
     it("Should  edit if the form is valid", () => {
         cy.wait(2000);

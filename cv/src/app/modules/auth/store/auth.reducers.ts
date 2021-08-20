@@ -1,7 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { Actions } from '@ngrx/store-devtools/src/reducer';
 import { LoginUser } from 'src/app/core/interfaces/login-user.interface';
-import { User } from 'src/app/core/interfaces/user.interface';
 
 import * as AuthActions from './auth.actions';
 
@@ -24,7 +22,11 @@ const initialState: AuthState = {
 export const authReducer = createReducer(
   initialState,
   on(AuthActions.loginSuccess, (state, action) => {
-    return { ...state, user: action.user, error: null };
+    return {
+      ...state,
+      user: action.user,
+      error: null
+    };
   }),
   on(AuthActions.loginFailure, (state, action) => {
     return {
