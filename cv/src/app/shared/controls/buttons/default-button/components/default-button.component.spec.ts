@@ -1,5 +1,5 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DefaultButtonComponent } from './default-button.component';
 
 describe('DefaultButtonComponent', () => {
@@ -8,9 +8,9 @@ describe('DefaultButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DefaultButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [DefaultButtonComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

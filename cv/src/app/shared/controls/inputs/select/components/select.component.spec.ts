@@ -1,7 +1,6 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgControl } from '@angular/forms';
-
-
 import { SelectComponent } from './select.component';
 
 describe('SelectComponent', () => {
@@ -10,15 +9,11 @@ describe('SelectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-
-      ],
-      providers: [
-        NgControl
-      ],
-      declarations: [SelectComponent]
-    })
-      .compileComponents();
+      imports: [],
+      providers: [NgControl],
+      declarations: [SelectComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

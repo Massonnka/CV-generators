@@ -1,10 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
-
 import { CvInfoComponent } from './cv-info.component';
 
 describe('CvInfoComponent', () => {
@@ -17,14 +17,12 @@ describe('CvInfoComponent', () => {
         RouterTestingModule,
         BrowserDynamicTestingModule,
         HttpClientModule,
-        I18nModule
+        I18nModule,
       ],
-      providers: [
-        TranslateService
-      ],
-      declarations: [CvInfoComponent]
-    })
-      .compileComponents();
+      providers: [TranslateService],
+      declarations: [CvInfoComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

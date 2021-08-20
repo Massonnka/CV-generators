@@ -17,8 +17,6 @@ import { TranslateService } from '@ngx-translate/core';
 
 import * as ProjectsActions from './../../../../store/projects/projects.actions';
 
-
-
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -31,6 +29,12 @@ export class ProjectComponent implements OnInit {
   public projects$: Observable<Project[]>;
   public projects: Project[] = [];
   public isLoading = false;
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
+  public breadcrumbs: Breadcrumb[] = [];
+
+  private breadcrumbHome: string;
+  private breadcrumbProjects: string;
   public query: string = '';
   public page: number = 1;
   public count: number = 0;
@@ -42,31 +46,30 @@ export class ProjectComponent implements OnInit {
     private cdRef: ChangeDetectorRef,
     private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
-  ) { }
-
-  public breadcrumbs$: Observable<Breadcrumb[]> =
-    this.store.select(selectBreadcrumb);
-  public breadcrumbs: Breadcrumb[] = [];
-
-  private breadcrumbHome: string;
-  private breadcrumbProjects: string;
+  ) {}
 
   public ngOnInit(): void {
     this.isLoading = true;
     this.fetchPosts();
 
-    this.translateService
-      .get(['pages.home', 'pages.project'])
-      .subscribe((translations) => {
-        this.breadcrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breadcrumbProjects = this.translateService.instant(
-          translations['pages.project']
-        );
-      });
+    this.onLangChange();
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+    this.onBreadcrumbsChange();
+  }
+
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.projects'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbProjects =
+          this.translateService.instant('pages.project');
+        this.onBreadcrumbsChange();
+      });
+  }
+
+  private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [

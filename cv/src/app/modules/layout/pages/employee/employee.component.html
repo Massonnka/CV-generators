@@ -1,19 +1,33 @@
 <div class="page-header">
   <breadcrumb [data]="breadcrumbs"></breadcrumb>
 
-  <div class="title">{{ 'pages.employee' | translate }}</div>
-  <p>{{ 'employee.employee-list' | translate }}</p>
+  <div class="title">Employees</div>
+  <p>{{ "employee.employee-list" | translate }}</p>
 </div>
 <nz-content class="content">
+  <<<<<<< HEAD
+  <input type="search" [(ngModel)]="query" id="search-text" />
+  ======= >>>>>>> 9e8b785fe960f6f80491268e877d2bf953486f10
   <div class="actions">
-    <app-input label="form.search" [nzSuffix]="suffixIconButton" type="search" [(ngModel)]="query" id="search-text"
-      [placeholder]="'placeholder.Input search text' | translate">
+    <app-input
+      label="form.search"
+      [nzSuffix]="suffixIconButton"
+      type="search"
+      [(ngModel)]="query"
+      id="search-text"
+      [placeholder]="'placeholder.Input search text' | translate"
+    >
     </app-input>
     <app-primary-button (click)="addItem()" class="add-button">
-      <span>{{ 'employee.add-employee' | translate }}</span>
+      <span>{{ "employee.add-employee" | translate }}</span>
     </app-primary-button>
   </div>
-  <app-table class="table" [headTemplate]="headRef" [bodyTemplate]="bodyRef" [data]="employees">
+  <app-table
+    class="table"
+    [headTemplate]="headRef"
+    [bodyTemplate]="bodyRef"
+    [data]="employees"
+  >
   </app-table>
   <ng-template #loading>
     <app-spinner></app-spinner>
@@ -22,17 +36,32 @@
 
 <ng-template #headRef>
   <tr>
-    <th class="table-head" [nzSortFn]="sortFirst">{{ 'table.firstname' | translate }}</th>
-    <th class="table-head" [nzSortFn]="sortLast">{{ 'table.lastname' | translate }}</th>
-    <th class="table-head" [nzSortFn]="sortEmail">{{ 'table.email' | translate }}</th>
-    <th class="table-head" [nzSortFn]="sortDepartment">{{ 'table.department' | translate }}</th>
-    <th class="table-head" [nzSortFn]="sortSpecialization">{{ 'table.specialization' | translate }}</th>
+    <th class="table-head" [nzSortFn]="sortFirst">
+      {{ "table.firstname" | translate }}
+    </th>
+    <th class="table-head" [nzSortFn]="sortLast">
+      {{ "table.lastname" | translate }}
+    </th>
+    <th class="table-head" [nzSortFn]="sortEmail">
+      {{ "table.email" | translate }}
+    </th>
+    <th class="table-head" [nzSortFn]="sortDepartment">
+      {{ "table.department" | translate }}
+    </th>
+    <th class="table-head" [nzSortFn]="sortSpecialization">
+      {{ "table.specialization" | translate }}
+    </th>
   </tr>
 </ng-template>
 <ng-template #bodyRef let-data="$implicit">
-  <tr *ngFor="let employee of data | 
-              search:'firstName,lastName,email,department,specialization':query" class="table-row"
-    [routerLink]="employee.id">
+  <tr
+    *ngFor="
+      let employee of data
+        | search: 'firstName,lastName,email,department,specialization':query
+    "
+    class="table-row"
+    [routerLink]="employee.id"
+  >
     <td>{{ employee.firstName }}</td>
     <td>{{ employee.lastName }}</td>
     <td>{{ employee.email }}</td>

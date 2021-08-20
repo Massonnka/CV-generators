@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { NzTableSortFn } from 'ng-zorro-antd/table';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
@@ -31,11 +31,18 @@ export class EmployeeComponent implements OnInit {
   public count: number = 0;
   public tableSize: number = 8;
 
-  public sortFirst: NzTableSortFn<Employee> | null = (a: Employee, b: Employee) => a.firstName.localeCompare(b.firstName);
-  public sortLast = (a: Employee, b: Employee) => a.lastName.localeCompare(b.lastName);
-  public sortEmail = (a: Employee, b: Employee) => a.email.localeCompare(b.email);
-  public sortDepartment = (a: Employee, b: Employee) => a.department.localeCompare(b.department);
-  public sortSpecialization = (a: Employee, b: Employee) => a.specialization.localeCompare(b.specialization);
+  public sortFirst: NzTableSortFn<Employee> | null = (
+    a: Employee,
+    b: Employee
+  ) => a.firstName.localeCompare(b.firstName);
+  public sortLast = (a: Employee, b: Employee) =>
+    a.lastName.localeCompare(b.lastName);
+  public sortEmail = (a: Employee, b: Employee) =>
+    a.email.localeCompare(b.email);
+  public sortDepartment = (a: Employee, b: Employee) =>
+    a.department.localeCompare(b.department);
+  public sortSpecialization = (a: Employee, b: Employee) =>
+    a.specialization.localeCompare(b.specialization);
 
   constructor(
     private router: Router,
@@ -43,10 +50,10 @@ export class EmployeeComponent implements OnInit {
     private cdRef: ChangeDetectorRef,
     private translateService: TranslateService,
     private store: Store<{ breadcrumbs: Breadcrumb[] }>
-  ) { }
+  ) {}
 
-  private breacrumbHome: string;
-  private breacrumbEmployee: string;
+  private breadcrumbHome: string;
+  private breadcrumbEmployee: string;
 
   public breadcrumbs$: Observable<Breadcrumb[]> =
     this.store.select(selectBreadcrumb);
@@ -58,29 +65,35 @@ export class EmployeeComponent implements OnInit {
 
     this.fetchPosts();
 
-    this.translateService
-      .get(['pages.home', 'pages.employee'])
-      .subscribe((translations) => {
-        this.breacrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breacrumbEmployee = this.translateService.instant(
-          translations['pages.employee']
-        );
-      });
-
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
+
+    this.onLangChange();
+    this.onBreadcrumbsChange();
+  }
+
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.employee'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbEmployee =
+          this.translateService.instant('pages.employee');
+        this.onBreadcrumbsChange();
+      });
+  }
+
+  private onBreadcrumbsChange(): void {
     this.store.dispatch(
       setBreadcrumbs({
         breadcrumbs: [
           {
             url: '/layout',
-            name: this.breacrumbHome,
+            name: this.breadcrumbHome,
             isDisabled: true,
           },
           {
             url: '/layout/employee',
-            name: this.breacrumbEmployee,
+            name: this.breadcrumbEmployee,
             isDisabled: true,
           },
         ],
@@ -105,5 +118,4 @@ export class EmployeeComponent implements OnInit {
   public addItem(): void {
     this.router.navigate(['/layout/employee/addinfo']);
   }
-
 }

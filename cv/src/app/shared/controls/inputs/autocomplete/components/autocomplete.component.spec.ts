@@ -1,7 +1,6 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgControl } from '@angular/forms';
-
-
 import { AutocompleteComponent } from './autocomplete.component';
 
 describe('AutocompleteComponent', () => {
@@ -10,15 +9,11 @@ describe('AutocompleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-
-      ],
-      providers: [
-        NgControl
-      ],
-      declarations: [AutocompleteComponent]
-    })
-      .compileComponents();
+      imports: [],
+      providers: [NgControl],
+      declarations: [AutocompleteComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

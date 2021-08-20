@@ -1,13 +1,11 @@
-import { HttpClientModule, HttpHandler } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
-import { DEFAULT_LANGUAGE, MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
-
 import { SignUpComponent } from './sign-up.component';
 
 describe('SignUpComponent', () => {
@@ -22,13 +20,10 @@ describe('SignUpComponent', () => {
         HttpClientModule,
         I18nModule,
       ],
-      providers: [
-        FormBuilder,
-        TranslateService
-      ],
-      declarations: [SignUpComponent]
-    })
-      .compileComponents();
+      providers: [FormBuilder, TranslateService],
+      declarations: [SignUpComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

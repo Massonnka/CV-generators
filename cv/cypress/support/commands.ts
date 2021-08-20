@@ -9,8 +9,8 @@ declare namespace Cypress {
     }
 }
 
-Cypress.Commands.add("write", (identifer, data) => {
-    cy.get(identifer).type(data)
+Cypress.Commands.add('write', (identifer, data) => {
+    cy.get(identifer).type(data);
 });
 
 declare namespace Cypress {
@@ -42,7 +42,8 @@ declare namespace Cypress {
     }
 }
 
-function signup(firstname: string,
+function signup(
+    firstname: string,
     lastname: string,
     password: string,
     confirmpass: string,

@@ -1,8 +1,8 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
-
 import { DropdownComponent } from './dropdown.component';
 
 describe('DropdownComponent', () => {
@@ -14,13 +14,11 @@ describe('DropdownComponent', () => {
       imports: [
         RouterTestingModule,
         BrowserDynamicTestingModule,
-        NzDropDownModule
+        NzDropDownModule,
       ],
-      declarations: [
-        DropdownComponent
-      ]
-    })
-      .compileComponents();
+      declarations: [DropdownComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

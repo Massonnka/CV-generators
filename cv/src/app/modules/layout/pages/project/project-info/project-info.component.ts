@@ -1,15 +1,14 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
+import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-info',
@@ -18,11 +17,17 @@ import { TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectInfoComponent implements OnInit {
-  public projects$: Observable<Project>;
+  public project$: Observable<Project>;
   public projectId: string;
   public params = {
     id: '',
   };
+  public breadcrumbs$: Observable<Breadcrumb[]> =
+    this.store.select(selectBreadcrumb);
+  public breadcrumbs: Breadcrumb[];
+
+  private breadcrumbHome: string;
+  private breadcrumbProjects: string;
   private currentProject: Project;
 
   constructor(
@@ -34,58 +39,45 @@ export class ProjectInfoComponent implements OnInit {
     private store: Store<{
       breadcrumbs: Breadcrumb[];
     }>
-  ) { }
+  ) {}
 
   public onBack(): void {
     this.location.back();
   }
 
-  public breadcrumbs$: Observable<Breadcrumb[]> =
-    this.store.select(selectBreadcrumb);
-  public breadcrumbs: Breadcrumb[];
-
-  private breadcrumbHome: string;
-  private breadcrumbProject: string;
-
   public ngOnInit(): void {
     const id = this.activatedRouter.params.subscribe(
       (value) => (this.projectId = value.project)
     );
+
     this.params.id = this.projectId;
-    this.projects$ = this.projectService.getProjectById(
+    this.project$ = this.projectService.getProjectById(
       this.projectId,
       this.params
     );
 
-    this.projects$.subscribe((value) => {
+    this.project$.subscribe((value) => {
       this.currentProject = value;
       this.onBreadcrumbsChange();
     });
 
-    this.translateService
-      .get(['pages.home', 'pages.project'])
-      .subscribe((translations) => {
-        this.breadcrumbHome = this.translateService.instant(
-          translations['pages.home']
-        );
-        this.breadcrumbProject = this.translateService.instant(
-          translations['pages.project']
-        );
-      });
+    this.onLangChange();
 
     this.breadcrumbs$.subscribe((value) => (this.breadcrumbs = value));
   }
 
   public deleteItem(project: Project) {
-    if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
-      return;
+    if (project) {
+      if (!confirm(`Are you sure you want to delete ${project.name} ?`)) {
+        return;
+      }
+      this.projectService.deleteProject(project.id).subscribe(() => {
+        this.project$ = this.projectService.getProjectById(
+          this.projectId,
+          this.params
+        );
+      });
     }
-    this.projectService.deleteProject(project.id).subscribe(() => {
-      this.projects$ = this.projectService.getProjectById(
-        this.projectId,
-        this.params
-      );
-    });
   }
 
   public editItem(project: Project) {
@@ -96,6 +88,17 @@ export class ProjectInfoComponent implements OnInit {
         },
       },
     });
+  }
+
+  private onLangChange() {
+    this.translateService
+      .stream(['pages.home', 'pages.projects'])
+      .subscribe(() => {
+        this.breadcrumbHome = this.translateService.instant('pages.home');
+        this.breadcrumbProjects =
+          this.translateService.instant('pages.project');
+        this.onBreadcrumbsChange();
+      });
   }
 
   private onBreadcrumbsChange(): void {
@@ -109,12 +112,12 @@ export class ProjectInfoComponent implements OnInit {
           },
           {
             url: '/layout/project',
-            name: this.breadcrumbProject,
+            name: this.breadcrumbProjects,
             isDisabled: false,
           },
           {
-            url: '/layout/project/info',
-            name: this.currentProject.name!,
+            url: '/layout/project/id',
+            name: this.currentProject?.name!,
             isDisabled: true,
           },
         ],

@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
@@ -24,7 +20,8 @@ export class FormCvComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private employeeService: EmployeeService) { }
+    private employeeService: EmployeeService
+  ) {}
 
   public ngOnInit(): void {
     const options = history.state.options;
@@ -38,13 +35,46 @@ export class FormCvComponent implements OnInit {
       department: ['', [Validators.required, Validators.minLength(3)]],
     });
     if (this.employee) {
-      this.validateForm.get("email")?.setValue(this.employee.cv?.email);
-      this.validateForm.get("lastName")?.setValue(this.employee.cv?.lastName);
-      this.validateForm.get("skills")?.setValue(this.employee.cv?.skills);
-      this.validateForm.get("specialization")?.setValue(this.employee.cv?.specialization);
-      this.validateForm.get("department")?.setValue(this.employee.cv?.department);
+      this.validateForm.get('email')?.setValue(this.employee.cv?.email);
+      this.validateForm.get('lastName')?.setValue(this.employee.cv?.lastName);
+      this.validateForm.get('skills')?.setValue(this.employee.cv?.skills);
+      this.validateForm
+        .get('specialization')
+        ?.setValue(this.employee.cv?.specialization);
+      this.validateForm
+        .get('department')
+        ?.setValue(this.employee.cv?.department);
       this.isEditMode = true;
     }
+  }
+
+  private addEmployee(employee: Employee): void {
+    this.employeeService.addEmployee(employee).subscribe(
+      () => {
+        this.validateForm.reset();
+        this.router.navigate(['/layout/employee']);
+        this.submitted = false;
+      },
+      () => {
+        this.submitted = false;
+      }
+    );
+  }
+
+  private updateEmployee(employee: Employee): void {
+    employee.id = this.employee.id;
+
+    this.employeeService.updateEmployee(employee).subscribe(
+      () => {
+        this.validateForm.reset();
+        this.router.navigate(['/layout/employee']);
+        this.submitted = false;
+      },
+      () => {
+        this.submitted = false;
+        this.isEditMode = false;
+      }
+    );
   }
 
   public submit() {
@@ -61,34 +91,13 @@ export class FormCvComponent implements OnInit {
         skills: this.validateForm.value.skills,
         specialization: this.validateForm.value.specialization,
         department: this.validateForm.value.department,
-      }
+      },
     };
 
     if (this.isEditMode) {
-      employee.id = this.employee.id;
-
-      this.employeeService.updateEmployee(employee).subscribe(
-        () => {
-          this.validateForm.reset();
-          this.router.navigate(['/layout/employee']);
-          this.submitted = false;
-        },
-        () => {
-          this.submitted = false;
-          this.isEditMode = false;
-        }
-      );
+      this.updateEmployee(employee);
     } else {
-      this.employeeService.addEmployee(employee).subscribe(
-        () => {
-          this.validateForm.reset();
-          this.router.navigate(['/layout/employee']);
-          this.submitted = false;
-        },
-        () => {
-          this.submitted = false;
-        }
-      );
+      this.addEmployee(employee);
     }
   }
 }

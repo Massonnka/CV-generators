@@ -1,7 +1,7 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DEFAULT_LANGUAGE, MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { I18nModule } from 'src/app/i18n.module';
-
 import { LayoutComponent } from './layout.component';
 
 describe('LayoutComponent', () => {
@@ -10,15 +10,11 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        I18nModule
-      ],
-      providers: [
-        TranslateService,
-      ],
-      declarations: [LayoutComponent]
-    })
-      .compileComponents();
+      imports: [I18nModule],
+      providers: [TranslateService],
+      declarations: [LayoutComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
