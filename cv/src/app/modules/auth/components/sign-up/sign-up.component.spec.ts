@@ -74,7 +74,9 @@ describe('SignUpComponent', () => {
 
     (<any>component).userCheck(mockUser);
 
-    const userCheckSpy = spyOn(<any>component, 'userCheck').and.callThrough();
+    const userCheckSpy = spyOn(<any>component, 'userCheck').and.callFake(() => {
+      console.log('FFFFFFFFFFFFFFF');
+    });
     expect(userCheckSpy).toBeTruthy();
   });
 });
