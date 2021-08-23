@@ -10,7 +10,7 @@
 # dependencies
 
 /node_modules
-/src/app/shared/constants/
+*.constants.ts
 # profiling files
 chrome-profiler-events*.json
 
