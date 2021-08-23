@@ -22,7 +22,6 @@ dist/
 # Maven
 target/
 dist/
-src/app/shared/constants/
 
 # JetBrains IDE
 .idea/
