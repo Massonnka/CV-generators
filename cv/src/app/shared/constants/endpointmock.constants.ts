@@ -1,0 +1,1 @@
+export const endpointmock: string = 'http://localhost:3001';

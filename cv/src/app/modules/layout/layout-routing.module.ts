@@ -21,7 +21,7 @@ const routes: Routes = [
           import('./pages/project/project.module').then((m) => m.ProjectModule),
       },
     ],
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
 ];
 

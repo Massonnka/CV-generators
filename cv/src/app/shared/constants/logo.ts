@@ -1,0 +1,1 @@
+export const headLogo: any = "C:/Users/Kartoxa/Desktop/Projects/Angular/cvgen-stream-1/cv/src/assets/images/logo.png"
