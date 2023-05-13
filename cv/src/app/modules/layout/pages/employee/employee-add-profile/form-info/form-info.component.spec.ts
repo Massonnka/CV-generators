@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -49,7 +49,7 @@ describe('FormCvComponent', () => {
         HttpClientTestingModule,
       ],
       providers: [
-        FormBuilder,
+        UntypedFormBuilder,
         TranslateService,
         EmployeeService,
         {
@@ -136,7 +136,7 @@ describe('FormCvComponent', () => {
   });
 
   it('should submit and check if isEditMode is true', () => {
-    const mockFb = TestBed.inject(FormBuilder);
+    const mockFb = TestBed.inject(UntypedFormBuilder);
     component.validateForm = mockFb.group({
       name: ['nikita', [Validators.required, Validators.minLength(3)]],
       startDate: ['16.08.2021', Validators.required],

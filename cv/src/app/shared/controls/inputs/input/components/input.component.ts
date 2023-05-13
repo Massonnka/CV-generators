@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormControl,
+  UntypedFormControl,
   NgControl,
   NG_VALUE_ACCESSOR,
   ValidationErrors,
@@ -46,7 +46,7 @@ export class InputComponent
   public onTouched = () => { };
 
   public ngControl: NgControl;
-  public control: FormControl;
+  public control: UntypedFormControl;
 
   public isRequired = false;
 
@@ -73,7 +73,7 @@ export class InputComponent
   }
 
   public ngOnInit(): void {
-    this.control = new FormControl('');
+    this.control = new UntypedFormControl('');
     this.control.valueChanges
       .pipe(takeUntil(this.componentDestroyed$))
       .subscribe((value) => {

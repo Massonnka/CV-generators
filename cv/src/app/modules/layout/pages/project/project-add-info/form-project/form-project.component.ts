@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/core/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
@@ -11,13 +11,13 @@ import { ProjectService } from 'src/app/core/services/project.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormProjectComponent implements OnInit {
-  public validateForm!: FormGroup;
+  public validateForm!: UntypedFormGroup;
   public submitted = false;
   public project: Project;
   public isEditMode = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router,
     private projectService: ProjectService
   ) {}

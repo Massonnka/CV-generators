@@ -2,7 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -28,7 +28,7 @@ describe('LogInComponent', () => {
         StoreModule.forRoot({}),
       ],
       providers: [
-        FormBuilder,
+        UntypedFormBuilder,
         TranslateService,
         AuthService,
         {
@@ -81,7 +81,7 @@ describe('LogInComponent', () => {
   });
 
   it("should't login user if the form is invalid", () => {
-    const mockFb = TestBed.inject(FormBuilder);
+    const mockFb = TestBed.inject(UntypedFormBuilder);
     component.validateForm = mockFb.group({
       email: ['nikita@mail.ru', [Validators.required, Validators.minLength(3)]],
       password: ['12345', [Validators.required]],
@@ -98,7 +98,7 @@ describe('LogInComponent', () => {
   });
 
   xit('should authorizate if the user is exist', () => {
-    const mockFb = TestBed.inject(FormBuilder);
+    const mockFb = TestBed.inject(UntypedFormBuilder);
     component.validateForm = mockFb.group({
       email: ['nikita@mail.ru', [Validators.required]],
       password: ['12345', [Validators.required]],

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
+  UntypedFormBuilder,
   FormControl,
-  FormGroup,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ import { RegisterUser } from 'src/app/core/interfaces/register-user.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignUpComponent implements OnInit {
-  public validateForm!: FormGroup;
+  public validateForm!: UntypedFormGroup;
   public captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
     theme: 'twotone',
@@ -38,7 +38,7 @@ export class SignUpComponent implements OnInit {
     passwordKey: string,
     passwordConfirmationKey: string
   ) {
-    return (group: FormGroup) => {
+    return (group: UntypedFormGroup) => {
       let passwordInput = group.controls[passwordKey],
         passwordConfirmationInput = group.controls[passwordConfirmationKey];
       if (passwordInput.value !== passwordConfirmationInput.value) {
@@ -50,7 +50,7 @@ export class SignUpComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private authService: AuthService,
     private router: Router
   ) {}

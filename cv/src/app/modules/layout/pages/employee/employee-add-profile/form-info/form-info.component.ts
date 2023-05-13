@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
@@ -11,13 +11,13 @@ import { EmployeeService } from 'src/app/core/services/employees.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormInfoComponent implements OnInit {
-  public validateForm!: FormGroup;
+  public validateForm!: UntypedFormGroup;
   public submitted = false;
   public employee: Employee;
   public isEditMode = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router,
     private employeeService: EmployeeService
   ) {}

@@ -2,7 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -25,7 +25,7 @@ describe('SignUpComponent', () => {
         HttpClientModule,
         I18nModule,
       ],
-      providers: [FormBuilder, TranslateService, AuthService, HttpClient],
+      providers: [UntypedFormBuilder, TranslateService, AuthService, HttpClient],
       declarations: [SignUpComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -47,7 +47,7 @@ describe('SignUpComponent', () => {
   });
 
   fit('should set user', async () => {
-    const mockFb = TestBed.inject(FormBuilder);
+    const mockFb = TestBed.inject(UntypedFormBuilder);
     component.validateForm = mockFb.group({
       firstName: 'nikr',
       lastName: 'shchert',
