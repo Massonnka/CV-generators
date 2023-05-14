@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { LoginUser } from 'src/app/core/interfaces/login-user.interface';
+import { LoginUser } from 'src/app/shared/interfaces/login-user.interface';
 
 export const loginSuccess = createAction(
   '[Auth Effect] Login User Success',

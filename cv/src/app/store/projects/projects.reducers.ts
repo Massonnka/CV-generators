@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { Project } from 'src/app/core/interfaces/project.interface';
+import { Project } from 'src/app/shared/interfaces/project.interface';
 
 import * as ProjectActions from './projects.actions';
 

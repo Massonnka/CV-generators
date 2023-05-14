@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Employee } from 'src/app/core/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
+import { Cv } from 'src/app/shared/interfaces/cv.interface';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 
 @Component({
   selector: 'app-form-cv',
@@ -34,6 +35,7 @@ export class FormCvComponent implements OnInit {
       specialization: ['', [Validators.required, Validators.minLength(3)]],
       department: ['', [Validators.required, Validators.minLength(3)]],
     });
+
     if (this.employee) {
       this.validateForm.get('email')?.setValue(this.employee.cv?.email);
       this.validateForm.get('lastName')?.setValue(this.employee.cv?.lastName);
@@ -84,20 +86,18 @@ export class FormCvComponent implements OnInit {
 
     this.submitted = true;
 
-    const employee: Employee = {
-      cv: {
-        email: this.validateForm.value.email,
-        lastName: this.validateForm.value.lastName,
-        skills: this.validateForm.value.skills,
-        specialization: this.validateForm.value.specialization,
-        department: this.validateForm.value.department,
-      },
+    const cv: Cv = {
+      email: this.validateForm.value.email,
+      lastName: this.validateForm.value.lastName,
+      skills: this.validateForm.value.skills,
+      specialization: this.validateForm.value.specialization,
+      department: this.validateForm.value.department,
     };
 
     if (this.isEditMode) {
-      this.updateEmployee(employee);
+      //this.updateEmployee(employee);
     } else {
-      this.addEmployee(employee);
+      //this.addEmployee(employee);
     }
   }
 }

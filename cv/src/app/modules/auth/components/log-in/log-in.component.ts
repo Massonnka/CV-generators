@@ -3,8 +3,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { LoginUser } from 'src/app/core/interfaces/login-user.interface';
-import { User } from 'src/app/core/interfaces/user.interface';
+import { LoginUser } from 'src/app/shared/interfaces/login-user.interface';
 
 import * as fromAuthActions from '../../store/auth.actions';
 

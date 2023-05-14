@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { Employee } from 'src/app/core/interfaces/employees.interface';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
@@ -27,7 +27,8 @@ export class EmployeeInfoProfileComponent implements OnInit {
   public employee$: Observable<Employee>;
   public employeeId: string;
 
-  private currentEmployee: Employee = {};
+  private currentEmployee: Employee = null;
+
   constructor(
     private activatedRouter: ActivatedRoute,
     private employeeService: EmployeeService,

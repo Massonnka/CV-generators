@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs/internal/observable/of';
-import { Project } from 'src/app/core/interfaces/project.interface';
+import { Project } from 'src/app/shared/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { I18nModule } from 'src/app/i18n.module';
 import { FormProjectComponent } from './form-project.component';

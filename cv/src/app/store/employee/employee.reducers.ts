@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { Employee } from 'src/app/core/interfaces/employees.interface';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 
 import * as EmployeeActions from './employee.actions';
 

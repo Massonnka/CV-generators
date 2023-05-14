@@ -8,11 +8,11 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { LoginUser } from '../interfaces/login-user.interface';
-import { FbAuthResponse } from '../interfaces/auth-response.interface';
-import { User } from '../interfaces/user.interface';
+import { LoginUser } from '../../shared/interfaces/login-user.interface';
+import { FbAuthResponse } from '../../shared/interfaces/auth-response.interface';
+import { User } from '../../shared/interfaces/user.interface';
 import { endpoint } from 'src/app/shared/constants/endpoind.constants';
-import { RegisterUser } from '../interfaces/register-user.interface';
+import { RegisterUser } from '../../shared/interfaces/register-user.interface';
 
 @Injectable({
   providedIn: 'root',

@@ -1,11 +1,18 @@
-<div class="table">
-  <nz-table #filterTable [nzData]="data" [nzPageSize]="8" [nzPageIndex]="page">
-    <thead>
-      <ng-container [ngTemplateOutlet]="headTemplate"></ng-container>
-    </thead>
-    <tbody>
-      <ng-container [ngTemplateOutlet]="bodyTemplate" [ngTemplateOutletContext]="{ $implicit: filterTable.data }">
-      </ng-container>
-    </tbody>
-  </nz-table>
-</div>
+<nz-table
+  #filterTable
+  [nzData]="data"
+  [nzPageSize]="8"
+  [nzPageIndex]="page"
+  class="table"
+>
+  <thead>
+    <ng-container [ngTemplateOutlet]="headTemplate"></ng-container>
+  </thead>
+  <tbody>
+    <ng-container
+      [ngTemplateOutlet]="bodyTemplate"
+      [ngTemplateOutletContext]="{ $implicit: filterTable.data }"
+    >
+    </ng-container>
+  </tbody>
+</nz-table>

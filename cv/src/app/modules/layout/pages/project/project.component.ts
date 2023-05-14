@@ -12,7 +12,7 @@ import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/bread
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
-import { Project } from 'src/app/core/interfaces/project.interface';
+import { Project } from 'src/app/shared/interfaces/project.interface';
 import { TranslateService } from '@ngx-translate/core';
 
 import * as ProjectsActions from './../../../../store/projects/projects.actions';

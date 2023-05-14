@@ -8,7 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { RegisterUser } from 'src/app/core/interfaces/register-user.interface';
+import { RegisterUser } from 'src/app/shared/interfaces/register-user.interface';
 
 @Component({
   selector: 'app-sign-up',

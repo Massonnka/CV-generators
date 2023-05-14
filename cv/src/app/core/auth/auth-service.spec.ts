@@ -11,10 +11,10 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs';
-import { FbAuthResponse } from '../interfaces/auth-response.interface';
-import { LoginUser } from '../interfaces/login-user.interface';
-import { RegisterUser } from '../interfaces/register-user.interface';
-import { User } from '../interfaces/user.interface';
+import { FbAuthResponse } from '../../shared/interfaces/auth-response.interface';
+import { LoginUser } from '../../shared/interfaces/login-user.interface';
+import { RegisterUser } from '../../shared/interfaces/register-user.interface';
+import { User } from '../../shared/interfaces/user.interface';
 import { AuthService } from './auth.service';
 
 describe('Auth service tests', () => {

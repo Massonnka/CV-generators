@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Employee } from 'src/app/core/interfaces/employees.interface';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 
 @Component({

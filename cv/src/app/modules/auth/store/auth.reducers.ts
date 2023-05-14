@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { LoginUser } from 'src/app/core/interfaces/login-user.interface';
+import { LoginUser } from 'src/app/shared/interfaces/login-user.interface';
 
 import * as AuthActions from './auth.actions';
 

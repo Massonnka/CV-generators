@@ -1,3 +1,3 @@
 export interface FbAuthResponse {
-    accessToken: string;
+  accessToken: string;
 }

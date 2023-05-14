@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Project } from 'src/app/core/interfaces/project.interface';
+import { Project } from 'src/app/shared/interfaces/project.interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 
 @Component({

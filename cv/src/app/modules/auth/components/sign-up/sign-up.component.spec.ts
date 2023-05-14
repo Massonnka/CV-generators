@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { RegisterUser } from 'src/app/core/interfaces/register-user.interface';
+import { RegisterUser } from 'src/app/shared/interfaces/register-user.interface';
 import { I18nModule } from 'src/app/i18n.module';
 import { SignUpComponent } from './sign-up.component';
 

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { of, throwError } from 'rxjs';
-import { Employee } from 'src/app/core/interfaces/employees.interface';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { I18nModule } from 'src/app/i18n.module';
 import { FormInfoComponent } from './form-info.component';

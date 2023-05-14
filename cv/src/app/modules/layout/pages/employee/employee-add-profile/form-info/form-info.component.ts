@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Employee } from 'src/app/core/interfaces/employees.interface';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
+import { uniqueId } from 'lodash-es';
 
 @Component({
   selector: 'app-form-info',
@@ -81,6 +82,7 @@ export class FormInfoComponent implements OnInit {
     this.submitted = true;
 
     const employee: Employee = {
+      id: uniqueId(),
       firstName: this.validateForm.value.firstName,
       lastName: this.validateForm.value.lastName,
       email: this.validateForm.value.email,
