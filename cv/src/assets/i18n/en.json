@@ -1,118 +1,127 @@
 {
-    "auth": {
-        "sign-up": "Sign Up",
-        "log-in": "Log In",
-        "log-out": "Log out",
-        "remember-me": "Remember me",
-        "forgot-password": "Forgot password?",
-        "register-now": "Register now",
-        "i-have-account": "I already have an account",
-        "I have read the": "I have read the",
-        "agreement": "agreement",
-        "select": "Choose a specialization"
-    },
-    "profile": {
-        "profile": "Profile",
-        "username": "Username",
-        "confirm-pass": "Confirm Password",
-        "password": "Password",
-        "userinfo": "User Info",
-        "email": "E-mail",
-        "nickname": "Nickname",
-        "phone-number": "Phone Number"
-    },
-    "pages": {
-        "home": "Home",
-        "dashboard": "Dashboard",
-        "employee": "Employees",
-        "project": "Projects",
-        "info": "Info"
-    },
-    "employee": {
-        "employee-list": "Employee-list",
-        "add-employee": "Add employee"
-    },
-    "project": {
-        "project-list": "Project list",
-        "add-project": "Add project",
-        "archieve": "Archieve"
-    },
-    "table": {
-        "firstname": "Firstname",
-        "lastname": "Lastname",
-        "email": "Email",
-        "department": "Department",
-        "specialization": "Specialization"
-    },
-    "form": {
-        "search": "Search:",
-        "project-info": "Project Info",
-        "user-info": "User Info",
-        "employee-info": "Employee Info",
-        "firstname": "First Name",
-        "lastname": "Last Name",
-        "email": "Email",
-        "specialization": "Specialization",
-        "department": "Department",
-        "save": "Save",
-        "cancel": "Cancel",
-        "edit": "Edit",
-        "readmore": "Read more...",
-        "name": "Name",
-        "start-date": "Start date",
-        "end-date": "End date",
-        "team-size": "Team size",
-        "tech-stack": "Tech stack",
-        "roles": "Roles",
-        "description": "Description",
-        "responsibilities": "Responsibilities",
-        "skills": "Skills",
-        "delete": "Delete"
-    },
-    "placeholder": {
-        "Input your email!": "Input your email!",
-        "Input your password!": "Input your password!",
-        "Input your first name!": "Input your first name!",
-        "Input your last name!": "Input your last name!",
-        "Input your confirm password!": "Input your confirm password!",
-        "Select your specialization!": "Select your specialization!",
-        "Input your name!": "Input your name!",
-        "Input your team size!": "Input your team size!",
-        "Input your tech stack!": "Input your tech stack!",
-        "Input your roles!": "Input your roles!",
-        "Input your description!": "Input your description!",
-        "Input your responsibilities!": "Input your responsibilities!",
-        "Input your skills!": "Input your skills!",
-        "Input your specialization!": "Input your specialization!",
-        "Input your department!": "Input your department!",
-        "Select date": "Select date!",
-        "Input search text": "Input search text..."
-    },
-    "modal": {
-        "admin": "Admin CV",
-        "notification": "Notifications",
-        "search": "Search",
-        "directory": "Directory",
-        "cv": "My CV",
-        "profile": "My Profile",
-        "recently": "RECENTLY",
-        "reply": "Reply to",
-        "smileIcon": "Smiling emoticon showing no new messages"
-    },
-    "text": {
-        "notific-text": "Thank you for creating an account with CV Generators. For the next 12 months, you will have access to CV services for computing, data storage, applications within limits.",
-        "notific-text-hello": "Welcome to the CV Generators community!",
-        "notific-profile-label": "You have viewed all notifications! This is professionalism!",
-        "notific-profile-footer": "You have no messages."
-    },
-    "validator": {
-        "email": "Invalid email",
-        "required": "Please, specify the field",
-        "confirmpass": "Please confirm your password!",
-        "password": "Password must be more than 6 characters",
-        "name": "Name must be at least 3 characters long.",
-        "minlength3": "Please enter more than 3 characters",
-        "minlength6": "Please enter more than 6 characters",
-        "minlength8": "Please enter more than 8 characters"
-    }
+  "auth": {
+    "sign-up": "Sign Up",
+    "log-in": "Log In",
+    "log-out": "Log out",
+    "remember-me": "Remember me",
+    "forgot-password": "Forgot password?",
+    "register-now": "Register now",
+    "i-have-account": "I already have an account",
+    "I have read the": "I have read the",
+    "agreement": "agreement",
+    "select": "Choose a specialization"
+  },
+  "profile": {
+    "profile": "Profile",
+    "username": "Username",
+    "confirm-pass": "Confirm Password",
+    "password": "Password",
+    "userinfo": "User Info",
+    "email": "E-mail",
+    "nickname": "Nickname",
+    "phone-number": "Phone Number"
+  },
+  "pages": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "employee": "Employees",
+    "project": "Projects",
+    "vacancies": "Vacancies",
+    "info": "Info"
+  },
+  "employee": {
+    "employee-list": "Employee-list",
+    "add-employee": "Add employee"
+  },
+  "project": {
+    "project-list": "Project list",
+    "add-project": "Add project",
+    "archieve": "Archieve"
+  },
+  "vacancies": {
+    "vacancies-list": "Vacancies list",
+    "add-vacancy": "Add vacancy",
+    "archieve": "Archieve"
+  },
+  "table": {
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "email": "Email",
+    "department": "Department",
+    "specialization": "Specialization"
+  },
+  "form": {
+    "search": "Search:",
+    "project-info": "Project Info",
+    "user-info": "User Info",
+    "employee-info": "Employee Info",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "email": "Email",
+    "specialization": "Specialization",
+    "department": "Department",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "readmore": "Read more...",
+    "name": "Name",
+    "start-date": "Start date",
+    "end-date": "End date",
+    "team-size": "Team size",
+    "tech-stack": "Tech stack",
+    "roles": "Roles",
+    "description": "Description",
+    "responsibilities": "Responsibilities",
+    "skills": "Skills",
+    "delete": "Delete",
+    "salary": "Salary",
+    "phone": "Phone",
+    "rating": "Rating"
+  },
+  "placeholder": {
+    "Input your email!": "Input your email!",
+    "Input your password!": "Input your password!",
+    "Input your first name!": "Input your first name!",
+    "Input your last name!": "Input your last name!",
+    "Input your confirm password!": "Input your confirm password!",
+    "Select your specialization!": "Select your specialization!",
+    "Input your name!": "Input your name!",
+    "Input your team size!": "Input your team size!",
+    "Input your tech stack!": "Input your tech stack!",
+    "Input your roles!": "Input your roles!",
+    "Input your description!": "Input your description!",
+    "Input your responsibilities!": "Input your responsibilities!",
+    "Input your skills!": "Input your skills!",
+    "Input your specialization!": "Input your specialization!",
+    "Input your department!": "Input your department!",
+    "Select date": "Select date!",
+    "Input search text": "Input search text..."
+  },
+  "modal": {
+    "admin": "Admin CV",
+    "notification": "Notifications",
+    "search": "Search",
+    "directory": "Directory",
+    "cv": "My CV",
+    "profile": "My Profile",
+    "recently": "RECENTLY",
+    "reply": "Reply to",
+    "smileIcon": "Smiling emoticon showing no new messages"
+  },
+  "text": {
+    "notific-text": "Thank you for creating an account with CV Generators. For the next 12 months, you will have access to CV services for computing, data storage, applications within limits.",
+    "notific-text-hello": "Welcome to the CV Generators community!",
+    "notific-profile-label": "You have viewed all notifications! This is professionalism!",
+    "notific-profile-footer": "You have no messages."
+  },
+  "validator": {
+    "email": "Invalid email",
+    "required": "Please, specify the field",
+    "confirmpass": "Please confirm your password!",
+    "password": "Password must be more than 6 characters",
+    "name": "Name must be at least 3 characters long.",
+    "minlength3": "Please enter more than 3 characters",
+    "minlength6": "Please enter more than 6 characters",
+    "minlength8": "Please enter more than 8 characters"
+  }
 }

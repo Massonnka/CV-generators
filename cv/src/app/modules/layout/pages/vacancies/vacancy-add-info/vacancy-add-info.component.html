@@ -1,0 +1,17 @@
+<div class="page-header">
+  <breadcrumb [data]="breadcrumbs"></breadcrumb>
+
+  <div class="title">{{ "pages.vacancies" | translate }}</div>
+</div>
+<nz-content class="content">
+  <div class="actions">
+    <app-default-button>
+      <span>{{ "vacancies.archieve" | translate }}</span>
+    </app-default-button>
+  </div>
+  <app-form-vacancy>
+    <app-default-button (click)="onBack()" id="back-button" nz-button>
+      {{ "form.cancel" | translate }}
+    </app-default-button>
+  </app-form-vacancy>
+</nz-content>

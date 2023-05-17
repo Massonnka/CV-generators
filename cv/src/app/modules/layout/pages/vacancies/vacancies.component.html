@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="page-header">
+    <breadcrumb [data]="breadcrumbs"></breadcrumb>
+
+    <div class="title">{{ "pages.vacancies" | translate }}</div>
+    <p>{{ "vacancies.vacancies-list" | translate }}</p>
+  </div>
+  <nz-content class="content">
+    <div class="actions">
+      <app-input
+        label="form.search"
+        [nzSuffix]="suffixIconButton"
+        type="search"
+        [(ngModel)]="query"
+        id="search-text"
+        [placeholder]="'placeholder.Input search text' | translate"
+      >
+      </app-input>
+      <app-primary-button (click)="addItem()" class="sign-up-button">
+        <span>{{ "vacancies.add-vacancy" | translate }}</span>
+      </app-primary-button>
+    </div>
+    <app-table
+      class="table"
+      [headTemplate]="headRef"
+      [bodyTemplate]="bodyRef"
+      [data]="vacancies"
+    >
+    </app-table>
+  </nz-content>
+
+  <ng-template #headRef>
+    <tr>
+      <th class="table-head">{{ "form.name" | translate }}</th>
+      <th class="table-head">{{ "form.description" | translate }}</th>
+      <th class="table-head">{{ "form.salary" | translate }}</th>
+      <th class="table-head">{{ "form.end-date" | translate }}</th>
+      <th class="table-head">{{ "form.phone" | translate }}</th>
+      <th class="table-head">{{ "form.rating" | translate }}</th>
+    </tr>
+  </ng-template>
+  <ng-template #bodyRef let-data="$implicit">
+    <tr
+      *ngFor="
+        let vacancy of data
+          | paginate
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index
+      "
+      class="table-row"
+      [routerLink]="vacancy.id"
+    >
+      <td>{{ vacancy.name }}</td>
+      <td>{{ vacancy.description }}</td>
+      <td>{{ vacancy.salary }}</td>
+      <td>{{ vacancy.endDate | date : "fullDate" }}</td>
+      <td>{{ vacancy.phone }}</td>
+      <td>{{ vacancy.rating }}</td>
+    </tr>
+  </ng-template>
+
+  <ng-template #suffixIconButton>
+    <i nz-icon nzType="search"></i>
+  </ng-template>
+</div>
