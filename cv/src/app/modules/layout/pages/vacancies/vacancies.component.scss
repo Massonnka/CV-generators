@@ -1,0 +1,93 @@
+:host {
+  width: 100%;
+  overflow: scroll;
+  background-color: var(--background-color);
+}
+
+:host ::ng-deep .ant-pagination-item {
+  .ng-star-inserted {
+    color: var(--text-color);
+  }
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+:host ::ng-deep .ant-icon {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+:host ::ng-deep .ant-pagination-prev .ant-pagination-item-link {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+:host ::ng-deep .ant-pagination-next .ant-pagination-item-link {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 24px;
+  background-color: var(--content-color);
+  color: var(--text-color);
+  width: 100%;
+  .title {
+    font-size: 34px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 24px 0 24px;
+  background-color: var(--content-color);
+  color: var(--text-color);
+  padding: 24px 15px 24px 15px;
+
+  .actions {
+    height: 55px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .table {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--content-color);
+
+    .table-head {
+      background-color: var(--content-color);
+      color: var(--text-color);
+    }
+    .table-row {
+      background-color: var(--content-color);
+      color: var(--text-color);
+    }
+    .table-row:hover {
+      background-color: var(--hover-background-color);
+      transition: 0.2s linear;
+    }
+  }
+}
+
+:host::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}

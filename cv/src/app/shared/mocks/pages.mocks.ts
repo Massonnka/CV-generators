@@ -17,4 +17,10 @@ export const PAGES = [
     translateKey: 'pages.project',
     isDisabled: false,
   },
+  {
+    name: 'Vacancies',
+    iconType: 'database',
+    translateKey: 'pages.vacancies',
+    isDisabled: false,
+  },
 ];

@@ -1,0 +1,57 @@
+<div *ngIf="vacancy$ | async as vacancy; else loading" class="page-header">
+  <breadcrumb [data]="breadcrumbs"></breadcrumb>
+
+  <div class="title">{{ "pages.vacancies" | translate }}</div>
+  <div class="title-info">
+    <p>
+      {{ "pages.vacancy" | translate }}
+      {{ vacancy.name }}
+    </p>
+  </div>
+</div>
+<nz-content *ngIf="vacancy$ | async as vacancy" class="content">
+  <nz-descriptions
+    [nzTitle]="'form.vacancy-info' | translate"
+    nzBordered
+    nzLayout="vertical"
+    [nzExtra]="extraTpl"
+    class="content-descriptions"
+  >
+    <nz-descriptions-item [nzTitle]="'form.name' | translate">
+      {{ vacancy.name }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.requirements' | translate">
+      {{ vacancy.requirements }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.description' | translate">
+      {{ vacancy.description }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.salary' | translate">
+      {{ vacancy.salary }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.endDate' | translate">
+      {{ vacancy.endDate }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.phone' | translate">
+      {{ vacancy.phone }}
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzTitle]="'form.rating' | translate">
+      {{ vacancy.rating }}
+    </nz-descriptions-item>
+    <ng-template class="buttons" #extraTpl>
+      <app-primary-button nz-button (click)="editItem(vacancy)" class="buttons-putton">
+        {{ "form.edit" | translate }}
+      </app-primary-button>
+      <app-primary-button (click)="deleteItem(vacancy)" class="buttons-putton">
+        {{ "form.delete" | translate }}
+      </app-primary-button>
+      <app-default-button (click)="onBack()" nz-button class="buttons-putton">
+        {{ "form.cancel" | translate }}
+      </app-default-button>
+    </ng-template>
+  </nz-descriptions>
+</nz-content>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

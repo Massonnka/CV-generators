@@ -1,0 +1,92 @@
+<form
+  nz-form
+  [formGroup]="validateForm"
+  class="vacancy-form"
+  (ngSubmit)="submit()"
+>
+  <div class="row">
+    <nz-form-item class="inputs">
+      <app-input
+        id="name"
+        [placeholder]="'placeholder.Input your name!' | translate"
+        label="form.name"
+        formControlName="name"
+        [errorMessages]="{
+          required: 'validator.required' | translate,
+          minlength: 'validator.name' | translate
+        }"
+      >
+      </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+      <app-date-picker
+        nzId="endDate"
+        [nzPlaceHolder]="'placeholder.Select date' | translate"
+        label="form.end-date"
+        formControlName="endDate"
+        [errorMessages]="{ required: 'validator.required' | translate }"
+      >
+      </app-date-picker>
+    </nz-form-item>
+  </div>
+  <div class="row">
+    <nz-form-item class="inputs">
+      <app-input
+        id="salary"
+        type="number"
+        [placeholder]="'placeholder.Enter salary' | translate"
+        label="form.salary"
+        formControlName="salary"
+        [errorMessages]="{ required: 'validator.required' | translate }"
+      >
+      </app-input>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+      <app-input
+        id="phone"
+        [placeholder]="'placeholder.Enter phone' | translate"
+        label="form.phone"
+        formControlName="phone"
+        [errorMessages]="{ required: 'validator.phone' | translate }"
+      >
+      </app-input>
+    </nz-form-item>
+  </div>
+  <div nz-row>
+    <nz-form-item class="inputs">
+      <app-textarea
+        nzId="requirements"
+        [placeholder]="'placeholder.Enter requirements' | translate"
+        label="form.requirements"
+        formControlName="requirements"
+        [errorMessages]="{ required: 'validator.required' | translate }"
+      >
+      </app-textarea>
+    </nz-form-item>
+    <nz-form-item class="inputs">
+      <app-textarea
+        id="description"
+        [placeholder]="'placeholder.Enter description' | translate"
+        label="form.description"
+        formControlName="description"
+        [errorMessages]="{
+          required: 'validator.required' | translate
+        }"
+      >
+      </app-textarea>
+    </nz-form-item>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="24" class="search-area">
+      <button
+        type="submit"
+        nz-button
+        [disabled]="validateForm.invalid || submitted"
+        [nzType]="'primary'"
+      >
+        {{ "form.save" | translate }}
+      </button>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</form>

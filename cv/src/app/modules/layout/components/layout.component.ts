@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PAGES } from 'src/assets/mocks/pages.mocks';
+import { PAGES } from 'src/app/shared/mocks/pages.mocks';
 
 @Component({
   selector: 'app-layout',
