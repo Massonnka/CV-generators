@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 import {
   HttpClient,
-  HttpHeaders,
   HttpErrorResponse,
+  HttpHeaders,
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { LoginUser } from '../../shared/interfaces/login-user.interface';
-import { FbAuthResponse } from '../../shared/interfaces/auth-response.interface';
-import { User } from '../../shared/interfaces/user.interface';
+import { Observable, Subject, of, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { endpoint } from 'src/app/shared/constants/endpoind.constants';
+import { USE_MOCK } from 'src/app/shared/constants/use-mock.constants';
+import { MOCK_TOKEN } from 'src/app/shared/mocks/auth/auth.mocks';
+import { FbAuthResponse } from '../../shared/interfaces/auth-response.interface';
+import { LoginUser } from '../../shared/interfaces/login-user.interface';
 import { RegisterUser } from '../../shared/interfaces/register-user.interface';
+import { User } from '../../shared/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -21,18 +22,31 @@ export class AuthService {
   public error$: Subject<string> = new Subject<string>();
   public headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   public signUp(user: RegisterUser): Observable<any> {
     let api = `${endpoint}/user/register`;
     return this.http
       .post(api, user)
-      .pipe(
-        catchError((error) => this.handleError(error))
-      );
+      .pipe(catchError((error) => this.handleError(error)));
   }
 
   public signIn(user: LoginUser) {
+    if (USE_MOCK) {
+      let mockUser: User = {
+        email: 'admin@gmail.com',
+        firstName: 'Admin',
+        lastName: 'Surname',
+        specialization: 'Angular',
+        createdAt: '20.06.2002',
+      };
+
+      this.setToken({ accessToken: MOCK_TOKEN });
+      this.setUser(mockUser);
+
+      return of(mockUser);
+    }
+
     return this.http.post(`${endpoint}/user/login`, user).pipe(
       tap((response: any) => this.setToken(response)),
       tap((response: any) => this.setUser(response.user)),
