@@ -11,21 +11,38 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs';
+import { Gender } from 'src/app/shared/enums/gender.enums';
+import { LanguageLevel } from 'src/app/shared/enums/language-levels.enums';
+import { ProfessionalLevel } from 'src/app/shared/enums/professional-levels.enums';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { FbAuthResponse } from '../../shared/interfaces/auth-response.interface';
 import { LoginUser } from '../../shared/interfaces/login-user.interface';
 import { RegisterUser } from '../../shared/interfaces/register-user.interface';
-import { User } from '../../shared/interfaces/user.interface';
 import { AuthService } from './auth.service';
 
 describe('Auth service tests', () => {
   let mockLoginUser: LoginUser;
   let mockNewUser: RegisterUser;
-  let mockUser: User = {
-    email: 'shcherbich.n@mail.ru',
-    firstName: 'Nik',
-    lastName: 'Boss',
-    specialization: 'Angular',
-    createdAt: '21.07.2021',
+  let mockUser: Employee = {
+    id: '1',
+    firstName: 'Petr',
+    middleName: 'Ivanovich',
+    lastName: 'Ivanov',
+    email: 'test@gmail.com',
+    birthDate: '20-06-2002',
+    gender: Gender.Male,
+    phoneNumber: '+375298904686',
+    location: 'Belarus, Vitebsk',
+    professionalLevel: ProfessionalLevel.Middle,
+    englishLevel: LanguageLevel.B2,
+    emergencyPhone: '+375295150919',
+    hiringDate: '02-09-2021',
+    rate: 1,
+    managerId: '2',
+    officeManagerId: '3',
+    resourceManagerId: '4',
+    specialization: 0,
+    createdAt: new Date().toISOString(),
   };
   let mockError: HttpErrorResponse = {
     name: 'HttpErrorResponse',
@@ -105,12 +122,8 @@ describe('Auth service tests', () => {
   });
 
   it('should set the user', () => {
-    authService.setUser(mockUser);
-    expect(localStorage.getItem('user-firstName')).toBe('Nik');
-    expect(localStorage.getItem('user-lastName')).toBe('Boss');
-    expect(localStorage.getItem('user-email')).toBe('shcherbich.n@mail.ru');
-    expect(localStorage.getItem('user-specialization')).toBe('Angular');
-    expect(localStorage.getItem('user-date-reg')).toBe('21.07.2021');
+    authService.setLocalStorageUserId(mockUser.id);
+    expect(localStorage.getItem('user-id')).toBe('1');
   });
 
   it("should return false if the user isn'n authenticated", () => {

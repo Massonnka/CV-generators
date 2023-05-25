@@ -22,14 +22,11 @@
           </nz-badge>
         </app-circle-button>
       </div>
-      <div class="user">
-        <app-modal-window>
-          <span label>{{ userName }}</span>
-          <span title>{{ 'profile.userinfo' | translate }}</span>
-          <div content>
-            <app-user-info></app-user-info>
-          </div>
-        </app-modal-window>
+      <div (click)="openProfile()" class="user">
+        <span label>
+          {{ user?.firstName || 'Anonymous' }}
+          {{ user?.lastName || '' }}
+        </span>
       </div>
       <li routerLinkActive="active">
         <a (click)="logout($event)">{{ 'auth.log-out' | translate }}</a>
@@ -61,7 +58,8 @@
           <p>
             {{ 'text.notific-text' | translate }}<br />
             {{ 'text.notific-text-hello' | translate }}
-            {{ userName }}
+            {{ user?.firstName || 'Anonymous' }}
+            {{ user?.lastName || '' }}
           </p>
         </nz-comment-content>
         <nz-comment-action>

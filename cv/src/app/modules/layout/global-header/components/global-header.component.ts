@@ -1,20 +1,25 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
   OnInit,
   TemplateRef,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { formatDistance } from 'date-fns';
+import { filter } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { EmployeeService } from 'src/app/core/services/employees.service';
 import {
   adminIcon,
   headLogo,
   smileIcon,
 } from 'src/app/shared/constants/images.constants';
 import { Languages } from 'src/app/shared/constants/languages.constants';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { setLanguage } from 'src/app/store/languages/languages.actions';
 
 @Component({
@@ -26,9 +31,7 @@ import { setLanguage } from 'src/app/store/languages/languages.actions';
 export class GlobalHeaderComponent implements OnInit {
   public languages = [Languages.English, Languages.Russian];
   public createdAt = String(localStorage.getItem('user-date-reg'));
-  public firstName = localStorage.getItem('user-firstName');
-  public lastName = localStorage.getItem('user-lastName');
-  public userName: string | null;
+  public user: Employee;
   public visible: boolean = false;
   public likes = 0;
   public dislikes = 0;
@@ -42,7 +45,10 @@ export class GlobalHeaderComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private authService: AuthService,
-    private store: Store
+    private employeeService: EmployeeService,
+    private cdr: ChangeDetectorRef,
+    private store: Store,
+    private router: Router
   ) {}
 
   public currentLanguage: string =
@@ -51,7 +57,15 @@ export class GlobalHeaderComponent implements OnInit {
   public ngOnInit() {
     this.store.dispatch(setLanguage({ language: this.currentLanguage }));
 
-    this.userName = this.firstName + ' ' + this.lastName;
+    const userId = localStorage.getItem('user-id');
+
+    this.employeeService
+      .getEmployeeById(userId)
+      .pipe(filter((user) => Boolean(user)))
+      .subscribe((user) => {
+        this.user = user;
+        this.cdr.markForCheck();
+      });
   }
 
   public change() {
@@ -73,6 +87,10 @@ export class GlobalHeaderComponent implements OnInit {
     this.store.dispatch(setLanguage({ language: language }));
     this.translateService.use(language);
     this.currentLanguage = language;
+  }
+
+  public openProfile(): void {
+    this.router.navigate(['/layout/profile']);
   }
 
   public logout(event: Event): void {

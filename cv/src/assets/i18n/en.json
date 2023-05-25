@@ -19,7 +19,10 @@
     "userinfo": "User Info",
     "email": "E-mail",
     "nickname": "Nickname",
-    "phone-number": "Phone Number"
+    "phone-number": "Phone Number",
+    "actions": {
+      "edit": "Edit"
+    }
   },
   "pages": {
     "home": "Home",
@@ -27,7 +30,8 @@
     "employee": "Employees",
     "project": "Projects",
     "vacancies": "Vacancies",
-    "info": "Info"
+    "info": "Info",
+    "profile": "Profile"
   },
   "employee": {
     "employee-list": "Employee-list",

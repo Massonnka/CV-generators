@@ -1,0 +1,129 @@
+<div *ngIf="userInfo as user; else noUser" class="wrapper">
+  <div class="main">
+    <div class="main-img">
+      <nz-avatar
+        [nzSize]="100"
+        nzIcon="user"
+        nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      ></nz-avatar>
+    </div>
+    <div class="main-info">
+      <div class="main-info-header">
+        <div class="main-info-header-left">
+          <h1 class="main-info-header-left-text">
+            {{ user.lastName }}
+            {{ user.firstName }}
+          </h1>
+        </div>
+        <div class="main-info-header-right">
+          <app-primary-button class="add-button">
+            <span>{{ "profile.actions.edit" | translate }}</span>
+          </app-primary-button>
+        </div>
+      </div>
+
+      <div class="main-info-data">
+        <div nz-row [nzGutter]="[16, 16]">
+          <div nz-col class="gutter-row" [nzSpan]="8">
+            <nz-statistic
+              [nzValue]="Specializations[user.specialization]"
+              [nzTitle]="'Job Title' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="8">
+            <nz-statistic
+              [nzValue]="user.email"
+              [nzTitle]="'User Email' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="8">
+            <nz-statistic
+              [nzValue]="ProfessionalLevel[user.professionalLevel]"
+              [nzTitle]="'Professional Level' | translate"
+            ></nz-statistic>
+          </div>
+        </div>
+
+        <div nz-row [nzGutter]="[16, 16]">
+          <div nz-col class="gutter-row" [nzSpan]="8">
+            <nz-statistic
+              [nzValue]="user.location"
+              [nzTitle]="'Location' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="8">
+            <nz-statistic
+              [nzValue]="LanguageLevel[user.englishLevel]"
+              [nzTitle]="'English Level' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="8">
+            <nz-statistic
+              [nzValue]="user.phoneNumber"
+              [nzTitle]="'Phone number' | translate"
+            ></nz-statistic>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    <div nz-row [nzGutter]="[16, 16]">
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="user.rate"
+          [nzTitle]="'Rate' | translate"
+        ></nz-statistic>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="Gender[user.gender]"
+          [nzTitle]="'Gender' | translate"
+        ></nz-statistic>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="user.hiringDate"
+          [nzTitle]="'Hiring Date' | translate"
+        ></nz-statistic>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="user.emergencyPhone"
+          [nzTitle]="'EmergencyPhone' | translate"
+        ></nz-statistic>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="[16, 16]">
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="user.lastName"
+          [nzTitle]="'Last Name' | translate"
+        ></nz-statistic>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="user.firstName"
+          [nzTitle]="'First Name' | translate"
+        ></nz-statistic>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="user.middleName"
+          [nzTitle]="'Middle Name' | translate"
+        ></nz-statistic>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-statistic
+          [nzValue]="user.birthDate"
+          [nzTitle]="'Birthdate' | translate"
+        ></nz-statistic>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noUser>
+  <div class="no-user">No User Found</div>
+</ng-template>

@@ -1,0 +1,42 @@
+:host {
+  .wrapper {
+    .main {
+      display: flex;
+
+      &-img {
+        display: flex;
+        margin-right: 16px;
+        width: 100px;
+        height: 100%;
+
+        .avatar {
+          max-width: 100px;
+          max-height: 100px;
+        }
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        &-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+
+          &-right {
+            display: flex;
+            max-width: 360px;
+          }
+        }
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      margin-top: 48px;
+    }
+  }
+}
