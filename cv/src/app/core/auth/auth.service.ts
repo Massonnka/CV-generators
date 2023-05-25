@@ -9,11 +9,14 @@ import { Observable, Subject, of, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { endpoint } from 'src/app/shared/constants/endpoind.constants';
 import { USE_MOCK } from 'src/app/shared/constants/use-mock.constants';
+import { Gender } from 'src/app/shared/enums/gender.enums';
+import { LanguageLevel } from 'src/app/shared/enums/language-levels.enums';
+import { ProfessionalLevel } from 'src/app/shared/enums/professional-levels.enums';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { MOCK_TOKEN } from 'src/app/shared/mocks/auth/auth.mocks';
 import { FbAuthResponse } from '../../shared/interfaces/auth-response.interface';
 import { LoginUser } from '../../shared/interfaces/login-user.interface';
 import { RegisterUser } from '../../shared/interfaces/register-user.interface';
-import { User } from '../../shared/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -33,23 +36,37 @@ export class AuthService {
 
   public signIn(user: LoginUser) {
     if (USE_MOCK) {
-      let mockUser: User = {
-        email: 'admin@gmail.com',
-        firstName: 'Admin',
-        lastName: 'Surname',
-        specialization: 'Angular',
-        createdAt: '20.06.2002',
+      let mockUser: Employee = {
+        id: '1',
+        firstName: 'Petr',
+        middleName: 'Ivanovich',
+        lastName: 'Ivanov',
+        email: 'test@gmail.com',
+        birthDate: '20-06-2002',
+        gender: Gender.Male,
+        phoneNumber: '+375298904686',
+        location: 'Belarus, Vitebsk',
+        professionalLevel: ProfessionalLevel.Middle,
+        englishLevel: LanguageLevel.B2,
+        emergencyPhone: '+375295150919',
+        hiringDate: '02-09-2021',
+        rate: 1,
+        managerId: '2',
+        officeManagerId: '3',
+        resourceManagerId: '4',
+        specialization: 0,
+        createdAt: '02-09-2021',
       };
 
       this.setToken({ accessToken: MOCK_TOKEN });
-      this.setUser(mockUser);
+      this.setLocalStorageUserId(mockUser.id);
 
       return of(mockUser);
     }
 
     return this.http.post(`${endpoint}/user/login`, user).pipe(
       tap((response: any) => this.setToken(response)),
-      tap((response: any) => this.setUser(response.user)),
+      tap((response: any) => this.setLocalStorageUserId(response.user.id)),
       catchError(this.handleError.bind(this))
     );
   }
@@ -77,12 +94,8 @@ export class AuthService {
     return throwError(error);
   }
 
-  public setUser(response: User) {
-    localStorage.setItem('user-firstName', response.firstName);
-    localStorage.setItem('user-lastName', response.lastName);
-    localStorage.setItem('user-email', response.email);
-    localStorage.setItem('user-specialization', response.specialization);
-    localStorage.setItem('user-date-reg', response.createdAt);
+  public setLocalStorageUserId(userId: string) {
+    localStorage.setItem('user-id', userId);
   }
 
   private setToken(response: FbAuthResponse | null) {

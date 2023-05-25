@@ -26,6 +26,11 @@ const routes: Routes = [
             (m) => m.VacanciesModule
           ),
       },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+      },
     ],
     // canActivate: [AuthGuard],
   },

@@ -42,9 +42,6 @@
     <th class="table-head" [nzSortFn]="sortEmail">
       {{ "table.email" | translate }}
     </th>
-    <th class="table-head" [nzSortFn]="sortDepartment">
-      {{ "table.department" | translate }}
-    </th>
     <th class="table-head" [nzSortFn]="sortSpecialization">
       {{ "table.specialization" | translate }}
     </th>
@@ -54,7 +51,7 @@
   <tr
     *ngFor="
       let employee of data
-        | search: 'firstName,lastName,email,department,specialization':query
+        | search: 'firstName,lastName,email,specialization':query
     "
     class="table-row"
     [routerLink]="employee.id"
@@ -62,7 +59,6 @@
     <td>{{ employee.firstName }}</td>
     <td>{{ employee.lastName }}</td>
     <td>{{ employee.email }}</td>
-    <td>{{ employee.department }}</td>
     <td>{{ employee.specialization }}</td>
   </tr>
 </ng-template>

@@ -3,6 +3,10 @@ import { range, uniqueId } from 'lodash-es';
 import { Employee } from '../../interfaces/employees.interface';
 import { Project } from '../../interfaces/project.interface';
 import { Vacancy } from '../../interfaces/vacancies.interface';
+import { Specializations } from '../../enums/specializations.enums';
+import { Gender } from '../../enums/gender.enums';
+import { ProfessionalLevel } from '../../enums/professional-levels.enums';
+import { LanguageLevel } from '../../enums/language-levels.enums';
 
 @Injectable({ providedIn: 'root' })
 export class MockService {
@@ -11,11 +15,24 @@ export class MockService {
   public employeeGenerate(): Employee {
     return {
       id: uniqueId(),
-      firstName: 'Testname',
-      lastName: 'Lastname',
+      firstName: 'Petr',
+      middleName: 'Ivanovich',
+      lastName: 'Ivanov',
       email: 'test@gmail.com',
-      department: 'JavaScript',
-      specialization: 'Angular',
+      birthDate: '20-06-2002',
+      gender: Gender.Male,
+      phoneNumber: '+375298904686',
+      location: 'Belarus, Vitebsk',
+      professionalLevel: ProfessionalLevel.Middle,
+      englishLevel: LanguageLevel.B2,
+      emergencyPhone: '+375295150919',
+      hiringDate: '02-09-2021',
+      rate: 1,
+      managerId: '2',
+      officeManagerId: '3',
+      resourceManagerId: '4',
+      specialization: 0,
+      createdAt: new Date().toISOString(),
     };
   }
 

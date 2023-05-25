@@ -12,7 +12,6 @@ import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { UserInfoModule } from 'src/app/modules/layout/global-header/components/user-info/user-info.module';
 import { CircleButtonModule } from 'src/app/shared/controls/buttons/circle-button/circle-button.module';
 import { DefaultButtonModule } from 'src/app/shared/controls/buttons/default-button/default-button.module';
 import { DropdownModule } from 'src/app/shared/controls/buttons/dropdown/dropdown.module';
@@ -35,7 +34,6 @@ import { GlobalHeaderComponent } from './components/global-header.component';
     NzModalModule,
     ModalWindowModule,
     NzButtonModule,
-    UserInfoModule,
     NzBadgeModule,
     DefaultButtonModule,
     NzPopoverModule,
