@@ -3,11 +3,11 @@ export const PAGES = [
     name: 'Dashboard',
     iconType: 'dashboard',
     translateKey: 'pages.dashboard',
-    isDisabled: true,
+    isDisabled: false,
   },
   {
     name: 'Employee',
-    iconType: 'form',
+    iconType: 'solution',
     translateKey: 'pages.employee',
     isDisabled: false,
   },
@@ -19,7 +19,7 @@ export const PAGES = [
   },
   {
     name: 'Vacancies',
-    iconType: 'database',
+    iconType: 'schedule',
     translateKey: 'pages.vacancies',
     isDisabled: false,
   },

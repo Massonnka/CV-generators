@@ -65,7 +65,7 @@ export class LogInComponent implements OnInit {
       () => {
         this.store.dispatch(fromAuthActions.loginSuccess({ user: this.user }));
         this.validateForm.reset();
-        this.router.navigate(['layout/employee']);
+        this.router.navigate(['layout/dashboard']);
       },
       (error) => {
         console.log(error);
