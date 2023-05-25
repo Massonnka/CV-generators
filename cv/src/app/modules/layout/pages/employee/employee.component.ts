@@ -9,11 +9,11 @@ import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { NzTableSortFn } from 'ng-zorro-antd/table';
 import { Observable } from 'rxjs';
-import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Breadcrumb } from 'src/app/shared/controls/breadcrumb/interfaces/breadcrumbs.interface';
 import { setBreadcrumbs } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.actions';
 import { selectBreadcrumb } from 'src/app/shared/controls/breadcrumb/store/breadcrumbs.selectors';
+import { Employee } from 'src/app/shared/interfaces/employees.interface';
 import { setEmployee } from 'src/app/store/employee/employee.actions';
 
 @Component({
@@ -39,10 +39,8 @@ export class EmployeeComponent implements OnInit {
     a.lastName.localeCompare(b.lastName);
   public sortEmail = (a: Employee, b: Employee) =>
     a.email.localeCompare(b.email);
-  public sortDepartment = (a: Employee, b: Employee) =>
-    a.department.localeCompare(b.department);
   public sortSpecialization = (a: Employee, b: Employee) =>
-    a.specialization.localeCompare(b.specialization);
+    a.specialization.toString().localeCompare(b.specialization.toString());
 
   constructor(
     private router: Router,

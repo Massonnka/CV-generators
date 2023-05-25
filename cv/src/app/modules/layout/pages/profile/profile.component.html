@@ -1,0 +1,14 @@
+<div class="page-header">
+  <div class="title">{{ "pages.profile" | translate }}</div>
+  <p>{{ "profile.userinfo" | translate }}</p>
+</div>
+<nz-content class="content">
+  <app-user-info></app-user-info>
+  <ng-template #loading>
+    <app-spinner></app-spinner>
+  </ng-template>
+</nz-content>
+
+<ng-template #suffixIconButton>
+  <i nz-icon nzType="search"></i>
+</ng-template>

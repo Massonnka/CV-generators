@@ -1,51 +1,73 @@
-<form nz-form [formGroup]="validateForm" class="project-form" (ngSubmit)="submit()">
+<form
+  nz-form
+  [formGroup]="validateForm"
+  class="project-form"
+  (ngSubmit)="submit()"
+>
   <div class="row">
     <nz-form-item class="inputs">
-      <app-input id="firstname" [placeholder]="'placeholder.Input your first name!' | translate" label="form.firstname"
-        formControlName="firstName" [errorMessages]="{
+      <app-input
+        id="firstname"
+        [placeholder]="'placeholder.Input your first name!' | translate"
+        label="form.firstname"
+        formControlName="firstName"
+        [errorMessages]="{
           required: 'validator.required' | translate,
           minlength: 'validator.name' | translate
-        }">
+        }"
+      >
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-input id="lastname" [placeholder]="'placeholder.Input your last name!' | translate" label="form.lastname"
-        formControlName="lastName" [errorMessages]="{
+      <app-input
+        id="lastname"
+        [placeholder]="'placeholder.Input your last name!' | translate"
+        label="form.lastname"
+        formControlName="lastName"
+        [errorMessages]="{
           required: 'validator.required' | translate,
           minlength: 'validator.name' | translate
-        }">
+        }"
+      >
       </app-input>
     </nz-form-item>
     <nz-form-item class="inputs">
-      <app-autocomplete id="email" [placeholder]="'placeholder.Input your email!' | translate" label="form.email"
-        formControlName="email" [errorMessages]="{ 
-          required: 'validator.required' | translate, 
-          minlength: 'validator.email' | translate 
-        }">
+      <app-autocomplete
+        id="email"
+        [placeholder]="'placeholder.Input your email!' | translate"
+        label="form.email"
+        formControlName="email"
+        [errorMessages]="{
+          required: 'validator.required' | translate,
+          minlength: 'validator.email' | translate
+        }"
+      >
       </app-autocomplete>
     </nz-form-item>
   </div>
   <div class="row">
     <nz-form-item class="inputs">
-      <app-autocomplete id="specialization" [placeholder]="'placeholder.Input your specialization!' | translate"
-        label="form.specialization" formControlName="specialization" [errorMessages]="{
+      <app-autocomplete
+        id="specialization"
+        [placeholder]="'placeholder.Input your specialization!' | translate"
+        label="form.specialization"
+        formControlName="specialization"
+        [errorMessages]="{
           required: 'validator.required' | translate,
           minlength: 'validator.minlength3' | translate
-        }">
-      </app-autocomplete>
-    </nz-form-item>
-    <nz-form-item class="inputs">
-      <app-autocomplete id="department" [placeholder]="'placeholder.Input your department!' | translate"
-        label="form.department" formControlName="department" [errorMessages]="{
-          required: 'validator.required' | translate,
-          minlength: 'validator.minlength3' | translate
-        }">
+        }"
+      >
       </app-autocomplete>
     </nz-form-item>
   </div>
   <div nz-row>
     <div nz-col [nzSpan]="24" class="search-area">
-      <button type="submit" nz-button [disabled]="validateForm.invalid || submitted" [nzType]="'primary'">
+      <button
+        type="submit"
+        nz-button
+        [disabled]="validateForm.invalid || submitted"
+        [nzType]="'primary'"
+      >
         {{ "form.save" | translate }}
       </button>
       <ng-content></ng-content>
