@@ -13,7 +13,7 @@
             [routerLink]="page.name | lowercase"
           >
             <i nz-icon [nzType]="page.iconType" nzTheme="outline"></i>
-            {{ page.translateKey | translate }}
+            <span>{{ page.translateKey | translate }}</span>
           </li>
         </ul>
       </app-sider>

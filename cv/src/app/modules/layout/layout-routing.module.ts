@@ -26,6 +26,13 @@ const routes: Routes = [
             (m) => m.VacanciesModule
           ),
       },
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./pages/dashboard/dashboard.module').then(
+            (m) => m.DashboardModule
+          ),
+      },
     ],
     // canActivate: [AuthGuard],
   },

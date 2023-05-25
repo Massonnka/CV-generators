@@ -34,8 +34,34 @@
 
 .sider-item {
   margin: 8px 0px;
-  height: 40px;
+  height: 60px;
   line-height: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  span {
+    margin: 0px 0px 0px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+  }
+}
+
+.sider-item:active {
+  border-left: 2px solid blue;
+}
+
+:host ::ng-deep .sider-item {
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+:host ::ng-deep .ant-menu-item-selected {
+  border-left: 3px solid blue;
 }
 
 .disable {

@@ -3,7 +3,7 @@ export const PAGES = [
     name: 'Dashboard',
     iconType: 'dashboard',
     translateKey: 'pages.dashboard',
-    isDisabled: true,
+    isDisabled: false,
   },
   {
     name: 'Employee',

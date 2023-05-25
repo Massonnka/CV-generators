@@ -67,7 +67,12 @@
         "description": "Описание",
         "responsibilities": "Обязанности",
         "skills": "Навыки и умения",
-        "delete": "Удалить"
+        "delete": "Удалить",
+        "town": "Город",
+        "categoria": "Категория",
+        "selectTown": "Выберите город",
+        "selectCategoria": "Выберите категорию",
+        "noSelect": "Не выбрано"
     },
     "placeholder": {
         "Input your email!": "Введите свой адрес электронной почты!",
@@ -86,7 +91,9 @@
         "Input your specialization!": "Введите свою специализацию!",
         "Input your department!": "Введите свой отдел!",
         "Select date": "Выберите дату!",
-        "Input search text": "Введите текст для поиска..."
+        "Input search text": "Введите текст для поиска...",
+        "town": "Город",
+        "categoria": "Категория"
     },
     "modal": {
         "admin": "Админ CV",

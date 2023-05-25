@@ -76,7 +76,12 @@
     "delete": "Delete",
     "salary": "Salary",
     "phone": "Phone",
-    "rating": "Rating"
+    "rating": "Rating",
+    "town": "Town",
+    "categoria": "Categoria",
+    "selectTown": "Choose a town",
+    "selectCategoria": "Choose a categoria",
+    "noSelect": "Not chosen"
   },
   "placeholder": {
     "Input your email!": "Input your email!",
@@ -95,7 +100,9 @@
     "Input your specialization!": "Input your specialization!",
     "Input your department!": "Input your department!",
     "Select date": "Select date!",
-    "Input search text": "Input search text..."
+    "Input search text": "Input search text...",
+    "town": "Town",
+    "categoriea": "Categoria"
   },
   "modal": {
     "admin": "Admin CV",

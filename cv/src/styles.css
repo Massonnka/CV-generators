@@ -72,25 +72,41 @@ body {
   --background-color: #f0f2f5;
   --backgorund-image: url("/assets/images/LogoAuthBlack.png");
   --background-header: #001529;
+  --background-card-image: #f0f2f5;
   --modal-notific-text: #b2b2c4;
   --text-color: #333;
+  --text-color-title: #194484;
+  --text-color-section-title: #0D6EB7;
+  --text-color-section: #0D6EB7;
+  --text-color-section-button: #06B25F;
+  --text-color-section-button-hover: #333;
   --text-error: orangered;
   --icon-color: #ffff;
+  --icon-color-card: #333;
   --content-color: #ffff;
   --primary: #1890ff;
   --hover-background-color: #cacaca;
   --header-text: #ffffff;
+  --box-shadow-color-card: rgba(29, 51, 107, 0.1);
 }
 
 .dark {
   --background-color: #333;
   --backgorund-image: url("/assets/images/logoAuthWhite.png");
   --background-header: #001529;
+  --background-card-image: #333;
   --modal-notific-text: #4a4a52;
   --text-color: #ffff;
+  --text-color-title: #ffff;
+  --text-color-section-title: #ffff;
+  --text-color-section: #ffff;
+  --text-color-section-button: #ffff;
+  --text-color-section-button-hover: #06B25F;
   --text-error: orangered;
   --icon-color: #ffff;
+  --icon-color-card: #ffff;
   --content-color: rgb(31, 31, 31);
   --primary: #1890ff;
   --hover-background-color: rgb(116, 116, 116);
+  --box-shadow-color-card: rgba(196, 199, 212, 0.1);
 }
