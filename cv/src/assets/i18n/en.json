@@ -31,7 +31,21 @@
     "project": "Projects",
     "vacancies": "Vacancies",
     "info": "Info",
-    "profile": "Profile"
+    "profile": "Profile",
+    "absence": "Absence"
+  },
+  "absence": {
+    "Balance": {
+      "title": "Balance"
+    },
+    "VacationPeriod": {
+      "title": "Vacation period"
+    },
+    "requestHoliday": "Request absence",
+    "Tabs": {
+      "myRequests": "My requests",
+      "myBalances": "My balances"
+    }
   },
   "employee": {
     "employee-list": "Employee-list",
@@ -52,7 +66,11 @@
     "lastname": "Lastname",
     "email": "Email",
     "department": "Department",
-    "specialization": "Specialization"
+    "specialization": "Specialization",
+    "beginningOfPeriod": "Beginning of period",
+    "endOfPeriod": "End of period",
+    "vacationDays": "Vacation days",
+    "vacationRest": "Vacation rest"
   },
   "form": {
     "search": "Search:",
@@ -109,19 +127,19 @@
     "categoriea": "Categoria"
   },
   "modal": {
-    "admin": "Admin CV",
+    "admin": "Admin HRM",
     "notification": "Notifications",
     "search": "Search",
     "directory": "Directory",
-    "cv": "My CV",
+    "cv": "Notifications",
     "profile": "My Profile",
     "recently": "RECENTLY",
     "reply": "Reply to",
     "smileIcon": "Smiling emoticon showing no new messages"
   },
   "text": {
-    "notific-text": "Thank you for creating an account with CV Generators. For the next 12 months, you will have access to CV services for computing, data storage, applications within limits.",
-    "notific-text-hello": "Welcome to the CV Generators community!",
+    "notific-text": "Thank you for creating an account with HRM-system. For the next 12 months, you will have access for computing, data storage, applications within limits.",
+    "notific-text-hello": "Welcome to the HRM-system community!",
     "notific-profile-label": "You have viewed all notifications! This is professionalism!",
     "notific-profile-footer": "You have no messages."
   },

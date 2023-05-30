@@ -1,0 +1,76 @@
+<nz-tabset>
+    <nz-tab [nzTitle]="'absence.Tabs.myBalances' | translate">
+        <section class="section">
+            <div class="section-balance">
+                <header class="header">
+                    <h2>{{ "absence.Balance.title" | translate }}</h2>
+                    <app-primary-button class="add-button">
+                        <span>{{ "absence.requestHoliday" | translate }}</span>
+                    </app-primary-button>
+                </header>
+                <div class="cards">
+                    <div *ngFor="let card of cardsAbsence" class="card">
+                        <div class="card-description">
+                            <h4>{{ card.name }}</h4>
+                            <div>
+                                <p>{{ card.day }}</p>
+                                <p>{{ card.description }}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span nz-icon [nzType]="card.icon" nzTheme="outline"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <header>
+                    <h2>{{ "absence.VacationPeriod.title" | translate }}</h2>
+                </header>
+                <div>
+                    <app-table
+                        class="table"
+                        [headTemplate]="headRef"
+                        [bodyTemplate]="bodyRef"
+                        [isShowPagination]="false"
+                        [data]="vacationPeriods"
+                    >
+                    </app-table>
+                </div>
+            </div>
+        </section>
+    </nz-tab>
+    <nz-tab [nzTitle]="'absence.Tabs.myRequests' | translate">
+
+    </nz-tab>
+</nz-tabset>
+
+<ng-template #headRef>
+    <tr>
+        <th class="table-head">
+            {{ "table.beginningOfPeriod" | translate }}
+        </th>
+        <th class="table-head">
+            {{ "table.endOfPeriod" | translate }}
+        </th>
+        <th class="table-head">
+            {{ "table.vacationDays" | translate }}
+        </th>
+        <th class="table-head">
+            {{ "table.vacationRest" | translate }}
+        </th>
+    </tr>
+</ng-template>
+<ng-template #bodyRef let-data="$implicit">
+    <tr
+        *ngFor="
+        let vacationPeriod of data"
+        class="table-row"
+    >
+        <td>{{ vacationPeriod.beginningOfPeriod }}</td>
+        <td>{{ vacationPeriod.endOfPeriod }}</td>
+        <td>{{ vacationPeriod.vacationDays }}</td>
+        <td>{{ vacationPeriod.vacationRest }}</td>
+    </tr>
+</ng-template>
+

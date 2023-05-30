@@ -70,4 +70,23 @@ export class MockService {
   public vacanciesGenerate(): Vacancy[] {
     return range(0, 30).map(() => this.vacancyGenerate());
   }
+
+  public vacationPeriod(): any {
+    return [
+      {
+        id: uniqueId(),
+        beginningOfPeriod: '01.09.2021',
+        endOfPeriod: '31.08.2022',
+        vacationDays: 19,
+        vacationRest: 4
+      },
+      {
+        id: uniqueId(),
+        beginningOfPeriod: '01.09.2022',
+        endOfPeriod: '31.08.2023',
+        vacationDays: 19,
+        vacationRest: 19
+      }
+    ];
+  }
 }
