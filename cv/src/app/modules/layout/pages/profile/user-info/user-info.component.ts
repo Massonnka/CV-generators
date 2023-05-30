@@ -5,6 +5,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { EmployeeService } from 'src/app/core/services/employees.service';
 import { Gender } from 'src/app/shared/enums/gender.enums';
@@ -30,6 +31,7 @@ export class UserInfoComponent implements OnInit {
   constructor(
     private location: Location,
     private employeeService: EmployeeService,
+    private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -43,6 +45,10 @@ export class UserInfoComponent implements OnInit {
         this.userInfo = user;
         this.cdr.markForCheck();
       });
+  }
+
+  public onEditClick(): void {
+    this.router.navigate(['/layout/profile/edit']);
   }
 
   public onBack() {
