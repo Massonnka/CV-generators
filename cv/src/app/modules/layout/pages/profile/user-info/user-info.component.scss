@@ -25,6 +25,12 @@
           justify-content: space-between;
           margin-bottom: 16px;
 
+          &-left {
+            &-text {
+              color: var(--text-color);
+            }
+          }
+
           &-right {
             display: flex;
             max-width: 360px;
@@ -36,7 +42,43 @@
     .info {
       display: flex;
       flex-direction: column;
-      margin-top: 48px;
+    }
+  }
+
+  ::ng-deep {
+    .ant-avatar {
+      background: radial-gradient(gray, transparent);
+    }
+
+    .ant-divider {
+      border-top: 1px solid var(--divider);
+    }
+
+    .ant-statistic-title {
+      color: var(--hover-background-color);
+    }
+
+    .ant-statistic-content-value {
+      color: var(--text-color);
+    }
+
+    .ant-collapse {
+      border: none;
+      background-color: var(--content-color);
+
+      .ant-collapse-item {
+        border: none;
+      }
+
+      .ant-collapse-content {
+        border: none;
+        background-color: var(--content-color);
+      }
+    }
+
+    .ant-collapse > .ant-collapse-item:last-child,
+    .ant-collapse > .ant-collapse-item:last-child > .ant-collapse-header {
+      color: var(--text-color);
     }
   }
 }

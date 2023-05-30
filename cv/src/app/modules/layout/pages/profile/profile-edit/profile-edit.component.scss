@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: var(--background-color);
+  padding: 20px 24px;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--content-color);
+    padding: 24px 16px 24px 16px;
+    border-radius: 8px;
+
+    .edit-profile-form {
+      .inputs {
+        margin-right: 16px;
+        margin-bottom: 0;
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+    }
+  }
+
+  ::ng-deep {
+    .ant-divider {
+      border-top: 1px solid var(--divider);
+    }
+  }
+}

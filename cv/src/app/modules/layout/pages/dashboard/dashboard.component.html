@@ -1,106 +1,128 @@
 <nz-tabset>
-    <nz-tab nzTitle="Главная">
-        <section class="section">
-            <div class="header">
-                <div class="header-title">
-                    <p>EmpowerHR APP Development</p>
-                </div>
-                <div>
-                    <img src="../../../../../assets/images/dashboardIcon.png">
-                </div>
-            </div>
-            <nz-content class="content">
-                <section class="dashboard-content">
-                    <div class="dashboard-content-block">
-                        <p class="dashboard-content-block-title">
-                            Header 1
-                        </p>
-                        <span class="dashboard-content-block-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales eleifend dolor vel cursus. Fusce in ligula ut leo eleifend lobortis fringilla non elit. Vivamus mollis, odio ac finibus rutrum, libero augue venenatis leo, in maximus ipsum dui et est. In in aliquet libero. In ac enim non lectus convallis feugiat. <br>
-                            Ut in pharetra tortor. Quisque ligula magna, iaculis non porta ut,   suscipit sit amet sapien. Sed ut pharetra mauris. Cras ac dapibus turpis. Etiam suscipit orci eu tristique gravida. 
-                        </span>
-                    </div>
-                    <div class="dashboard-content-block">
-                        <p class="dashboard-content-block-title">
-                            Header 2
-                        </p>
-                        <span class="dashboard-content-block-text">
-                            Fusce consectetur vel urna ut venenatis. Etiam in mauris odio. Phasellus sed turpis vitae justo maximus suscipit in ut risus. Quisque viverra magna lorem, et placerat velit cursus quis. <br>
-                            Maecenas venenatis molestie eros, in pulvinar urna elementum quis. Praesent a lorem quis sem cursus feugiat sed nec erat.    Maecenas venenatis molestie eros, in pulvinar urna elementum quis. Praesent a lorem quis sem cursus feugiat sed nec erat.
-                        </span>
-                    </div>
-                </section>
-                <section class="cards">
-                    <p class="content-title">CARDS</p>
-                    <div class="cards-content">
-                        <div *ngFor="let card of cards" class="card" (click)="linkPages(card.page)">
-                            <span nz-icon [nzType]="card.image" nzTheme="outline"></span>
-                            <p>
-                                {{ card.name }}
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <section class="looking">
-                    <div class="looking-for">
-                        <p class="looking-for-title">LOOKING FOR A PARTNER IN BUILDING A SOLUTION?</p>
-                        <p class="looking-for-text">We are ready to discuss your project requirements</p>
-                        <button class="looking-for-button">Let’s talk</button>
-                    </div>
-                </section>
-                <!-- <div class="looking-for-bg"></div> -->
-            </nz-content>
+  <nz-tab nzTitle="Главная">
+    <section class="section">
+      <div class="header">
+        <div class="header-title">
+          <p>EmpowerHR APP Development</p>
+        </div>
+        <div>
+          <img src="../../../../../assets/images/dashboardIcon.png" />
+        </div>
+      </div>
+      <nz-content class="content">
+        <section class="dashboard-content">
+          <div class="dashboard-content-block">
+            <p class="dashboard-content-block-title">Header 1</p>
+            <span class="dashboard-content-block-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+              sodales eleifend dolor vel cursus. Fusce in ligula ut leo eleifend
+              lobortis fringilla non elit. Vivamus mollis, odio ac finibus
+              rutrum, libero augue venenatis leo, in maximus ipsum dui et est.
+              In in aliquet libero. In ac enim non lectus convallis feugiat.
+              <br />
+              Ut in pharetra tortor. Quisque ligula magna, iaculis non porta ut,
+              suscipit sit amet sapien. Sed ut pharetra mauris. Cras ac dapibus
+              turpis. Etiam suscipit orci eu tristique gravida.
+            </span>
+          </div>
+          <div class="dashboard-content-block">
+            <p class="dashboard-content-block-title">Header 2</p>
+            <span class="dashboard-content-block-text">
+              Fusce consectetur vel urna ut venenatis. Etiam in mauris odio.
+              Phasellus sed turpis vitae justo maximus suscipit in ut risus.
+              Quisque viverra magna lorem, et placerat velit cursus quis. <br />
+              Maecenas venenatis molestie eros, in pulvinar urna elementum quis.
+              Praesent a lorem quis sem cursus feugiat sed nec erat. Maecenas
+              venenatis molestie eros, in pulvinar urna elementum quis. Praesent
+              a lorem quis sem cursus feugiat sed nec erat.
+            </span>
+          </div>
         </section>
-    </nz-tab>
-    <nz-tab nzTitle="Производстенный календарь">
-        <section class="calendar">
-            <div class="calendar-description">
-                <p>2023</p>
-                <p>ПРОИЗВОДСТВЕННЫЙ КАЛЕНДАРЬ EMPOWERHR</p>
+        <section class="cards">
+          <p class="content-title">CARDS</p>
+          <div class="cards-content">
+            <div
+              *ngFor="let card of cards"
+              class="card"
+              (click)="linkPages(card.page)"
+            >
+              <span nz-icon [nzType]="card.image" nzTheme="outline"></span>
+              <p>
+                {{ card.name }}
+              </p>
             </div>
-            <div class="calendar-content">
-                <div *ngFor="let date of dates">
-                    <nz-date-picker [nzDisabled]="true" nzInline [ngModel]="date"></nz-date-picker>
-                </div>
-            </div>
+          </div>
         </section>
-    </nz-tab>
-    <nz-tab nzTitle="Бонусы">
-        <section class="bonuses">
-            <div class="bonuses-block">
-                <h1>Забирай свою скидку прямо сейчас!</h1>
-                <form nz-form [formGroup]="validateForm" class="block-input">
-                    <app-select id="town" [nzPlaceHolder]="'placeholder.town' | translate"
-                        label="form.town" formControlName="town">
-                        <option disabled value="null">{{ "form.selectTown" | translate }}</option>
-                        <option value="null">{{ "form.noSelect" | translate }}</option>
-                        <option *ngFor="let town of towns">{{ town }}</option>
-                    </app-select>
-                    <app-select id="categoria" [nzPlaceHolder]="'placeholder.categoria' | translate"
-                        label="form.categoria" formControlName="categoria">
-                        <option disabled value="null">{{ "form.selectCategoria" | translate }}</option>
-                        <option value="null">{{ "form.noSelect" | translate }}</option>
-                        <option *ngFor="let category of categories">{{ category }}</option>
-                    </app-select>
-                </form>
-            </div>
-            <div *ngFor="let bonus of bonuses" class="bonus">
-                <p>
-                    {{ bonus.title }}
-                </p>
-                <div class="bonudes-cards">
-                    <div *ngFor="let card of bonus.cards" class="cards">
-                        <div class="cards-title">
-                            <h3>{{ card.discount }}</h3>
-                        </div>
-                        <div class="cards-description">
-                            <h3>{{ card.name }}</h3>
-                            <span>{{ card.description }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="looking">
+          <div class="looking-for">
+            <p class="looking-for-title">
+              LOOKING FOR A PARTNER IN BUILDING A SOLUTION?
+            </p>
+            <p class="looking-for-text">
+              We are ready to discuss your project requirements
+            </p>
+            <button class="looking-for-button">Let’s talk</button>
+          </div>
         </section>
-    </nz-tab>
+        <!-- <div class="looking-for-bg"></div> -->
+      </nz-content>
+    </section>
+  </nz-tab>
+  <nz-tab nzTitle="Производстенный календарь">
+    <section class="calendar">
+      <div class="calendar-description">
+        <p>2023</p>
+        <p>ПРОИЗВОДСТВЕННЫЙ КАЛЕНДАРЬ EMPOWERHR</p>
+      </div>
+      <div class="calendar-content">
+        <div *ngFor="let date of dates">
+          <nz-date-picker
+            [nzDisabled]="true"
+            nzInline
+            [ngModel]="date"
+          ></nz-date-picker>
+        </div>
+      </div>
+    </section>
+  </nz-tab>
+  <nz-tab nzTitle="Бонусы">
+    <section class="bonuses">
+      <div class="bonuses-block">
+        <h1>Забирай свою скидку прямо сейчас!</h1>
+        <form nz-form [formGroup]="validateForm" class="block-input">
+          <app-select
+            id="town"
+            [placeholder]="'placeholder.town' | translate"
+            [items]="towns"
+            label="form.town"
+            formControlName="town"
+          ></app-select>
+          <app-select
+            id="categoria"
+            [placeholder]="'placeholder.categoria' | translate"
+            [items]="categories"
+            label="form.categoria"
+            formControlName="categoria"
+          >
+          </app-select>
+        </form>
+      </div>
+      <div *ngFor="let bonus of bonuses" class="bonus">
+        <p>
+          {{ bonus.title }}
+        </p>
+        <div class="bonudes-cards">
+          <div *ngFor="let card of bonus.cards" class="cards">
+            <div class="cards-title">
+              <h3>{{ card.discount }}</h3>
+            </div>
+            <div class="cards-description">
+              <h3>{{ card.name }}</h3>
+              <span>{{ card.description }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </nz-tab>
 </nz-tabset>
-

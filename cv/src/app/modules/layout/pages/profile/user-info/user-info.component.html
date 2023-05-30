@@ -4,7 +4,6 @@
       <nz-avatar
         [nzSize]="100"
         nzIcon="user"
-        nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
       ></nz-avatar>
     </div>
     <div class="main-info">
@@ -16,7 +15,7 @@
           </h1>
         </div>
         <div class="main-info-header-right">
-          <app-primary-button class="add-button">
+          <app-primary-button (click)="onEditClick()" class="add-button">
             <span>{{ "profile.actions.edit" | translate }}</span>
           </app-primary-button>
         </div>
@@ -68,60 +67,66 @@
     </div>
   </div>
 
-  <div class="info">
-    <div nz-row [nzGutter]="[16, 16]">
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="user.rate"
-          [nzTitle]="'Rate' | translate"
-        ></nz-statistic>
+  <nz-divider></nz-divider>
+
+  <nz-collapse nzAccordion>
+    <nz-collapse-panel [nzHeader]="'Personal information' | translate" [nzActive]="true">
+      <div class="info">
+        <div nz-row [nzGutter]="[16, 16]">
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="user.rate"
+              [nzTitle]="'Rate' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="Gender[user.gender]"
+              [nzTitle]="'Gender' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="user.hiringDate | date: 'dd-mm-yyyy'"
+              [nzTitle]="'Hiring Date' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="user.emergencyPhone"
+              [nzTitle]="'EmergencyPhone' | translate"
+            ></nz-statistic>
+          </div>
+        </div>
+        <div nz-row [nzGutter]="[16, 16]">
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="user.lastName"
+              [nzTitle]="'Last Name' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="user.firstName"
+              [nzTitle]="'First Name' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="user.middleName"
+              [nzTitle]="'Middle Name' | translate"
+            ></nz-statistic>
+          </div>
+          <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-statistic
+              [nzValue]="user.birthDate | date: 'dd-mm-yyyy'"
+              [nzTitle]="'Birthdate' | translate"
+            ></nz-statistic>
+          </div>
+        </div>
       </div>
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="Gender[user.gender]"
-          [nzTitle]="'Gender' | translate"
-        ></nz-statistic>
-      </div>
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="user.hiringDate"
-          [nzTitle]="'Hiring Date' | translate"
-        ></nz-statistic>
-      </div>
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="user.emergencyPhone"
-          [nzTitle]="'EmergencyPhone' | translate"
-        ></nz-statistic>
-      </div>
-    </div>
-    <div nz-row [nzGutter]="[16, 16]">
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="user.lastName"
-          [nzTitle]="'Last Name' | translate"
-        ></nz-statistic>
-      </div>
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="user.firstName"
-          [nzTitle]="'First Name' | translate"
-        ></nz-statistic>
-      </div>
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="user.middleName"
-          [nzTitle]="'Middle Name' | translate"
-        ></nz-statistic>
-      </div>
-      <div nz-col class="gutter-row" [nzSpan]="6">
-        <nz-statistic
-          [nzValue]="user.birthDate"
-          [nzTitle]="'Birthdate' | translate"
-        ></nz-statistic>
-      </div>
-    </div>
-  </div>
+    </nz-collapse-panel>
+  </nz-collapse>
 </div>
 
 <ng-template #noUser>

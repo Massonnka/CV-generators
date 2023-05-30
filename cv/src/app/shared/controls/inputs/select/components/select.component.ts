@@ -10,9 +10,9 @@ import {
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  UntypedFormControl,
-  NgControl,
+  FormControl,
   NG_VALUE_ACCESSOR,
+  NgControl,
   ValidationErrors,
 } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -32,29 +32,37 @@ import { startWith, takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent
-  implements OnInit, AfterViewInit, ControlValueAccessor {
+  implements OnInit, AfterViewInit, ControlValueAccessor
+{
   @Input() errorMessages: any = {};
-  @Input() label: string = '';
-  @Input() nzPlaceHolder: string = '';
-  @Input() id: string = '';
-  @Input() ngModel: string = '';
+  @Input() label = '';
+  @Input() placeholder = '';
+  @Input() nzPlaceHolder = ''; // temp
+  @Input() valueProp = '';
+  @Input() labelProp = '';
+  @Input() selectedValue: any;
+  @Input() items: any[];
+  @Input() formControlName: any;
 
-  public onChange = (value: any) => { };
-  public onTouched = () => { };
+  public onChange = (value: any) => {};
+  public onTouched = () => {};
+  public compareFn = (o1: any, o2: any): boolean =>
+    o1 && o2 ? o1[this.valueProp] === o2[this.valueProp] : o1 === o2;
 
   public ngControl: NgControl;
-  public control: UntypedFormControl;
+  public control: FormControl = new FormControl();
 
   public isRequired = false;
 
-  componentDestroyed$ = new Subject();
+  public componentDestroyed$ = new Subject();
 
   private currentErrors: null | ValidationErrors | undefined = null;
 
-  constructor(private injector: Injector, private cdr: ChangeDetectorRef) { }
+  constructor(private injector: Injector, private cdr: ChangeDetectorRef) {}
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.ngControl = this.injector.get(NgControl);
+
     this.ngControl.control?.statusChanges
       .pipe(
         startWith(this.ngControl?.control?.status),
@@ -69,28 +77,33 @@ export class SelectComponent
       });
   }
 
-  ngOnInit(): void {
-    this.control = new UntypedFormControl('');
+  public updateValue(value: any) {
+    this.onChange(value);
+  }
+
+  public ngOnInit(): void {
     this.control.valueChanges
       .pipe(takeUntil(this.componentDestroyed$))
       .subscribe((value) => {
+        this.selectedValue = value;
         this.onChange(value);
+        this.onTouched();
       });
   }
 
-  writeValue(obj: any): void {
+  public writeValue(obj: any): void {
     this.control?.setValue(obj);
   }
 
-  registerOnChange(fn: any): void {
+  public registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
 
-  getErrorMessage(): string {
+  public getErrorMessage(): string {
     const keys = Object.keys(this.currentErrors || {});
     const key = keys.length && keys[0];
     return key ? this.errorMessages[key] : '';

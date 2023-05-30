@@ -3,10 +3,25 @@
     <label *ngIf="label">{{ label | translate }}</label>
     <label *ngIf="isRequired" class="favourite">*</label>
   </div>
-  <select [id]="id" [formControl]="control">
-    <ng-content></ng-content>
-  </select>
-  <div *ngIf="ngControl?.control?.errors && ngControl?.control?.touched" class="error">
+
+  <nz-select
+    [formControl]="control"
+    nzShowSearch
+    nzAllowClear
+    [nzPlaceHolder]="placeholder"
+    [ngModel]="selectedValue"
+  >
+    <div *ngFor="let item of items">
+      <nz-option
+        [nzLabel]="labelProp ? item[labelProp] : item"
+        [nzValue]="valueProp ? item[valueProp] : item"
+      ></nz-option>
+    </div>
+  </nz-select>
+  <div
+    *ngIf="ngControl?.control?.errors && ngControl?.control?.touched"
+    class="error"
+  >
     {{ getErrorMessage() }}
   </div>
 </nz-form-control>

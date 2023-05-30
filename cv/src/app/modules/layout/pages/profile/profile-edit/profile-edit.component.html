@@ -1,0 +1,215 @@
+<div *ngIf="userInfo as user; else noUser" class="wrapper">
+  <form nz-form [formGroup]="editForm" class="edit-profile-form">
+    <div nz-row>
+      <nz-form-item class="inputs mb-16">
+        <app-input
+          id="firstname"
+          [placeholder]="'placeholder.Input your first name!' | translate"
+          label="form.firstname"
+          formControlName="firstName"
+          [errorMessages]="{
+            required: 'validator.required' | translate,
+            minlength: 'validator.name' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-input
+          id="middlename"
+          [placeholder]="'placeholder.type-here' | translate"
+          label="form.middlename"
+          formControlName="middleName"
+          [errorMessages]="{
+            required: 'validator.required' | translate,
+            minlength: 'validator.name' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-input
+          id="lastname"
+          [placeholder]="'placeholder.type-here' | translate"
+          label="form.lastname"
+          formControlName="lastName"
+          [errorMessages]="{
+            required: 'validator.required' | translate,
+            minlength: 'validator.name' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+    </div>
+
+    <div nz-row>
+      <nz-form-item class="inputs">
+        <app-date-picker
+          nzId="birthdate"
+          [nzPlaceHolder]="'placeholder.Select date' | translate"
+          label="form.birthdate"
+          formControlName="birthDate"
+          [errorMessages]="{ required: 'validator.required' | translate }"
+        >
+        </app-date-picker>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-select
+          [placeolder]="'placeholder.type-here' | translate"
+          label="form.gender"
+          [items]="genders"
+          labelProp="labelProp"
+          valueProp="valueProp"
+          formControlName="gender"
+          [errorMessages]="{
+            required: 'validator.required' | translate
+          }"
+        ></app-select>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-input
+          id="email"
+          [placeholder]="'placeholder.type-here' | translate"
+          label="form.email"
+          formControlName="email"
+          [errorMessages]="{
+            required: 'validator.required' | translate,
+            email: 'validator.email' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+    </div>
+
+    <nz-divider></nz-divider>
+
+    <div nz-row>
+      <nz-form-item class="inputs mb-16">
+        <app-select
+          [placeolder]="'placeholder.type-here' | translate"
+          label="form.specialization"
+          [items]="specializations"
+          labelProp="labelProp"
+          valueProp="valueProp"
+          formControlName="specialization"
+          [errorMessages]="{
+            required: 'validator.required' | translate
+          }"
+        ></app-select>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-input
+          id="phonenumber"
+          [placeholder]="'placeholder.type-here' | translate"
+          label="form.phonenumber"
+          formControlName="phoneNumber"
+          [errorMessages]="{
+            required: 'validator.required' | translate,
+            minlength: 'validator.minlength3' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-input
+          id="location"
+          [placeholder]="'placeholder.type-here' | translate"
+          label="form.location"
+          formControlName="location"
+          [errorMessages]="{
+            required: 'validator.required' | translate,
+            minlength: 'validator.minlength3' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-select
+          [placeolder]="'placeholder.type-here' | translate"
+          label="form.professional-level"
+          [items]="professionalLevels"
+          labelProp="labelProp"
+          valueProp="valueProp"
+          formControlName="professionalLevel"
+          [errorMessages]="{
+            required: 'validator.required' | translate
+          }"
+        ></app-select>
+      </nz-form-item>
+    </div>
+
+    <div nz-row>
+      <nz-form-item class="inputs">
+        <app-select
+          [placeolder]="'placeholder.type-here' | translate"
+          label="form.english-level"
+          [items]="languageLevel"
+          labelProp="labelProp"
+          valueProp="valueProp"
+          formControlName="englishLevel"
+          [errorMessages]="{
+            required: 'validator.required' | translate
+          }"
+        ></app-select>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-input
+          id="emergencyphone"
+          [placeholder]="'placeholder.type-here' | translate"
+          label="form.emergency-phone"
+          formControlName="emergencyPhone"
+          [errorMessages]="{
+            required: 'validator.required' | translate,
+            minlength: 'validator.minlength3' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-date-picker
+          nzId="hiringdate"
+          [nzPlaceHolder]="'placeholder.Select date' | translate"
+          label="form.hiring-date"
+          formControlName="hiringDate"
+          [errorMessages]="{ required: 'validator.required' | translate }"
+        >
+        </app-date-picker>
+      </nz-form-item>
+      <nz-form-item class="inputs">
+        <app-input
+          id="rate"
+          [placeholder]="'placeholder.type-here' | translate"
+          label="form.rate"
+          formControlName="rate"
+          [errorMessages]="{
+            required: 'validator.required' | translate
+          }"
+        >
+        </app-input>
+      </nz-form-item>
+    </div>
+
+    <nz-divider></nz-divider>
+
+    <div nz-row>
+      <div nz-col [nzSpan]="24" class="action-buttons">
+        <button nz-button nzType="default" (click)="onBack()">
+          {{ "form.back" | translate }}
+        </button>
+        <button
+          type="submit"
+          nz-button
+          [disabled]="editForm.invalid"
+          [nzType]="'primary'"
+          (click)="onSubmit()"
+        >
+          {{ "form.save" | translate }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #noUser>
+  <div class="no-user">No User Found</div>
+</ng-template>
