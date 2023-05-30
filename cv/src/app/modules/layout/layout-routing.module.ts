@@ -38,6 +38,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/profile/profile.module').then((m) => m.ProfileModule),
       },
+      {
+        path: 'absence',
+        loadChildren: () =>
+          import('./pages/holiday/holiday.module').then((m) => m.HolidayModule),
+      },
     ],
     // canActivate: [AuthGuard],
   },

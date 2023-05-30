@@ -23,4 +23,10 @@ export const PAGES = [
     translateKey: 'pages.vacancies',
     isDisabled: false,
   },
+  {
+    name: 'Absence',
+    iconType: 'calendar',
+    translateKey: 'pages.absence',
+    isDisabled: false,
+  },
 ];

@@ -16,5 +16,6 @@ export class TableComponent {
   @Input() public page: number = 1;
   @Input() public bodyTemplate: TemplateRef<any>;
   @Input() public headTemplate: TemplateRef<any>;
+  @Input() public isShowPagination: boolean = true;
 
 }

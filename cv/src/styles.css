@@ -75,6 +75,7 @@ body {
   --background-card-image: #f0f2f5;
   --modal-notific-text: #b2b2c4;
   --text-color: #333;
+  --text-color-description: #767676;
   --text-color-title: #194484;
   --text-color-section-title: #0D6EB7;
   --text-color-section: #0D6EB7;
@@ -97,6 +98,7 @@ body {
   --background-card-image: #333;
   --modal-notific-text: #4a4a52;
   --text-color: #ffff;
+  --text-color-description: #b3b3b3;
   --text-color-title: #ffff;
   --text-color-section-title: #ffff;
   --text-color-section: #ffff;

@@ -1,0 +1,125 @@
+:host ::ng-deep .ant-tabs-nav {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    padding: 10px 50px 0px 50px;
+}
+
+:host ::ng-deep .ant-tabs-nav-list {
+    width: 300px;
+}
+
+
+:host ::ng-deep .ant-tabs-ink-bar {
+    height: 3px !important;
+}
+
+:host ::ng-deep .anticon {
+    svg {
+        width: 40px;
+        height: 40px;
+        color: var(--icon-color-card);
+    }
+}
+
+:host {
+    flex: 1;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+
+    .table {
+        margin: 10px;
+        cursor: pointer;
+        color: var(--text-color);
+        background-color: var(--content-color);
+    
+        .table-head {
+            background-color: var(--content-color);
+            color: var(--text-color);
+        }
+        .table-row {
+            background-color: var(--content-color);
+            color: var(--text-color);
+        }
+        .table-row:hover {
+            background-color: var(--hover-background-color);
+            transition: 0.2s linear;
+        }
+    }
+
+    .section {
+        padding: 40px 40px 0px 40px;
+
+        h2 {
+            margin: 0px;
+            color: var(--text-color);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 28px;
+        }
+
+        .section-balance {
+            margin-bottom: 50px;
+
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+
+                .add-button {
+                    width: 250px;
+                }
+            }
+
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+                margin-top: 30px;
+
+                .card {
+                    display: flex;
+                    border-radius: 10px;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    box-shadow: var(--box-shadow-color-card) 0px 4px 10px;
+                    border: 1px solid var(--background-color);
+                    padding: 24px;
+                    margin: 0px;
+
+                    .card-description {
+                        display: flex;
+                        flex-direction: column;
+
+                        h4 {
+                            font-size: 16px;
+                            font-weight: 600;
+                            line-height: 22.5px;
+                            margin: 0px 0px 20px 0px;
+                            color: var(--text-color);
+                        }
+
+                        div {
+                            p:first-child {
+                                margin: 0px;
+                                font-size: 22px;
+                                font-weight: 800;
+                                line-height: 30px;
+                                color: #C63031;
+                            }
+
+                            p:last-child {
+                                margin: 0px;
+                                line-height: 22px;
+                                letter-spacing: 0.25px;
+                                color: var(--text-color-description);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
