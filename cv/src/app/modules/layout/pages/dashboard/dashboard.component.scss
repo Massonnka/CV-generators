@@ -7,6 +7,11 @@
     width: 300px;
 }
 
+:host ::ng-deep .cards-content .anticon {
+    font-size: 100px;
+    color: var(--text-color);
+}
+
 
 :host ::ng-deep .ant-tabs-ink-bar {
     height: 3px !important;
@@ -26,6 +31,22 @@
 
 :host ::ng-deep .ant-picker-header-super-next-btn {
     visibility: hidden !important;
+}
+
+:host ::ng-deep .ant-picker-panel-container {
+    background-color: var(--background-color);
+}
+
+:host ::ng-deep .ant-picker-header {
+    color: var(--text-color);
+}
+
+:host ::ng-deep .ant-picker-date-panel .ant-picker-content th {
+    color: var(--text-color);
+}
+
+:host ::ng-deep .ant-picker-content td {
+    color: var(--text-color);
 }
 
 :host {

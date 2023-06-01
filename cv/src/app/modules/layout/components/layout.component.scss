@@ -1,9 +1,10 @@
+
 .wrapper {
   height: 100%;
 
   .header {
   padding: 0;
-  height: 48px;
+  height: 80px;
   }
 
   .sider-wrapper {
@@ -21,6 +22,7 @@
     .list {
       background-color: var(--content-color);
       color: var(--text-color);
+      border-right: 0px;
     }
     ::ng-deep .ant-menu-item-selected {
       background-color: var(--background-color);
