@@ -13,8 +13,13 @@
 }
 nz-date-picker {
   min-width: 200px;
-
+  color: var(--text-color);
   background-color: transparent !important;
+}
+:host ::ng-deep .ant-picker-input {
+  input {
+    color: var(--text-color) !important;
+  }
 }
 .error {
   color: var(--text-error);

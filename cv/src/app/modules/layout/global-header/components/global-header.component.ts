@@ -29,7 +29,7 @@ import { setLanguage } from 'src/app/store/languages/languages.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GlobalHeaderComponent implements OnInit {
-  public languages = [Languages.English, Languages.Russian];
+  public languages = Languages;
   public createdAt = String(localStorage.getItem('user-date-reg'));
   public user: Employee;
   public visible: boolean = false;
@@ -39,6 +39,7 @@ export class GlobalHeaderComponent implements OnInit {
   public headLogo = headLogo;
   public adminIcon = adminIcon;
   public smileIcon = smileIcon;
+  public selectedLanguage: any = { name: 'en', label: 'EN' };
 
   @Input() count: number = 1;
 
@@ -52,7 +53,7 @@ export class GlobalHeaderComponent implements OnInit {
   ) {}
 
   public currentLanguage: string =
-    this.translateService.currentLang || Languages.English;
+    this.translateService.currentLang || Languages[0].name;
 
   public ngOnInit() {
     this.store.dispatch(setLanguage({ language: this.currentLanguage }));
@@ -64,6 +65,7 @@ export class GlobalHeaderComponent implements OnInit {
       .pipe(filter((user) => Boolean(user)))
       .subscribe((user) => {
         this.user = user;
+        console.log(user);
         this.cdr.markForCheck();
       });
   }

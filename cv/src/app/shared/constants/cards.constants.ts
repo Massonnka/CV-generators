@@ -14,4 +14,9 @@ export const CARDS = [
         image: 'dribbble',
         page: 'vacancies'
     },
+    {
+        name: 'ABSENCE',
+        image: 'calendar',
+        page: 'absence'
+    },
 ]

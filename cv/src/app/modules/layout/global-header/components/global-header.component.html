@@ -5,40 +5,73 @@
     </nz-page-header-title>
     <nz-page-header-content class="nz-page-header-content">
       <div class="buttons">
-        <app-circle-button nz-tooltip [nzTooltipTitle]="'modal.search' | translate" nzTooltipPlacement="bottom"
+        <app-circle-button 
+          nz-tooltip 
+          [nzTooltipTitle]="'modal.search' | translate" 
+          nzTooltipPlacement="bottom"
           class="circle-button">
           <i nz-icon nzType="search" nzTheme="outline"></i>
         </app-circle-button>
-        <app-circle-button nz-tooltip [nzTooltipTitle]="'modal.directory' | translate" nzTooltipPlacement="bottom"
+        <app-circle-button 
+          nz-tooltip 
+          [nzTooltipTitle]="'modal.directory' | translate" 
+          nzTooltipPlacement="bottom"
           class="circle-button">
           <i nz-icon nzType="question-circle" nzTheme="outline"></i>
         </app-circle-button>
-        <app-circle-button nz-tooltip [nzTooltipTitle]="'modal.notification' | translate" nzTooltipPlacement="bottom"
-          class="circle-button" nz-popover [nzPopoverTitle]="'modal.notification' | translate"
-          [(nzPopoverVisible)]="visible" nzPopoverTrigger="click" [nzPopoverContent]="contentTemplate"
-          nzPopoverPlacement="bottomRight" (click)="change()">
+      </div>
+      <nz-select
+        class="select-language"
+        [(ngModel)]="selectedLanguage"
+        (ngModelChange)="switchLanguage(selectedLanguage)"
+      >
+        <nz-option *ngFor="let language of languages" [nzValue]="language.name" [nzLabel]="language.label"></nz-option>
+      </nz-select>
+      <app-circle-button 
+        nz-tooltip 
+        [nzTooltipTitle]="'modal.notification' | translate" 
+        nzTooltipPlacement="bottom"
+        class="circle-button" 
+        nz-popover 
+        [nzPopoverTitle]="'modal.notification' | translate"
+        [(nzPopoverVisible)]="visible" 
+        nzPopoverTrigger="click" 
+        [nzPopoverContent]="contentTemplate"
+        nzPopoverPlacement="bottomRight" 
+        (click)="change()">
           <nz-badge [nzCount]="count" [nzOverflowCount]="10">
             <i nz-icon nzType="bell" nzTheme="outline"></i>
           </nz-badge>
-        </app-circle-button>
+      </app-circle-button>
+      <div nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="user">
+        <nz-avatar
+          [nzSize]="50"
+          nzIcon="user"
+        ></nz-avatar>
+        <div>
+          <span label>
+            {{ user?.firstName || 'Anonymous' }}
+            {{ user?.lastName || '' }}
+          </span>
+          <span label>
+            {{ user?.specialization || 'Angular' }}
+            {{ user?.specialization || 'Developer' }}
+          </span>
+        </div>
+        <i nz-icon nzType="down"></i>
       </div>
-      <div (click)="openProfile()" class="user">
-        <span label>
-          {{ user?.firstName || 'Anonymous' }}
-          {{ user?.lastName || '' }}
-        </span>
-      </div>
-      <li routerLinkActive="active">
-        <a (click)="logout($event)">{{ 'auth.log-out' | translate }}</a>
-      </li>
-      <app-dropdown class="dropdown">
-        <a icon class="dropdown-text"> {{ currentLanguage }} </a>
-        <ul content nz-menu nzSelectable class="dropdown-menu">
-          <li nz-menu-item class="dropdown-item" *ngFor="let language of languages" (click)="switchLanguage(language)">
-            {{ language }}
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul class="user-menu" nz-menu>
+          <li class="list-user" nz-menu-item (click)="openProfile()">
+            <i nz-icon nzType="user"></i>
+            <span>{{ 'auth.personalArea' | translate }}</span>
+          </li>
+          <li class="list-user" nz-menu-item routerLinkActive="active" (click)="logout($event)">
+            <i nz-icon nzType="logout"></i>
+            <span>{{ 'auth.logOut' | translate }}</span>
           </li>
         </ul>
-      </app-dropdown>
+      </nz-dropdown-menu>
     </nz-page-header-content>
   </nz-page-header>
 </div>

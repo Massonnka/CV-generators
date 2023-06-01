@@ -9,7 +9,9 @@
     "i-have-account": "I already have an account",
     "I have read the": "I have read the",
     "agreement": "agreement",
-    "select": "Choose a specialization"
+    "select": "Choose a specialization",
+    "personalArea": "Personal Area",
+    "logOut": "Log Out"
   },
   "profile": {
     "profile": "Profile",

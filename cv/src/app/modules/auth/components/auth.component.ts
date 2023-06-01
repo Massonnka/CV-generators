@@ -12,7 +12,7 @@ import { setLanguage } from 'src/app/store/languages/languages.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent {
-  public languages = [Languages.English, Languages.Russian];
+  public languages = [Languages[0].name, Languages[1].name];
   public isRegistration: boolean = false;
   public bg = bg;
 

@@ -20,7 +20,10 @@ import {
   languageFeatureKey,
   languageReducer,
 } from 'src/app/store/languages/languages.reducers';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 import { GlobalHeaderComponent } from './components/global-header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 @NgModule({
   declarations: [GlobalHeaderComponent],
@@ -28,7 +31,11 @@ import { GlobalHeaderComponent } from './components/global-header.component';
     CommonModule,
     NzPageHeaderModule,
     CircleButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
     NzIconModule,
+    NzSelectModule,
+    NzDropDownModule,
     TranslateModule,
     DropdownModule,
     NzModalModule,

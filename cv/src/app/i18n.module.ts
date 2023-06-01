@@ -24,12 +24,12 @@ import { Languages } from './shared/constants/languages.constants';
 })
 export class I18nModule {
   constructor(translate: TranslateService) {
-    translate.addLangs([Languages.English, Languages.Russian]);
+    translate.addLangs([Languages[0].name, Languages[1].name]);
     const browserLang = translate.getBrowserLang();
     translate.use(
-      browserLang.match(/Languages.English|Languages.Russian/)
+      browserLang.match(/Languages[0].name|Languages[1].name/)
         ? browserLang
-        : Languages.English
+        : Languages[0].name
     );
   }
 }
